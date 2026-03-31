@@ -211,6 +211,32 @@
     }
     .card-note.amber { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
 
+    /* ── Inline source links ── */
+    .card-sources {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--slate-200);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .src-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .7rem;
+      color: #3b82f6;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    .src-link:hover { text-decoration: underline; }
+    .src-link::before { content: '↗'; font-size: .65rem; opacity: .7; flex-shrink: 0; }
+    .src-label {
+      font-size: .68rem;
+      color: var(--slate-400);
+      margin-bottom: 2px;
+    }
+
     /* ── Two-column grid ── */
     .two-col {
       display: grid;
@@ -494,6 +520,7 @@
           <th>内容</th>
           <th>時期</th>
           <th>状態</th>
+          <th>出典</th>
         </tr>
       </thead>
       <tbody id="policy-table-body"></tbody>
@@ -591,6 +618,15 @@ function renderStatusCards(d) {
 
     const days = data.daysEquivalent ?? data.totalDays ?? 0;
 
+    const sourcesHtml = data.sources?.length
+      ? `<div class="card-sources">
+           <span class="src-label">出典</span>
+           ${data.sources.map(s =>
+             `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`
+           ).join('')}
+         </div>`
+      : '';
+
     return `
       <div class="status-card">
         <div class="card-header">
@@ -616,6 +652,7 @@ function renderStatusCards(d) {
           </div>
           <ul class="kv-list">${kvItems}</ul>
           ${noteHtml}
+          ${sourcesHtml}
         </div>
       </div>
     `;
@@ -670,28 +707,39 @@ function renderFlow(crude, lng) {
 function renderPrices(prices) {
   const container = document.getElementById('price-items');
   const rows = [
-    { name: '原油（JCC連動）', change: prices.crude.changePct, unit: prices.crude.unit },
-    { name: 'LNGスポット', change: prices.lng.changePct, unit: prices.lng.unit }
+    { name: '原油（JCC連動）', change: prices.crude.changePct, unit: prices.crude.unit, src: prices.crude.source },
+    { name: 'LNGスポット',    change: prices.lng.changePct,   unit: prices.lng.unit,   src: prices.lng.source }
   ];
   container.innerHTML = rows.map(r => `
-    <div class="price-row">
-      <div>
-        <div class="price-name">${r.name}</div>
-        <div class="price-period">${r.unit}　期間：${prices.period}</div>
+    <div class="price-row" style="flex-direction:column;align-items:flex-start;gap:4px">
+      <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
+        <div>
+          <div class="price-name">${r.name}</div>
+          <div class="price-period">${r.unit}　期間：${prices.period}</div>
+        </div>
+        <div class="price-change up">+${r.change}%</div>
       </div>
-      <div class="price-change up">+${r.change}%</div>
+      ${r.src ? `<a class="src-link" href="${r.src.url}" target="_blank" rel="noopener">${r.src.name}</a>` : ''}
     </div>
   `).join('');
 
+  const sub = prices.gasolineSubsidy;
+  const taxSrc = prices.provisionalTaxSource;
   document.getElementById('subsidy-info').innerHTML = `
     <ul class="kv-list">
-      <li>
-        <span class="k">ガソリン補助金</span>
-        <span class="v red">${prices.gasolineSubsidy.amountJPY}円/L（${prices.gasolineSubsidy.note}）</span>
+      <li style="flex-direction:column;align-items:flex-start;gap:3px">
+        <div style="display:flex;justify-content:space-between;width:100%">
+          <span class="k">ガソリン補助金</span>
+          <span class="v red">${sub.amountJPY}円/L（${sub.note}）</span>
+        </div>
+        ${sub.source ? `<a class="src-link" href="${sub.source.url}" target="_blank" rel="noopener">${sub.source.name}</a>` : ''}
       </li>
-      <li>
-        <span class="k">暫定税率</span>
-        <span class="v green">${prices.provisionalTaxAbolished ? '廃止済（ガソリン分）' : '課税中'}</span>
+      <li style="flex-direction:column;align-items:flex-start;gap:3px">
+        <div style="display:flex;justify-content:space-between;width:100%">
+          <span class="k">暫定税率</span>
+          <span class="v green">${prices.provisionalTaxAbolished ? '廃止済（ガソリン分）' : '課税中'}</span>
+        </div>
+        ${taxSrc ? `<a class="src-link" href="${taxSrc.url}" target="_blank" rel="noopener">${taxSrc.name}</a>` : ''}
       </li>
     </ul>
   `;
@@ -734,6 +782,11 @@ function renderPolicy(policy) {
           <span class="dot ${p.status}"></span>
           ${p.status === 'active' ? '実施中' : '完了'}
         </span>
+      </td>
+      <td>
+        ${p.source
+          ? `<a class="src-link" href="${p.source.url}" target="_blank" rel="noopener">${p.source.name}</a>`
+          : '<span style="color:var(--slate-400);font-size:.72rem">—</span>'}
       </td>
     </tr>
   `).join('');

@@ -27,7 +27,12 @@
       { "type": "国家備蓄放出", "days": 30, "detail": "5.1百万バレル 4大精製会社と契約（3/26〜）" }
     ],
     "status": "warning",
-    "statusText": "備蓄放出対応中"
+    "statusText": "備蓄放出対応中",
+    "sources": [
+      { "name": "石油備蓄の現況（資源エネルギー庁）", "url": "https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl001/pdf/2025/250618oil.pdf" },
+      { "name": "民間備蓄義務引き下げ・国家備蓄放出（METI 3/16）", "url": "https://www.meti.go.jp/press/2025/03/20260316005/20260316005.html" },
+      { "name": "国家備蓄原油の放出（METI 3/24）", "url": "https://www.meti.go.jp/press/2025/03/20260324004/20260324004.html" }
+    ]
   },
   "lng": {
     "totalStock_mt": 400,
@@ -48,7 +53,12 @@
     "priceChange30d": 74,
     "alternatives": ["石炭発電へのスイッチ（即応可）", "原子力（既稼働基は継続）"],
     "status": "ok",
-    "statusText": "当面余裕"
+    "statusText": "当面余裕",
+    "sources": [
+      { "name": "LNGをめぐる動向と安定供給（資源エネルギー庁 3/10）", "url": "https://www.meti.go.jp/shingikai/energy_environment/lng/pdf/004_03_00.pdf" },
+      { "name": "燃料調達の動向（資源エネルギー庁 3/27）", "url": "https://www.meti.go.jp/shingikai/enecho/denryoku_gas/jisedai_kiban/pdf/005_07_00.pdf" },
+      { "name": "JOGMEC 天然ガス・LNG関連情報", "url": "https://oilgas-info.jogmec.go.jp/nglng/1007905/" }
+    ]
   },
   "naphtha": {
     "daysEquivalent": 21,
@@ -69,21 +79,55 @@
       "note": "日本はエタン・LPG代替ができず構造的にナフサ依存"
     },
     "status": "critical",
-    "statusText": "最脆弱・要注意"
+    "statusText": "最脆弱・要注意",
+    "sources": [
+      { "name": "ナフサ調達・GW前まで確保見通し（東洋経済）", "url": "https://toyokeizai.net/articles/-/939543" },
+      { "name": "エチレン生産・5月以降焦点（日本経済新聞）", "url": "https://www.nikkei.com/article/DGXZQOUC2112X0R20C26A3000000/" },
+      { "name": "石油化学工業協会 月次実績（JPCA）", "url": "https://www.jpca.or.jp/statistics/monthly/memo.html" },
+      { "name": "石油連盟 統計情報（データ公表停止中）", "url": "https://www.paj.gr.jp/statis/statis" }
+    ]
   },
   "prices": {
     "period": "2026/2/27〜3/9",
-    "crude": { "changePct": 27, "unit": "JCC連動" },
-    "lng": { "changePct": 74, "unit": "スポット" },
-    "gasolineSubsidy": { "amountJPY": 48.1, "note": "過去最高（3/26〜）" },
-    "provisionalTaxAbolished": true
+    "crude": {
+      "changePct": 27,
+      "unit": "JCC連動",
+      "source": { "name": "日本インフレ加速・原油急騰（Bloomberg）", "url": "https://www.bloomberg.com/jp/news/articles/2026-03-02/TB8TC8T96OSR00" }
+    },
+    "lng": {
+      "changePct": 74,
+      "unit": "スポット",
+      "source": { "name": "同上（Bloomberg）", "url": "https://www.bloomberg.com/jp/news/articles/2026-03-02/TB8TC8T96OSR00" }
+    },
+    "gasolineSubsidy": {
+      "amountJPY": 48.1,
+      "note": "過去最高（3/26〜）",
+      "source": { "name": "燃料油価格定額引下げ措置（資源エネルギー庁）", "url": "https://nenryo-teigakuhikisage.go.jp/" }
+    },
+    "provisionalTaxAbolished": true,
+    "provisionalTaxSource": { "name": "暫定税率廃止の解説（資源エネルギー庁）", "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/zanteizeiritsu.html" }
   },
   "policy": [
-    { "label": "民間備蓄放出", "value": "15日分", "date": "2026/3/16〜", "status": "active" },
-    { "label": "国家備蓄放出", "value": "1ヶ月分（5.1百万バレル）", "date": "2026/3/26〜", "status": "active" },
-    { "label": "ガソリン補助金", "value": "48.1円/L（過去最高）", "date": "2026/3/26〜", "status": "active" },
-    { "label": "暫定税率廃止", "value": "ガソリン分（2025年12月廃止済）", "date": "2025/12/31〜", "status": "done" },
-    { "label": "代替調達ルート", "value": "ヤンブー・フジャイラ港", "date": "切替え中", "status": "active" }
+    {
+      "label": "民間備蓄放出", "value": "15日分", "date": "2026/3/16〜", "status": "active",
+      "source": { "name": "METI発表 3/16", "url": "https://www.meti.go.jp/press/2025/03/20260316005/20260316005.html" }
+    },
+    {
+      "label": "国家備蓄放出", "value": "1ヶ月分（5.1百万バレル）", "date": "2026/3/26〜", "status": "active",
+      "source": { "name": "METI発表 3/24", "url": "https://www.meti.go.jp/press/2025/03/20260324004/20260324004.html" }
+    },
+    {
+      "label": "ガソリン補助金", "value": "48.1円/L（過去最高）", "date": "2026/3/26〜", "status": "active",
+      "source": { "name": "燃料油価格定額引下げ措置", "url": "https://nenryo-teigakuhikisage.go.jp/" }
+    },
+    {
+      "label": "暫定税率廃止", "value": "ガソリン分（2025年12月廃止済）", "date": "2025/12/31〜", "status": "done",
+      "source": { "name": "資源エネルギー庁 解説", "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/zanteizeiritsu.html" }
+    },
+    {
+      "label": "代替調達ルート", "value": "ヤンブー・フジャイラ港", "date": "切替え中", "status": "active",
+      "source": { "name": "中東情勢対応（内閣官房）", "url": "https://www.cas.go.jp/jp/seisaku/chyutoujyousei/" }
+    }
   ],
   "supplyChain": {
     "naphtha_chain": [
