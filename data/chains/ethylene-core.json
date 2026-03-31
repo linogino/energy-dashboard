@@ -1,0 +1,77 @@
+{
+  "system": "ethylene",
+  "subsystem": "core",
+  "label": "エチレン系コア（ナフサ分解炉）",
+  "nodes": [
+    {
+      "id": "naphtha",
+      "type": "feedstock",
+      "label": "ナフサ",
+      "labelEn": "Naphtha",
+      "description": "石油化学工業の主要原料。輸入依存度高く、ホルムズ封鎖で直撃。在庫約2〜3週間分（2026年3月時点）。",
+      "sourceRefs": ["toyo_naphtha_2026", "meti_petrochemical"],
+      "scores": {
+        "substitutability": {
+          "value": 0.25,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "LPG・エタンで一部代替可能だが日本の設備はナフサクラッカー中心。転換には設備改修が必要"
+        },
+        "priorityScore": {
+          "value": 90,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "ホルムズ封鎖で直撃。エチレン全量の起点。現在GW頃までの確保見通しのみ"
+        },
+        "consumerRelevance": {
+          "value": 5,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "feedstockのため生活者への直接影響なし。下流への波及が主"
+        }
+      }
+    },
+    {
+      "id": "ethylene",
+      "type": "feedstock",
+      "label": "エチレン",
+      "labelEn": "Ethylene",
+      "description": "石化産業の基礎素材。ナフサ分解により製造。日本国内生産量約600万トン/年。クラッカー稼働率75.7%（2026年2月）。",
+      "sourceRefs": ["jpca_ethylene_2026", "meti_petrochemical"],
+      "scores": {
+        "substitutability": {
+          "value": 0.1,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "国内生産が約95%ナフサ由来。輸入エチレンは極めて限定的。蒸気クラッカーの代替は困難"
+        },
+        "priorityScore": {
+          "value": 95,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "EO・PE・PVC全ての起点。稼働率低下が全下流製品に連鎖する中枢ノード"
+        },
+        "consumerRelevance": {
+          "value": 8,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "中間体だが影響の起点として最重要"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "naphtha__ethylene",
+      "from": "naphtha",
+      "to": "ethylene",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["jpca_ethylene_2026", "toyo_naphtha_2026"],
+      "meta": {
+        "process": "スチームクラッキング（ナフサ分解炉）",
+        "substitutabilityNote": "日本のエチレンは95%がナフサ分解由来。LPGクラッカーへの転換は設備改修が必要"
+      }
+    }
+  ]
+}

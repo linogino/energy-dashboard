@@ -1,0 +1,456 @@
+{
+  "system": "ethylene",
+  "subsystem": "downstream",
+  "label": "エチレン系 ダウンストリーム（PE / PVC）",
+  "nodes": [
+    {
+      "id": "edc",
+      "type": "intermediate",
+      "label": "エチレンジクロライド（EDC）",
+      "labelEn": "Ethylene Dichloride",
+      "description": "エチレンと塩素の反応で製造。VCM（塩化ビニルモノマー）の原料。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": {
+          "value": 0.1,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "EDCはエチレン+Cl2から製造。代替製法はほぼない"
+        },
+        "priorityScore": { "value": 78, "basis": "proxy", "confidence": "medium", "note": "PVC全系列の起点" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "medium", "note": "PVC経由で水道管・電線被覆に波及" }
+      }
+    },
+    {
+      "id": "vcm",
+      "type": "intermediate",
+      "label": "塩化ビニルモノマー（VCM）",
+      "labelEn": "Vinyl Chloride Monomer",
+      "description": "EDCの熱分解で製造。PVC樹脂の重合原料。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": {
+          "value": 0.1,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "VCMはEDC由来が唯一の工業的製法"
+        },
+        "priorityScore": { "value": 76, "basis": "proxy", "confidence": "medium", "note": "PVC全系列の直前工程" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "medium", "note": "PVC経由の間接影響" }
+      }
+    },
+    {
+      "id": "pvc_resin",
+      "type": "material",
+      "label": "PVC樹脂",
+      "labelEn": "PVC Resin",
+      "description": "VCMの重合で製造。水道管・電線被覆・床材・窓枠等に使用。生活インフラに広く使用。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": {
+          "value": 0.25,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "PE・PPで代替可能な用途あり。水道管等のインフラへの代替は設置コスト大"
+        },
+        "priorityScore": { "value": 70, "basis": "proxy", "confidence": "medium", "note": "インフラ・建材に広く使用" },
+        "consumerRelevance": { "value": 18, "basis": "proxy", "confidence": "medium", "note": "水道管・電線被覆等のインフラ材料" }
+      }
+    },
+    {
+      "id": "hdpe",
+      "type": "material",
+      "label": "高密度ポリエチレン（HDPE）",
+      "labelEn": "High-Density Polyethylene",
+      "description": "エチレンの重合で製造。洗剤・シャンプーボトル・コンテナ・パイプに使用。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": {
+          "value": 0.2,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "PP・PET等で代替可能な用途あり。ボトル用途は急な代替が困難"
+        },
+        "priorityScore": { "value": 70, "basis": "proxy", "confidence": "medium", "note": "容器・ボトル類に使用" },
+        "consumerRelevance": { "value": 20, "basis": "proxy", "confidence": "medium", "note": "洗剤・シャンプーボトル等" }
+      }
+    },
+    {
+      "id": "lldpe",
+      "type": "material",
+      "label": "線状低密度ポリエチレン（LLDPE）",
+      "labelEn": "Linear Low-Density Polyethylene",
+      "description": "エチレンと少量のα-オレフィンの共重合で製造。食品包装フィルム・農業用フィルムの主材料。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": {
+          "value": 0.2,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "LDPE・LLDPEは互換性があるが性能差あり。食品包装用は代替に検証が必要"
+        },
+        "priorityScore": { "value": 72, "basis": "proxy", "confidence": "medium", "note": "食品包装フィルムの主材料" },
+        "consumerRelevance": { "value": 22, "basis": "proxy", "confidence": "medium", "note": "食品包装・ラップ等" }
+      }
+    },
+    {
+      "id": "ldpe",
+      "type": "material",
+      "label": "低密度ポリエチレン（LDPE）",
+      "labelEn": "Low-Density Polyethylene",
+      "description": "エチレンの高圧重合で製造。食品用ラップ・農業用フィルム・レジ袋等に使用。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": {
+          "value": 0.3,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "LLDPEで代替可能な用途が多い"
+        },
+        "priorityScore": { "value": 65, "basis": "proxy", "confidence": "medium", "note": "フィルム・ラップ類" },
+        "consumerRelevance": { "value": 18, "basis": "proxy", "confidence": "medium", "note": "食品用ラップ等" }
+      }
+    },
+    {
+      "id": "pipe_extrusion_app",
+      "type": "application",
+      "label": "パイプ・継手成形（PVC）",
+      "labelEn": "PVC Pipe Extrusion",
+      "description": "PVC樹脂の押出成形による水道管・排水管・農業用配管の製造プロセス。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.2,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "PE管・銅管等への代替は設置コスト大。既設インフラの代替は事実上困難"
+        },
+        "priorityScore": { "value": 68, "basis": "proxy", "confidence": "medium", "note": "インフラへの長期影響" },
+        "consumerRelevance": { "value": 38, "basis": "proxy", "confidence": "medium", "note": "水道インフラの維持・修繕に影響" }
+      }
+    },
+    {
+      "id": "wire_coating_app",
+      "type": "application",
+      "label": "電線被覆（PVC）",
+      "labelEn": "PVC Wire Coating",
+      "description": "PVC樹脂による電線・ケーブルの絶縁被覆プロセス。電力・通信インフラの基盤。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.2,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "架橋PE・フッ素系での代替は高コスト"
+        },
+        "priorityScore": { "value": 65, "basis": "proxy", "confidence": "medium", "note": "電力・通信インフラ" },
+        "consumerRelevance": { "value": 35, "basis": "proxy", "confidence": "medium", "note": "電気配線・通信ケーブル" }
+      }
+    },
+    {
+      "id": "film_blowing_app",
+      "type": "application",
+      "label": "インフレーション成形（フィルム）",
+      "labelEn": "Film Blowing Application",
+      "description": "LLDPE・LDPEを使用したインフレーション法によるフィルム製造。食品ラップ・買い物袋に使用。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.25,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "紙・生分解性フィルムへの代替は短期では困難"
+        },
+        "priorityScore": { "value": 70, "basis": "proxy", "confidence": "medium", "note": "食品包装・流通袋に直結" },
+        "consumerRelevance": { "value": 42, "basis": "proxy", "confidence": "medium", "note": "食品ラップ・買い物袋" }
+      }
+    },
+    {
+      "id": "container_molding_app",
+      "type": "application",
+      "label": "中空成形（HDPEボトル）",
+      "labelEn": "HDPE Container Molding",
+      "description": "HDPEのブロー成形による洗剤・シャンプーボトル・牛乳パック等の製造プロセス。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.25,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "PET・PPボトルへの代替は可能だが設備変更が必要"
+        },
+        "priorityScore": { "value": 65, "basis": "proxy", "confidence": "medium", "note": "日用品容器全般" },
+        "consumerRelevance": { "value": 38, "basis": "proxy", "confidence": "medium", "note": "洗剤・シャンプーボトル等" }
+      }
+    },
+    {
+      "id": "water_pipe",
+      "type": "consumer_product",
+      "label": "水道管・排水管",
+      "labelEn": "Water Pipe",
+      "category": "infrastructure",
+      "description": "家庭・建物の給排水配管。新設・補修に継続的に使用されるインフラ部材。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.2,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "銅管・PE管での代替は可能だがコスト大。既設配管の代替は不可"
+        },
+        "priorityScore": { "value": 68, "basis": "proxy", "confidence": "medium", "note": "長期的な水道インフラ維持に影響" },
+        "consumerRelevance": {
+          "value": 70,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "水道インフラの維持・新設に直結。不足は建設・補修の遅延として影響"
+        }
+      }
+    },
+    {
+      "id": "electrical_conduit",
+      "type": "consumer_product",
+      "label": "電線被覆・配線材",
+      "labelEn": "Electrical Wire & Conduit",
+      "category": "infrastructure",
+      "description": "家庭・産業用電線の絶縁被覆。電力インフラの基盤部材。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.2,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "架橋PE・フッ素樹脂等の代替はコスト大"
+        },
+        "priorityScore": { "value": 62, "basis": "proxy", "confidence": "medium", "note": "電力インフラに間接影響" },
+        "consumerRelevance": {
+          "value": 65,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "電力インフラの新設・補修に直結"
+        }
+      }
+    },
+    {
+      "id": "food_wrap",
+      "type": "consumer_product",
+      "label": "食品用ラップフィルム",
+      "labelEn": "Food Wrap Film",
+      "category": "food_beverage",
+      "description": "家庭・業務用の食品ラップ。食品保存の日常用品。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.4,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "蜜蝋ラップ・アルミ箔での代替可能だが利便性低下"
+        },
+        "priorityScore": { "value": 65, "basis": "proxy", "confidence": "medium", "note": "食品保存の日常用品" },
+        "consumerRelevance": {
+          "value": 76,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "ほぼ全家庭で使用する日常必需品"
+        }
+      }
+    },
+    {
+      "id": "shopping_bag",
+      "type": "consumer_product",
+      "label": "ポリ袋・買い物袋",
+      "labelEn": "Shopping Bag / Poly Bag",
+      "category": "food_beverage",
+      "description": "PE製の買い物袋・ポリ袋。食品・日用品の流通に広く使用。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.6,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "紙袋・エコバッグへの代替が進んでいる"
+        },
+        "priorityScore": { "value": 55, "basis": "proxy", "confidence": "medium", "note": "有料化以降の代替が進行中" },
+        "consumerRelevance": {
+          "value": 62,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "食品流通・廃棄物袋等に日常的に使用"
+        }
+      }
+    },
+    {
+      "id": "plastic_container",
+      "type": "consumer_product",
+      "label": "プラスチックボトル（洗剤・日用品）",
+      "labelEn": "Plastic Container (Household)",
+      "category": "personal_care",
+      "description": "HDPE製の洗剤・シャンプー・柔軟剤ボトル等。日用品の主要容器。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": {
+          "value": 0.35,
+          "basis": "proxy",
+          "confidence": "medium",
+          "note": "詰め替えパウチへの移行が可能。ただし完全代替には時間要"
+        },
+        "priorityScore": { "value": 60, "basis": "proxy", "confidence": "medium", "note": "日用品容器全般" },
+        "consumerRelevance": {
+          "value": 68,
+          "basis": "proxy",
+          "confidence": "high",
+          "note": "全家庭で使用する日用品容器"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "ethylene__edc",
+      "from": "ethylene",
+      "to": "edc",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": {
+        "process": "エチレンの塩素化反応",
+        "substitutabilityNote": "EDCはエチレン+Cl2が唯一の工業的製法"
+      }
+    },
+    {
+      "id": "edc__vcm",
+      "from": "edc",
+      "to": "vcm",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "EDCの熱分解（クラッキング）" }
+    },
+    {
+      "id": "vcm__pvc_resin",
+      "from": "vcm",
+      "to": "pvc_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "VCMの懸濁重合" }
+    },
+    {
+      "id": "ethylene__hdpe",
+      "from": "ethylene",
+      "to": "hdpe",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "エチレンのチーグラー・ナッタ触媒重合" }
+    },
+    {
+      "id": "ethylene__lldpe",
+      "from": "ethylene",
+      "to": "lldpe",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "エチレンとα-オレフィンの共重合" }
+    },
+    {
+      "id": "ethylene__ldpe",
+      "from": "ethylene",
+      "to": "ldpe",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "エチレンの高圧ラジカル重合" }
+    },
+    {
+      "id": "pvc_resin__pipe_extrusion_app",
+      "from": "pvc_resin",
+      "to": "pipe_extrusion_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "pvc_resin__wire_coating_app",
+      "from": "pvc_resin",
+      "to": "wire_coating_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "lldpe__film_blowing_app",
+      "from": "lldpe",
+      "to": "film_blowing_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "ldpe__film_blowing_app",
+      "from": "ldpe",
+      "to": "film_blowing_app",
+      "type": "material_dependency",
+      "dependencyStrength": "secondary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "hdpe__container_molding_app",
+      "from": "hdpe",
+      "to": "container_molding_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "pipe_extrusion_app__water_pipe",
+      "from": "pipe_extrusion_app",
+      "to": "water_pipe",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "wire_coating_app__electrical_conduit",
+      "from": "wire_coating_app",
+      "to": "electrical_conduit",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "film_blowing_app__food_wrap",
+      "from": "film_blowing_app",
+      "to": "food_wrap",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "film_blowing_app__shopping_bag",
+      "from": "film_blowing_app",
+      "to": "shopping_bag",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "container_molding_app__plastic_container",
+      "from": "container_molding_app",
+      "to": "plastic_container",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    }
+  ]
+}

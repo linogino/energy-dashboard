@@ -461,6 +461,139 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .hidden { display: none !important; }
+
+    /* ═══════════════════════════════════════════
+       Layer 3 Enhanced — chain simulation UI
+    ═══════════════════════════════════════════ */
+
+    /* toolbar */
+    .l3-toolbar {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .l3-tool-group { display: flex; flex-direction: column; gap: 6px; }
+    .l3-tool-label { font-size: .7rem; font-weight: 700; color: var(--slate-400); letter-spacing: .08em; text-transform: uppercase; }
+    .l3-tab-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .l3-tab {
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--slate-200);
+      background: white;
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--slate-600);
+      transition: border-color .15s, background .15s;
+    }
+    .l3-tab.active { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+    .l3-tab:disabled, .l3-tab[disabled] { opacity: .4; cursor: not-allowed; }
+    .l3-select {
+      padding: 6px 10px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 8px;
+      font-size: .83rem;
+      color: var(--slate-800);
+      background: white;
+      cursor: pointer;
+    }
+    .l3-hint { font-size: .72rem; color: var(--slate-400); margin-bottom: 8px; }
+
+    /* loading / error */
+    .l3-state { padding: 32px; text-align: center; font-size: .9rem; color: var(--slate-400); }
+    .l3-error-msg { color: var(--red); background: var(--red-bg); border-radius: 8px; }
+
+    /* TOP10 */
+    .top10-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 4px;
+      transition: background .15s;
+      border: 1.5px solid transparent;
+    }
+    .top10-item:hover { background: var(--slate-100); }
+    .top10-item.selected { background: #eff6ff; border-color: #93c5fd; }
+    .top10-rank { font-size: .75rem; font-weight: 800; color: var(--slate-400); width: 18px; text-align: right; flex-shrink: 0; }
+    .top10-body { flex: 1; min-width: 0; }
+    .top10-label { font-size: .83rem; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .top10-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .top10-bar { flex: 1; height: 6px; background: var(--slate-200); border-radius: 3px; overflow: hidden; }
+    .top10-bar-fill { height: 100%; border-radius: 3px; }
+    .top10-bar-fill.critical { background: var(--red); }
+    .top10-bar-fill.warning  { background: var(--amber); }
+    .top10-bar-fill.ok       { background: var(--green); }
+    .top10-score { font-size: .78rem; font-weight: 800; width: 28px; text-align: right; flex-shrink: 0; }
+    .top10-score.critical { color: var(--red); }
+    .top10-score.warning  { color: var(--amber); }
+    .top10-score.ok       { color: var(--green); }
+    .top10-risk { font-size: .68rem; color: var(--slate-400); margin-top: 2px; }
+    .top10-category {
+      font-size: .65rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: var(--slate-100);
+      color: var(--slate-600);
+      flex-shrink: 0;
+    }
+
+    /* Critical Path */
+    .cp-empty { font-size: .83rem; color: var(--slate-400); padding: 16px 0; }
+    .cp-step { display: flex; flex-direction: column; align-items: flex-start; }
+    .cp-node {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid;
+      font-size: .82rem;
+    }
+    .cp-node.critical { background: var(--red-bg);   border-color: var(--red-border);   }
+    .cp-node.warning  { background: var(--amber-bg); border-color: var(--amber-border); }
+    .cp-node.ok       { background: var(--green-bg); border-color: var(--green-border); }
+    .cp-node.none     { background: var(--slate-100); border-color: var(--slate-200); }
+    .cp-type-badge {
+      font-size: .62rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      background: rgba(0,0,0,.08);
+      border-radius: 4px;
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    .cp-node-label { flex: 1; font-weight: 700; }
+    .cp-risk-badge { font-size: .75rem; font-weight: 800; flex-shrink: 0; }
+    .cp-risk-badge.critical { color: var(--red); }
+    .cp-risk-badge.warning  { color: var(--amber); }
+    .cp-risk-badge.ok       { color: var(--green); }
+    .cp-risk-badge.none     { color: var(--slate-400); }
+    .cp-arrow { font-size: .9rem; color: var(--slate-400); margin: 3px 0 3px 18px; }
+    .cp-edge-note {
+      font-size: .68rem;
+      color: var(--slate-400);
+      margin: 2px 0 2px 40px;
+      font-style: italic;
+    }
+    .cp-sources {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--slate-200);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* legacy section dim */
+    .legacy-label { opacity: .45; }
   </style>
 </head>
 <body>
@@ -503,10 +636,54 @@
     </div>
   </div>
 
-  <!-- Layer 3: Supply Chain -->
-  <div class="section-label">LAYER 3 ── サプライチェーン影響（生活・産業への波及）</div>
+  <!-- Layer 3 Enhanced (new) -->
+  <div class="section-label">LAYER 3 ── 生活影響分析（バリューチェーン別シミュレーション）</div>
   <div class="panel">
-    <div class="panel-title">⛓ 連鎖影響シミュレーション</div>
+
+    <!-- toolbar -->
+    <div class="l3-toolbar">
+      <div class="l3-tool-group">
+        <span class="l3-tool-label">系統</span>
+        <div class="l3-tab-row">
+          <button class="l3-tab active" data-system="ethylene">エチレン系</button>
+          <button class="l3-tab" disabled>プロピレン系（近日）</button>
+        </div>
+      </div>
+      <div class="l3-tool-group">
+        <span class="l3-tool-label">シナリオ</span>
+        <select id="scenario-select" class="l3-select"></select>
+      </div>
+    </div>
+
+    <div id="l3-loading" class="l3-state">⏳ チェーンデータ読み込み中…</div>
+    <div id="l3-error"   class="l3-state l3-error-msg hidden"></div>
+
+    <div id="l3-content" class="hidden">
+      <div class="two-col">
+
+        <!-- TOP10 -->
+        <div>
+          <div class="panel-title">📊 影響上位製品 TOP10</div>
+          <div class="l3-hint">製品をクリックすると右側にパスを表示</div>
+          <div id="impact-top10"></div>
+        </div>
+
+        <!-- Critical Path -->
+        <div>
+          <div class="panel-title">🔍 上流 Critical Path</div>
+          <div class="l3-hint">供給リスクが最も高い依存経路を表示</div>
+          <select id="cp-select" class="l3-select" style="width:100%;margin-bottom:12px"></select>
+          <div id="critical-path-view"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 3 Legacy (preserved) -->
+  <div class="section-label legacy-label">LAYER 3 LEGACY ── 旧チェーン図（参考）</div>
+  <div class="panel" style="opacity:.7">
+    <div class="panel-title" style="font-size:.85rem">⛓ 連鎖影響シミュレーション（旧実装）</div>
     <div id="supply-chain"></div>
   </div>
 
@@ -792,6 +969,198 @@ function renderPolicy(policy) {
   `).join('');
 }
 
+/* ══════════════════════════════════════════════
+   Layer 3 Enhanced — chain simulation renderer
+   (UI から分離した simulation ロジックは
+    chain-graph.js / chain-simulation.js を参照)
+══════════════════════════════════════════════ */
+
+const CATEGORY_LABELS = {
+  food_beverage:   '食品・飲料',
+  personal_care:   '日用品・ケア',
+  healthcare:      '医療・衛生',
+  infrastructure:  'インフラ・建材',
+  clothing_textile:'衣料・繊維',
+  home_living:     '家庭用品',
+};
+
+const TYPE_BADGE = {
+  feedstock:       'FEED',
+  intermediate:    'INT',
+  material:        'MAT',
+  application:     'APP',
+  consumer_product:'製品',
+};
+
+function _riskClass(risk) {
+  if (risk >= 0.6) return 'critical';
+  if (risk >= 0.3) return 'warning';
+  if (risk > 0)    return 'ok';
+  return 'none';
+}
+
+// ── scenario selector ──────────────────────────────────────────────────
+function initScenarioSelect() {
+  const sel = document.getElementById('scenario-select');
+  sel.innerHTML = Object.values(ChainSimulation.SCENARIOS)
+    .map(s => `<option value="${s.id}">${s.label}</option>`)
+    .join('');
+}
+
+// ── TOP10 ──────────────────────────────────────────────────────────────
+function renderTop10(graph, impactMap, selectedId) {
+  const ranked  = ChainSimulation.rankConsumerProducts(graph, impactMap);
+  const top10   = ranked.slice(0, 10);
+  const container = document.getElementById('impact-top10');
+
+  container.innerHTML = top10.map((item, i) => {
+    const sc  = _riskClass(item.supplyRisk);
+    const pct = Math.min(100, item.impactScore);
+    const cat = CATEGORY_LABELS[item.node.category] ?? item.node.category ?? '';
+    const sel = item.node.id === selectedId ? ' selected' : '';
+    return `
+      <div class="top10-item${sel}" data-product="${item.node.id}">
+        <span class="top10-rank">${i + 1}</span>
+        <div class="top10-body">
+          <div class="top10-label">${item.node.label}</div>
+          <div class="top10-bar-wrap">
+            <div class="top10-bar">
+              <div class="top10-bar-fill ${sc}" style="width:${pct}%"></div>
+            </div>
+            <span class="top10-score ${sc}">${item.impactScore}</span>
+          </div>
+          <div class="top10-risk">供給リスク ${Math.round(item.supplyRisk * 100)}%</div>
+        </div>
+        <span class="top10-category">${cat}</span>
+      </div>`;
+  }).join('');
+
+  // クリック → critical path 表示
+  container.querySelectorAll('.top10-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const pid = el.dataset.product;
+      document.getElementById('cp-select').value = pid;
+      _updateCriticalPath(graph, impactMap, pid);
+      renderTop10(graph, impactMap, pid);   // selected を更新
+    });
+  });
+}
+
+// ── critical path selector ─────────────────────────────────────────────
+function initCriticalPathSelector(graph) {
+  const sel = document.getElementById('cp-select');
+  const products = graph.byType.consumer_product.map(id => graph.nodes[id]);
+  sel.innerHTML = '<option value="">製品を選択…</option>'
+    + products.map(n =>
+        `<option value="${n.id}">${n.label}</option>`
+      ).join('');
+}
+
+function _updateCriticalPath(graph, impactMap, productId) {
+  if (!productId) {
+    document.getElementById('critical-path-view').innerHTML =
+      '<div class="cp-empty">製品を選択してください</div>';
+    return;
+  }
+
+  const path = ChainSimulation.getCriticalPath(graph, productId);
+  const container = document.getElementById('critical-path-view');
+
+  if (path.length === 0) {
+    container.innerHTML = '<div class="cp-empty">パスが見つかりません</div>';
+    return;
+  }
+
+  const stepsHtml = path.map((step, i) => {
+    const { node, edge } = step;
+    const risk    = impactMap[node.id]?.supplyRisk ?? 0;
+    const riskPct = Math.round(risk * 100);
+    const sc      = _riskClass(risk);
+    const isLast  = i === path.length - 1;
+    const badge   = TYPE_BADGE[node.type] ?? node.type;
+    const edgeNote = edge?.meta?.process
+      ? `<div class="cp-edge-note">↪ ${edge.meta.process}</div>` : '';
+
+    return `
+      <div class="cp-step">
+        <div class="cp-node ${sc}">
+          <span class="cp-type-badge">${badge}</span>
+          <span class="cp-node-label">${node.label}</span>
+          <span class="cp-risk-badge ${sc}">${riskPct > 0 ? riskPct + '%' : '—'}</span>
+        </div>
+        ${!isLast ? `<div class="cp-arrow">↓</div>${edgeNote}` : ''}
+      </div>`;
+  }).join('');
+
+  // 根拠ソース収集（パス上の全ノード・エッジの sourceRef を union）
+  const srcIds = [...new Set(
+    path.flatMap(s => [
+      ...(s.node.sourceRefs ?? []),
+      ...(s.edge?.sourceRefs ?? []),
+    ])
+  )];
+  const srcs = srcIds
+    .map(id => graph.sources[id])
+    .filter(s => s?.url);
+
+  const srcHtml = srcs.length ? `
+    <div class="cp-sources">
+      <span class="src-label">このパスの根拠</span>
+      ${srcs.map(s =>
+          `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.title}</a>`
+        ).join('')}
+    </div>` : '';
+
+  container.innerHTML = stepsHtml + srcHtml;
+}
+
+// ── main init ──────────────────────────────────────────────────────────
+async function initLayer3Enhanced() {
+  initScenarioSelect();
+
+  const loading = document.getElementById('l3-loading');
+  const errBox  = document.getElementById('l3-error');
+  const content = document.getElementById('l3-content');
+
+  let graph;
+  try {
+    graph = await ChainGraph.load();
+  } catch (e) {
+    loading.classList.add('hidden');
+    errBox.classList.remove('hidden');
+    errBox.textContent = `チェーンデータ読み込み失敗: ${e.message}`;
+    return;
+  }
+
+  loading.classList.add('hidden');
+  content.classList.remove('hidden');
+
+  initCriticalPathSelector(graph);
+
+  function refresh(selectedId) {
+    const sid      = document.getElementById('scenario-select').value;
+    const scenario = ChainSimulation.SCENARIOS[sid];
+    const impactMap = ChainSimulation.propagateImpact(graph, scenario);
+    renderTop10(graph, impactMap, selectedId ?? null);
+    const pid = document.getElementById('cp-select').value;
+    _updateCriticalPath(graph, impactMap, pid);
+  }
+
+  // シナリオ変更
+  document.getElementById('scenario-select').addEventListener('change', () => refresh());
+
+  // 製品セレクタ変更
+  document.getElementById('cp-select').addEventListener('change', e => {
+    const sid = document.getElementById('scenario-select').value;
+    const impactMap = ChainSimulation.propagateImpact(graph, ChainSimulation.SCENARIOS[sid]);
+    _updateCriticalPath(graph, impactMap, e.target.value);
+    renderTop10(graph, impactMap, e.target.value);
+  });
+
+  // 初回描画
+  refresh();
+}
+
 /* ── Render sources ── */
 function renderSources(sources) {
   document.getElementById('sources-grid').innerHTML = sources.map(s => `
@@ -832,6 +1201,11 @@ async function loadDashboard() {
   renderSupplyChain(data.supplyChain);
   renderPolicy(data.policy);
   renderSources(data.sources);
+
+  // Layer 3 Enhanced（chain-graph.js / chain-simulation.js が必要）
+  if (typeof ChainGraph !== 'undefined' && typeof ChainSimulation !== 'undefined') {
+    initLayer3Enhanced();
+  }
 }
 
 // Fallback data (same structure — used when fetch is unavailable)
@@ -839,5 +1213,8 @@ const FALLBACK = null; // Will be populated by build script if needed
 
 loadDashboard();
 </script>
+
+<script src="scripts/chain-graph.js"></script>
+<script src="scripts/chain-simulation.js"></script>
 </body>
 </html>
