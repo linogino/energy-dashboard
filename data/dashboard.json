@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "lastUpdated": "2026-03-31",
+    "dataDate": "2026-03-31",
+    "crisisActive": true,
+    "crisisLabel": "ホルムズ海峡事実上の封鎖（2026年2月28日〜）",
+    "note": "石油連盟は2026年3月24日より在庫データ公表を停止中"
+  },
+  "crude": {
+    "totalDays": 254,
+    "breakdown": {
+      "national": 146,
+      "private": 101,
+      "joint": 7
+    },
+    "dailyConsumption_kbd": 3200,
+    "imports": {
+      "middleEastPct": 90,
+      "hormuzBlocked": true,
+      "hormuzBlockedSince": "2026-02-28",
+      "hormuzTrafficDropPct": 97,
+      "alternativeRoutes": ["ヤンブー港（サウジ紅海側）", "フジャイラ港（UAE）"]
+    },
+    "releaseActive": true,
+    "releaseMeasures": [
+      { "type": "民間備蓄放出", "days": 15, "detail": "義務 70日→55日に引下げ（3/16〜）" },
+      { "type": "国家備蓄放出", "days": 30, "detail": "5.1百万バレル 4大精製会社と契約（3/26〜）" }
+    ],
+    "status": "warning",
+    "statusText": "備蓄放出対応中"
+  },
+  "lng": {
+    "totalStock_mt": 400,
+    "daysEquivalent": 30,
+    "breakdown": {
+      "power_mt": 213,
+      "gas_mt": 187
+    },
+    "annualConsumption": {
+      "power_mt": 3700,
+      "gas_mt": 2500
+    },
+    "dailyConsumption_mt": 17000,
+    "imports": {
+      "hormuzPct": 6,
+      "mainSources": ["オーストラリア", "東南アジア", "米国", "中東（6%）"]
+    },
+    "priceChange30d": 74,
+    "alternatives": ["石炭発電へのスイッチ（即応可）", "原子力（既稼働基は継続）"],
+    "status": "ok",
+    "statusText": "当面余裕"
+  },
+  "naphtha": {
+    "daysEquivalent": 21,
+    "maxBuffer_months": 4,
+    "supplyOutlookNote": "GW頃まで確保見通し。以降は各社の調達努力次第",
+    "imports": {
+      "middleEastPct": 80,
+      "importShare": 61,
+      "domesticShare": 39
+    },
+    "ethylene": {
+      "crackerOperatingRate": 75.7,
+      "benchmarkRate": 90,
+      "consecutiveMonthsBelowBenchmark": 43,
+      "facilitiesReducing": 6,
+      "totalFacilities": 12,
+      "naphthaEthaneDependencyPct": 95,
+      "note": "日本はエタン・LPG代替ができず構造的にナフサ依存"
+    },
+    "status": "critical",
+    "statusText": "最脆弱・要注意"
+  },
+  "prices": {
+    "period": "2026/2/27〜3/9",
+    "crude": { "changePct": 27, "unit": "JCC連動" },
+    "lng": { "changePct": 74, "unit": "スポット" },
+    "gasolineSubsidy": { "amountJPY": 48.1, "note": "過去最高（3/26〜）" },
+    "provisionalTaxAbolished": true
+  },
+  "policy": [
+    { "label": "民間備蓄放出", "value": "15日分", "date": "2026/3/16〜", "status": "active" },
+    { "label": "国家備蓄放出", "value": "1ヶ月分（5.1百万バレル）", "date": "2026/3/26〜", "status": "active" },
+    { "label": "ガソリン補助金", "value": "48.1円/L（過去最高）", "date": "2026/3/26〜", "status": "active" },
+    { "label": "暫定税率廃止", "value": "ガソリン分（2025年12月廃止済）", "date": "2025/12/31〜", "status": "done" },
+    { "label": "代替調達ルート", "value": "ヤンブー・フジャイラ港", "date": "切替え中", "status": "active" }
+  ],
+  "supplyChain": {
+    "naphtha_chain": [
+      { "step": "ナフサ", "risk": "critical", "note": "在庫 約3週間分" },
+      { "step": "エチレン生産", "risk": "critical", "note": "稼働率75.7%（43ヶ月低迷）" },
+      { "step": "PE・PP・EG合成", "risk": "warning", "note": "減産中・中間材値上げ相次ぐ" },
+      { "step": "包装材・容器", "risk": "warning", "note": "供給減少懸念" },
+      { "step": "食品・日用品流通", "risk": "ok", "note": "4月以降の影響注視" }
+    ],
+    "lng_chain": [
+      { "step": "LNG輸入", "risk": "ok", "note": "ホルムズ経由わずか6%のみ" },
+      { "step": "ガス火力発電", "risk": "ok", "note": "在庫30日・石炭代替可" },
+      { "step": "電力供給", "risk": "ok", "note": "予備率確保中" },
+      { "step": "工場・産業", "risk": "ok", "note": "現時点で逼迫なし" }
+    ]
+  },
+  "sources": [
+    { "name": "経済産業省 備蓄放出発表（3/16）", "url": "https://www.meti.go.jp/press/2025/03/20260316005/20260316005.html" },
+    { "name": "経済産業省 国家備蓄放出（3/24）", "url": "https://www.meti.go.jp/press/2025/03/20260324004/20260324004.html" },
+    { "name": "資源エネルギー庁 LNG動向（3/10）", "url": "https://www.meti.go.jp/shingikai/energy_environment/lng/" },
+    { "name": "JOGMEC 天然ガス・LNG関連情報", "url": "https://oilgas-info.jogmec.go.jp/nglng/1007905/" },
+    { "name": "石油連盟 統計情報", "url": "https://www.paj.gr.jp/statis/statis" },
+    { "name": "石油化学工業協会 月次実績", "url": "https://www.jpca.or.jp/statistics/monthly/memo.html" },
+    { "name": "東洋経済 ナフサ問題解説", "url": "https://toyokeizai.net/articles/-/939543" },
+    { "name": "燃料油価格定額引下げ措置（METI）", "url": "https://nenryo-teigakuhikisage.go.jp/" }
+  ]
+}

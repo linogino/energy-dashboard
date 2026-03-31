@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本エネルギー供給ダッシュボード</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #dc2626; --red-bg: #fef2f2; --red-border: #fca5a5;
+      --amber: #d97706; --amber-bg: #fffbeb; --amber-border: #fcd34d;
+      --green: #16a34a; --green-bg: #f0fdf4; --green-border: #86efac;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+      --slate-400: #94a3b8; --slate-600: #475569; --slate-800: #1e293b;
+      --radius: 12px; --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+      background: var(--slate-100);
+      color: var(--slate-800);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Crisis Banner ── */
+    #crisis-banner {
+      background: linear-gradient(90deg, #991b1b, #dc2626, #b91c1c);
+      color: white;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      display: none;
+    }
+    #crisis-banner.active { display: block; }
+    .crisis-pulse {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #fca5a5;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.2)} }
+
+    /* ── Header ── */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--slate-200);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--slate-800);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header h1 span.flag { font-size: 1.5rem; }
+    .header-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      font-size: .8rem;
+      color: var(--slate-400);
+    }
+    .data-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--red-bg);
+      color: var(--red);
+      border: 1px solid var(--red-border);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    /* ── Main Layout ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+
+    .section-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--slate-400);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+    .section-label:first-child { margin-top: 0; }
+
+    /* ── Status Cards (Layer 1) ── */
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .status-grid { grid-template-columns: 1fr; } }
+
+    .status-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+    }
+    .card-header {
+      padding: 14px 18px 10px;
+      border-bottom: 1px solid var(--slate-100);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title .icon { font-size: 1.3rem; }
+    .status-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .status-badge.critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+    .status-badge.warning  { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+    .status-badge.ok       { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+
+    .card-body { padding: 16px 18px; }
+
+    .days-display {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .days-number {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .days-number.critical { color: var(--red); }
+    .days-number.warning  { color: var(--amber); }
+    .days-number.ok       { color: var(--green); }
+    .days-unit { font-size: .85rem; color: var(--slate-400); margin-top: 2px; }
+
+    .gauge-wrap { margin-bottom: 14px; }
+    .gauge-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: var(--slate-200);
+      overflow: hidden;
+      position: relative;
+    }
+    .gauge-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .8s ease;
+    }
+    .gauge-fill.critical { background: var(--red); }
+    .gauge-fill.warning  { background: var(--amber); }
+    .gauge-fill.ok       { background: var(--green); }
+    .gauge-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: .7rem;
+      color: var(--slate-400);
+      margin-top: 4px;
+    }
+
+    .kv-list { list-style: none; }
+    .kv-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: .82rem;
+      gap: 8px;
+    }
+    .kv-list li:last-child { border-bottom: none; }
+    .kv-list .k { color: var(--slate-600); flex-shrink: 0; }
+    .kv-list .v { font-weight: 700; text-align: right; }
+    .kv-list .v.red { color: var(--red); }
+    .kv-list .v.amber { color: var(--amber); }
+    .kv-list .v.green { color: var(--green); }
+
+    .card-note {
+      margin-top: 10px;
+      padding: 8px 10px;
+      background: var(--red-bg);
+      border-left: 3px solid var(--red);
+      border-radius: 4px;
+      font-size: .75rem;
+      color: var(--red);
+    }
+    .card-note.amber { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
+
+    /* ── Two-column grid ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── Panel ── */
+    .panel {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--slate-200);
+      padding: 18px;
+    }
+    .panel-title {
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--slate-800);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── Flow Diagram ── */
+    .flow-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      font-size: .82rem;
+    }
+    .flow-item.blocked { background: var(--red-bg); border: 1px solid var(--red-border); }
+    .flow-item.alt     { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+    .flow-item.active  { background: var(--green-bg); border: 1px solid var(--green-border); }
+    .flow-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .flow-body { flex: 1; }
+    .flow-label { font-weight: 600; }
+    .flow-desc { font-size: .75rem; color: var(--slate-600); }
+    .flow-pct {
+      font-weight: 800;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .flow-pct.red { color: var(--red); }
+    .flow-pct.amber { color: var(--amber); }
+    .flow-pct.green { color: var(--green); }
+
+    /* ── Price Signals ── */
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: .85rem;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-name { color: var(--slate-600); }
+    .price-change {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .price-change.up { color: var(--red); }
+    .price-change.down { color: var(--green); }
+    .price-period { font-size: .72rem; color: var(--slate-400); }
+
+    /* ── Supply Chain ── */
+    .chain-group { margin-bottom: 20px; }
+    .chain-title {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .chain-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .chain-step {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      position: relative;
+    }
+    .chain-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: var(--slate-400);
+      z-index: 1;
+    }
+    .chain-box {
+      padding: 10px 8px;
+      border-radius: 8px;
+      border: 1.5px solid;
+      font-size: .78rem;
+      margin: 0 6px;
+    }
+    .chain-box.critical { background: var(--red-bg); border-color: var(--red-border); color: var(--red); }
+    .chain-box.warning  { background: var(--amber-bg); border-color: var(--amber-border); color: var(--amber); }
+    .chain-box.ok       { background: var(--green-bg); border-color: var(--green-border); color: var(--green); }
+    .chain-name { font-weight: 700; font-size: .8rem; }
+    .chain-note { font-size: .68rem; margin-top: 3px; opacity: .8; }
+
+    @media (max-width: 640px) {
+      .chain-steps { flex-direction: column; }
+      .chain-step::after { display: none; }
+      .chain-step { margin-bottom: 8px; }
+      .chain-box { margin: 0; }
+    }
+
+    /* ── Policy Table ── */
+    .policy-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+    .policy-table th {
+      background: var(--slate-100);
+      padding: 8px 12px;
+      text-align: left;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--slate-600);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .policy-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--slate-100);
+      vertical-align: top;
+    }
+    .policy-table tr:last-child td { border-bottom: none; }
+    .policy-status-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .dot.active { background: var(--green); animation: pulse 2s infinite; }
+    .dot.done   { background: var(--slate-400); }
+
+    /* ── Data Notice ── */
+    .data-notice {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-size: .82rem;
+      color: var(--amber);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .data-notice .notice-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    /* ── Sources ── */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 480px) { .sources-grid { grid-template-columns: 1fr; } }
+    .source-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--slate-800);
+      font-size: .78rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .source-link:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.1);
+    }
+    .source-link::before { content: '🔗'; font-size: .9rem; flex-shrink: 0; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 40px;
+      padding: 20px 24px;
+      text-align: center;
+      font-size: .75rem;
+      color: var(--slate-400);
+      border-top: 1px solid var(--slate-200);
+    }
+
+    /* ── Loading ── */
+    #loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      font-size: 1rem;
+      color: var(--slate-400);
+      gap: 12px;
+    }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 3px solid var(--slate-200);
+      border-top-color: var(--slate-600);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<div id="crisis-banner">
+  <span class="crisis-pulse"></span>
+  <span id="crisis-text"></span>
+</div>
+
+<header>
+  <h1><span class="flag">🇯🇵</span> 日本エネルギー供給ダッシュボード</h1>
+  <div class="header-meta">
+    <span>最終更新: <strong id="last-updated">--</strong></span>
+    <span id="data-warning" class="data-badge hidden">⚠ 一部データ公表停止中</span>
+  </div>
+</header>
+
+<div id="loading"><div class="spinner"></div>データを読み込み中…</div>
+
+<main id="app" class="hidden">
+
+  <!-- Layer 1: Status Cards -->
+  <div class="section-label">LAYER 1 ── 在庫サマリー（現状一目確認）</div>
+  <div class="status-grid" id="status-cards"></div>
+
+  <!-- Layer 2: Risk Analysis -->
+  <div class="section-label">LAYER 2 ── リスク分析（輸入フロー・価格シグナル）</div>
+  <div class="two-col">
+    <div class="panel" id="flow-panel">
+      <div class="panel-title">🚢 輸入ルート状況</div>
+      <div id="flow-items"></div>
+    </div>
+    <div class="panel" id="price-panel">
+      <div class="panel-title">📈 価格シグナル</div>
+      <div id="price-items"></div>
+      <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--slate-100)">
+        <div class="panel-title" style="margin-bottom:10px">🛡 政府の価格対応</div>
+        <div id="subsidy-info"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 3: Supply Chain -->
+  <div class="section-label">LAYER 3 ── サプライチェーン影響（生活・産業への波及）</div>
+  <div class="panel">
+    <div class="panel-title">⛓ 連鎖影響シミュレーション</div>
+    <div id="supply-chain"></div>
+  </div>
+
+  <!-- Policy Measures -->
+  <div class="section-label">政府・業界の対応措置</div>
+  <div class="panel">
+    <table class="policy-table">
+      <thead>
+        <tr>
+          <th>措置</th>
+          <th>内容</th>
+          <th>時期</th>
+          <th>状態</th>
+        </tr>
+      </thead>
+      <tbody id="policy-table-body"></tbody>
+    </table>
+  </div>
+
+  <!-- Data Notice -->
+  <div class="section-label">データ注記</div>
+  <div class="data-notice" id="data-notice" style="display:none">
+    <span class="notice-icon">⚠️</span>
+    <div id="data-notice-text"></div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section-label">データソース（公式）</div>
+  <div class="sources-grid" id="sources-grid"></div>
+
+</main>
+
+<footer>
+  データは政府・業界団体の公式発表に基づく。投資・緊急対応の判断には各公式サイトの原文をご確認ください。
+</footer>
+
+<script>
+const STATUS_ICONS = { crude: '🛢', lng: '🔥', naphtha: '⚗' };
+const STATUS_LABELS = { crude: '原 油', lng: 'LNG', naphtha: 'ナフサ' };
+
+function statusClass(s) {
+  return s === 'critical' ? 'critical' : s === 'warning' ? 'warning' : 'ok';
+}
+
+function statusEmoji(s) {
+  return s === 'critical' ? '🔴' : s === 'warning' ? '⚠️' : '✅';
+}
+
+function gaugeWidth(days, maxDays) {
+  return Math.min(100, Math.round((days / maxDays) * 100));
+}
+
+/* ── Render crisis banner ── */
+function renderCrisis(meta) {
+  if (!meta.crisisActive) return;
+  const banner = document.getElementById('crisis-banner');
+  banner.classList.add('active');
+  document.getElementById('crisis-text').textContent = meta.crisisLabel;
+}
+
+/* ── Render status cards ── */
+function renderStatusCards(d) {
+  const container = document.getElementById('status-cards');
+  const items = [
+    { key: 'crude', data: d.crude },
+    { key: 'lng',   data: d.lng },
+    { key: 'naphtha', data: d.naphtha }
+  ];
+
+  container.innerHTML = items.map(({ key, data }) => {
+    const sc = statusClass(data.status);
+    const maxDays = key === 'crude' ? 300 : key === 'lng' ? 90 : 60;
+    const gw = gaugeWidth(data.daysEquivalent ?? data.totalDays ?? 0, maxDays);
+
+    let kvItems = '';
+    let noteHtml = '';
+
+    if (key === 'crude') {
+      kvItems = `
+        <li><span class="k">国家備蓄</span><span class="v">${data.breakdown.national}日</span></li>
+        <li><span class="k">民間備蓄</span><span class="v">${data.breakdown.private}日</span></li>
+        <li><span class="k">共同備蓄</span><span class="v">${data.breakdown.joint}日</span></li>
+        <li><span class="k">中東依存</span><span class="v red">~${data.imports.middleEastPct}%</span></li>
+        <li><span class="k">ホルムズ通航</span><span class="v red">${data.imports.hormuzBlocked ? '事実上停止' : '通常'}</span></li>
+      `;
+      if (data.releaseActive) {
+        const total = data.releaseMeasures.reduce((s, m) => s + m.days, 0);
+        noteHtml = `<div class="card-note amber">備蓄放出中：計${total}日分（民間15日＋国家1ヶ月）</div>`;
+      }
+    } else if (key === 'lng') {
+      kvItems = `
+        <li><span class="k">在庫量</span><span class="v">${data.totalStock_mt.toLocaleString()}万トン</span></li>
+        <li><span class="k">電力用</span><span class="v">${data.breakdown.power_mt}万トン</span></li>
+        <li><span class="k">都市ガス用</span><span class="v">${data.breakdown.gas_mt}万トン</span></li>
+        <li><span class="k">ホルムズ経由</span><span class="v green">わずか${data.imports.hormuzPct}%</span></li>
+        <li><span class="k">スポット価格変動</span><span class="v red">+${data.priceChange30d}%</span></li>
+      `;
+    } else {
+      kvItems = `
+        <li><span class="k">輸入比率</span><span class="v">${data.imports.importShare}%（中東由来~${data.imports.middleEastPct}%）</span></li>
+        <li><span class="k">国産ナフサ</span><span class="v">${data.imports.domesticShare}%</span></li>
+        <li><span class="k">クラッカー稼働率</span><span class="v red">${data.ethylene.crackerOperatingRate}%</span></li>
+        <li><span class="k">低迷継続</span><span class="v red">${data.ethylene.consecutiveMonthsBelowBenchmark}</span></li>
+        <li><span class="k">供給見通し</span><span class="v amber">GW頃まで確保</span></li>
+      `;
+      noteHtml = `<div class="card-note">${data.ethylene.note}</div>`;
+    }
+
+    const days = data.daysEquivalent ?? data.totalDays ?? 0;
+
+    return `
+      <div class="status-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="icon">${STATUS_ICONS[key]}</span>
+            ${STATUS_LABELS[key]}
+          </div>
+          <span class="status-badge ${sc}">${statusEmoji(data.status)} ${data.statusText}</span>
+        </div>
+        <div class="card-body">
+          <div class="days-display">
+            <div class="days-number ${sc}">${days}</div>
+            <div class="days-unit">日分相当</div>
+          </div>
+          <div class="gauge-wrap">
+            <div class="gauge-bar">
+              <div class="gauge-fill ${sc}" style="width:${gw}%"></div>
+            </div>
+            <div class="gauge-labels">
+              <span>0日</span>
+              <span>${maxDays}日</span>
+            </div>
+          </div>
+          <ul class="kv-list">${kvItems}</ul>
+          ${noteHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ── Render flow diagram ── */
+function renderFlow(crude, lng) {
+  const container = document.getElementById('flow-items');
+  const items = [
+    {
+      cls: crude.imports.hormuzBlocked ? 'blocked' : 'active',
+      icon: crude.imports.hormuzBlocked ? '🚫' : '✅',
+      label: `原油 ホルムズ経由（~${crude.imports.middleEastPct}%）`,
+      desc: crude.imports.hormuzBlocked
+        ? `通航 -${crude.imports.hormuzTrafficDropPct}%（${crude.imports.hormuzBlockedSince}〜）`
+        : '通常通航中',
+      pct: crude.imports.hormuzBlocked ? '停止' : '正常',
+      pctCls: crude.imports.hormuzBlocked ? 'red' : 'green'
+    },
+    {
+      cls: 'alt',
+      icon: '🔄',
+      label: `原油 代替ルート確保中`,
+      desc: crude.imports.alternativeRoutes.join('、'),
+      pct: '切替中',
+      pctCls: 'amber'
+    },
+    {
+      cls: 'active',
+      icon: '✅',
+      label: `LNG ホルムズ経由（${lng.imports.hormuzPct}%のみ）`,
+      desc: `主要ルート：${lng.imports.mainSources.join('、')}`,
+      pct: `${lng.imports.hormuzPct}%`,
+      pctCls: 'green'
+    }
+  ];
+
+  container.innerHTML = items.map(item => `
+    <div class="flow-item ${item.cls}">
+      <span class="flow-icon">${item.icon}</span>
+      <div class="flow-body">
+        <div class="flow-label">${item.label}</div>
+        <div class="flow-desc">${item.desc}</div>
+      </div>
+      <span class="flow-pct ${item.pctCls}">${item.pct}</span>
+    </div>
+  `).join('');
+}
+
+/* ── Render price signals ── */
+function renderPrices(prices) {
+  const container = document.getElementById('price-items');
+  const rows = [
+    { name: '原油（JCC連動）', change: prices.crude.changePct, unit: prices.crude.unit },
+    { name: 'LNGスポット', change: prices.lng.changePct, unit: prices.lng.unit }
+  ];
+  container.innerHTML = rows.map(r => `
+    <div class="price-row">
+      <div>
+        <div class="price-name">${r.name}</div>
+        <div class="price-period">${r.unit}　期間：${prices.period}</div>
+      </div>
+      <div class="price-change up">+${r.change}%</div>
+    </div>
+  `).join('');
+
+  document.getElementById('subsidy-info').innerHTML = `
+    <ul class="kv-list">
+      <li>
+        <span class="k">ガソリン補助金</span>
+        <span class="v red">${prices.gasolineSubsidy.amountJPY}円/L（${prices.gasolineSubsidy.note}）</span>
+      </li>
+      <li>
+        <span class="k">暫定税率</span>
+        <span class="v green">${prices.provisionalTaxAbolished ? '廃止済（ガソリン分）' : '課税中'}</span>
+      </li>
+    </ul>
+  `;
+}
+
+/* ── Render supply chain ── */
+function renderSupplyChain(sc) {
+  const container = document.getElementById('supply-chain');
+
+  const renderChain = (title, steps) => `
+    <div class="chain-group">
+      <div class="chain-title">${title}</div>
+      <div class="chain-steps">
+        ${steps.map(step => `
+          <div class="chain-step">
+            <div class="chain-box ${step.risk}">
+              <div class="chain-name">${step.step}</div>
+              <div class="chain-note">${step.note}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  container.innerHTML =
+    renderChain('ナフサ起点チェーン（石油化学→生活物資）', sc.naphtha_chain) +
+    renderChain('LNG起点チェーン（発電→産業）', sc.lng_chain);
+}
+
+/* ── Render policy ── */
+function renderPolicy(policy) {
+  document.getElementById('policy-table-body').innerHTML = policy.map(p => `
+    <tr>
+      <td><strong>${p.label}</strong></td>
+      <td>${p.value}</td>
+      <td style="white-space:nowrap;font-size:.78rem;color:var(--slate-600)">${p.date}</td>
+      <td>
+        <span class="policy-status-dot">
+          <span class="dot ${p.status}"></span>
+          ${p.status === 'active' ? '実施中' : '完了'}
+        </span>
+      </td>
+    </tr>
+  `).join('');
+}
+
+/* ── Render sources ── */
+function renderSources(sources) {
+  document.getElementById('sources-grid').innerHTML = sources.map(s => `
+    <a class="source-link" href="${s.url}" target="_blank" rel="noopener">${s.name}</a>
+  `).join('');
+}
+
+/* ── Main ── */
+async function loadDashboard() {
+  let data;
+
+  // Try fetching JSON; fall back to embedded data if running locally
+  try {
+    const res = await fetch('data/dashboard.json');
+    if (!res.ok) throw new Error('fetch failed');
+    data = await res.json();
+  } catch (_e) {
+    console.warn('dashboard.json fetch failed — using embedded fallback');
+    data = FALLBACK;
+  }
+
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('app').classList.remove('hidden');
+  document.getElementById('last-updated').textContent = data.meta.lastUpdated;
+
+  if (data.meta.note) {
+    document.getElementById('data-warning').classList.remove('hidden');
+    const notice = document.getElementById('data-notice');
+    notice.style.display = 'flex';
+    document.getElementById('data-notice-text').innerHTML =
+      `<strong>データ公表状況：</strong>${data.meta.note}`;
+  }
+
+  renderCrisis(data.meta);
+  renderStatusCards(data);
+  renderFlow(data.crude, data.lng);
+  renderPrices(data.prices);
+  renderSupplyChain(data.supplyChain);
+  renderPolicy(data.policy);
+  renderSources(data.sources);
+}
+
+// Fallback data (same structure — used when fetch is unavailable)
+const FALLBACK = null; // Will be populated by build script if needed
+
+loadDashboard();
+</script>
+</body>
+</html>
