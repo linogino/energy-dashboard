@@ -1013,12 +1013,14 @@ function renderPolicy(policy) {
 ══════════════════════════════════════════════ */
 
 const CATEGORY_LABELS = {
-  food_beverage:   '食品・飲料',
-  personal_care:   '日用品・ケア',
-  healthcare:      '医療・衛生',
-  infrastructure:  'インフラ・建材',
-  clothing_textile:'衣料・繊維',
-  home_living:     '家庭用品',
+  healthcare:       '① 医療',
+  food_fresh:       '② 食料（生鮮）',
+  food_beverage:    '② 食料・飲料',
+  personal_care:    '③ 生活必需品',
+  infrastructure:   '③ インフラ・建材',
+  home_living:      '③ 家庭用品',
+  clothing_textile: '③ 衣料・繊維',
+  logistics:        '④ 物流',
 };
 
 const TYPE_BADGE = {
@@ -1038,15 +1040,21 @@ function _riskClass(risk) {
 
 // ── 在庫バッファー日数（推定値） ──────────────────────────────────────
 const INVENTORY_DAYS = {
+  // 上流原料・中間材
   naphtha: 15, ethylene: 7, eo: 7, meg: 14, edc: 10, vcm: 10,
   surfactant_base: 14, ethanolamine: 14, polyether_polyol: 21,
   pvc_resin: 21, hdpe: 21, lldpe: 21, ldpe: 21,
   pet_resin: 14, polyester_fiber: 30, pu_foam: 30,
+  // 農業・物流系
+  natural_gas: 14, ammonia: 30, urea: 45, adblue: 14,
+  nitrogen_fertilizer: 60, pesticide: 90, diesel_fuel: 30,
+  // 消費財
   water_pipe: 60, electrical_conduit: 60,
   food_wrap: 14, shopping_bag: 21, plastic_container: 21,
   beverage_bottle: 14, food_packaging_film: 14,
-  kitchen_detergent: 30, shampoo: 30,
+  kitchen_detergent: 30, shampoo: 30, refill_pouch: 21,
   medical_devices: 45, mattress: 90, polyester_garment: 60,
+  fresh_food_supply: 3, logistics_service: 7,
 };
 
 // ── シナリオ連鎖ストーリー ─────────────────────────────────────────────
@@ -1112,6 +1120,34 @@ const SCENARIO_STORIES = {
       { label: '一般洗剤・食品包装 後回し', crit: true },
     ],
     note: '危機下のトリアージ：医療・衛生を守ると日用品の棚が空になる。供給制約下での配分判断が問われる。',
+  },
+  lng_shortage: {
+    chain: [
+      { label: 'LNG供給 60%', crit: true },
+      { label: 'アンモニア不足', crit: true },
+      { label: '尿素・窒素肥料制約', crit: true },
+      { label: 'AdBlue不足', crit: true },
+      { label: '農業生産低下＋物流制約', crit: true },
+    ],
+    note: '天然ガスはエチレン系とは別系統。肥料・AdBlue経由で農業・物流に波及。収量低下と輸送停止が同時発生する複合危機。',
+  },
+  adblue_shortage: {
+    chain: [
+      { label: 'AdBlue在庫 枯渇', crit: true },
+      { label: 'SCRトラック 法令上停止', crit: true },
+      { label: '食品・医薬品 輸送停止', crit: true },
+      { label: '全産業サプライチェーン麻痺', crit: true },
+    ],
+    note: '2021年の教訓：中国が尿素輸出制限→日本のAdBlue在庫が14日分に。今回は農業・物流両面で同時発生する事態。',
+  },
+  diesel_shortage: {
+    chain: [
+      { label: 'ディーゼル供給 60%', crit: true },
+      { label: '農機稼働 制約', crit: true },
+      { label: '食品輸送 制約' },
+      { label: '生鮮食品 供給減少' },
+    ],
+    note: 'ディーゼルは農業と物流の共通インフラ。収穫・運搬が同時に制約。エチレン系とは独立した危機経路。',
   },
   normal: {
     chain: [

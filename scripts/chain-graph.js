@@ -14,6 +14,7 @@ const ChainGraph = (() => {
     'data/chains/ethylene-core.json',
     'data/chains/ethylene-eo.json',
     'data/chains/ethylene-downstream.json',
+    'data/chains/agriculture.json',
   ];
 
   // ── 有効な type 間接続ルール ─────────────────────────────────────────────

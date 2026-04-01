@@ -280,6 +280,33 @@
       }
     },
     {
+      "id": "refill_film_app",
+      "type": "application",
+      "label": "詰替パウチ製膜",
+      "labelEn": "Refill Pouch Film Lamination",
+      "description": "LLDPE外層＋PETラミネート層の多層フィルム製造。詰替パウチの包材として使用。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": { "value": 0.35, "basis": "proxy", "confidence": "medium", "note": "ボトル容器に移行可能だがコスト・廃材増加" },
+        "priorityScore": { "value": 68, "basis": "proxy", "confidence": "medium", "note": "詰替市場の包材" },
+        "consumerRelevance": { "value": 15, "basis": "proxy", "confidence": "medium", "note": "application" }
+      }
+    },
+    {
+      "id": "refill_pouch",
+      "type": "consumer_product",
+      "label": "詰替パウチ（洗剤・シャンプー）",
+      "labelEn": "Refill Pouch",
+      "category": "personal_care",
+      "description": "LLDPE+PETラミネートの包材×界面活性剤系内容物。日本市場の主力販売形態。包材・中身の双方がボトルネック候補。",
+      "sourceRefs": ["proxy_consumer_score"],
+      "scores": {
+        "substitutability": { "value": 0.45, "basis": "proxy", "confidence": "medium", "note": "ボトル製品への切替は可能だが割高・廃棄プラ増加" },
+        "priorityScore": { "value": 72, "basis": "proxy", "confidence": "medium", "note": "日本市場の主力販売形態。不足で棚が空になる" },
+        "consumerRelevance": { "value": 78, "basis": "proxy", "confidence": "high", "note": "家庭消費財の主流。価格・利便性への影響大" }
+      }
+    },
+    {
       "id": "plastic_container",
       "type": "consumer_product",
       "label": "プラスチックボトル（洗剤・日用品）",
@@ -451,6 +478,42 @@
       "dependencyStrength": "primary",
       "sourceRefs": ["proxy_consumer_score"],
       "meta": {}
+    },
+    {
+      "id": "lldpe__refill_film_app",
+      "from": "lldpe",
+      "to": "refill_film_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": { "process": "詰替パウチ外層フィルム（LLDPE）" }
+    },
+    {
+      "id": "pet_resin__refill_film_app",
+      "from": "pet_resin",
+      "to": "refill_film_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": { "process": "ラミネート層（PETフィルム）" }
+    },
+    {
+      "id": "refill_film_app__refill_pouch",
+      "from": "refill_film_app",
+      "to": "refill_pouch",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": {}
+    },
+    {
+      "id": "household_surfactant_app__refill_pouch",
+      "from": "household_surfactant_app",
+      "to": "refill_pouch",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_consumer_score"],
+      "meta": { "process": "界面活性剤（詰替内容物）" }
     }
   ]
 }

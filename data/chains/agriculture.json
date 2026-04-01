@@ -1,0 +1,320 @@
+{
+  "system": "agriculture",
+  "subsystem": "food_logistics",
+  "label": "農業・物流チェーン（食料安全保障・物流インフラ）",
+  "nodes": [
+    {
+      "id": "natural_gas",
+      "type": "feedstock",
+      "label": "天然ガス（LNG）",
+      "labelEn": "Natural Gas / LNG",
+      "description": "肥料（アンモニア経由）・AdBlueの一次原料。日本はLNG輸入依存。ホルムズ経由比率が高い。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "肥料原料の代替なし。短期代替は国家備蓄のみ" },
+        "priorityScore": { "value": 95, "basis": "proxy", "confidence": "high", "note": "農業・物流双方の根幹原料" },
+        "consumerRelevance": { "value": 5, "basis": "proxy", "confidence": "medium", "note": "feedstockのため直接消費者影響なし" }
+      }
+    },
+    {
+      "id": "diesel_fuel",
+      "type": "material",
+      "label": "ディーゼル燃料",
+      "labelEn": "Diesel Fuel",
+      "description": "農機・トラック・建機の動力源。原油から精製。日本の農業と物流の共通依存資源。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "電動化・水素化は2030年代以降。短期代替なし" },
+        "priorityScore": { "value": 88, "basis": "proxy", "confidence": "high", "note": "農業・物流の直接動力。代替不可" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "medium", "note": "materialのため直接消費者影響なし" }
+      }
+    },
+    {
+      "id": "ammonia",
+      "type": "intermediate",
+      "label": "アンモニア",
+      "labelEn": "Ammonia",
+      "description": "天然ガスのスチームメタンリフォーミング（SMR）で製造。窒素肥料・AdBlueの前駆体。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "窒素肥料の代替原料はほぼなし。電解水素合成は普及段階外" },
+        "priorityScore": { "value": 85, "basis": "proxy", "confidence": "medium", "note": "肥料生産の上流ボトルネック" },
+        "consumerRelevance": { "value": 5, "basis": "proxy", "confidence": "medium", "note": "中間材" }
+      }
+    },
+    {
+      "id": "urea",
+      "type": "intermediate",
+      "label": "尿素",
+      "labelEn": "Urea",
+      "description": "アンモニアとCO2から合成。窒素肥料・AdBlueの主原料。日本は輸入依存（中国・ロシア等）。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "medium", "note": "硫安等への切替は可能だが農家の切替コスト大" },
+        "priorityScore": { "value": 85, "basis": "proxy", "confidence": "high", "note": "農業・物流の双方に影響する分岐点" },
+        "consumerRelevance": { "value": 5, "basis": "proxy", "confidence": "medium", "note": "中間材" }
+      }
+    },
+    {
+      "id": "adblue",
+      "type": "material",
+      "label": "AdBlue（尿素水）",
+      "labelEn": "AdBlue / DEF",
+      "description": "尿素32.5%水溶液。SCR搭載ディーゼル車の排ガス処理に法令上必須。2021年に中国輸出制限で日本がほぼパニック（在庫14日分）。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.05, "basis": "proxy", "confidence": "high", "note": "SCR搭載車には代替なし。規制回避は違法。緊急時でも迂回不可" },
+        "priorityScore": { "value": 92, "basis": "proxy", "confidence": "high", "note": "トラック・農機の稼働継続に必須。在庫枯渇で即時停止" },
+        "consumerRelevance": { "value": 10, "basis": "proxy", "confidence": "medium", "note": "material" }
+      }
+    },
+    {
+      "id": "nitrogen_fertilizer",
+      "type": "material",
+      "label": "窒素肥料",
+      "labelEn": "Nitrogen Fertilizer",
+      "description": "尿素・硫安等。日本は輸入依存80%超。不足で収量が20〜40%低下。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "medium", "note": "有機肥料への転換は可能だが収量低下必至。短期切替困難" },
+        "priorityScore": { "value": 88, "basis": "proxy", "confidence": "high", "note": "農業生産量の直接決定因子" },
+        "consumerRelevance": { "value": 10, "basis": "proxy", "confidence": "medium", "note": "素材" }
+      }
+    },
+    {
+      "id": "pesticide",
+      "type": "material",
+      "label": "農薬",
+      "labelEn": "Pesticide",
+      "description": "ナフサ→エチレン→芳香族系中間体→農薬原料。日本の原料は中国依存が高い。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "low", "note": "生物農薬等の代替あるが短期切替困難。省農薬栽培でも収量10〜30%低下" },
+        "priorityScore": { "value": 70, "basis": "proxy", "confidence": "medium", "note": "病害虫管理に不可欠" },
+        "consumerRelevance": { "value": 10, "basis": "proxy", "confidence": "medium", "note": "素材" }
+      }
+    },
+    {
+      "id": "food_production_app",
+      "type": "application",
+      "label": "農業生産（施肥・防除・収穫）",
+      "labelEn": "Agriculture Production",
+      "description": "窒素肥料・農薬・農機（ディーゼル+AdBlue）・農業資材（PEフィルム）の複合依存。どれか欠けると収量が大幅低下。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "国内農業の代替は輸入食品だが物流停止下では無意味" },
+        "priorityScore": { "value": 96, "basis": "proxy", "confidence": "high", "note": "食料安全保障の根幹" },
+        "consumerRelevance": { "value": 20, "basis": "proxy", "confidence": "medium", "note": "application" }
+      }
+    },
+    {
+      "id": "food_distribution_app",
+      "type": "application",
+      "label": "食品物流（トラック輸送）",
+      "labelEn": "Food Distribution",
+      "description": "ディーゼルトラック+AdBlueで運行。停止すると都市部への食品供給が途絶。生産しても届かない状態。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "鉄道・船舶での代替は限定的。ラストマイルはトラック依存" },
+        "priorityScore": { "value": 93, "basis": "proxy", "confidence": "high", "note": "都市食品供給の動脈。止まれば食料危機即時顕在化" },
+        "consumerRelevance": { "value": 20, "basis": "proxy", "confidence": "medium", "note": "application" }
+      }
+    },
+    {
+      "id": "logistics_packaging_app",
+      "type": "application",
+      "label": "物流梱包（PEフィルム・パレット）",
+      "labelEn": "Logistics Packaging",
+      "description": "LDPEストレッチフィルム・HDPEパレット。パレット梱包・防水包装に使用。不足で物流効率が大幅低下。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "medium", "note": "紙・バンドへの部分代替可能" },
+        "priorityScore": { "value": 62, "basis": "proxy", "confidence": "medium", "note": "物流効率に影響" },
+        "consumerRelevance": { "value": 15, "basis": "proxy", "confidence": "medium", "note": "application" }
+      }
+    },
+    {
+      "id": "fresh_food_supply",
+      "type": "consumer_product",
+      "label": "生鮮食品供給",
+      "labelEn": "Fresh Food Supply",
+      "category": "food_fresh",
+      "description": "農業生産×食品物流の複合。肥料・農薬・燃料・AdBlueのどれかが欠けても店頭から消える。代替不可の最優先品目。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "缶詰・乾物での代替は短期のみ。長期的には生鮮不可欠" },
+        "priorityScore": { "value": 97, "basis": "proxy", "confidence": "high", "note": "食料安全保障の中核。代替不可" },
+        "consumerRelevance": { "value": 98, "basis": "proxy", "confidence": "high", "note": "毎日の食事に直結" }
+      }
+    },
+    {
+      "id": "logistics_service",
+      "type": "consumer_product",
+      "label": "物流サービス（全産業インフラ）",
+      "labelEn": "Logistics Infrastructure",
+      "category": "logistics",
+      "description": "ディーゼル+AdBlue+梱包材。止まると全産業のサプライチェーンが麻痺。医療品・食料・工業品の流通が全て停止。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "電動トラック等は普及途上。短期代替なし" },
+        "priorityScore": { "value": 90, "basis": "proxy", "confidence": "high", "note": "全産業インフラ。止まれば経済停止" },
+        "consumerRelevance": { "value": 88, "basis": "proxy", "confidence": "high", "note": "間接的に全消費財の入手可能性に影響" }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "natural_gas__ammonia",
+      "from": "natural_gas",
+      "to": "ammonia",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "スチームメタンリフォーミング（SMR）" }
+    },
+    {
+      "id": "ammonia__urea",
+      "from": "ammonia",
+      "to": "urea",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "アンモニア + CO2 → 尿素（Bosch-Meiser法）" }
+    },
+    {
+      "id": "urea__nitrogen_fertilizer",
+      "from": "urea",
+      "to": "nitrogen_fertilizer",
+      "type": "processing",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "尿素肥料・硫安等への加工" }
+    },
+    {
+      "id": "urea__adblue",
+      "from": "urea",
+      "to": "adblue",
+      "type": "processing",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "尿素32.5%水溶液化（AdBlue製造）" }
+    },
+    {
+      "id": "nitrogen_fertilizer__food_production_app",
+      "from": "nitrogen_fertilizer",
+      "to": "food_production_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "施肥による収量確保" }
+    },
+    {
+      "id": "adblue__food_production_app",
+      "from": "adblue",
+      "to": "food_production_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "農機SCR処理（現代農機は必須）" }
+    },
+    {
+      "id": "adblue__food_distribution_app",
+      "from": "adblue",
+      "to": "food_distribution_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "トラックSCR排ガス処理（法令上必須）" }
+    },
+    {
+      "id": "diesel_fuel__food_production_app",
+      "from": "diesel_fuel",
+      "to": "food_production_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "農機の動力源（トラクター・収穫機）" }
+    },
+    {
+      "id": "diesel_fuel__food_distribution_app",
+      "from": "diesel_fuel",
+      "to": "food_distribution_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "輸送トラックの燃料" }
+    },
+    {
+      "id": "ethylene__pesticide",
+      "from": "ethylene",
+      "to": "pesticide",
+      "type": "chemical_conversion",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "エチレン→芳香族系中間体→農薬原料（簡略化）" }
+    },
+    {
+      "id": "pesticide__food_production_app",
+      "from": "pesticide",
+      "to": "food_production_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "病害虫防除（収量維持）" }
+    },
+    {
+      "id": "lldpe__food_production_app",
+      "from": "lldpe",
+      "to": "food_production_app",
+      "type": "material_dependency",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "ハウス農業用PEフィルム・マルチ" }
+    },
+    {
+      "id": "food_production_app__fresh_food_supply",
+      "from": "food_production_app",
+      "to": "fresh_food_supply",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": {}
+    },
+    {
+      "id": "food_distribution_app__fresh_food_supply",
+      "from": "food_distribution_app",
+      "to": "fresh_food_supply",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": {}
+    },
+    {
+      "id": "food_distribution_app__logistics_service",
+      "from": "food_distribution_app",
+      "to": "logistics_service",
+      "type": "product_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": {}
+    },
+    {
+      "id": "ldpe__logistics_packaging_app",
+      "from": "ldpe",
+      "to": "logistics_packaging_app",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ストレッチラップ・包装フィルム（LDPE）" }
+    },
+    {
+      "id": "logistics_packaging_app__logistics_service",
+      "from": "logistics_packaging_app",
+      "to": "logistics_service",
+      "type": "product_dependency",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": {}
+    }
+  ]
+}

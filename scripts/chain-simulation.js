@@ -59,6 +59,24 @@ const ChainSimulation = (() => {
       description: '供給制限下で医療・衛生用途に優先配分。食品包装・洗剤等の一般向けが後回しになる場合。',
       stockLevels: { naphtha: 0.35, eo: 0.70 },
     },
+    lng_shortage: {
+      id:          'lng_shortage',
+      label:       'LNG不足（肥料・AdBlue制約）',
+      description: '天然ガス供給が60%に低下。アンモニア→尿素→窒素肥料・AdBlueの生産が制約。農業生産と物流に波及。',
+      stockLevels: { natural_gas: 0.40, ammonia: 0.55 },
+    },
+    adblue_shortage: {
+      id:          'adblue_shortage',
+      label:       'AdBlue枯渇（物流・農機停止）',
+      description: 'AdBlue（尿素水）在庫が枯渇。SCR搭載ディーゼル車・農機が法令上運行停止。全産業サプライチェーンに即時波及。',
+      stockLevels: { adblue: 0.05, urea: 0.20 },
+    },
+    diesel_shortage: {
+      id:          'diesel_shortage',
+      label:       'ディーゼル不足（農業・物流制約）',
+      description: 'ディーゼル燃料の供給が60%に制約。農機稼働・食品輸送の双方が停止水準に近づく。',
+      stockLevels: { diesel_fuel: 0.40 },
+    },
     normal: {
       id:          'normal',
       label:       '平常時',
