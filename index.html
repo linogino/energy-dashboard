@@ -532,31 +532,30 @@
       font-size: .63rem; padding: 2px 7px; border-radius: 10px;
       background: var(--slate-100); color: var(--slate-600); flex-shrink: 0; margin-top: 2px;
     }
-    .ir-avail-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
-    .ir-avail-num { font-size: 2.2rem; font-weight: 800; line-height: 1; }
-    .ir-avail-num.critical { color: var(--red); }
-    .ir-avail-num.warning  { color: var(--amber); }
-    .ir-avail-num.ok       { color: var(--green); }
-    .ir-avail-num.none     { color: var(--slate-400); }
-    .ir-avail-lbl { font-size: .75rem; color: var(--slate-400); }
-    .ir-buf {
-      display: inline-flex; align-items: center; gap: 3px;
-      font-size: .72rem; padding: 2px 8px; border-radius: 10px;
-      background: var(--slate-100); color: var(--slate-600);
-      border: 1px solid var(--slate-200); margin-left: auto;
+    /* 信号ドット */
+    .tl-dot {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15);
     }
+    .tl-dot.critical { background: var(--red); }
+    .tl-dot.warning  { background: var(--amber); }
+    .tl-dot.ok       { background: var(--green); }
+    .tl-dot.none     { background: var(--slate-300); }
+    .tl-dot-sm {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .tl-dot-sm.critical { background: var(--red); }
+    .tl-dot-sm.warning  { background: var(--amber); }
+    .tl-dot-sm.ok       { background: var(--green); }
+    .tl-dot-sm.none     { background: var(--slate-300); }
+    .ir-tl-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
     .ir-divider { border: none; border-top: 1px solid var(--slate-100); margin: 8px 0; }
     .ir-bn-lbl {
       font-size: .63rem; font-weight: 700; color: var(--slate-400);
       text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px;
     }
-    .ir-bn-row { display: flex; align-items: center; gap: 5px; font-size: .75rem; padding: 2px 0; }
-    .ir-bn-icon { width: 14px; text-align: center; flex-shrink: 0; font-size: .8rem; }
+    .ir-bn-row { display: flex; align-items: center; gap: 6px; font-size: .75rem; padding: 2px 0; }
     .ir-bn-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--slate-700); }
-    .ir-bn-pct  { font-weight: 700; flex-shrink: 0; font-size: .72rem; }
-    .ir-bn-pct.critical { color: var(--red); }
-    .ir-bn-pct.warning  { color: var(--amber); }
-    .ir-bn-pct.ok       { color: var(--green); }
     .ir-bn-tag {
       font-size: .6rem; font-weight: 700; padding: 1px 5px;
       background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border);
@@ -585,19 +584,7 @@
     }
     .up-type { font-size: .6rem; font-weight: 700; color: var(--slate-400); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
     .up-name { font-size: .82rem; font-weight: 700; margin-bottom: 6px; }
-    .up-bar-row { display: flex; align-items: center; gap: 8px; }
-    .up-bar     { flex: 1; height: 5px; background: var(--slate-200); border-radius: 3px; overflow: hidden; }
-    .up-fill    { height: 100%; border-radius: 3px; transition: width .3s; }
-    .up-fill.critical { background: var(--red); }
-    .up-fill.warning  { background: var(--amber); }
-    .up-fill.ok       { background: var(--green); }
-    .up-fill.none     { background: var(--slate-300); }
-    .up-pct     { font-size: .75rem; font-weight: 800; min-width: 34px; text-align: right; }
-    .up-pct.critical { color: var(--red); }
-    .up-pct.warning  { color: var(--amber); }
-    .up-pct.ok       { color: var(--green); }
-    .up-pct.none     { color: var(--slate-400); }
-    .up-buf     { font-size: .67rem; color: var(--slate-400); margin-top: 3px; }
+    .up-tl-row  { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
 
     /* legacy section dim */
     .legacy-label { opacity: .45; }
@@ -1230,33 +1217,25 @@ function renderImpactRanking(graph, impactMap) {
 
   const container = document.getElementById('impact-ranking');
   container.innerHTML = products.map((p, i) => {
-    const node   = p.node;
-    const avPct  = Math.round(p.availability * 100);
-    const cat    = CATEGORY_LABELS[node.category] ?? node.category ?? '';
-    const days   = INVENTORY_DAYS[p.id] ?? null;
-    const bufHtml = days !== null
-      ? `<span class="ir-buf">🕐 在庫 約${days}日</span>` : '';
+    const node = p.node;
+    const cat  = CATEGORY_LABELS[node.category] ?? node.category ?? '';
 
     // ボトルネック表示（上位3ノード）
     let bnHtml = '';
     if (p.ancestors.length > 0) {
-      // 上流ノードをavailability昇順でソートして最大3つ表示
       const sorted = [...p.ancestors]
         .map(id => ({ id, node: graph.nodes[id], avail: 1 - (impactMap[id]?.supplyRisk ?? 0) }))
         .sort((a, b) => a.avail - b.avail)
         .slice(0, 3);
 
       const rows = sorted.map(anc => {
-        const ancPct = Math.round(anc.avail * 100);
-        const sc     = _riskClass(1 - anc.avail);
-        const isBot  = anc.id === p.bottleneck;
-        const tag    = isBot ? '<span class="ir-bn-tag">ボトルネック</span>' : '';
-        const icon   = sc === 'critical' ? '✗' : sc === 'warning' ? '△' : '✓';
+        const sc    = _riskClass(1 - anc.avail);
+        const isBot = anc.id === p.bottleneck;
+        const tag   = isBot ? '<span class="ir-bn-tag">ボトルネック</span>' : '';
         return `<div class="ir-bn-row">
-          <span class="ir-bn-icon">${icon}</span>
+          <span class="tl-dot-sm ${sc}"></span>
           <span class="ir-bn-name">${anc.node?.label ?? anc.id}</span>
           ${tag}
-          <span class="ir-bn-pct ${sc}">${ancPct}%</span>
         </div>`;
       }).join('');
 
@@ -1271,10 +1250,8 @@ function renderImpactRanking(graph, impactMap) {
           <span class="ir-name">${node.label}</span>
           <span class="ir-cat">${cat}</span>
         </div>
-        <div class="ir-avail-row">
-          <span class="ir-avail-num ${p.sc}">${avPct}<span style="font-size:1.1rem;font-weight:600">%</span></span>
-          <span class="ir-avail-lbl">供給可能率</span>
-          ${bufHtml}
+        <div class="ir-tl-row">
+          <span class="tl-dot ${p.sc}"></span>
         </div>
         ${bnHtml}
       </div>`;
@@ -1288,21 +1265,15 @@ function renderUpstreamNodes(graph, impactMap) {
 
   document.getElementById('upstream-nodes').innerHTML = nodes.map(node => {
     const risk  = impactMap[node.id]?.supplyRisk ?? 0;
-    const avail = 1 - risk;
-    const avPct = Math.round(avail * 100);
     const sc    = _riskClass(risk);
-    const days  = INVENTORY_DAYS[node.id] ?? null;
-    const bufNote = days !== null ? `在庫 約${days}日` : '';
     const typeLabel = { feedstock: '原料', intermediate: '中間材', material: '素材' }[node.type] ?? node.type;
 
     return `<div class="up-node">
       <div class="up-type">${typeLabel}</div>
       <div class="up-name">${node.label}</div>
-      <div class="up-bar-row">
-        <div class="up-bar"><div class="up-fill ${sc}" style="width:${avPct}%"></div></div>
-        <span class="up-pct ${sc}">${avPct}%</span>
+      <div class="up-tl-row">
+        <span class="tl-dot ${sc}"></span>
       </div>
-      ${bufNote ? `<div class="up-buf">🕐 ${bufNote}</div>` : ''}
     </div>`;
   }).join('');
 }
