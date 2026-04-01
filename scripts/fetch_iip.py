@@ -534,13 +534,14 @@ def generate_html(parsed, source_url=""):
     is_demo   = parsed.get("is_demo", False)
     industries = parsed["industries"]
 
-    # Chart.js 用データを事前計算
+    # Chart.js 用データを事前計算（未計算の場合のみ）
     for ind in industries:
-        inv_h  = ind["inventory_history"]
-        prod_h = ind["production_history"]
-        ind["chart_labels"]   = [f"{m[0]}年{m[1]}月" for m in inv_h if m[2] is not None]
-        ind["chart_inv"]      = [m[2] for m in inv_h  if m[2] is not None]
-        ind["chart_prod"]     = [m[2] for m in prod_h if m[2] is not None]
+        if "chart_labels" not in ind:
+            inv_h  = ind.get("inventory_history",  [])
+            prod_h = ind.get("production_history", [])
+            ind["chart_labels"] = [f"{m[0]}年{m[1]}月" for m in inv_h  if m[2] is not None]
+            ind["chart_inv"]    = [m[2]                 for m in inv_h  if m[2] is not None]
+            ind["chart_prod"]   = [m[2]                 for m in prod_h if m[2] is not None]
 
     # 統計サマリー
     counts = {"green": 0, "yellow": 0, "red": 0, "gray": 0}
@@ -1012,7 +1013,42 @@ def main():
             print("[WARN] すべての取得ソースが失敗。デモデータで出力します。", file=sys.stderr)
             parsed = fallback_demo_data()
 
-    # ── HTML 生成・出力 ───────────────────────────────────────────────────
+    # ── JSON 出力（data/iip.json）─────────────────────────────────────────
+    enrich(parsed)
+    # チャートデータをここで計算（generate_html() と共有）
+    for ind in parsed["industries"]:
+        inv_h  = ind.get("inventory_history",  [])
+        prod_h = ind.get("production_history", [])
+        ind["chart_labels"] = [f"{m[0]}年{m[1]}月" for m in inv_h  if m[2] is not None]
+        ind["chart_inv"]    = [m[2]                 for m in inv_h  if m[2] is not None]
+        ind["chart_prod"]   = [m[2]                 for m in prod_h if m[2] is not None]
+    json_path = Path("data/iip.json")
+    json_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "data_date":    parsed["data_date"],
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "source_url":   source_url,
+        "is_demo":      parsed.get("is_demo", False),
+        "industries": [
+            {
+                "name":          ind["name"],
+                "production":    ind["production"],
+                "inventory":     ind["inventory"],
+                "buffer_months": ind["buffer_months"],
+                "color":         ind["color"],
+                "prod_yoy":      ind["prod_yoy"],
+                "inv_yoy":       ind["inv_yoy"],
+                "chart_labels":  ind["chart_labels"],
+                "chart_inv":     ind["chart_inv"],
+                "chart_prod":    ind["chart_prod"],
+            }
+            for ind in parsed["industries"]
+        ],
+    }
+    json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[OK] {json_path} に出力しました。", file=sys.stderr)
+
+    # ── スタンドアロン HTML 出力 ──────────────────────────────────────────
     out_path.parent.mkdir(parents=True, exist_ok=True)
     html = generate_html(parsed, source_url)
     out_path.write_text(html, encoding="utf-8")

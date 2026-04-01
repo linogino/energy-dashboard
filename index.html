@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>日本エネルギー供給ダッシュボード</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -594,6 +595,56 @@
 
     /* legacy section dim */
     .legacy-label { opacity: .45; }
+
+    /* ── Layer 4: IIP Buffer ── */
+    .iip-meta-row {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 10px; margin-bottom: 14px;
+    }
+    .iip-date-badge {
+      font-size: .78rem; font-weight: 600; padding: 3px 10px;
+      background: var(--slate-100); border: 1px solid var(--slate-200);
+      border-radius: 20px; color: var(--slate-600);
+    }
+    .iip-summary-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .iip-sbadge {
+      font-size: .75rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; white-space: nowrap;
+    }
+    .iip-filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    .iip-filter {
+      padding: 5px 14px; border: 1.5px solid var(--slate-200); border-radius: 20px;
+      background: white; color: var(--slate-600); font-size: .82rem; cursor: pointer;
+      font-family: inherit; transition: all .15s;
+    }
+    .iip-filter:hover  { border-color: var(--slate-400); }
+    .iip-filter.active { background: var(--slate-800); border-color: var(--slate-800); color: white; }
+    .iip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px; margin-bottom: 20px;
+    }
+    .iip-card {
+      background: white; border-radius: 8px; padding: 12px;
+      border: 1px solid var(--slate-200); border-top: 3px solid transparent;
+      box-shadow: var(--shadow);
+    }
+    .iip-card.green  { border-top-color: #16a34a; }
+    .iip-card.yellow { border-top-color: #ca8a04; }
+    .iip-card.red    { border-top-color: #dc2626; }
+    .iip-card.gray   { border-top-color: var(--slate-400); }
+    .iip-card-name   { font-size: .78rem; font-weight: 600; color: var(--slate-600); margin-bottom: 6px; line-height: 1.3; }
+    .iip-buf-row     { display: flex; align-items: baseline; gap: 3px; margin-bottom: 6px; }
+    .iip-buf-num     { font-size: 1.9rem; font-weight: 800; line-height: 1; }
+    .iip-card.green  .iip-buf-num { color: #16a34a; }
+    .iip-card.yellow .iip-buf-num { color: #ca8a04; }
+    .iip-card.red    .iip-buf-num { color: #dc2626; }
+    .iip-card.gray   .iip-buf-num { color: var(--slate-400); }
+    .iip-buf-unit    { font-size: .75rem; color: var(--slate-400); }
+    .iip-yoy-row     { font-size: .72rem; color: var(--slate-400); display: flex; gap: 8px; }
+    .iip-yoy-row .up   { color: #16a34a; font-weight: 600; }
+    .iip-yoy-row .down { color: #dc2626; font-weight: 600; }
+    .iip-chart-outer { position: relative; height: 220px; margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -685,6 +736,28 @@
   <div class="panel" style="opacity:.7">
     <div class="panel-title" style="font-size:.85rem">⛓ 連鎖影響シミュレーション（旧実装）</div>
     <div id="supply-chain"></div>
+  </div>
+
+  <!-- Layer 4: IIP Buffer -->
+  <div class="section-label">LAYER 4 ── 鉱工業指数（業種別在庫バッファー）</div>
+  <div class="panel">
+    <div id="iip-loading" class="l3-state">⏳ 鉱工業指数データ読み込み中…</div>
+    <div id="iip-error"   class="l3-state l3-error-msg hidden"></div>
+    <div id="iip-content" class="hidden">
+      <div class="iip-meta-row">
+        <span class="iip-date-badge">📅 データ基準月: <strong id="iip-date">—</strong></span>
+        <div class="iip-summary-badges" id="iip-badges"></div>
+      </div>
+      <div class="iip-filter-row" id="iip-filter-row">
+        <button class="iip-filter active" data-f="all">すべて</button>
+        <button class="iip-filter" data-f="green">🟢 3ヶ月以上</button>
+        <button class="iip-filter" data-f="yellow">🟡 1〜3ヶ月</button>
+        <button class="iip-filter" data-f="red">🔴 1ヶ月未満</button>
+      </div>
+      <div class="iip-grid" id="iip-grid"></div>
+      <div class="panel-title" style="margin-bottom:10px">📊 在庫バッファー比較（全業種・月数）</div>
+      <div class="iip-chart-outer"><canvas id="iip-bar-chart"></canvas></div>
+    </div>
   </div>
 
   <!-- Policy Measures -->
@@ -1212,6 +1285,125 @@ async function loadDashboard() {
 const FALLBACK = null; // Will be populated by build script if needed
 
 loadDashboard();
+
+// ── Layer 4: IIP Buffer ──────────────────────────────────────────────────────
+
+async function loadIIP() {
+  try {
+    const resp = await fetch('data/iip.json');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    renderIIP(data);
+  } catch (e) {
+    document.getElementById('iip-loading').classList.add('hidden');
+    const err = document.getElementById('iip-error');
+    err.classList.remove('hidden');
+    err.textContent = `鉱工業指数データを取得できませんでした（${e.message}）。fetch_iip.py を実行してください。`;
+  }
+}
+
+function renderIIP(data) {
+  document.getElementById('iip-loading').classList.add('hidden');
+  document.getElementById('iip-content').classList.remove('hidden');
+  document.getElementById('iip-date').textContent = data.data_date;
+
+  const COLOR = {
+    green:  { fg: '#16a34a', bg: '#dcfce7', bd: '#86efac', label: '🟢 3ヶ月以上' },
+    yellow: { fg: '#ca8a04', bg: '#fef9c3', bd: '#fde047', label: '🟡 1〜3ヶ月' },
+    red:    { fg: '#dc2626', bg: '#fee2e2', bd: '#fca5a5', label: '🔴 1ヶ月未満' },
+    gray:   { fg: '#6b7280', bg: '#f3f4f6', bd: '#d1d5db', label: '⚪ データなし' },
+  };
+
+  // サマリーバッジ
+  const counts = { green: 0, yellow: 0, red: 0, gray: 0 };
+  data.industries.forEach(d => { if (counts[d.color] !== undefined) counts[d.color]++; });
+  document.getElementById('iip-badges').innerHTML = Object.entries(counts)
+    .filter(([, v]) => v > 0)
+    .map(([k, v]) => {
+      const c = COLOR[k];
+      return `<span class="iip-sbadge" style="background:${c.bg};color:${c.fg};border:1px solid ${c.bd}">${c.label} ${v}業種</span>`;
+    }).join('');
+
+  // カードグリッド
+  const grid = document.getElementById('iip-grid');
+  grid.innerHTML = '';
+  data.industries.forEach(ind => {
+    const buf = ind.buffer_months !== null ? ind.buffer_months.toFixed(2) : '—';
+    const yoyVal = ind.inv_yoy;
+    const yoyHtml = yoyVal !== null
+      ? `<span class="${yoyVal >= 0 ? 'up' : 'down'}">${yoyVal >= 0 ? '+' : ''}${yoyVal.toFixed(1)}%</span>`
+      : '—';
+    const card = document.createElement('div');
+    card.className = `iip-card ${ind.color}`;
+    card.dataset.color = ind.color;
+    card.innerHTML = `
+      <div class="iip-card-name">${ind.name}</div>
+      <div class="iip-buf-row">
+        <span class="iip-buf-num">${buf}</span>
+        <span class="iip-buf-unit">ヶ月</span>
+      </div>
+      <div class="iip-yoy-row"><span>在庫前年比 ${yoyHtml}</span></div>`;
+    grid.appendChild(card);
+  });
+
+  // フィルター
+  document.querySelectorAll('.iip-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.iip-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.f;
+      document.querySelectorAll('#iip-grid .iip-card').forEach(c => {
+        c.style.display = (f === 'all' || c.dataset.color === f) ? '' : 'none';
+      });
+    });
+  });
+
+  // 横棒グラフ（全業種バッファー月数）
+  const sorted = [...data.industries]
+    .filter(d => d.buffer_months !== null)
+    .sort((a, b) => b.buffer_months - a.buffer_months);
+
+  const toColor = (d, alpha) => ({
+    green: `rgba(22,163,74,${alpha})`, yellow: `rgba(202,138,4,${alpha})`,
+    red:   `rgba(220,38,38,${alpha})`, gray:   `rgba(156,163,175,${alpha})`,
+  }[d.color] ?? `rgba(156,163,175,${alpha})`);
+
+  // チャートの高さを業種数に合わせて動的設定
+  const chartOuter = document.querySelector('.iip-chart-outer');
+  if (chartOuter) chartOuter.style.height = Math.max(200, sorted.length * 22 + 40) + 'px';
+
+  new Chart(document.getElementById('iip-bar-chart'), {
+    type: 'bar',
+    data: {
+      labels: sorted.map(d => d.name),
+      datasets: [{
+        label: '在庫バッファー（月数）',
+        data:  sorted.map(d => d.buffer_months),
+        backgroundColor: sorted.map(d => toColor(d, 0.6)),
+        borderColor:     sorted.map(d => toColor(d, 1.0)),
+        borderWidth: 1,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)} ヶ月` } },
+      },
+      scales: {
+        x: {
+          title: { display: true, text: '月数（在庫指数 ÷ 生産指数）', font: { size: 11 } },
+          ticks: { font: { size: 10 } },
+          grid: { color: 'rgba(0,0,0,.05)' },
+        },
+        y: { ticks: { font: { size: 10 } } },
+      },
+    },
+  });
+}
+
+loadIIP();
 </script>
 
 <script src="scripts/chain-graph.js"></script>

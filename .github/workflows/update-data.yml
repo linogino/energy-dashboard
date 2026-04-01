@@ -23,15 +23,20 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install -r scripts/requirements.txt
+        run: |
+          pip install -r scripts/requirements.txt
+          pip install -r scripts/requirements_iip.txt
 
-      - name: Fetch latest data
+      - name: Fetch energy dashboard data
         run: python scripts/fetch_data.py
+
+      - name: Fetch IIP data
+        run: python scripts/fetch_iip.py --out iip.html
 
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet data/dashboard.json; then
+          if git diff --quiet data/dashboard.json data/iip.json; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -42,6 +47,6 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/dashboard.json
-          git commit -m "chore: update dashboard data $(date +'%Y-%m-%d')"
+          git add data/dashboard.json data/iip.json iip.html
+          git commit -m "chore: update dashboard + IIP data $(date +'%Y-%m-%d')"
           git push
