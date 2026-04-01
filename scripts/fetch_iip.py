@@ -87,18 +87,134 @@ def find_excel_links_meti(html_text, page_url=METI_DOWNLOAD_URL):
     for a in soup.find_all("a", href=True):
         href = a["href"]
         if re.search(r"\.(xlsx|xls)$", href, re.IGNORECASE):
-            # 業種別原指数ファイルを優先（iipj を含むもの）
             full = urljoin(page_url, href)
             links.append((a.get_text(strip=True), full))
-    # 優先順: si1j (業種別月次) > iipj > 6桁月次コード > その他
+    # 優先順: gom1j (原指数・実績のみ) > si1j > iipj > 6桁月次コード > その他
     def priority(item):
         t, u = item
-        if "si1j" in u:  return 0   # 業種別月次原指数（最優先）
-        if "iipj" in u:  return 1
-        if re.search(r"\d{6}", u): return 2
-        return 3
+        if "gom1j" in u: return 0   # 業種別原指数（実績のみ・最優先）
+        if "si1j" in u:  return 1   # 業種別月次（予測値含む）
+        if "iipj" in u:  return 2
+        if re.search(r"\d{6}", u): return 3
+        return 4
     links.sort(key=priority)
     return links
+
+
+# ── 速報 HTML 取得 ────────────────────────────────────────────────────────────
+
+METI_BOOK_URL_TMPL = "https://www.meti.go.jp/statistics/tyo/iip/result/book/b2020_{yyyymm}sj.html"
+
+
+def find_latest_book_url():
+    """最新の速報 HTML URL を探す（最近6ヶ月を逆順に HEAD リクエストで確認）"""
+    today = date.today()
+    for delta in range(1, 7):
+        yr = today.year
+        mo = today.month - delta
+        while mo <= 0:
+            mo += 12
+            yr -= 1
+        yyyymm = f"{yr}{mo:02d}"
+        url = METI_BOOK_URL_TMPL.format(yyyymm=yyyymm)
+        try:
+            resp = requests.head(url, headers=HEADERS, timeout=15, allow_redirects=True)
+            if resp.status_code == 200:
+                print(f"[BOOK] 発見: {url}", file=sys.stderr)
+                return url, yr, mo
+        except Exception as e:
+            print(f"[BOOK] {url} → {e}", file=sys.stderr)
+    return None, None, None
+
+
+def _parse_book_html(html_text, yr, mo):
+    """
+    速報 HTML から主要業種の生産・在庫 原指数を抽出。
+
+    テーブル構造（生産・在庫とも同一）:
+      Row 0: ['', '季節調整済指数', '原指数']
+      Row 1: ['', '1月', '2月', '前月比', '寄与度', '1月', '2月', '前年同月比']
+      Data:  [業種名, SA前月, SA当月, 前月比, 寄与度, 原前月, 原当月, 前年同月比]
+             → col 6 = 原指数（当月）、col 7 = 前年同月比
+
+    big_tables[0] = 生産, big_tables[2] = 在庫
+    """
+    soup = BeautifulSoup(html_text, "lxml")
+    all_tables = soup.find_all("table")
+
+    # 20行以上・7列以上のテーブルを「大テーブル」とみなす
+    big_tables = [
+        t for t in all_tables
+        if len(t.find_all("tr")) >= 15 and
+           any(len(row.find_all(["td", "th"])) >= 7 for row in t.find_all("tr"))
+    ]
+    print(f"[BOOK] 大テーブル数: {len(big_tables)}", file=sys.stderr)
+    if len(big_tables) < 3:
+        return {}
+
+    _neg = re.compile(r"[△▲]")
+
+    def _to_float(s):
+        s = _neg.sub("-", s.strip()).replace(",", "")
+        if not s or s in ("−", "－", "…", "-"):
+            return None
+        try:
+            return float(s)
+        except ValueError:
+            return None
+
+    def extract_table(tbl):
+        result = {}
+        for row in tbl.find_all("tr"):
+            cells = [td.get_text(strip=True) for td in row.find_all(["td", "th"])]
+            if len(cells) < 8:
+                continue
+            name = cells[0].strip()
+            for known in INDUSTRY_NAMES_JA:
+                if known == name:
+                    val = _to_float(cells[6])
+                    yoy = _to_float(cells[7])
+                    if val is not None:
+                        result[known] = {"value": val, "yoy": yoy}
+                    break
+        return result
+
+    prod = extract_table(big_tables[0])
+    inv  = extract_table(big_tables[2])
+    print(f"[BOOK] 生産業種数: {len(prod)}, 在庫業種数: {len(inv)}", file=sys.stderr)
+    return {"prod": prod, "inv": inv, "year": yr, "month": mo}
+
+
+def merge_html_into_excel(excel_parsed, html_data):
+    """Excel 解析済みデータに速報 HTML の最新月をオーバーレイする"""
+    yr = html_data["year"]
+    mo = html_data["month"]
+    new_ym = (yr, mo)
+    prod_html = html_data.get("prod", {})
+    inv_html  = html_data.get("inv",  {})
+
+    # 既に最新月以上のデータがあれば何もしない
+    cur_date = excel_parsed.get("data_date", "")
+    excel_parsed["data_date"] = f"{yr}年{mo}月"
+
+    for ind in excel_parsed["industries"]:
+        name = ind["name"]
+        if name in prod_html:
+            ind["production"] = prod_html[name]["value"]
+            ind["prod_yoy"]   = prod_html[name]["yoy"]
+            hist = ind.get("production_history", [])
+            if not hist or hist[-1][:2] != new_ym:
+                hist.append((yr, mo, prod_html[name]["value"]))
+            ind["production_history"] = hist[-12:]
+        if name in inv_html:
+            ind["inventory"] = inv_html[name]["value"]
+            ind["inv_yoy"]   = inv_html[name]["yoy"]
+            hist = ind.get("inventory_history", [])
+            if not hist or hist[-1][:2] != new_ym:
+                hist.append((yr, mo, inv_html[name]["value"]))
+            ind["inventory_history"] = hist[-12:]
+
+    return excel_parsed
 
 
 def find_excel_links_estat(html_text):
@@ -1012,6 +1128,23 @@ def main():
         if parsed is None:
             print("[WARN] すべての取得ソースが失敗。デモデータで出力します。", file=sys.stderr)
             parsed = fallback_demo_data()
+
+    # ── 速報 HTML で最新月をオーバーレイ ─────────────────────────────────
+    if parsed and not parsed.get("is_demo"):
+        book_url, book_yr, book_mo = find_latest_book_url()
+        if book_url:
+            try:
+                resp = _get(book_url)
+                resp.encoding = resp.apparent_encoding or "utf-8"
+                html_data = _parse_book_html(resp.text, book_yr, book_mo)
+                if html_data.get("prod") or html_data.get("inv"):
+                    merge_html_into_excel(parsed, html_data)
+                    source_url = book_url
+                    print(f"[BOOK] ✓ {book_yr}年{book_mo}月データをオーバーレイしました", file=sys.stderr)
+                else:
+                    print("[BOOK] データ抽出失敗（テーブル構造不一致）", file=sys.stderr)
+            except Exception as e:
+                print(f"[BOOK] 取得失敗: {e}", file=sys.stderr)
 
     # ── JSON 出力（data/iip.json）─────────────────────────────────────────
     enrich(parsed)
