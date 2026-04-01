@@ -464,134 +464,140 @@
     .hidden { display: none !important; }
 
     /* ═══════════════════════════════════════════
-       Layer 3 Enhanced — chain simulation UI
+       Layer 3 — Impact Simulator UI
     ═══════════════════════════════════════════ */
 
-    /* toolbar */
     .l3-toolbar {
-      display: flex;
-      gap: 20px;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-      padding-bottom: 14px;
+      display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap;
+      margin-bottom: 16px; padding-bottom: 14px;
       border-bottom: 1px solid var(--slate-200);
     }
     .l3-tool-group { display: flex; flex-direction: column; gap: 6px; }
     .l3-tool-label { font-size: .7rem; font-weight: 700; color: var(--slate-400); letter-spacing: .08em; text-transform: uppercase; }
-    .l3-tab-row { display: flex; gap: 6px; flex-wrap: wrap; }
-    .l3-tab {
-      padding: 5px 14px;
-      border-radius: 20px;
-      border: 1.5px solid var(--slate-200);
-      background: white;
-      font-size: .8rem;
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--slate-600);
-      transition: border-color .15s, background .15s;
-    }
-    .l3-tab.active { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-    .l3-tab:disabled, .l3-tab[disabled] { opacity: .4; cursor: not-allowed; }
     .l3-select {
-      padding: 6px 10px;
-      border: 1.5px solid var(--slate-200);
-      border-radius: 8px;
-      font-size: .83rem;
-      color: var(--slate-800);
-      background: white;
-      cursor: pointer;
+      padding: 6px 10px; border: 1.5px solid var(--slate-200); border-radius: 8px;
+      font-size: .83rem; color: var(--slate-800); background: white; cursor: pointer;
+      min-width: 220px;
     }
-    .l3-hint { font-size: .72rem; color: var(--slate-400); margin-bottom: 8px; }
-
-    /* loading / error */
     .l3-state { padding: 32px; text-align: center; font-size: .9rem; color: var(--slate-400); }
     .l3-error-msg { color: var(--red); background: var(--red-bg); border-radius: 8px; }
 
-    /* TOP10 */
-    .top10-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-bottom: 4px;
-      transition: background .15s;
-      border: 1.5px solid transparent;
+    /* シナリオ説明パネル */
+    .scenario-story {
+      background: var(--slate-100); border-radius: 10px;
+      padding: 14px 18px; margin-bottom: 22px;
+      border-left: 4px solid var(--amber);
     }
-    .top10-item:hover { background: var(--slate-100); }
-    .top10-item.selected { background: #eff6ff; border-color: #93c5fd; }
-    .top10-rank { font-size: .75rem; font-weight: 800; color: var(--slate-400); width: 18px; text-align: right; flex-shrink: 0; }
-    .top10-body { flex: 1; min-width: 0; }
-    .top10-label { font-size: .83rem; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .top10-bar-wrap { display: flex; align-items: center; gap: 8px; }
-    .top10-bar { flex: 1; height: 6px; background: var(--slate-200); border-radius: 3px; overflow: hidden; }
-    .top10-bar-fill { height: 100%; border-radius: 3px; }
-    .top10-bar-fill.critical { background: var(--red); }
-    .top10-bar-fill.warning  { background: var(--amber); }
-    .top10-bar-fill.ok       { background: var(--green); }
-    .top10-score { font-size: .78rem; font-weight: 800; width: 28px; text-align: right; flex-shrink: 0; }
-    .top10-score.critical { color: var(--red); }
-    .top10-score.warning  { color: var(--amber); }
-    .top10-score.ok       { color: var(--green); }
-    .top10-risk { font-size: .68rem; color: var(--slate-400); margin-top: 2px; }
-    .top10-category {
-      font-size: .65rem;
-      padding: 2px 7px;
-      border-radius: 10px;
-      background: var(--slate-100);
-      color: var(--slate-600);
-      flex-shrink: 0;
+    .scenario-story-lbl {
+      font-size: .68rem; font-weight: 700; color: var(--slate-400);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;
+    }
+    .story-chain {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
+      font-size: .82rem; margin-bottom: 8px;
+    }
+    .story-step {
+      padding: 3px 10px; border-radius: 6px; font-weight: 600; white-space: nowrap;
+      background: white; border: 1px solid var(--slate-300); color: var(--slate-700);
+    }
+    .story-step.crit { background: var(--red-bg); border-color: var(--red-border); color: var(--red); }
+    .story-arrow { color: var(--slate-400); font-size: .8rem; }
+    .story-note { font-size: .78rem; color: var(--slate-600); line-height: 1.6; }
+
+    /* セクション見出し */
+    .l3-sub-hd {
+      font-size: .72rem; font-weight: 700; color: var(--slate-400);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px;
     }
 
-    /* Critical Path */
-    .cp-empty { font-size: .83rem; color: var(--slate-400); padding: 16px 0; }
-    .cp-step { display: flex; flex-direction: column; align-items: flex-start; }
-    .cp-node {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1.5px solid;
-      font-size: .82rem;
+    /* 影響ランキングカード */
+    .impact-ranking {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 12px; margin-bottom: 24px;
     }
-    .cp-node.critical { background: var(--red-bg);   border-color: var(--red-border);   }
-    .cp-node.warning  { background: var(--amber-bg); border-color: var(--amber-border); }
-    .cp-node.ok       { background: var(--green-bg); border-color: var(--green-border); }
-    .cp-node.none     { background: var(--slate-100); border-color: var(--slate-200); }
-    .cp-type-badge {
-      font-size: .62rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      background: rgba(0,0,0,.08);
-      border-radius: 4px;
-      letter-spacing: .04em;
-      flex-shrink: 0;
+    .ir-card {
+      background: white; border-radius: 10px; padding: 14px 16px;
+      border: 1.5px solid var(--slate-200); border-top: 4px solid transparent;
+      box-shadow: var(--shadow);
     }
-    .cp-node-label { flex: 1; font-weight: 700; }
-    .cp-risk-badge { font-size: .75rem; font-weight: 800; flex-shrink: 0; }
-    .cp-risk-badge.critical { color: var(--red); }
-    .cp-risk-badge.warning  { color: var(--amber); }
-    .cp-risk-badge.ok       { color: var(--green); }
-    .cp-risk-badge.none     { color: var(--slate-400); }
-    .cp-arrow { font-size: .9rem; color: var(--slate-400); margin: 3px 0 3px 18px; }
-    .cp-edge-note {
-      font-size: .68rem;
-      color: var(--slate-400);
-      margin: 2px 0 2px 40px;
-      font-style: italic;
+    .ir-card.avail-critical { border-top-color: var(--red); }
+    .ir-card.avail-warning  { border-top-color: var(--amber); }
+    .ir-card.avail-ok       { border-top-color: var(--green); }
+    .ir-card.avail-none     { border-top-color: var(--slate-300); }
+    .ir-head { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 8px; }
+    .ir-rank { font-size: .7rem; font-weight: 800; color: var(--slate-400); margin-top: 2px; min-width: 18px; }
+    .ir-name { font-size: .9rem; font-weight: 700; line-height: 1.3; flex: 1; }
+    .ir-cat  {
+      font-size: .63rem; padding: 2px 7px; border-radius: 10px;
+      background: var(--slate-100); color: var(--slate-600); flex-shrink: 0; margin-top: 2px;
     }
-    .cp-sources {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--slate-200);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .ir-avail-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+    .ir-avail-num { font-size: 2.2rem; font-weight: 800; line-height: 1; }
+    .ir-avail-num.critical { color: var(--red); }
+    .ir-avail-num.warning  { color: var(--amber); }
+    .ir-avail-num.ok       { color: var(--green); }
+    .ir-avail-num.none     { color: var(--slate-400); }
+    .ir-avail-lbl { font-size: .75rem; color: var(--slate-400); }
+    .ir-buf {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: .72rem; padding: 2px 8px; border-radius: 10px;
+      background: var(--slate-100); color: var(--slate-600);
+      border: 1px solid var(--slate-200); margin-left: auto;
     }
+    .ir-divider { border: none; border-top: 1px solid var(--slate-100); margin: 8px 0; }
+    .ir-bn-lbl {
+      font-size: .63rem; font-weight: 700; color: var(--slate-400);
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px;
+    }
+    .ir-bn-row { display: flex; align-items: center; gap: 5px; font-size: .75rem; padding: 2px 0; }
+    .ir-bn-icon { width: 14px; text-align: center; flex-shrink: 0; font-size: .8rem; }
+    .ir-bn-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--slate-700); }
+    .ir-bn-pct  { font-weight: 700; flex-shrink: 0; font-size: .72rem; }
+    .ir-bn-pct.critical { color: var(--red); }
+    .ir-bn-pct.warning  { color: var(--amber); }
+    .ir-bn-pct.ok       { color: var(--green); }
+    .ir-bn-tag {
+      font-size: .6rem; font-weight: 700; padding: 1px 5px;
+      background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border);
+      border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* 上流トグル */
+    .upstream-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border: 1.5px solid var(--slate-200); border-radius: 8px;
+      background: white; color: var(--slate-600); font-size: .82rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: all .15s; margin-bottom: 14px;
+    }
+    .upstream-btn:hover { border-color: var(--slate-400); color: var(--slate-800); }
+
+    /* 上流ノードグリッド */
+    .upstream-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 10px; margin-bottom: 8px;
+      animation: l3-fade .2s;
+    }
+    @keyframes l3-fade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+    .up-node {
+      background: white; border-radius: 8px; padding: 10px 12px;
+      border: 1px solid var(--slate-200); box-shadow: var(--shadow);
+    }
+    .up-type { font-size: .6rem; font-weight: 700; color: var(--slate-400); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+    .up-name { font-size: .82rem; font-weight: 700; margin-bottom: 6px; }
+    .up-bar-row { display: flex; align-items: center; gap: 8px; }
+    .up-bar     { flex: 1; height: 5px; background: var(--slate-200); border-radius: 3px; overflow: hidden; }
+    .up-fill    { height: 100%; border-radius: 3px; transition: width .3s; }
+    .up-fill.critical { background: var(--red); }
+    .up-fill.warning  { background: var(--amber); }
+    .up-fill.ok       { background: var(--green); }
+    .up-fill.none     { background: var(--slate-300); }
+    .up-pct     { font-size: .75rem; font-weight: 800; min-width: 34px; text-align: right; }
+    .up-pct.critical { color: var(--red); }
+    .up-pct.warning  { color: var(--amber); }
+    .up-pct.ok       { color: var(--green); }
+    .up-pct.none     { color: var(--slate-400); }
+    .up-buf     { font-size: .67rem; color: var(--slate-400); margin-top: 3px; }
 
     /* legacy section dim */
     .legacy-label { opacity: .45; }
@@ -663,21 +669,13 @@
     </div>
   </div>
 
-  <!-- Layer 3 Enhanced (new) -->
-  <div class="section-label">LAYER 3 ── 生活影響分析（バリューチェーン別シミュレーション）</div>
+  <!-- Layer 3: Impact Simulator -->
+  <div class="section-label">LAYER 3 ── 生活影響シミュレーション（何が止まるか）</div>
   <div class="panel">
 
-    <!-- toolbar -->
     <div class="l3-toolbar">
       <div class="l3-tool-group">
-        <span class="l3-tool-label">系統</span>
-        <div class="l3-tab-row">
-          <button class="l3-tab active" data-system="ethylene">エチレン系</button>
-          <button class="l3-tab" disabled>プロピレン系（近日）</button>
-        </div>
-      </div>
-      <div class="l3-tool-group">
-        <span class="l3-tool-label">シナリオ</span>
+        <span class="l3-tool-label">シナリオを選択</span>
         <select id="scenario-select" class="l3-select"></select>
       </div>
     </div>
@@ -686,24 +684,21 @@
     <div id="l3-error"   class="l3-state l3-error-msg hidden"></div>
 
     <div id="l3-content" class="hidden">
-      <div class="two-col">
 
-        <!-- TOP10 -->
-        <div>
-          <div class="panel-title">📊 影響上位製品 TOP10</div>
-          <div class="l3-hint">製品をクリックすると右側にパスを表示</div>
-          <div id="impact-top10"></div>
-        </div>
+      <!-- ① シナリオ連鎖説明 -->
+      <div id="scenario-story" class="scenario-story"></div>
 
-        <!-- Critical Path -->
-        <div>
-          <div class="panel-title">🔍 上流 Critical Path</div>
-          <div class="l3-hint">供給リスクが最も高い依存経路を表示</div>
-          <select id="cp-select" class="l3-select" style="width:100%;margin-bottom:12px"></select>
-          <div id="critical-path-view"></div>
-        </div>
+      <!-- ② 消費財影響ランキング（供給可能率 低い順） -->
+      <div class="l3-sub-hd">影響を受ける生活用品 ── 供給可能率の低い順</div>
+      <div id="impact-ranking" class="impact-ranking"></div>
 
+      <!-- ③ 上流原料（折りたたみ） -->
+      <button id="upstream-toggle" class="upstream-btn">▼ 上流原料・中間材の状況を表示</button>
+      <div id="upstream-panel" class="hidden">
+        <div class="l3-sub-hd" style="margin-top:4px">原料・中間材の供給可能率</div>
+        <div id="upstream-nodes" class="upstream-grid"></div>
       </div>
+
     </div>
   </div>
 
@@ -1041,124 +1036,248 @@ function _riskClass(risk) {
   return 'none';
 }
 
-// ── scenario selector ──────────────────────────────────────────────────
-function initScenarioSelect() {
-  const sel = document.getElementById('scenario-select');
-  sel.innerHTML = Object.values(ChainSimulation.SCENARIOS)
-    .map(s => `<option value="${s.id}">${s.label}</option>`)
-    .join('');
+// ── 在庫バッファー日数（推定値） ──────────────────────────────────────
+const INVENTORY_DAYS = {
+  naphtha: 15, ethylene: 7, eo: 7, meg: 14, edc: 10, vcm: 10,
+  surfactant_base: 14, ethanolamine: 14, polyether_polyol: 21,
+  pvc_resin: 21, hdpe: 21, lldpe: 21, ldpe: 21,
+  pet_resin: 14, polyester_fiber: 30, pu_foam: 30,
+  water_pipe: 60, electrical_conduit: 60,
+  food_wrap: 14, shopping_bag: 21, plastic_container: 21,
+  beverage_bottle: 14, food_packaging_film: 14,
+  kitchen_detergent: 30, shampoo: 30,
+  medical_devices: 45, mattress: 90, polyester_garment: 60,
+};
+
+// ── シナリオ連鎖ストーリー ─────────────────────────────────────────────
+const SCENARIO_STORIES = {
+  hormuz_block: {
+    chain: [
+      { label: 'ホルムズ封鎖', crit: true },
+      { label: 'ナフサ輸入 −97%', crit: true },
+      { label: 'エチレン生産低下', crit: true },
+      { label: 'EO・MEG不足', crit: true },
+      { label: '洗剤・ボトル・医療機器 供給制限', crit: true },
+    ],
+    note: '国内在庫（約2〜3週間分）が緩衝材。GW明け以降に枯渇リスク。医療優先配分が始まれば一般消費財から削られる。',
+  },
+  naphtha_30pct: {
+    chain: [
+      { label: 'ナフサ在庫 30%', crit: true },
+      { label: 'エチレン生産抑制' },
+      { label: '下流中間材不足' },
+      { label: '日用品・食品包装 供給減' },
+    ],
+    note: 'エチレンが絞られるとEO系・PE系全体に波及。一業種の不足が生活用品全般に連鎖する。',
+  },
+  upstream_ethylene_30: {
+    chain: [
+      { label: 'ナフサ分解炉 大幅減産', crit: true },
+      { label: 'エチレン供給 30%', crit: true },
+      { label: '全系統で中間材不足', crit: true },
+      { label: '広範な消費財 生産停止' },
+    ],
+    note: 'エチレンが全下流のボトルネック。ここが詰まると洗剤・ボトル・衣料・医療まで連鎖停止。',
+  },
+  intermediate_eo_50: {
+    chain: [
+      { label: 'EO製造設備停止', crit: true },
+      { label: 'EO供給 50%', crit: true },
+      { label: 'MEG・界面活性剤不足' },
+      { label: 'PETボトル・洗剤 供給減' },
+    ],
+    note: 'EO停止はPETボトル・洗剤・医療用消毒に直撃。上流（エチレン）には影響なし。被害は局所的だが深刻。',
+  },
+  downstream_pvc_40: {
+    chain: [
+      { label: 'PVC製造ライン停止', crit: true },
+      { label: 'PVC樹脂 40%', crit: true },
+      { label: '水道管・電気配管 供給減' },
+    ],
+    note: '上流（ナフサ・エチレン）は正常。ただし水道・電気インフラの補修部材が不足。時間差で生活インフラに影響。',
+  },
+  inventory_naphtha_30: {
+    chain: [
+      { label: 'GW以降 在庫枯渇', crit: true },
+      { label: 'ナフサ 残存 5%', crit: true },
+      { label: 'エチレン 20%', crit: true },
+      { label: '石油化学 事実上シャットダウン', crit: true },
+    ],
+    note: 'ナフサ在庫が完全に尽きたシナリオ。製造工業全体が止まり、生活用品の大半が入手困難になる最悪ケース。',
+  },
+  allocation_medical: {
+    chain: [
+      { label: '政府：医療優先配分' },
+      { label: 'EO → 医療機器に集中' },
+      { label: '一般洗剤・食品包装 後回し', crit: true },
+    ],
+    note: '危機下のトリアージ：医療・衛生を守ると日用品の棚が空になる。供給制約下での配分判断が問われる。',
+  },
+  normal: {
+    chain: [
+      { label: '供給途絶なし' },
+      { label: '全系統 平常運転' },
+    ],
+    note: '全ての供給チェーンが正常に機能している状態。基準値として使用。',
+  },
+};
+
+// ── ヘルパー：上流ノード（feedstock/intermediate/material）を全収集 ──
+function _getUpstreamNodes(graph, nodeId) {
+  const SHOW = new Set(['feedstock', 'intermediate', 'material']);
+  const visited = new Set([nodeId]);
+  const queue   = [nodeId];
+  const result  = [];
+  while (queue.length) {
+    const id = queue.shift();
+    for (const edge of (graph.radj[id] ?? [])) {
+      if (visited.has(edge.from)) continue;
+      visited.add(edge.from);
+      const n = graph.nodes[edge.from];
+      if (n && SHOW.has(n.type)) result.push(edge.from);
+      queue.push(edge.from);
+    }
+  }
+  return result;
 }
 
-// ── TOP10 ──────────────────────────────────────────────────────────────
-function renderTop10(graph, impactMap, selectedId) {
-  const ranked  = ChainSimulation.rankConsumerProducts(graph, impactMap);
-  const top10   = ranked.slice(0, 10);
-  const container = document.getElementById('impact-top10');
+// ── availability 計算（min of upstream nodes）───────────────────────────
+// 戻り値: { availability: 0〜1, sc: class文字列, bottleneck: nodeId|null, ancestors: [...] }
+function _productAvailability(graph, impactMap, productId) {
+  const ancestors = _getUpstreamNodes(graph, productId);
 
-  container.innerHTML = top10.map((item, i) => {
-    const sc  = _riskClass(item.supplyRisk);
-    const pct = Math.min(100, item.impactScore);
-    const cat = CATEGORY_LABELS[item.node.category] ?? item.node.category ?? '';
-    const sel = item.node.id === selectedId ? ' selected' : '';
-    return `
-      <div class="top10-item${sel}" data-product="${item.node.id}">
-        <span class="top10-rank">${i + 1}</span>
-        <div class="top10-body">
-          <div class="top10-label">${item.node.label}</div>
-          <div class="top10-bar-wrap">
-            <div class="top10-bar">
-              <div class="top10-bar-fill ${sc}" style="width:${pct}%"></div>
-            </div>
-            <span class="top10-score ${sc}">${item.impactScore}</span>
-          </div>
-          <div class="top10-risk">供給リスク ${Math.round(item.supplyRisk * 100)}%</div>
-        </div>
-        <span class="top10-category">${cat}</span>
-      </div>`;
-  }).join('');
+  // シナリオ影響がゼロの場合 → 製品自身のリスクも0
+  if (ancestors.length === 0) {
+    const risk = impactMap[productId]?.supplyRisk ?? 0;
+    return { availability: 1 - risk, sc: _riskClass(risk), bottleneck: null, ancestors: [] };
+  }
 
-  // クリック → critical path 表示
-  container.querySelectorAll('.top10-item').forEach(el => {
-    el.addEventListener('click', () => {
-      const pid = el.dataset.product;
-      document.getElementById('cp-select').value = pid;
-      _updateCriticalPath(graph, impactMap, pid);
-      renderTop10(graph, impactMap, pid);   // selected を更新
-    });
+  let minAvail = 1, bottleneck = null;
+  for (const id of ancestors) {
+    const risk  = impactMap[id]?.supplyRisk ?? 0;
+    const avail = 1 - risk;
+    if (avail < minAvail) { minAvail = avail; bottleneck = id; }
+  }
+  return {
+    availability: minAvail,
+    sc:           _riskClass(1 - minAvail),
+    bottleneck,
+    ancestors,
+  };
+}
+
+// ── シナリオ説明パネル描画 ─────────────────────────────────────────────
+function renderStory(scenarioId) {
+  const s = SCENARIO_STORIES[scenarioId];
+  if (!s) { document.getElementById('scenario-story').innerHTML = ''; return; }
+
+  const steps = s.chain.map((step, i) =>
+    `<span class="story-step${step.crit ? ' crit' : ''}">${step.label}</span>`
+    + (i < s.chain.length - 1 ? '<span class="story-arrow">→</span>' : '')
+  ).join('');
+
+  document.getElementById('scenario-story').innerHTML = `
+    <div class="scenario-story-lbl">連鎖シナリオ</div>
+    <div class="story-chain">${steps}</div>
+    <div class="story-note">${s.note}</div>`;
+}
+
+// ── 消費財 影響ランキング描画 ─────────────────────────────────────────
+function renderImpactRanking(graph, impactMap) {
+  const products = (graph.byType.consumer_product ?? []).map(id => {
+    const avInfo = _productAvailability(graph, impactMap, id);
+    return { id, node: graph.nodes[id], ...avInfo };
   });
-}
 
-// ── critical path selector ─────────────────────────────────────────────
-function initCriticalPathSelector(graph) {
-  const sel = document.getElementById('cp-select');
-  const products = graph.byType.consumer_product.map(id => graph.nodes[id]);
-  sel.innerHTML = '<option value="">製品を選択…</option>'
-    + products.map(n =>
-        `<option value="${n.id}">${n.label}</option>`
-      ).join('');
-}
+  // 供給可能率 低い順（影響大きい順）にソート
+  products.sort((a, b) => a.availability - b.availability);
 
-function _updateCriticalPath(graph, impactMap, productId) {
-  if (!productId) {
-    document.getElementById('critical-path-view').innerHTML =
-      '<div class="cp-empty">製品を選択してください</div>';
-    return;
-  }
+  const container = document.getElementById('impact-ranking');
+  container.innerHTML = products.map((p, i) => {
+    const node   = p.node;
+    const avPct  = Math.round(p.availability * 100);
+    const cat    = CATEGORY_LABELS[node.category] ?? node.category ?? '';
+    const days   = INVENTORY_DAYS[p.id] ?? null;
+    const bufHtml = days !== null
+      ? `<span class="ir-buf">🕐 在庫 約${days}日</span>` : '';
 
-  const path = ChainSimulation.getCriticalPath(graph, productId);
-  const container = document.getElementById('critical-path-view');
+    // ボトルネック表示（上位3ノード）
+    let bnHtml = '';
+    if (p.ancestors.length > 0) {
+      // 上流ノードをavailability昇順でソートして最大3つ表示
+      const sorted = [...p.ancestors]
+        .map(id => ({ id, node: graph.nodes[id], avail: 1 - (impactMap[id]?.supplyRisk ?? 0) }))
+        .sort((a, b) => a.avail - b.avail)
+        .slice(0, 3);
 
-  if (path.length === 0) {
-    container.innerHTML = '<div class="cp-empty">パスが見つかりません</div>';
-    return;
-  }
+      const rows = sorted.map(anc => {
+        const ancPct = Math.round(anc.avail * 100);
+        const sc     = _riskClass(1 - anc.avail);
+        const isBot  = anc.id === p.bottleneck;
+        const tag    = isBot ? '<span class="ir-bn-tag">ボトルネック</span>' : '';
+        const icon   = sc === 'critical' ? '✗' : sc === 'warning' ? '△' : '✓';
+        return `<div class="ir-bn-row">
+          <span class="ir-bn-icon">${icon}</span>
+          <span class="ir-bn-name">${anc.node?.label ?? anc.id}</span>
+          ${tag}
+          <span class="ir-bn-pct ${sc}">${ancPct}%</span>
+        </div>`;
+      }).join('');
 
-  const stepsHtml = path.map((step, i) => {
-    const { node, edge } = step;
-    const risk    = impactMap[node.id]?.supplyRisk ?? 0;
-    const riskPct = Math.round(risk * 100);
-    const sc      = _riskClass(risk);
-    const isLast  = i === path.length - 1;
-    const badge   = TYPE_BADGE[node.type] ?? node.type;
-    const edgeNote = edge?.meta?.process
-      ? `<div class="cp-edge-note">↪ ${edge.meta.process}</div>` : '';
+      bnHtml = `<hr class="ir-divider">
+        <div class="ir-bn-lbl">供給制約の原因</div>${rows}`;
+    }
 
     return `
-      <div class="cp-step">
-        <div class="cp-node ${sc}">
-          <span class="cp-type-badge">${badge}</span>
-          <span class="cp-node-label">${node.label}</span>
-          <span class="cp-risk-badge ${sc}">${riskPct > 0 ? riskPct + '%' : '—'}</span>
+      <div class="ir-card avail-${p.sc}">
+        <div class="ir-head">
+          <span class="ir-rank">${i + 1}</span>
+          <span class="ir-name">${node.label}</span>
+          <span class="ir-cat">${cat}</span>
         </div>
-        ${!isLast ? `<div class="cp-arrow">↓</div>${edgeNote}` : ''}
+        <div class="ir-avail-row">
+          <span class="ir-avail-num ${p.sc}">${avPct}<span style="font-size:1.1rem;font-weight:600">%</span></span>
+          <span class="ir-avail-lbl">供給可能率</span>
+          ${bufHtml}
+        </div>
+        ${bnHtml}
       </div>`;
   }).join('');
-
-  // 根拠ソース収集（パス上の全ノード・エッジの sourceRef を union）
-  const srcIds = [...new Set(
-    path.flatMap(s => [
-      ...(s.node.sourceRefs ?? []),
-      ...(s.edge?.sourceRefs ?? []),
-    ])
-  )];
-  const srcs = srcIds
-    .map(id => graph.sources[id])
-    .filter(s => s?.url);
-
-  const srcHtml = srcs.length ? `
-    <div class="cp-sources">
-      <span class="src-label">このパスの根拠</span>
-      ${srcs.map(s =>
-          `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.title}</a>`
-        ).join('')}
-    </div>` : '';
-
-  container.innerHTML = stepsHtml + srcHtml;
 }
 
-// ── main init ──────────────────────────────────────────────────────────
+// ── 上流ノード一覧描画 ────────────────────────────────────────────────
+function renderUpstreamNodes(graph, impactMap) {
+  const TYPES = ['feedstock', 'intermediate', 'material'];
+  const nodes = TYPES.flatMap(t => (graph.byType[t] ?? []).map(id => graph.nodes[id]));
+
+  document.getElementById('upstream-nodes').innerHTML = nodes.map(node => {
+    const risk  = impactMap[node.id]?.supplyRisk ?? 0;
+    const avail = 1 - risk;
+    const avPct = Math.round(avail * 100);
+    const sc    = _riskClass(risk);
+    const days  = INVENTORY_DAYS[node.id] ?? null;
+    const bufNote = days !== null ? `在庫 約${days}日` : '';
+    const typeLabel = { feedstock: '原料', intermediate: '中間材', material: '素材' }[node.type] ?? node.type;
+
+    return `<div class="up-node">
+      <div class="up-type">${typeLabel}</div>
+      <div class="up-name">${node.label}</div>
+      <div class="up-bar-row">
+        <div class="up-bar"><div class="up-fill ${sc}" style="width:${avPct}%"></div></div>
+        <span class="up-pct ${sc}">${avPct}%</span>
+      </div>
+      ${bufNote ? `<div class="up-buf">🕐 ${bufNote}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ── Layer 3 初期化 ────────────────────────────────────────────────────
 async function initLayer3Enhanced() {
-  initScenarioSelect();
+  // シナリオセレクタ
+  document.getElementById('scenario-select').innerHTML =
+    Object.values(ChainSimulation.SCENARIOS)
+      .map(s => `<option value="${s.id}">${s.label}</option>`)
+      .join('');
 
   const loading = document.getElementById('l3-loading');
   const errBox  = document.getElementById('l3-error');
@@ -1177,29 +1296,24 @@ async function initLayer3Enhanced() {
   loading.classList.add('hidden');
   content.classList.remove('hidden');
 
-  initCriticalPathSelector(graph);
-
-  function refresh(selectedId) {
+  function refresh() {
     const sid      = document.getElementById('scenario-select').value;
     const scenario = ChainSimulation.SCENARIOS[sid];
     const impactMap = ChainSimulation.propagateImpact(graph, scenario);
-    renderTop10(graph, impactMap, selectedId ?? null);
-    const pid = document.getElementById('cp-select').value;
-    _updateCriticalPath(graph, impactMap, pid);
+    renderStory(sid);
+    renderImpactRanking(graph, impactMap);
+    renderUpstreamNodes(graph, impactMap);
   }
 
-  // シナリオ変更
-  document.getElementById('scenario-select').addEventListener('change', () => refresh());
+  document.getElementById('scenario-select').addEventListener('change', refresh);
 
-  // 製品セレクタ変更
-  document.getElementById('cp-select').addEventListener('change', e => {
-    const sid = document.getElementById('scenario-select').value;
-    const impactMap = ChainSimulation.propagateImpact(graph, ChainSimulation.SCENARIOS[sid]);
-    _updateCriticalPath(graph, impactMap, e.target.value);
-    renderTop10(graph, impactMap, e.target.value);
+  // 上流パネル トグル
+  document.getElementById('upstream-toggle').addEventListener('click', function() {
+    const panel = document.getElementById('upstream-panel');
+    const hidden = panel.classList.toggle('hidden');
+    this.textContent = hidden ? '▼ 上流原料・中間材の状況を表示' : '▲ 上流原料・中間材を閉じる';
   });
 
-  // 初回描画
   refresh();
 }
 
