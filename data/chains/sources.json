@@ -6,6 +6,7 @@
       "title": "石油化学工業の生産・出荷実績（月次実績概要メモ）",
       "url": "https://www.jpca.or.jp/statistics/monthly/memo.html",
       "type": "official_stat",
+      "evidenceTier": "primary",
       "claimType": "エチレン系生産量・クラッカー稼働率（75.7%、43ヶ月連続90%割れ）の根拠"
     },
     "nikkei_naphtha_2026": {
@@ -14,6 +15,7 @@
       "title": "エチレン減産、暮らしにどう影響？ ホルムズ封鎖で原料ナフサ調達難",
       "url": "https://www.nikkei.com/article/DGXZQOUC0962C0Z00C26A3000000/",
       "type": "news",
+      "evidenceTier": "secondary",
       "claimType": "ナフサ不足→エチレン→石化製品への影響連鎖の記事根拠"
     },
     "toyo_naphtha_2026": {
@@ -22,6 +24,7 @@
       "title": "ナフサ不足が浮上、調達メドはGW前まで",
       "url": "https://toyokeizai.net/articles/-/939543",
       "type": "news",
+      "evidenceTier": "secondary",
       "claimType": "ナフサ在庫約2〜3週間・中東由来実質8割超・GW頃までの供給見通し"
     },
     "meti_petrochemical": {
@@ -30,6 +33,7 @@
       "title": "中東情勢を踏まえた燃料油・石油製品の安定供給確保",
       "url": "https://www.cas.go.jp/jp/seisaku/chyutoujyousei/",
       "type": "official_stat",
+      "evidenceTier": "primary",
       "claimType": "石化バリューチェーン・ナフサ→エチレン依存構造の政策根拠"
     },
     "proxy_chem_conversion": {
@@ -38,6 +42,7 @@
       "title": "化学変換関係（業界定説）",
       "url": "",
       "type": "proxy",
+      "evidenceTier": "proxy",
       "claimType": "EO→MEGなど化学変換経路は業界定説。個別定量ソース未取得"
     },
     "proxy_consumer_score": {
@@ -46,6 +51,7 @@
       "title": "消費者関連度スコア（仮置き）",
       "url": "",
       "type": "proxy",
+      "evidenceTier": "proxy",
       "claimType": "各製品の消費者影響度を市場規模・生活必需度から推定した仮スコア。basis=proxy"
     }
   }

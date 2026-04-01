@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鉱工業指数 — 業種別在庫バッファー</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --green:  #16a34a; --green-bg:  #dcfce7; --green-bd:  #86efac;
+  --yellow: #ca8a04; --yellow-bg: #fef9c3; --yellow-bd: #fde047;
+  --red:    #dc2626; --red-bg:    #fee2e2; --red-bd:    #fca5a5;
+  --gray:   #6b7280; --gray-bg:   #f3f4f6; --gray-bd:   #d1d5db;
+  --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b;
+  --radius: 10px; --shadow: 0 1px 4px rgba(0,0,0,.08),0 2px 12px rgba(0,0,0,.05);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; background: var(--bg); color: var(--text); }
+.demo-banner {
+  background: #fef3c7; border-bottom: 2px solid #f59e0b;
+  padding: 10px 20px; font-size: .875rem; color: #92400e;
+  text-align: center;
+}
+header {
+  background: linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);
+  color: #fff; padding: 28px 24px 20px;
+}
+header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+header .sub { font-size: .875rem; opacity: .75; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+/* サマリーバー */
+.summary-bar {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.badge {
+  padding: 5px 12px; border-radius: 20px; font-size: .8rem; font-weight: 600; white-space: nowrap;
+}
+/* フィルター */
+.filter-bar {
+  display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 6px 16px; border: 1.5px solid #cbd5e1; border-radius: 20px;
+  background: #fff; color: var(--muted); font-size: .85rem; cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { border-color: #94a3b8; color: var(--text); }
+.filter-btn.active { background: #1e293b; border-color: #1e293b; color: #fff; }
+/* グリッド */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+/* カード */
+.card {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 16px;
+  border-top: 4px solid transparent; transition: transform .15s;
+}
+.card:hover { transform: translateY(-2px); }
+.card.green  { border-top-color: var(--green);  }
+.card.yellow { border-top-color: var(--yellow); }
+.card.red    { border-top-color: var(--red);    }
+.card.gray   { border-top-color: var(--gray);   }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.card-name { font-size: .95rem; font-weight: 700; line-height: 1.3; }
+.card-badge {
+  font-size: .7rem; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+  font-weight: 600; margin-left: 6px;
+}
+.card.green  .card-badge { background: var(--green-bg);  color: var(--green);  border:1px solid var(--green-bd);  }
+.card.yellow .card-badge { background: var(--yellow-bg); color: var(--yellow); border:1px solid var(--yellow-bd); }
+.card.red    .card-badge { background: var(--red-bg);    color: var(--red);    border:1px solid var(--red-bd);    }
+.card.gray   .card-badge { background: var(--gray-bg);   color: var(--gray);   border:1px solid var(--gray-bd);   }
+.buffer-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 10px; }
+.buffer-num { font-size: 2.4rem; font-weight: 800; line-height: 1; }
+.card.green  .buffer-num { color: var(--green);  }
+.card.yellow .buffer-num { color: var(--yellow); }
+.card.red    .buffer-num { color: var(--red);    }
+.card.gray   .buffer-num { color: var(--gray);   }
+.buffer-unit { font-size: .85rem; color: var(--muted); }
+.card-metrics { display: flex; gap: 16px; margin-bottom: 12px; }
+.metric { font-size: .8rem; }
+.metric .label { color: var(--muted); display: block; margin-bottom: 2px; }
+.metric .value { font-weight: 600; }
+.metric .up   { color: #16a34a; }
+.metric .down { color: #dc2626; }
+.chart-wrap { position: relative; height: 80px; }
+/* 概要チャートセクション */
+.overview-section { margin-bottom: 32px; }
+.panel {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 20px;
+}
+.panel-title { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+.overview-chart-wrap { position: relative; height: 320px; }
+footer {
+  text-align: center; padding: 24px 16px; color: var(--muted); font-size: .8rem;
+  border-top: 1px solid #e2e8f0; margin-top: 32px;
+}
+footer a { color: #3b82f6; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+
+
+<header>
+  <div class="container" style="padding-top:0;padding-bottom:0">
+    <h1>🏭 鉱工業指数 — 業種別在庫バッファー</h1>
+    <div class="sub">データ基準月: <strong>2025年12月</strong>　|　2020年基準　|　生成: 2026年04月01日 10:14</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="summary-bar" style="margin-top:16px">
+    <span class="badge" style="background:#dcfce7;color:#16a34a;border:1px solid #86efac">🟢 3ヶ月以上 0業種</span><span class="badge" style="background:#fef9c3;color:#ca8a04;border:1px solid #fde047">🟡 1〜3ヶ月 5業種</span><span class="badge" style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5">🔴 1ヶ月未満 20業種</span><span class="badge" style="background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db">⚪ データなし 0業種</span>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">すべて</button>
+    <button class="filter-btn" data-filter="green">🟢 3ヶ月以上</button>
+    <button class="filter-btn" data-filter="yellow">🟡 1〜3ヶ月</button>
+    <button class="filter-btn" data-filter="red">🔴 1ヶ月未満</button>
+  </div>
+
+  <!-- 業種別カード -->
+  <div class="grid" id="card-grid"></div>
+
+  <!-- 在庫指数12ヶ月推移 概要チャート -->
+  <div class="overview-section" style="margin-top:32px">
+    <div class="panel">
+      <div class="panel-title">📊 在庫指数 12ヶ月推移（主要業種）</div>
+      <div>
+        <label for="overview-select" style="font-size:.85rem;color:#64748b">業種を選択: </label>
+        <select id="overview-select" style="font-size:.85rem;padding:4px 8px;border-radius:4px;border:1px solid #cbd5e1;margin-left:4px"></select>
+      </div>
+      <div class="overview-chart-wrap" style="margin-top:12px">
+        <canvas id="overview-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>出典: <a href="https://www.meti.go.jp/statistics/tyo/iip/xls/b2020_si1j.xlsx" target="_blank" rel="noopener">https://www.meti.go.jp/statistics/tyo/iip/xls/b2020_si1j.xlsx</a></p>
+  <p style="margin-top:4px">在庫バッファー（月数）= 在庫指数 ÷ 生産指数　|　前年同月比 = (最新月 − 前年同月) / 前年同月 × 100</p>
+</footer>
+
+<script>
+const INDUSTRIES = [
+  {
+    "name": "製造工業",
+    "production": 104.75,
+    "inventory": 97.32,
+    "buffer_months": 0.93,
+    "color": "red",
+    "prod_yoy": 1.6,
+    "inv_yoy": -0.4,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      100.86,
+      100.44,
+      97.38,
+      98.43,
+      101.02,
+      100.66,
+      101.93,
+      100.63,
+      99.37,
+      100.9,
+      100.98,
+      97.32
+    ],
+    "chart_prod": [
+      92.5,
+      95.56,
+      108.45,
+      99.35,
+      92.81,
+      101.15,
+      105.63,
+      89.12,
+      104.82,
+      105.62,
+      99.52,
+      104.75
+    ]
+  },
+  {
+    "name": "食料品・たばこ工業",
+    "production": 109.03,
+    "inventory": 96.58,
+    "buffer_months": 0.89,
+    "color": "red",
+    "prod_yoy": 1.9,
+    "inv_yoy": -1.5,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      90.76,
+      95.65,
+      98.82,
+      102.42,
+      104.66,
+      107.46,
+      109.21,
+      99.1,
+      96.15,
+      98.12,
+      101.07,
+      96.58
+    ],
+    "chart_prod": [
+      87.0,
+      91.62,
+      102.68,
+      106.64,
+      98.54,
+      101.54,
+      106.62,
+      95.03,
+      99.44,
+      101.52,
+      99.96,
+      109.03
+    ]
+  },
+  {
+    "name": "繊維工業",
+    "production": 108.57,
+    "inventory": 100.62,
+    "buffer_months": 0.93,
+    "color": "red",
+    "prod_yoy": 0.9,
+    "inv_yoy": -0.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      100.09,
+      99.78,
+      99.79,
+      100.94,
+      102.82,
+      100.14,
+      98.88,
+      98.89,
+      98.52,
+      99.09,
+      100.04,
+      100.62
+    ],
+    "chart_prod": [
+      101.48,
+      97.42,
+      104.3,
+      96.14,
+      98.69,
+      98.69,
+      100.31,
+      95.03,
+      97.07,
+      101.49,
+      100.34,
+      108.57
+    ]
+  },
+  {
+    "name": "木材・木製品工業",
+    "production": 99.45,
+    "inventory": 97.91,
+    "buffer_months": 0.98,
+    "color": "red",
+    "prod_yoy": 0.9,
+    "inv_yoy": -0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      97.54,
+      99.69,
+      100.57,
+      100.61,
+      100.92,
+      101.71,
+      101.51,
+      101.19,
+      100.31,
+      99.28,
+      98.8,
+      97.91
+    ],
+    "chart_prod": [
+      94.39,
+      95.81,
+      102.9,
+      103.46,
+      97.13,
+      103.79,
+      103.51,
+      91.91,
+      100.61,
+      105.92,
+      100.39,
+      99.45
+    ]
+  },
+  {
+    "name": "パルプ・紙・紙加工品工業",
+    "production": 102.26,
+    "inventory": 95.81,
+    "buffer_months": 0.94,
+    "color": "red",
+    "prod_yoy": 0.5,
+    "inv_yoy": -0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      98.78,
+      99.01,
+      98.45,
+      98.26,
+      102.4,
+      98.46,
+      98.78,
+      101.62,
+      103.8,
+      103.87,
+      100.83,
+      95.81
+    ],
+    "chart_prod": [
+      93.1,
+      93.87,
+      106.82,
+      103.76,
+      99.42,
+      93.65,
+      101.55,
+      96.55,
+      102.67,
+      105.93,
+      99.99,
+      102.26
+    ]
+  },
+  {
+    "name": "化学工業",
+    "production": 97.9,
+    "inventory": 97.99,
+    "buffer_months": 1.0,
+    "color": "yellow",
+    "prod_yoy": -0.9,
+    "inv_yoy": -0.7,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      101.81,
+      101.49,
+      99.83,
+      98.88,
+      98.77,
+      99.58,
+      100.82,
+      98.93,
+      99.96,
+      100.78,
+      101.41,
+      97.99
+    ],
+    "chart_prod": [
+      91.75,
+      94.36,
+      104.06,
+      104.6,
+      93.47,
+      101.72,
+      112.18,
+      86.94,
+      103.95,
+      108.48,
+      99.88,
+      97.9
+    ]
+  },
+  {
+    "name": "化学工業（除．医薬品）",
+    "production": 103.61,
+    "inventory": 99.41,
+    "buffer_months": 0.96,
+    "color": "red",
+    "prod_yoy": 0.2,
+    "inv_yoy": 0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      103.96,
+      103.8,
+      99.69,
+      98.59,
+      100.1,
+      98.82,
+      97.84,
+      100.03,
+      100.07,
+      98.96,
+      98.72,
+      99.41
+    ],
+    "chart_prod": [
+      100.22,
+      94.83,
+      101.26,
+      104.32,
+      94.08,
+      95.47,
+      105.04,
+      94.26,
+      102.05,
+      103.95,
+      100.12,
+      103.61
+    ]
+  },
+  {
+    "name": "石油・石炭製品工業",
+    "production": 114.08,
+    "inventory": 99.71,
+    "buffer_months": 0.87,
+    "color": "red",
+    "prod_yoy": 1.5,
+    "inv_yoy": -0.2,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      103.84,
+      95.43,
+      91.54,
+      97.12,
+      102.87,
+      97.89,
+      94.79,
+      104.17,
+      105.37,
+      104.48,
+      102.54,
+      99.71
+    ],
+    "chart_prod": [
+      107.86,
+      99.51,
+      105.26,
+      96.99,
+      92.35,
+      88.45,
+      92.65,
+      101.74,
+      98.1,
+      101.36,
+      101.88,
+      114.08
+    ]
+  },
+  {
+    "name": "プラスチック製品工業",
+    "production": 99.0,
+    "inventory": 98.78,
+    "buffer_months": 1.0,
+    "color": "yellow",
+    "prod_yoy": 0.1,
+    "inv_yoy": -0.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      99.41,
+      100.96,
+      100.4,
+      99.45,
+      99.26,
+      101.45,
+      101.54,
+      97.95,
+      99.39,
+      99.86,
+      101.41,
+      98.78
+    ],
+    "chart_prod": [
+      90.13,
+      96.22,
+      101.94,
+      101.98,
+      94.53,
+      104.3,
+      108.64,
+      85.42,
+      105.36,
+      109.18,
+      102.6,
+      99.0
+    ]
+  },
+  {
+    "name": "窯業・土石製品工業",
+    "production": 103.03,
+    "inventory": 99.61,
+    "buffer_months": 0.97,
+    "color": "red",
+    "prod_yoy": 1.1,
+    "inv_yoy": 0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      99.37,
+      99.5,
+      99.54,
+      99.81,
+      100.02,
+      101.0,
+      101.01,
+      100.55,
+      100.28,
+      99.33,
+      99.92,
+      99.61
+    ],
+    "chart_prod": [
+      93.01,
+      94.91,
+      102.57,
+      100.07,
+      94.18,
+      101.82,
+      104.14,
+      89.33,
+      103.69,
+      109.9,
+      103.15,
+      103.03
+    ]
+  },
+  {
+    "name": "鉄鋼業",
+    "production": 98.91,
+    "inventory": 98.37,
+    "buffer_months": 0.99,
+    "color": "red",
+    "prod_yoy": 0.8,
+    "inv_yoy": -0.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      102.02,
+      101.78,
+      97.96,
+      99.92,
+      101.34,
+      100.35,
+      97.88,
+      101.47,
+      99.24,
+      100.24,
+      99.53,
+      98.37
+    ],
+    "chart_prod": [
+      99.34,
+      94.96,
+      103.9,
+      98.33,
+      99.75,
+      100.47,
+      104.03,
+      95.25,
+      100.72,
+      103.89,
+      99.84,
+      98.91
+    ]
+  },
+  {
+    "name": "非鉄金属工業",
+    "production": 99.69,
+    "inventory": 100.99,
+    "buffer_months": 1.01,
+    "color": "yellow",
+    "prod_yoy": 0.5,
+    "inv_yoy": -0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      100.89,
+      100.66,
+      100.9,
+      98.96,
+      100.89,
+      100.8,
+      100.19,
+      99.8,
+      99.26,
+      98.06,
+      98.73,
+      100.99
+    ],
+    "chart_prod": [
+      95.73,
+      97.3,
+      103.73,
+      100.2,
+      94.53,
+      103.14,
+      107.05,
+      87.47,
+      102.94,
+      107.55,
+      100.12,
+      99.69
+    ]
+  },
+  {
+    "name": "鉄鋼・非鉄金属工業",
+    "production": 99.07,
+    "inventory": 99.08,
+    "buffer_months": 1.0,
+    "color": "yellow",
+    "prod_yoy": 0.3,
+    "inv_yoy": -0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      101.82,
+      101.04,
+      97.67,
+      99.86,
+      101.28,
+      100.54,
+      99.19,
+      101.12,
+      99.42,
+      99.62,
+      99.5,
+      99.08
+    ],
+    "chart_prod": [
+      97.82,
+      95.97,
+      103.62,
+      99.12,
+      97.48,
+      101.53,
+      105.73,
+      91.99,
+      101.61,
+      105.59,
+      99.86,
+      99.07
+    ]
+  },
+  {
+    "name": "金属製品工業",
+    "production": 100.28,
+    "inventory": 92.78,
+    "buffer_months": 0.93,
+    "color": "red",
+    "prod_yoy": 1.3,
+    "inv_yoy": 1.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      93.51,
+      94.72,
+      96.61,
+      98.72,
+      101.34,
+      104.38,
+      105.81,
+      106.05,
+      104.39,
+      103.44,
+      98.43,
+      92.78
+    ],
+    "chart_prod": [
+      92.85,
+      94.84,
+      104.73,
+      102.43,
+      93.63,
+      101.76,
+      107.75,
+      88.72,
+      103.15,
+      109.82,
+      100.15,
+      100.28
+    ]
+  },
+  {
+    "name": "生産用機械工業",
+    "production": 112.11,
+    "inventory": 96.48,
+    "buffer_months": 0.86,
+    "color": "red",
+    "prod_yoy": 3.3,
+    "inv_yoy": -0.9,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      102.41,
+      102.49,
+      93.84,
+      97.84,
+      100.54,
+      99.29,
+      103.64,
+      103.82,
+      98.84,
+      99.31,
+      101.44,
+      96.48
+    ],
+    "chart_prod": [
+      91.14,
+      95.83,
+      126.88,
+      92.29,
+      91.66,
+      105.1,
+      99.24,
+      87.58,
+      105.26,
+      95.9,
+      95.09,
+      112.11
+    ]
+  },
+  {
+    "name": "<旧分類>はん用・生産用・業務用機械工業",
+    "production": 110.47,
+    "inventory": 98.33,
+    "buffer_months": 0.89,
+    "color": "red",
+    "prod_yoy": 4.3,
+    "inv_yoy": 0.0,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      102.35,
+      102.26,
+      95.54,
+      98.59,
+      100.18,
+      99.32,
+      102.61,
+      101.93,
+      98.27,
+      99.35,
+      101.14,
+      98.33
+    ],
+    "chart_prod": [
+      91.1,
+      96.34,
+      121.85,
+      94.3,
+      90.45,
+      103.57,
+      101.13,
+      86.61,
+      105.94,
+      101.31,
+      95.98,
+      110.47
+    ]
+  },
+  {
+    "name": "業務用機械工業",
+    "production": 104.38,
+    "inventory": 99.77,
+    "buffer_months": 0.96,
+    "color": "red",
+    "prod_yoy": 2.5,
+    "inv_yoy": 0.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      100.58,
+      101.93,
+      98.67,
+      100.13,
+      100.95,
+      100.49,
+      101.38,
+      100.5,
+      97.64,
+      98.96,
+      98.94,
+      99.77
+    ],
+    "chart_prod": [
+      95.1,
+      101.17,
+      114.39,
+      93.93,
+      90.59,
+      101.22,
+      107.02,
+      86.54,
+      109.07,
+      101.22,
+      94.59,
+      104.38
+    ]
+  },
+  {
+    "name": "汎用・業務用機械工業",
+    "production": 108.01,
+    "inventory": 100.22,
+    "buffer_months": 0.93,
+    "color": "red",
+    "prod_yoy": 3.9,
+    "inv_yoy": 0.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      102.19,
+      102.54,
+      98.13,
+      98.51,
+      99.69,
+      100.29,
+      101.27,
+      99.54,
+      97.61,
+      99.48,
+      100.45,
+      100.22
+    ],
+    "chart_prod": [
+      92.49,
+      95.44,
+      116.34,
+      94.05,
+      89.92,
+      103.14,
+      103.69,
+      86.11,
+      108.06,
+      105.22,
+      97.44,
+      108.01
+    ]
+  },
+  {
+    "name": "電子部品・デバイス工業",
+    "production": 102.38,
+    "inventory": 100.35,
+    "buffer_months": 0.98,
+    "color": "red",
+    "prod_yoy": 0.0,
+    "inv_yoy": 1.9,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      103.13,
+      102.83,
+      96.38,
+      98.36,
+      98.75,
+      98.33,
+      101.29,
+      100.49,
+      96.32,
+      100.8,
+      102.93,
+      100.35
+    ],
+    "chart_prod": [
+      93.29,
+      91.17,
+      102.39,
+      98.26,
+      91.11,
+      98.0,
+      105.2,
+      99.95,
+      112.74,
+      106.26,
+      98.91,
+      102.38
+    ]
+  },
+  {
+    "name": "電気機械工業",
+    "production": 107.21,
+    "inventory": 97.55,
+    "buffer_months": 0.91,
+    "color": "red",
+    "prod_yoy": 3.6,
+    "inv_yoy": 0.5,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      99.87,
+      98.75,
+      88.83,
+      99.83,
+      104.93,
+      105.54,
+      105.59,
+      102.82,
+      96.34,
+      98.96,
+      101.06,
+      97.55
+    ],
+    "chart_prod": [
+      94.02,
+      97.58,
+      120.55,
+      96.12,
+      91.01,
+      105.92,
+      104.43,
+      81.0,
+      105.26,
+      101.5,
+      95.0,
+      107.21
+    ]
+  },
+  {
+    "name": "情報通信機械工業",
+    "production": 113.96,
+    "inventory": 92.74,
+    "buffer_months": 0.81,
+    "color": "red",
+    "prod_yoy": 1.9,
+    "inv_yoy": -6.8,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      102.11,
+      108.38,
+      100.74,
+      104.01,
+      104.79,
+      101.41,
+      99.88,
+      100.84,
+      91.84,
+      96.43,
+      95.69,
+      92.74
+    ],
+    "chart_prod": [
+      97.74,
+      97.8,
+      131.03,
+      86.39,
+      79.63,
+      99.13,
+      102.79,
+      81.24,
+      110.77,
+      105.76,
+      93.9,
+      113.96
+    ]
+  },
+  {
+    "name": "電気・情報通信機械工業",
+    "production": 109.11,
+    "inventory": 96.8,
+    "buffer_months": 0.89,
+    "color": "red",
+    "prod_yoy": 2.3,
+    "inv_yoy": -0.3,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      100.36,
+      101.01,
+      90.34,
+      100.95,
+      104.87,
+      103.79,
+      104.46,
+      102.51,
+      96.36,
+      98.48,
+      100.02,
+      96.8
+    ],
+    "chart_prod": [
+      92.51,
+      97.55,
+      121.79,
+      94.03,
+      88.77,
+      105.08,
+      105.7,
+      80.99,
+      106.94,
+      102.34,
+      95.59,
+      109.11
+    ]
+  },
+  {
+    "name": "輸送機械工業",
+    "production": 107.08,
+    "inventory": 82.52,
+    "buffer_months": 0.77,
+    "color": "red",
+    "prod_yoy": 1.0,
+    "inv_yoy": -0.4,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      84.76,
+      85.42,
+      82.08,
+      93.45,
+      105.46,
+      122.91,
+      130.76,
+      124.91,
+      106.99,
+      95.3,
+      84.76,
+      82.52
+    ],
+    "chart_prod": [
+      94.17,
+      96.46,
+      112.47,
+      91.36,
+      93.48,
+      102.03,
+      99.81,
+      97.27,
+      104.76,
+      101.77,
+      98.51,
+      107.08
+    ]
+  },
+  {
+    "name": "その他工業",
+    "production": 100.26,
+    "inventory": 101.16,
+    "buffer_months": 1.01,
+    "color": "yellow",
+    "prod_yoy": 0.8,
+    "inv_yoy": -0.1,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      102.44,
+      101.89,
+      96.66,
+      96.7,
+      97.45,
+      98.02,
+      99.55,
+      101.02,
+      101.34,
+      101.44,
+      102.31,
+      101.16
+    ],
+    "chart_prod": [
+      93.73,
+      98.3,
+      106.46,
+      102.83,
+      95.35,
+      101.66,
+      103.7,
+      89.0,
+      102.51,
+      104.63,
+      100.76,
+      100.26
+    ]
+  },
+  {
+    "name": "産業総合（鉱工業、電力・ガス・熱供給・水道事業）",
+    "production": 104.96,
+    "inventory": 97.37,
+    "buffer_months": 0.93,
+    "color": "red",
+    "prod_yoy": 1.5,
+    "inv_yoy": -0.4,
+    "chart_labels": [
+      "2025年1月",
+      "2025年2月",
+      "2025年3月",
+      "2025年4月",
+      "2025年5月",
+      "2025年6月",
+      "2025年7月",
+      "2025年8月",
+      "2025年9月",
+      "2025年10月",
+      "2025年11月",
+      "2025年12月"
+    ],
+    "chart_inv": [
+      100.83,
+      100.45,
+      97.27,
+      98.41,
+      100.99,
+      100.69,
+      101.89,
+      100.67,
+      99.34,
+      100.8,
+      101.23,
+      97.37
+    ],
+    "chart_prod": [
+      95.09,
+      96.5,
+      108.29,
+      98.64,
+      92.87,
+      100.78,
+      105.49,
+      90.1,
+      104.17,
+      103.86,
+      98.6,
+      104.96
+    ]
+  }
+];
+
+// ── カード描画 ────────────────────────────────────────────────────────────
+const sparkCharts = {};
+
+function formatYoY(v) {
+  if (v === null || v === undefined) return '<span class="value">—</span>';
+  const cls = v >= 0 ? 'up' : 'down';
+  const sign = v >= 0 ? '+' : '';
+  return `<span class="value ${cls}">${sign}${v.toFixed(1)}%</span>`;
+}
+
+function buildCard(ind) {
+  const buf = ind.buffer_months;
+  const bufTxt = buf !== null ? buf.toFixed(1) : '—';
+  const label = {green:'3ヶ月以上', yellow:'1〜3ヶ月', red:'1ヶ月未満', gray:'データなし'}[ind.color];
+  const prodTxt = ind.production !== null ? ind.production.toFixed(1) : '—';
+  const invTxt  = ind.inventory  !== null ? ind.inventory.toFixed(1)  : '—';
+
+  const div = document.createElement('div');
+  div.className = `card ${ind.color}`;
+  div.dataset.color = ind.color;
+  div.innerHTML = `
+    <div class="card-header">
+      <span class="card-name">${ind.name}</span>
+      <span class="card-badge">${label}</span>
+    </div>
+    <div class="buffer-row">
+      <span class="buffer-num">${bufTxt}</span>
+      <span class="buffer-unit">ヶ月分</span>
+    </div>
+    <div class="card-metrics">
+      <div class="metric">
+        <span class="label">生産指数</span>
+        <span class="value">${prodTxt}</span>
+        <span style="font-size:.75rem;color:#94a3b8">前年比 </span>${formatYoY(ind.prod_yoy)}
+      </div>
+      <div class="metric">
+        <span class="label">在庫指数</span>
+        <span class="value">${invTxt}</span>
+        <span style="font-size:.75rem;color:#94a3b8">前年比 </span>${formatYoY(ind.inv_yoy)}
+      </div>
+    </div>
+    <div class="chart-wrap"><canvas id="spark-${ind.name}"></canvas></div>
+  `;
+  return div;
+}
+
+function renderSparkline(ind) {
+  const canvas = document.getElementById(`spark-${ind.name}`);
+  if (!canvas || !ind.chart_labels.length) return;
+  const color = {green:'#16a34a',yellow:'#ca8a04',red:'#dc2626',gray:'#9ca3af'}[ind.color];
+  sparkCharts[ind.name] = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ind.chart_labels,
+      datasets: [
+        {
+          label: '在庫指数', data: ind.chart_inv,
+          borderColor: color, backgroundColor: color + '22',
+          borderWidth: 1.5, pointRadius: 0, fill: true, tension: 0.3,
+        },
+        {
+          label: '生産指数', data: ind.chart_prod,
+          borderColor: '#94a3b8', borderWidth: 1, pointRadius: 0,
+          borderDash: [3,2], fill: false, tension: 0.3,
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: {
+          title: ctx => ctx[0].label,
+          label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y?.toFixed(1) ?? '—'}`,
+        }
+      } },
+      scales: {
+        x: { display: false },
+        y: { display: false },
+      },
+    },
+  });
+}
+
+// ── フィルター ────────────────────────────────────────────────────────────
+let currentFilter = 'all';
+function applyFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+  document.querySelectorAll('#card-grid .card').forEach(card => {
+    card.style.display = (filter === 'all' || card.dataset.color === filter) ? '' : 'none';
+  });
+}
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+});
+
+// ── 初期描画 ─────────────────────────────────────────────────────────────
+const grid = document.getElementById('card-grid');
+INDUSTRIES.forEach(ind => {
+  const card = buildCard(ind);
+  grid.appendChild(card);
+  requestAnimationFrame(() => renderSparkline(ind));
+});
+
+// ── 概要チャート ──────────────────────────────────────────────────────────
+const select = document.getElementById('overview-select');
+let overviewChart = null;
+
+// 主要業種を初期選択（チャートデータがあるもの上位10）
+const withData = INDUSTRIES.filter(i => i.chart_labels.length >= 3);
+withData.forEach(ind => {
+  const opt = document.createElement('option');
+  opt.value = ind.name;
+  opt.textContent = ind.name;
+  select.appendChild(opt);
+});
+
+function renderOverviewChart(name) {
+  const ind = INDUSTRIES.find(i => i.name === name);
+  if (!ind) return;
+  const color = {green:'#16a34a',yellow:'#ca8a04',red:'#dc2626',gray:'#9ca3af'}[ind.color];
+  const ctx = document.getElementById('overview-chart').getContext('2d');
+  if (overviewChart) overviewChart.destroy();
+  overviewChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ind.chart_labels,
+      datasets: [
+        {
+          type: 'bar', label: '在庫指数',
+          data: ind.chart_inv, backgroundColor: color + '99',
+          borderColor: color, borderWidth: 1, yAxisID: 'y',
+        },
+        {
+          type: 'line', label: '生産指数',
+          data: ind.chart_prod, borderColor: '#475569',
+          borderWidth: 2, pointRadius: 3, fill: false, tension: 0.2, yAxisID: 'y',
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { font: { size: 12 } } },
+        tooltip: { mode: 'index', intersect: false },
+      },
+      scales: {
+        x: { ticks: { maxRotation: 45, font: { size: 11 } } },
+        y: {
+          title: { display: true, text: '指数（2020年=100）', font: { size: 11 } },
+          ticks: { font: { size: 11 } },
+        },
+      },
+    },
+  });
+}
+
+if (select.options.length > 0) {
+  renderOverviewChart(select.options[0].value);
+  select.addEventListener('change', () => renderOverviewChart(select.value));
+}
+</script>
+</body>
+</html>
