@@ -263,8 +263,8 @@
       "meta": { "process": "病害虫防除（収量維持）" }
     },
     {
-      "id": "lldpe__food_production_app",
-      "from": "lldpe",
+      "id": "pe_resin__food_production_app",
+      "from": "pe_resin",
       "to": "food_production_app",
       "type": "material_dependency",
       "dependencyStrength": "secondary",
@@ -299,13 +299,13 @@
       "meta": {}
     },
     {
-      "id": "ldpe__logistics_packaging_app",
-      "from": "ldpe",
+      "id": "pe_resin__logistics_packaging_app",
+      "from": "pe_resin",
       "to": "logistics_packaging_app",
       "type": "material_dependency",
       "dependencyStrength": "primary",
       "sourceRefs": [],
-      "meta": { "process": "ストレッチラップ・包装フィルム（LDPE）" }
+      "meta": { "process": "ストレッチラップ・包装フィルム（PE）" }
     },
     {
       "id": "logistics_packaging_app__logistics_service",

@@ -1,0 +1,401 @@
+{
+  "system": "consumer_goods",
+  "subsystem": "components_products",
+  "label": "コンポーネント・製品層（Layer 4 + Layer 5）",
+  "nodes": [
+    {
+      "id": "packaging_film",
+      "type": "application",
+      "label": "包装フィルム",
+      "labelEn": "Packaging Film",
+      "description": "PE系フィルムの押出・延伸成形。食品包装・詰替パウチ・農業フィルムに使用。ラミネート材の基材にもなる。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.22, "basis": "proxy", "confidence": "medium", "note": "紙・他素材で部分代替可能だが透明性・バリア性・コストでPEが優位" },
+        "priorityScore": { "value": 82, "basis": "proxy", "confidence": "high", "note": "食品・日用品包装の基盤コンポーネント" },
+        "consumerRelevance": { "value": 30, "basis": "proxy", "confidence": "medium", "note": "食品包装・日用品に幅広く使用" }
+      }
+    },
+    {
+      "id": "lamination_material",
+      "type": "application",
+      "label": "ラミネート材（複合包材）",
+      "labelEn": "Lamination Material",
+      "description": "PE/ナイロン/アルミ箔の多層積層材。高バリア性・防湿性・無菌性が求められる詰替パウチ・医療包装の構造材。PE単層より格段に高機能。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "詰替パウチ・医療バリア包装での代替は現状ない。構成材料のいずれかが欠けても製造不可" },
+        "priorityScore": { "value": 86, "basis": "proxy", "confidence": "high", "note": "詰替パウチと医療包装の共通ボトルネックコンポーネント。アルミ・ナイロン・PEの三重依存" },
+        "consumerRelevance": { "value": 40, "basis": "proxy", "confidence": "high", "note": "詰替パウチ・医療機器包装に不可欠" }
+      }
+    },
+    {
+      "id": "sterile_barrier_packaging",
+      "type": "application",
+      "label": "無菌バリア包装材",
+      "labelEn": "Sterile Barrier Packaging",
+      "description": "ISO 11607準拠の医療機器用無菌バリア包材。ナイロン/アルミ/PEの複合材。EO滅菌後の無菌状態維持に必須。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.05, "basis": "proxy", "confidence": "high", "note": "ISO規格適合品の代替はない。承認外品での医療機器流通は不可" },
+        "priorityScore": { "value": 90, "basis": "proxy", "confidence": "high", "note": "医療機器供給の直接制約要因。EO滅菌と並ぶ生命直結コンポーネント" },
+        "consumerRelevance": { "value": 52, "basis": "proxy", "confidence": "high", "note": "医療機器の無菌性維持に必須。不足は直接生命影響" }
+      }
+    },
+    {
+      "id": "bottle_container",
+      "type": "application",
+      "label": "ボトル・容器",
+      "labelEn": "Bottle / Container",
+      "description": "PP/PETのブロー成形・射出成形。洗剤・シャンプーの容器として標準的な形態。軟化剤・蓋・ポンプも含む系統。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.28, "basis": "proxy", "confidence": "medium", "note": "ガラス・アルミ缶・詰替パウチへの切替は可能だが設備・コスト変更を伴う" },
+        "priorityScore": { "value": 70, "basis": "proxy", "confidence": "medium", "note": "日用品流通の標準容器形態" },
+        "consumerRelevance": { "value": 32, "basis": "proxy", "confidence": "medium", "note": "洗剤・シャンプーの流通形態として主流" }
+      }
+    },
+    {
+      "id": "surfactant_system",
+      "type": "application",
+      "label": "界面活性剤系",
+      "labelEn": "Surfactant System",
+      "description": "C3/EO系界面活性剤の調合・ブレンド系統。台所洗剤・シャンプーの洗浄機能を担う核心コンポーネント。複数種の界面活性剤で構成。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.22, "basis": "proxy", "confidence": "medium", "note": "石鹸・天然系で代替可能だが処方変更・認可に時間要" },
+        "priorityScore": { "value": 76, "basis": "proxy", "confidence": "medium", "note": "洗剤・シャンプーの機能核心。代替時間要" },
+        "consumerRelevance": { "value": 38, "basis": "proxy", "confidence": "medium", "note": "洗剤・シャンプーの洗浄機能の実体" }
+      }
+    },
+    {
+      "id": "additive_system",
+      "type": "application",
+      "label": "添加剤系",
+      "labelEn": "Additive System",
+      "description": "PG・ポリオール・アクリル酸エステル等で構成される洗剤・化粧品の補助剤系。増粘剤・防腐剤・安定剤の統合系統。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.35, "basis": "proxy", "confidence": "low", "note": "個別添加剤の代替は可能だが処方全体の再バランスが必要" },
+        "priorityScore": { "value": 58, "basis": "proxy", "confidence": "low", "note": "製品品質・安定性に影響するが短期では代替可能" },
+        "consumerRelevance": { "value": 20, "basis": "proxy", "confidence": "medium", "note": "洗剤品質・使用感に影響" }
+      }
+    },
+    {
+      "id": "fragrance",
+      "type": "application",
+      "label": "香料",
+      "labelEn": "Fragrance",
+      "description": "C4系・BTX系の合成香料と天然香料のブレンド。シャンプー・洗剤・おむつの全ての日用品に配合。不足すると製品品質が大幅低下または製造停止。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "low", "note": "天然香料への全面切替は供給量不足で困難。無香料化も市場受容性の問題あり" },
+        "priorityScore": { "value": 64, "basis": "proxy", "confidence": "medium", "note": "全日用品カテゴリに横断的に影響する特殊コンポーネント" },
+        "consumerRelevance": { "value": 26, "basis": "proxy", "confidence": "medium", "note": "日用品の香りとして全般に配合。欠乏で品質低下" }
+      }
+    },
+    {
+      "id": "shampoo_base",
+      "type": "application",
+      "label": "シャンプーベース",
+      "labelEn": "Shampoo Base",
+      "description": "界面活性剤系＋PG等の保湿剤・コンディショニング剤の統合処方。香料・容器とは独立して製造されるシャンプーの中身本体。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.25, "basis": "proxy", "confidence": "medium", "note": "処方変更は可能だが薬機法等の許可が必要" },
+        "priorityScore": { "value": 58, "basis": "proxy", "confidence": "medium", "note": "シャンプー製品の中身本体" },
+        "consumerRelevance": { "value": 30, "basis": "proxy", "confidence": "medium", "note": "日常的個人衛生の実体" }
+      }
+    },
+    {
+      "id": "medical_polymer_component",
+      "type": "application",
+      "label": "医療用高分子コンポーネント",
+      "labelEn": "Medical Polymer Component",
+      "description": "PVC/PP不織布を成形した医療機器本体部品。カテーテル・輸液チューブ・手術用具等。GMP適合製造が必要で代替困難。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.08, "basis": "proxy", "confidence": "high", "note": "医療規格適合品の代替はない。輸入切替も品目が限定的" },
+        "priorityScore": { "value": 92, "basis": "proxy", "confidence": "high", "note": "医療機器供給の直接構成要素。不足は生命直結" },
+        "consumerRelevance": { "value": 58, "basis": "proxy", "confidence": "high", "note": "医療機器の物理的本体。不足は治療不可能に直結" }
+      }
+    },
+    {
+      "id": "sterilization_eo",
+      "type": "application",
+      "label": "EO滅菌プロセス",
+      "labelEn": "EO Sterilization Process",
+      "description": "エチレンオキシドガスによる医療機器滅菌処理（ISO 11135）。複雑形状・熱に弱い機器に必須の滅菌法。停止すると医療機器の出荷が全面停止。",
+      "sourceRefs": ["proxy_chem_conversion", "proxy_consumer_score"],
+      "scores": {
+        "substitutability": { "value": 0.05, "basis": "proxy", "confidence": "high", "note": "複雑形状の医療機器はEO滅菌に依存。放射線・過酸化水素滅菌は全機器に適用不可" },
+        "priorityScore": { "value": 92, "basis": "proxy", "confidence": "high", "note": "生命直結。代替困難" },
+        "consumerRelevance": { "value": 62, "basis": "proxy", "confidence": "high", "note": "医療機器不足は生命影響" }
+      }
+    },
+    {
+      "id": "pallet_wrap",
+      "type": "application",
+      "label": "パレットラップ",
+      "labelEn": "Pallet Wrap",
+      "description": "LLDPEストレッチフィルムのパレット巻き付け用途。物流インフラの基本梱包材。荷崩れ防止・防水・盗難防止機能。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "medium", "note": "バンド・ネット等で部分代替可能だが物流効率低下" },
+        "priorityScore": { "value": 64, "basis": "proxy", "confidence": "medium", "note": "物流効率に直接影響" },
+        "consumerRelevance": { "value": 20, "basis": "proxy", "confidence": "medium", "note": "全物流に使用される梱包材" }
+      }
+    },
+    {
+      "id": "protective_packaging",
+      "type": "application",
+      "label": "保護梱包材",
+      "labelEn": "Protective Packaging",
+      "description": "気泡緩衝材・発泡PE等の保護梱包材。生鮮食品の輸送箱内保護・精密品の破損防止に使用。不足で物流品質が低下。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.35, "basis": "proxy", "confidence": "medium", "note": "紙緩衝材・再生材で部分代替可能" },
+        "priorityScore": { "value": 58, "basis": "proxy", "confidence": "medium", "note": "物流品質・破損防止に影響" },
+        "consumerRelevance": { "value": 18, "basis": "proxy", "confidence": "medium", "note": "物流全般の品質維持に使用" }
+      }
+    },
+    {
+      "id": "stretch_film",
+      "type": "application",
+      "label": "ストレッチフィルム（生鮮用）",
+      "labelEn": "Stretch Film",
+      "description": "LLDPE系の薄膜ストレッチフィルム。生鮮食品の店頭トレーラップ・鮮度保持に必須。スーパー・市場の全生鮮売場で使用。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.18, "basis": "proxy", "confidence": "medium", "note": "生鮮ラップの代替材料は限定的。バイオ系フィルムは供給量不足" },
+        "priorityScore": { "value": 78, "basis": "proxy", "confidence": "high", "note": "生鮮食品流通の必須コンポーネント" },
+        "consumerRelevance": { "value": 38, "basis": "proxy", "confidence": "high", "note": "スーパー生鮮売場の全製品に使用" }
+      }
+    },
+    {
+      "id": "food_packaging_film",
+      "type": "application",
+      "label": "食品包装フィルム（バリア）",
+      "labelEn": "Food Packaging Film (Barrier)",
+      "description": "ナイロン/PET複合の高バリア食品包装フィルム。加工食品・冷凍食品・真空パックの長期保存に使用。酸素バリア性が品質維持の鍵。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.18, "basis": "proxy", "confidence": "medium", "note": "バリア性・透明性・コストの組み合わせを代替できる材料が限定的" },
+        "priorityScore": { "value": 80, "basis": "proxy", "confidence": "high", "note": "加工・冷凍食品流通の基盤。不足で食品保存期間が激減" },
+        "consumerRelevance": { "value": 42, "basis": "proxy", "confidence": "high", "note": "食品保存・流通に必須。全加工食品に使用" }
+      }
+    },
+    {
+      "id": "beverage_bottle_component",
+      "type": "application",
+      "label": "飲料ボトル成形",
+      "labelEn": "Beverage Bottle Component",
+      "description": "PETのブロー成形による飲料用PETボトル製造プロセス。年間約200億本（日本）。ミネラルウォーター・お茶・炭酸飲料等。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.22, "basis": "proxy", "confidence": "medium", "note": "ガラス瓶・缶への切替は設備投資・コスト増大を伴う。短期代替は困難" },
+        "priorityScore": { "value": 72, "basis": "proxy", "confidence": "medium", "note": "飲料流通の主流プロセス" },
+        "consumerRelevance": { "value": 44, "basis": "proxy", "confidence": "medium", "note": "飲料ボトルへの直接依存" }
+      }
+    },
+    {
+      "id": "fresh_food_logistics_pack",
+      "type": "application",
+      "label": "生鮮物流梱包",
+      "labelEn": "Fresh Food Logistics Pack",
+      "description": "ストレッチフィルム＋保護梱包材の生鮮品輸送セット。産地から店頭までの全工程で使用。不足で生鮮品の流通が即時停止。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "代替梱包材での生鮮品輸送は品質・歩留まりが大幅低下" },
+        "priorityScore": { "value": 84, "basis": "proxy", "confidence": "high", "note": "生鮮食品流通インフラの直接コンポーネント" },
+        "consumerRelevance": { "value": 50, "basis": "proxy", "confidence": "high", "note": "生鮮食品の店頭到達に必須" }
+      }
+    },
+    {
+      "id": "diaper_absorbent_core",
+      "type": "application",
+      "label": "おむつ吸収コア",
+      "labelEn": "Diaper Absorbent Core",
+      "description": "SAP（高吸水性樹脂）をパルプに固定した吸収構造体。おむつ・介護用品の機能核心。SAPなしには成立しない。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.05, "basis": "proxy", "confidence": "high", "note": "SAPの性能を代替できる材料はない。布おむつへの全面回帰は社会インフラが対応不可" },
+        "priorityScore": { "value": 88, "basis": "proxy", "confidence": "high", "note": "おむつ・介護用品の機能核心。新生児・要介護者の生活基盤" },
+        "consumerRelevance": { "value": 56, "basis": "proxy", "confidence": "high", "note": "新生児・要介護者の生活必需品。代替不可" }
+      }
+    },
+    {
+      "id": "hygiene_nonwoven_component",
+      "type": "application",
+      "label": "衛生用不織布コンポーネント",
+      "labelEn": "Hygiene Nonwoven Component",
+      "description": "PP系スパンボンド不織布。おむつの表面シート・生理用品・ウェットティッシュの構造材。肌触り・液体透過性の機能を担う。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.12, "basis": "proxy", "confidence": "medium", "note": "綿・他素材での代替は品質・コストで大幅な劣化。衛生用途での規格対応が困難" },
+        "priorityScore": { "value": 80, "basis": "proxy", "confidence": "high", "note": "おむつ・衛生用品の構造材。SAP吸収コアと並ぶ必須コンポーネント" },
+        "consumerRelevance": { "value": 48, "basis": "proxy", "confidence": "high", "note": "おむつ・生理用品の物理的本体" }
+      }
+    },
+
+    {
+      "id": "medical_devices_eo",
+      "type": "consumer_product",
+      "label": "医療機器（EO滅菌品）",
+      "labelEn": "Medical Devices (EO Sterilized)",
+      "category": "healthcare",
+      "description": "EOガス滅菌が必要な使い捨て医療機器。カテーテル・輸液セット・手術用具等。不足は直接生命影響。PVC本体・EO滅菌・無菌包装の三重依存。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.08, "basis": "proxy", "confidence": "high", "note": "代替滅菌法への設備転換に数ヶ月〜数年要" },
+        "priorityScore": { "value": 94, "basis": "proxy", "confidence": "high", "note": "生命直結。代替困難" },
+        "consumerRelevance": { "value": 94, "basis": "proxy", "confidence": "high", "note": "生命に直結する医療不可欠品" }
+      }
+    },
+    {
+      "id": "refill_pouch",
+      "type": "consumer_product",
+      "label": "詰替パウチ",
+      "labelEn": "Refill Pouch",
+      "category": "personal_care",
+      "description": "ラミネート複合フィルム製の液体洗剤・シャンプー詰替用パウチ。フィルム・ラミネート・界面活性剤・香料の四重依存。一つでも欠けると製造不可。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "medium", "note": "ボトル型製品への切替は可能だが環境負荷増・コスト増" },
+        "priorityScore": { "value": 64, "basis": "proxy", "confidence": "medium", "note": "環境配慮型包装の主流。日本市場でのシェアが高い" },
+        "consumerRelevance": { "value": 72, "basis": "proxy", "confidence": "high", "note": "日常的個人衛生用品として高頻度使用" }
+      }
+    },
+    {
+      "id": "kitchen_detergent",
+      "type": "consumer_product",
+      "label": "台所用洗剤",
+      "labelEn": "Kitchen Detergent",
+      "category": "personal_care",
+      "description": "食器・調理器具の洗浄剤。界面活性剤系・添加剤系・香料・容器の四重依存。ほぼ全家庭で毎日使用。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.38, "basis": "proxy", "confidence": "medium", "note": "重曹・石鹸等の代替品があるが普及・切替に時間要" },
+        "priorityScore": { "value": 66, "basis": "proxy", "confidence": "medium", "note": "生活衛生の基盤製品" },
+        "consumerRelevance": { "value": 80, "basis": "proxy", "confidence": "high", "note": "全家庭で毎日使用する日常必需品" }
+      }
+    },
+    {
+      "id": "shampoo",
+      "type": "consumer_product",
+      "label": "シャンプー",
+      "labelEn": "Shampoo",
+      "category": "personal_care",
+      "description": "シャンプーベース・香料・容器の三重依存。日本では週複数回使用が一般的。代替は石鹸シャンプー等があるが切替に心理的障壁。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.45, "basis": "proxy", "confidence": "medium", "note": "石鹸シャンプー・無添加品等の代替品あり" },
+        "priorityScore": { "value": 56, "basis": "proxy", "confidence": "medium", "note": "個人衛生関連。代替品あり" },
+        "consumerRelevance": { "value": 74, "basis": "proxy", "confidence": "high", "note": "日常的個人衛生に使用。代替品あるが切替に心理的障壁" }
+      }
+    },
+    {
+      "id": "packaged_food_supply",
+      "type": "consumer_product",
+      "label": "加工・包装食品",
+      "labelEn": "Packaged Food Supply",
+      "category": "food_beverage",
+      "description": "加工食品・冷凍食品・飲料ボトルの総称。高バリアフィルム・PETボトル成形の双依存。包装材が欠乏すると食品の保存・流通が停止。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "medium", "note": "生鮮食品・缶詰への部分代替可能だが全量代替は困難" },
+        "priorityScore": { "value": 82, "basis": "proxy", "confidence": "high", "note": "食品流通インフラの主要部分" },
+        "consumerRelevance": { "value": 82, "basis": "proxy", "confidence": "high", "note": "日本の食生活の大部分を占める食品カテゴリ" }
+      }
+    },
+    {
+      "id": "logistics_system",
+      "type": "consumer_product",
+      "label": "物流システム（梱包インフラ）",
+      "labelEn": "Logistics Infrastructure (Packaging)",
+      "category": "logistics",
+      "description": "パレットラップ・ストレッチフィルム・保護梱包材の三重依存。これらが欠乏すると全産業の物流効率が大幅低下。医薬品・食品・工業品の流通が全て影響。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.18, "basis": "proxy", "confidence": "medium", "note": "代替梱包材はあるが物流効率・品質が大幅低下" },
+        "priorityScore": { "value": 86, "basis": "proxy", "confidence": "high", "note": "全産業物流インフラの基盤コンポーネント群" },
+        "consumerRelevance": { "value": 80, "basis": "proxy", "confidence": "high", "note": "間接的に全消費財の入手可能性に影響" }
+      }
+    },
+    {
+      "id": "diaper",
+      "type": "consumer_product",
+      "label": "紙おむつ",
+      "labelEn": "Disposable Diaper",
+      "category": "personal_care",
+      "description": "SAP吸収コア・PP不織布・PE外層の三重依存。新生児・要介護者の生活基盤。日本で年間約80億枚消費。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.08, "basis": "proxy", "confidence": "high", "note": "布おむつへの完全回帰は洗濯・廃棄インフラが対応不可。SAP代替なし" },
+        "priorityScore": { "value": 88, "basis": "proxy", "confidence": "high", "note": "新生児・要介護者の生活直接基盤。社会インフラとして必須" },
+        "consumerRelevance": { "value": 88, "basis": "proxy", "confidence": "high", "note": "新生児・要介護者の生活に直接必須。代替ほぼ不可" }
+      }
+    },
+    {
+      "id": "sanitary_goods",
+      "type": "consumer_product",
+      "label": "衛生用品（生理用品等）",
+      "labelEn": "Sanitary Goods",
+      "category": "personal_care",
+      "description": "生理用品・ウェットティッシュ等の衛生用品。PP不織布が主要材料。女性の生活基盤として不可欠。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "布製品等の代替はあるが衛生面・利便性で大幅劣化" },
+        "priorityScore": { "value": 82, "basis": "proxy", "confidence": "high", "note": "女性・幅広い年齢層の生活基盤" },
+        "consumerRelevance": { "value": 84, "basis": "proxy", "confidence": "high", "note": "女性の日常的生活必需品。代替手段は限定的" }
+      }
+    }
+  ],
+  "edges": [
+    { "id": "pe_resin__packaging_film", "from": "pe_resin", "to": "packaging_film", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PEフィルム押出成形" } },
+    { "id": "pe_resin__pallet_wrap", "from": "pe_resin", "to": "pallet_wrap", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "LLDPEストレッチフィルム製造" } },
+    { "id": "pe_resin__stretch_film", "from": "pe_resin", "to": "stretch_film", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "LLDPE薄膜ストレッチフィルム製造" } },
+    { "id": "pp_resin__hygiene_nonwoven_component", "from": "pp_resin", "to": "hygiene_nonwoven_component", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PPスパンボンド不織布製造" } },
+    { "id": "pp_resin__bottle_container", "from": "pp_resin", "to": "bottle_container", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PP射出成形・ブロー成形" } },
+    { "id": "pet_resin__bottle_container", "from": "pet_resin", "to": "bottle_container", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PETブロー成形" } },
+    { "id": "pet_resin__beverage_bottle_component", "from": "pet_resin", "to": "beverage_bottle_component", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PETブロー成形（飲料専用ライン）" } },
+    { "id": "pet_resin__food_packaging_film", "from": "pet_resin", "to": "food_packaging_film", "type": "material_dependency", "dependencyStrength": "secondary", "sourceRefs": [], "meta": { "process": "PET二軸延伸フィルム製造" } },
+    { "id": "pvc_resin__medical_polymer_component", "from": "pvc_resin", "to": "medical_polymer_component", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PVC医療グレード成形" } },
+    { "id": "packaging_film__lamination_material", "from": "packaging_film", "to": "lamination_material", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "PE/ナイロン/アルミ箔ラミネート加工" } },
+    { "id": "lamination_material__sterile_barrier_packaging", "from": "lamination_material", "to": "sterile_barrier_packaging", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "ラミネート材からISO11607適合無菌包材への成形" } },
+    { "id": "surfactant_system__shampoo_base", "from": "surfactant_system", "to": "shampoo_base", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "界面活性剤系をベースにシャンプー処方を組成" } },
+    { "id": "stretch_film__fresh_food_logistics_pack", "from": "stretch_film", "to": "fresh_food_logistics_pack", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "生鮮品ラッピング・鮮度保持" } },
+    { "id": "protective_packaging__fresh_food_logistics_pack", "from": "protective_packaging", "to": "fresh_food_logistics_pack", "type": "material_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": { "process": "生鮮品の輸送箱内保護緩衝" } },
+
+    { "id": "medical_polymer_component__medical_devices_eo", "from": "medical_polymer_component", "to": "medical_devices_eo", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "sterilization_eo__medical_devices_eo", "from": "sterilization_eo", "to": "medical_devices_eo", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "sterile_barrier_packaging__medical_devices_eo", "from": "sterile_barrier_packaging", "to": "medical_devices_eo", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+
+    { "id": "packaging_film__refill_pouch", "from": "packaging_film", "to": "refill_pouch", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "lamination_material__refill_pouch", "from": "lamination_material", "to": "refill_pouch", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "surfactant_system__refill_pouch", "from": "surfactant_system", "to": "refill_pouch", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "fragrance__refill_pouch", "from": "fragrance", "to": "refill_pouch", "type": "product_dependency", "dependencyStrength": "secondary", "sourceRefs": [], "meta": {} },
+
+    { "id": "surfactant_system__kitchen_detergent", "from": "surfactant_system", "to": "kitchen_detergent", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "additive_system__kitchen_detergent", "from": "additive_system", "to": "kitchen_detergent", "type": "product_dependency", "dependencyStrength": "secondary", "sourceRefs": [], "meta": {} },
+    { "id": "fragrance__kitchen_detergent", "from": "fragrance", "to": "kitchen_detergent", "type": "product_dependency", "dependencyStrength": "secondary", "sourceRefs": [], "meta": {} },
+    { "id": "bottle_container__kitchen_detergent", "from": "bottle_container", "to": "kitchen_detergent", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+
+    { "id": "shampoo_base__shampoo", "from": "shampoo_base", "to": "shampoo", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "fragrance__shampoo", "from": "fragrance", "to": "shampoo", "type": "product_dependency", "dependencyStrength": "secondary", "sourceRefs": [], "meta": {} },
+    { "id": "bottle_container__shampoo", "from": "bottle_container", "to": "shampoo", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+
+    { "id": "food_packaging_film__packaged_food_supply", "from": "food_packaging_film", "to": "packaged_food_supply", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "beverage_bottle_component__packaged_food_supply", "from": "beverage_bottle_component", "to": "packaged_food_supply", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "fresh_food_logistics_pack__fresh_food_supply", "from": "fresh_food_logistics_pack", "to": "fresh_food_supply", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+
+    { "id": "pallet_wrap__logistics_system", "from": "pallet_wrap", "to": "logistics_system", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "stretch_film__logistics_system", "from": "stretch_film", "to": "logistics_system", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "protective_packaging__logistics_system", "from": "protective_packaging", "to": "logistics_system", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+
+    { "id": "diaper_absorbent_core__diaper", "from": "diaper_absorbent_core", "to": "diaper", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "hygiene_nonwoven_component__diaper", "from": "hygiene_nonwoven_component", "to": "diaper", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} },
+    { "id": "fragrance__diaper", "from": "fragrance", "to": "diaper", "type": "product_dependency", "dependencyStrength": "secondary", "sourceRefs": [], "meta": {} },
+    { "id": "hygiene_nonwoven_component__sanitary_goods", "from": "hygiene_nonwoven_component", "to": "sanitary_goods", "type": "product_dependency", "dependencyStrength": "primary", "sourceRefs": [], "meta": {} }
+  ]
+}

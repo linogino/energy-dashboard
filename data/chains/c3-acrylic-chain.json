@@ -1,0 +1,239 @@
+{
+  "system": "petrochemical",
+  "subsystem": "c3_acrylic",
+  "label": "C3系・アクリル系チェーン（PO / PP / SAP / 界面活性剤）",
+  "nodes": [
+    {
+      "id": "po",
+      "type": "intermediate",
+      "label": "プロピレンオキシド（PO）",
+      "labelEn": "Propylene Oxide",
+      "description": "プロピレンのエポキシ化で製造。PG・ポリエーテルポリオール・界面活性剤中間体の原料。2大用途：PG（約30%）・ポリオール（約60%）。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.12, "basis": "proxy", "confidence": "medium", "note": "POの代替製法は困難。主要誘導品への代替原料もほぼない" },
+        "priorityScore": { "value": 82, "basis": "proxy", "confidence": "medium", "note": "PG・界面活性剤・おむつSAP前駆体の起点として重要" },
+        "consumerRelevance": { "value": 10, "basis": "proxy", "confidence": "medium", "note": "日用品・衛生用品への間接影響" }
+      }
+    },
+    {
+      "id": "pg",
+      "type": "intermediate",
+      "label": "プロピレングリコール（PG）",
+      "labelEn": "Propylene Glycol",
+      "description": "POの水和反応で製造。シャンプー・洗剤の保湿剤・溶剤として配合。食品・化粧品・医薬品に幅広く使用。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "medium", "note": "グリセリン・ブチレングリコールで一部代替可能だが処方変更が必要" },
+        "priorityScore": { "value": 65, "basis": "proxy", "confidence": "medium", "note": "日用品・食品・医薬品に幅広く配合" },
+        "consumerRelevance": { "value": 12, "basis": "proxy", "confidence": "medium", "note": "シャンプー・食品添加物経由で生活直結" }
+      }
+    },
+    {
+      "id": "pp_resin",
+      "type": "material",
+      "label": "ポリプロピレン樹脂（PP）",
+      "labelEn": "Polypropylene Resin",
+      "description": "プロピレンの重合で製造。不織布（おむつ・衛生材料）・容器・ボトルの主材料。汎用樹脂で最も生産量が多い。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.22, "basis": "proxy", "confidence": "medium", "note": "用途によりPE・PETで代替可能だが衛生用不織布では代替困難" },
+        "priorityScore": { "value": 80, "basis": "proxy", "confidence": "high", "note": "衛生用品・包装容器の基盤材料" },
+        "consumerRelevance": { "value": 16, "basis": "proxy", "confidence": "medium", "note": "おむつ・衛生用品・容器に幅広く使用" }
+      }
+    },
+    {
+      "id": "c3_surfactant_intermediate",
+      "type": "intermediate",
+      "label": "C3系界面活性剤中間体",
+      "labelEn": "C3 Surfactant Intermediate",
+      "description": "POから製造されるアニオン・ノニオン系界面活性剤の中間体。台所洗剤・シャンプーの主成分系統。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "low", "note": "EO系（ノニオン）・天然油脂系で一部代替可能だが処方変更に時間要" },
+        "priorityScore": { "value": 68, "basis": "proxy", "confidence": "medium", "note": "洗剤・シャンプーの主要活性成分" },
+        "consumerRelevance": { "value": 14, "basis": "proxy", "confidence": "medium", "note": "日用品衛生製品への直接影響" }
+      }
+    },
+    {
+      "id": "polyether_polyol",
+      "type": "intermediate",
+      "label": "ポリエーテルポリオール",
+      "labelEn": "Polyether Polyol",
+      "description": "POとEOの付加重合で製造。PUフォーム・コーティング・接着剤の原料。おむつの弾性部位にも使用。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "PO系ポリオールで一部代替可能だが品質差あり" },
+        "priorityScore": { "value": 58, "basis": "proxy", "confidence": "medium", "note": "衛生用品・断熱材への影響。生活必需度は中程度" },
+        "consumerRelevance": { "value": 10, "basis": "proxy", "confidence": "low", "note": "おむつ・断熱材等の間接影響" }
+      }
+    },
+    {
+      "id": "acrylic_acid",
+      "type": "intermediate",
+      "label": "アクリル酸",
+      "labelEn": "Acrylic Acid",
+      "description": "プロピレンの接触酸化で製造。SAP（高吸水性樹脂）・アクリル酸エステルの原料。おむつ・生理用品の核心原料。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.08, "basis": "proxy", "confidence": "medium", "note": "アクリル酸の代替製法はほぼない。生物由来法は試験段階" },
+        "priorityScore": { "value": 84, "basis": "proxy", "confidence": "high", "note": "SAP→おむつ・生理用品への直接ルートで生活必需品の核" },
+        "consumerRelevance": { "value": 14, "basis": "proxy", "confidence": "medium", "note": "おむつ・衛生用品の不可欠原料" }
+      }
+    },
+    {
+      "id": "acrylate_intermediate",
+      "type": "intermediate",
+      "label": "アクリル酸エステル中間体",
+      "labelEn": "Acrylate Intermediate",
+      "description": "アクリル酸とアルコールのエステル化で製造。接着剤・コーティング・増粘剤の原料。洗剤・化粧品の処方材。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.25, "basis": "proxy", "confidence": "low", "note": "用途別に代替可能だが処方変更が必要" },
+        "priorityScore": { "value": 58, "basis": "proxy", "confidence": "low", "note": "洗剤・コーティング等への波及" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "low", "note": "間接的に日用品に配合" }
+      }
+    },
+    {
+      "id": "sap",
+      "type": "material",
+      "label": "高吸水性樹脂（SAP）",
+      "labelEn": "Super Absorbent Polymer",
+      "description": "アクリル酸の架橋重合で製造。自重の数百倍の水を吸収。おむつ・生理用品の吸収コアとして必須。代替材料なし。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.05, "basis": "proxy", "confidence": "high", "note": "SAPの性能を代替できる材料は現在ない。布おむつへの回帰は社会的に困難" },
+        "priorityScore": { "value": 86, "basis": "proxy", "confidence": "high", "note": "おむつ・衛生用品の核心材料。新生児・要介護者への影響が大きい" },
+        "consumerRelevance": { "value": 18, "basis": "proxy", "confidence": "high", "note": "おむつ・生理用品の必須素材。代替不可" }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "propene__po",
+      "from": "propene",
+      "to": "po",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "プロピレンのエポキシ化（クロロヒドリン法またはTiO2触媒法）" }
+    },
+    {
+      "id": "propene__pp_resin",
+      "from": "propene",
+      "to": "pp_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "プロピレンのチーグラー・ナッタ重合" }
+    },
+    {
+      "id": "propene__acrylic_acid",
+      "from": "propene",
+      "to": "acrylic_acid",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "プロピレン接触気相酸化（二段酸化）" }
+    },
+    {
+      "id": "po__pg",
+      "from": "po",
+      "to": "pg",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "POの水和反応（非触媒加圧水和）" }
+    },
+    {
+      "id": "po__polyether_polyol",
+      "from": "po",
+      "to": "polyether_polyol",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "POとEOの付加重合（アニオン開環重合）" }
+    },
+    {
+      "id": "po__c3_surfactant_intermediate",
+      "from": "po",
+      "to": "c3_surfactant_intermediate",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "POのアルコキシレーション（界面活性剤中間体合成）" }
+    },
+    {
+      "id": "acrylic_acid__acrylate_intermediate",
+      "from": "acrylic_acid",
+      "to": "acrylate_intermediate",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "アクリル酸とアルコールのエステル化" }
+    },
+    {
+      "id": "acrylic_acid__sap",
+      "from": "acrylic_acid",
+      "to": "sap",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "アクリル酸の架橋重合（SAP製造）" }
+    },
+    {
+      "id": "pg__additive_system",
+      "from": "pg",
+      "to": "additive_system",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "洗剤・化粧品の添加剤・溶剤として配合" }
+    },
+    {
+      "id": "pg__shampoo_base",
+      "from": "pg",
+      "to": "shampoo_base",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "シャンプーベースの保湿剤・溶剤として配合" }
+    },
+    {
+      "id": "c3_surfactant_intermediate__surfactant_system",
+      "from": "c3_surfactant_intermediate",
+      "to": "surfactant_system",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "界面活性剤系の調合・ブレンド" }
+    },
+    {
+      "id": "polyether_polyol__additive_system",
+      "from": "polyether_polyol",
+      "to": "additive_system",
+      "type": "material_dependency",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "コーティング・添加剤用途" }
+    },
+    {
+      "id": "acrylate_intermediate__additive_system",
+      "from": "acrylate_intermediate",
+      "to": "additive_system",
+      "type": "material_dependency",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "増粘剤・安定剤として配合" }
+    },
+    {
+      "id": "sap__diaper_absorbent_core",
+      "from": "sap",
+      "to": "diaper_absorbent_core",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "SAPをパルプ層に固定した吸収コア構造" }
+    }
+  ]
+}

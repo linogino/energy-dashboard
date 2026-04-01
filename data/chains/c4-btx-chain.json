@@ -1,0 +1,164 @@
+{
+  "system": "petrochemical",
+  "subsystem": "c4_btx",
+  "label": "C4・BTX系チェーン（香料中間体・ポリアミド）",
+  "nodes": [
+    {
+      "id": "c4_aroma_intermediate",
+      "type": "intermediate",
+      "label": "C4系香料中間体",
+      "labelEn": "C4 Aroma Intermediate",
+      "description": "C4留分（1-ブテン・イソブチレン等）から製造される香料前駆体。リナロール・ゲラニオール等の合成香料の出発原料。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.25, "basis": "proxy", "confidence": "low", "note": "天然香料・BTX由来中間体で部分代替可能だが処方変更が必要" },
+        "priorityScore": { "value": 62, "basis": "proxy", "confidence": "low", "note": "香料製造の一経路として重要" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "low", "note": "日用品の香りに間接影響" }
+      }
+    },
+    {
+      "id": "btx_aroma_intermediate",
+      "type": "intermediate",
+      "label": "BTX系香料中間体",
+      "labelEn": "BTX Aroma Intermediate",
+      "description": "BTX（ベンゼン・トルエン等）から製造される芳香族系香料中間体。ムスク・バニリン等の合成香料原料。洗剤・化粧品の主流香料系統。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "low", "note": "天然香料への切替は高コスト・供給量不足。芳香族系ムスク等の代替は特に困難" },
+        "priorityScore": { "value": 65, "basis": "proxy", "confidence": "low", "note": "日用品香料の主流系統。供給不足で製品品質に影響" },
+        "consumerRelevance": { "value": 9, "basis": "proxy", "confidence": "low", "note": "洗剤・シャンプー・おむつの香りに直接影響" }
+      }
+    },
+    {
+      "id": "fragrance_intermediate",
+      "type": "intermediate",
+      "label": "香料中間体（統合）",
+      "labelEn": "Fragrance Intermediate",
+      "description": "C4系・BTX系の香料前駆体を統合した中間工程。調合・精製段階。日用品・パーソナルケアの全てに使用される仕上げ香料の原料。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.22, "basis": "proxy", "confidence": "low", "note": "天然香料で代替可能だが供給量・コストが課題。消費者の受容性も問題" },
+        "priorityScore": { "value": 66, "basis": "proxy", "confidence": "medium", "note": "シャンプー・洗剤・おむつ全般の品質維持に必要" },
+        "consumerRelevance": { "value": 10, "basis": "proxy", "confidence": "medium", "note": "全日用品カテゴリに香りとして配合" }
+      }
+    },
+    {
+      "id": "polyamide_resin",
+      "type": "intermediate",
+      "label": "ポリアミド樹脂（ナイロン）",
+      "labelEn": "Polyamide Resin",
+      "description": "BTX由来のヘキサメチレンジアミン・アジピン酸等から製造。高バリアフィルム・医療包装の基幹樹脂。食品包装の酸素バリア性に不可欠。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "医療・食品高バリア包装での代替は困難。EVOHで一部代替可能だが性能差あり" },
+        "priorityScore": { "value": 74, "basis": "proxy", "confidence": "medium", "note": "無菌包装・高バリア食品包装の核心材料" },
+        "consumerRelevance": { "value": 12, "basis": "proxy", "confidence": "medium", "note": "医療機器包装・食品長期保存に直結" }
+      }
+    },
+    {
+      "id": "polyamide_film",
+      "type": "material",
+      "label": "ポリアミドフィルム（ナイロンフィルム）",
+      "labelEn": "Polyamide Film",
+      "description": "ポリアミド樹脂を溶融押出・延伸して製造。医療無菌バリア包装・食品高バリアラミネートの基材。酸素・水蒸気バリア性が最高水準。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.12, "basis": "proxy", "confidence": "medium", "note": "医療用途での代替はほぼない。食品用途でもEVOH代替は性能・コスト面で課題" },
+        "priorityScore": { "value": 76, "basis": "proxy", "confidence": "medium", "note": "無菌バリア包装の最重要基材。医療と食品保存の両方に効く" },
+        "consumerRelevance": { "value": 14, "basis": "proxy", "confidence": "medium", "note": "医療機器包装・長期食品保存に不可欠" }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "c4_fraction__c4_aroma_intermediate",
+      "from": "c4_fraction",
+      "to": "c4_aroma_intermediate",
+      "type": "chemical_conversion",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "C4留分の分離・誘導体化（異性化・脱水素等）" }
+    },
+    {
+      "id": "btx__btx_aroma_intermediate",
+      "from": "btx",
+      "to": "btx_aroma_intermediate",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "BTXの誘導体化（ニトロ化・還元・エステル化等）" }
+    },
+    {
+      "id": "btx__polyamide_resin",
+      "from": "btx",
+      "to": "polyamide_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "BTX→シクロヘキサン→アジピン酸・ヘキサメチレンジアミン→ナイロン66" }
+    },
+    {
+      "id": "c4_aroma_intermediate__fragrance_intermediate",
+      "from": "c4_aroma_intermediate",
+      "to": "fragrance_intermediate",
+      "type": "chemical_conversion",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "C4系香料前駆体の精製・調合" }
+    },
+    {
+      "id": "btx_aroma_intermediate__fragrance_intermediate",
+      "from": "btx_aroma_intermediate",
+      "to": "fragrance_intermediate",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "BTX系香料中間体の精製・調合" }
+    },
+    {
+      "id": "fragrance_intermediate__fragrance",
+      "from": "fragrance_intermediate",
+      "to": "fragrance",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "香料中間体の調合・ブレンド（フレグランスコンパウンド）" }
+    },
+    {
+      "id": "polyamide_resin__polyamide_film",
+      "from": "polyamide_resin",
+      "to": "polyamide_film",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "溶融押出・二軸延伸（Tダイ・チューブラー法）" }
+    },
+    {
+      "id": "polyamide_film__sterile_barrier_packaging",
+      "from": "polyamide_film",
+      "to": "sterile_barrier_packaging",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ナイロンフィルムをラミネート積層して無菌バリア包材に" }
+    },
+    {
+      "id": "polyamide_film__food_packaging_film",
+      "from": "polyamide_film",
+      "to": "food_packaging_film",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "高バリア食品包装フィルムの基材として使用" }
+    },
+    {
+      "id": "polyamide_film__lamination_material",
+      "from": "polyamide_film",
+      "to": "lamination_material",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ラミネート材のバリア層としてアルミ箔と積層" }
+    }
+  ]
+}

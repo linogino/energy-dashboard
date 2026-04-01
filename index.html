@@ -1004,9 +1004,6 @@ const CATEGORY_LABELS = {
   food_fresh:       '② 食料（生鮮）',
   food_beverage:    '② 食料・飲料',
   personal_care:    '③ 生活必需品',
-  infrastructure:   '③ インフラ・建材',
-  home_living:      '③ 家庭用品',
-  clothing_textile: '③ 衣料・繊維',
   logistics:        '④ 物流',
 };
 
@@ -1027,21 +1024,34 @@ function _riskClass(risk) {
 
 // ── 在庫バッファー日数（推定値） ──────────────────────────────────────
 const INVENTORY_DAYS = {
-  // 上流原料・中間材
-  naphtha: 15, ethylene: 7, eo: 7, meg: 14, edc: 10, vcm: 10,
-  surfactant_base: 14, ethanolamine: 14, polyether_polyol: 21,
-  pvc_resin: 21, hdpe: 21, lldpe: 21, ldpe: 21,
-  pet_resin: 14, polyester_fiber: 30, pu_foam: 30,
+  // L1 Feedstock
+  naphtha: 15, natural_gas: 14, aluminum_raw: 45,
+  // L2 基礎化学
+  ethylene: 7, propene: 7, c4_fraction: 14, btx: 14,
+  // L3 C2系
+  eo: 7, meg: 14, edc: 10, vcm: 10, pe_resin: 21, pet_resin: 14, pvc_resin: 21,
+  // L3 C3系
+  po: 10, pg: 21, pp_resin: 21, c3_surfactant_intermediate: 14,
+  polyether_polyol: 21, acrylic_acid: 14, acrylate_intermediate: 14, sap: 30,
+  // L3 C4/BTX/香料
+  c4_aroma_intermediate: 14, btx_aroma_intermediate: 14,
+  fragrance_intermediate: 21, polyamide_resin: 21, polyamide_film: 21,
+  // L3 アルミ
+  aluminum_foil: 21,
   // 農業・物流系
-  natural_gas: 14, ammonia: 30, urea: 45, adblue: 14,
+  ammonia: 30, urea: 45, adblue: 14,
   nitrogen_fertilizer: 60, pesticide: 90, diesel_fuel: 30,
-  // 消費財
-  water_pipe: 60, electrical_conduit: 60,
-  food_wrap: 14, shopping_bag: 21, plastic_container: 21,
-  beverage_bottle: 14, food_packaging_film: 14,
-  kitchen_detergent: 30, shampoo: 30, refill_pouch: 21,
-  medical_devices: 45, mattress: 90, polyester_garment: 60,
-  fresh_food_supply: 3, logistics_service: 7,
+  // L4 コンポーネント
+  packaging_film: 14, lamination_material: 14, sterile_barrier_packaging: 30,
+  bottle_container: 21, surfactant_system: 21, additive_system: 21,
+  fragrance: 30, shampoo_base: 14, medical_polymer_component: 30,
+  sterilization_eo: 21, pallet_wrap: 14, protective_packaging: 21,
+  stretch_film: 14, food_packaging_film: 14, beverage_bottle_component: 21,
+  fresh_food_logistics_pack: 7, diaper_absorbent_core: 21, hygiene_nonwoven_component: 14,
+  // L5 製品
+  medical_devices_eo: 45, refill_pouch: 21, kitchen_detergent: 30,
+  shampoo: 30, packaged_food_supply: 7, fresh_food_supply: 3,
+  logistics_system: 7, diaper: 14, sanitary_goods: 14, logistics_service: 7,
 };
 
 // ── シナリオ連鎖ストーリー ─────────────────────────────────────────────
@@ -1136,6 +1146,24 @@ const SCENARIO_STORIES = {
     ],
     note: 'ディーゼルは農業と物流の共通インフラ。収穫・運搬が同時に制約。エチレン系とは独立した危機経路。',
   },
+  c4_btx_disruption: {
+    chain: [
+      { label: 'C4留分・BTX 供給60%', crit: true },
+      { label: '香料中間体 不足', crit: true },
+      { label: 'ポリアミドフィルム不足', crit: true },
+      { label: '医療バリア包装・日用品香料 制約' },
+    ],
+    note: 'C4・BTX系は石化の「第三の柱」。香料（洗剤・シャンプー・おむつ全般）とポリアミド（医療無菌包装・食品高バリア）に同時波及。',
+  },
+  propylene_shortage: {
+    chain: [
+      { label: 'プロピレン供給 50%', crit: true },
+      { label: 'PP不織布不足', crit: true },
+      { label: 'SAP前駆体（アクリル酸）不足', crit: true },
+      { label: 'おむつ・衛生用品 製造停止', crit: true },
+    ],
+    note: 'プロピレン系は衛生用品の根幹。SAP（おむつ吸収コア）・PP不織布・界面活性剤が連鎖停止。新生児・要介護者に直撃。',
+  },
   normal: {
     chain: [
       { label: '供給途絶なし' },
@@ -1145,7 +1173,8 @@ const SCENARIO_STORIES = {
   },
 };
 
-// ── ヘルパー：上流ノード（feedstock/intermediate/material）を全収集 ──
+// ── ヘルパー：上流ノード（feedstock/intermediate/material）を全収集 ─────
+// 上流パネル（背景圧力表示）用
 function _getUpstreamNodes(graph, nodeId) {
   const SHOW = new Set(['feedstock', 'intermediate', 'material']);
   const visited = new Set([nodeId]);
@@ -1164,19 +1193,29 @@ function _getUpstreamNodes(graph, nodeId) {
   return result;
 }
 
-// ── availability 計算（min of upstream nodes）───────────────────────────
+// ── ヘルパー：製品の直接入力コンポーネント（application型）を取得 ─────
+// 成立条件表示用：製品 → 1段上のコンポーネントのみ
+function _getDirectComponents(graph, productId) {
+  const result = [];
+  for (const edge of (graph.radj[productId] ?? [])) {
+    const n = graph.nodes[edge.from];
+    if (n && n.type === 'application') result.push(edge.from);
+  }
+  return result;
+}
+
+// ── availability 計算（直接コンポーネントの最低値）────────────────────
 // 戻り値: { availability: 0〜1, sc: class文字列, bottleneck: nodeId|null, ancestors: [...] }
 function _productAvailability(graph, impactMap, productId) {
-  const ancestors = _getUpstreamNodes(graph, productId);
+  const components = _getDirectComponents(graph, productId);
 
-  // シナリオ影響がゼロの場合 → 製品自身のリスクも0
-  if (ancestors.length === 0) {
+  if (components.length === 0) {
     const risk = impactMap[productId]?.supplyRisk ?? 0;
     return { availability: 1 - risk, sc: _riskClass(risk), bottleneck: null, ancestors: [] };
   }
 
   let minAvail = 1, bottleneck = null;
-  for (const id of ancestors) {
+  for (const id of components) {
     const risk  = impactMap[id]?.supplyRisk ?? 0;
     const avail = 1 - risk;
     if (avail < minAvail) { minAvail = avail; bottleneck = id; }
@@ -1185,7 +1224,7 @@ function _productAvailability(graph, impactMap, productId) {
     availability: minAvail,
     sc:           _riskClass(1 - minAvail),
     bottleneck,
-    ancestors,
+    ancestors: components,
   };
 }
 
@@ -1220,13 +1259,12 @@ function renderImpactRanking(graph, impactMap) {
     const node = p.node;
     const cat  = CATEGORY_LABELS[node.category] ?? node.category ?? '';
 
-    // ボトルネック表示（上位3ノード）
+    // 成立条件コンポーネント表示（直接入力、availability順）
     let bnHtml = '';
     if (p.ancestors.length > 0) {
       const sorted = [...p.ancestors]
         .map(id => ({ id, node: graph.nodes[id], avail: 1 - (impactMap[id]?.supplyRisk ?? 0) }))
-        .sort((a, b) => a.avail - b.avail)
-        .slice(0, 3);
+        .sort((a, b) => a.avail - b.avail);
 
       const rows = sorted.map(anc => {
         const sc    = _riskClass(1 - anc.avail);
@@ -1240,7 +1278,7 @@ function renderImpactRanking(graph, impactMap) {
       }).join('');
 
       bnHtml = `<hr class="ir-divider">
-        <div class="ir-bn-lbl">供給制約の原因</div>${rows}`;
+        <div class="ir-bn-lbl">成立条件（コンポーネント）</div>${rows}`;
     }
 
     return `

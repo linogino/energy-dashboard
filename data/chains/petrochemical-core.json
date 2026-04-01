@@ -1,0 +1,123 @@
+{
+  "system": "petrochemical",
+  "subsystem": "feedstock_basic",
+  "label": "石油化学コア（フィードストック＋基礎化学品）",
+  "nodes": [
+    {
+      "id": "naphtha",
+      "type": "feedstock",
+      "label": "ナフサ",
+      "labelEn": "Naphtha",
+      "description": "石油化学工業の主要原料。輸入依存度高く、ホルムズ封鎖で直撃。在庫約2〜3週間分（2026年3月時点）。",
+      "sourceRefs": ["toyo_naphtha_2026", "meti_petrochemical"],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "LPG・エタンで一部代替可能だが日本の設備はナフサクラッカー中心" },
+        "priorityScore": { "value": 92, "basis": "proxy", "confidence": "high", "note": "エチレン・プロピレン・C4・BTX全ての起点" },
+        "consumerRelevance": { "value": 5, "basis": "proxy", "confidence": "medium", "note": "feedstockのため生活者への直接影響なし" }
+      }
+    },
+    {
+      "id": "natural_gas",
+      "type": "feedstock",
+      "label": "天然ガス（LNG）",
+      "labelEn": "Natural Gas / LNG",
+      "description": "EO製造・肥料（アンモニア経由）・AdBlueの原料。日本はLNG輸入依存。ホルムズ経由比率が高い。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "エチレン・肥料原料の代替なし。短期代替は備蓄のみ" },
+        "priorityScore": { "value": 93, "basis": "proxy", "confidence": "high", "note": "EO・農業・物流の根幹原料" },
+        "consumerRelevance": { "value": 5, "basis": "proxy", "confidence": "medium", "note": "feedstockのため直接消費者影響なし" }
+      }
+    },
+    {
+      "id": "ethylene",
+      "type": "intermediate",
+      "label": "エチレン",
+      "labelEn": "Ethylene",
+      "description": "石化産業の基礎素材。ナフサ分解により製造。日本国内生産量約600万トン/年。クラッカー稼働率75.7%（2026年2月）。",
+      "sourceRefs": ["jpca_ethylene_2026", "meti_petrochemical"],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "high", "note": "国内生産が約95%ナフサ由来。輸入エチレンは極めて限定的" },
+        "priorityScore": { "value": 95, "basis": "proxy", "confidence": "high", "note": "EO・PE・PVC全ての起点。稼働率低下が全下流製品に連鎖" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "medium", "note": "中間体だが影響の起点として最重要" }
+      }
+    },
+    {
+      "id": "propene",
+      "type": "intermediate",
+      "label": "プロピレン",
+      "labelEn": "Propylene",
+      "description": "ナフサ分解の副産物。PP・PO・アクリル酸の原料。日本年間生産量約350万トン。エチレンに次ぐ基礎化学品。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.12, "basis": "proxy", "confidence": "medium", "note": "PDH（プロパン脱水素）で一部代替可能だが日本での普及は限定的" },
+        "priorityScore": { "value": 88, "basis": "proxy", "confidence": "high", "note": "PP・PO・アクリル系全体の起点。おむつ・界面活性剤・衛生用品に波及" },
+        "consumerRelevance": { "value": 7, "basis": "proxy", "confidence": "medium", "note": "中間体として生活必需品の多くに間接的影響" }
+      }
+    },
+    {
+      "id": "c4_fraction",
+      "type": "intermediate",
+      "label": "C4留分",
+      "labelEn": "C4 Fraction",
+      "description": "ナフサ分解で生成する炭素数4の混合炭化水素。ブタジエン・イソブチレン・1-ブテン等を含む。香料前駆体・ポリマー原料。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.25, "basis": "proxy", "confidence": "low", "note": "用途別に代替経路あるが香料系は代替困難" },
+        "priorityScore": { "value": 72, "basis": "proxy", "confidence": "medium", "note": "香料・一部ポリマー原料として重要" },
+        "consumerRelevance": { "value": 6, "basis": "proxy", "confidence": "low", "note": "香料経由で日用品に間接影響" }
+      }
+    },
+    {
+      "id": "btx",
+      "type": "intermediate",
+      "label": "BTX（芳香族）",
+      "labelEn": "BTX (Benzene/Toluene/Xylene)",
+      "description": "ナフサ改質・クラッキングで生成。ベンゼン・トルエン・キシレン。PTA（PET原料）・ポリアミド・香料中間体の原料。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "PTA・ポリアミド製造に代替経路なし。日本は輸入・輸出が複雑に交差" },
+        "priorityScore": { "value": 82, "basis": "proxy", "confidence": "medium", "note": "PET（飲料ボトル）・ポリアミド（医療バリア包装）・香料の起点" },
+        "consumerRelevance": { "value": 7, "basis": "proxy", "confidence": "medium", "note": "食品包装・医療包装・日用品に波及" }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "naphtha__ethylene",
+      "from": "naphtha",
+      "to": "ethylene",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["jpca_ethylene_2026", "toyo_naphtha_2026"],
+      "meta": { "process": "スチームクラッキング（ナフサ分解炉）" }
+    },
+    {
+      "id": "naphtha__propene",
+      "from": "naphtha",
+      "to": "propene",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ナフサ分解副産物（エチレン/プロピレン比率 0.6〜0.7）" }
+    },
+    {
+      "id": "naphtha__c4_fraction",
+      "from": "naphtha",
+      "to": "c4_fraction",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ナフサ分解副産物（C4留分 約15%）" }
+    },
+    {
+      "id": "naphtha__btx",
+      "from": "naphtha",
+      "to": "btx",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ナフサ改質（接触改質＋抽出）" }
+    }
+  ]
+}

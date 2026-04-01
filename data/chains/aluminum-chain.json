@@ -1,0 +1,62 @@
+{
+  "system": "aluminum",
+  "subsystem": "aluminum",
+  "label": "アルミニウム系チェーン（アルミ箔・ラミネート）",
+  "nodes": [
+    {
+      "id": "aluminum_raw",
+      "type": "feedstock",
+      "label": "アルミニウム（原料）",
+      "labelEn": "Aluminum Raw Material",
+      "description": "アルミ地金・ロール材。日本はほぼ全量輸入依存。オーストラリア・カナダ・中東からのボーキサイト・アルミナ→電解精錬が主流。石化とは別系統のボトルネック。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "medium", "note": "スチール・PET等で一部代替可能だが無菌包装・高バリア用途では代替困難" },
+        "priorityScore": { "value": 78, "basis": "proxy", "confidence": "medium", "note": "医療無菌包装・詰替パウチ・食品包装の石化独立系ボトルネック" },
+        "consumerRelevance": { "value": 7, "basis": "proxy", "confidence": "medium", "note": "feedstockのため直接消費者影響なし" }
+      }
+    },
+    {
+      "id": "aluminum_foil",
+      "type": "material",
+      "label": "アルミニウム箔",
+      "labelEn": "Aluminum Foil",
+      "description": "アルミ地金の圧延で製造。厚さ6〜200μm。PTP包装（錠剤）・無菌ラミネート包材・医療バリア包装の基材として不可欠。石化と独立した供給リスク。",
+      "sourceRefs": [],
+      "scores": {
+        "substitutability": { "value": 0.12, "basis": "proxy", "confidence": "medium", "note": "医療PTP・無菌バリア包装でアルミ箔の代替はない。食品用途でもバリア性が問題" },
+        "priorityScore": { "value": 80, "basis": "proxy", "confidence": "high", "note": "医療用PTP・詰替パウチ・無菌包装に必須。石化とは独立した供給制約" },
+        "consumerRelevance": { "value": 16, "basis": "proxy", "confidence": "medium", "note": "医療包装・食品保存・日用品包装に幅広く使用" }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "aluminum_raw__aluminum_foil",
+      "from": "aluminum_raw",
+      "to": "aluminum_foil",
+      "type": "processing",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "アルミ地金の圧延・箔加工" }
+    },
+    {
+      "id": "aluminum_foil__lamination_material",
+      "from": "aluminum_foil",
+      "to": "lamination_material",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "ナイロン/PE/アルミ箔の複合ラミネート加工" }
+    },
+    {
+      "id": "aluminum_foil__sterile_barrier_packaging",
+      "from": "aluminum_foil",
+      "to": "sterile_barrier_packaging",
+      "type": "material_dependency",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "アルミ箔を高バリア層として使用した無菌包装材の製造" }
+    }
+  ]
+}

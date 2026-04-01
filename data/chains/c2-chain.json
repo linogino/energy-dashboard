@@ -1,0 +1,190 @@
+{
+  "system": "petrochemical",
+  "subsystem": "c2",
+  "label": "C2系チェーン（EO / MEG / PE / PET / PVC）",
+  "nodes": [
+    {
+      "id": "eo",
+      "type": "intermediate",
+      "label": "エチレンオキシド（EO）",
+      "labelEn": "Ethylene Oxide",
+      "description": "エチレンの接触酸化で製造。MEG・界面活性剤・医療EO滅菌の原料。輸送困難（毒性）で輸入代替も非現実的。",
+      "sourceRefs": ["proxy_chem_conversion", "nikkei_naphtha_2026"],
+      "scores": {
+        "substitutability": { "value": 0.05, "basis": "proxy", "confidence": "high", "note": "EOの製法はエチレン接触酸化のみ。代替製法なし" },
+        "priorityScore": { "value": 90, "basis": "proxy", "confidence": "high", "note": "MEG/PET・界面活性剤・医療滅菌・SAP全てEO起点" },
+        "consumerRelevance": { "value": 12, "basis": "proxy", "confidence": "medium", "note": "中間体だが下流 consumer_product が最多かつ生活必需度が高い" }
+      }
+    },
+    {
+      "id": "meg",
+      "type": "intermediate",
+      "label": "モノエチレングリコール（MEG）",
+      "labelEn": "Monoethylene Glycol",
+      "description": "EOの水和反応で製造。PET樹脂の主原料（モル比1:1）。飲料ボトル・食品包装の基盤原料。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "medium", "note": "中東以外からの輸入MEGが存在するが、ホルムズ封鎖で中東分は影響" },
+        "priorityScore": { "value": 76, "basis": "proxy", "confidence": "medium", "note": "飲料ボトル・食品包装の原料。PET樹脂の必須原料" },
+        "consumerRelevance": { "value": 12, "basis": "proxy", "confidence": "medium", "note": "PET→飲料ボトル・食品包装経由で生活直結" }
+      }
+    },
+    {
+      "id": "edc",
+      "type": "intermediate",
+      "label": "エチレンジクロライド（EDC）",
+      "labelEn": "Ethylene Dichloride",
+      "description": "エチレンと塩素の反応で製造。VCM（塩化ビニルモノマー）の原料。代替製法はほぼない。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "EDCはエチレン+Cl2から製造。代替製法なし" },
+        "priorityScore": { "value": 78, "basis": "proxy", "confidence": "medium", "note": "PVC全系列の起点" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "medium", "note": "PVC経由で医療機器・インフラに波及" }
+      }
+    },
+    {
+      "id": "vcm",
+      "type": "intermediate",
+      "label": "塩化ビニルモノマー（VCM）",
+      "labelEn": "Vinyl Chloride Monomer",
+      "description": "EDCの熱分解で製造。PVC樹脂の重合原料。医療用チューブ・袋の主材料。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": { "value": 0.10, "basis": "proxy", "confidence": "medium", "note": "VCMはEDC由来が唯一の工業的製法" },
+        "priorityScore": { "value": 76, "basis": "proxy", "confidence": "medium", "note": "PVC全系列の直前工程" },
+        "consumerRelevance": { "value": 8, "basis": "proxy", "confidence": "medium", "note": "PVC経由の間接影響" }
+      }
+    },
+    {
+      "id": "pe_resin",
+      "type": "material",
+      "label": "ポリエチレン樹脂（PE）",
+      "labelEn": "Polyethylene Resin",
+      "description": "HDPE/LDPE/LLDPEを総称。包装フィルム・農業用フィルム・物流用パレットラップの主材料。日本の消費量年間約250万トン。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": { "value": 0.20, "basis": "proxy", "confidence": "medium", "note": "用途別に代替あるが包装・農業フィルムでの急代替は困難" },
+        "priorityScore": { "value": 80, "basis": "proxy", "confidence": "high", "note": "食品包装・農業・物流の共通基盤材料" },
+        "consumerRelevance": { "value": 15, "basis": "proxy", "confidence": "medium", "note": "食品包装・日用品に幅広く使用" }
+      }
+    },
+    {
+      "id": "pet_resin",
+      "type": "material",
+      "label": "PET樹脂",
+      "labelEn": "PET Resin",
+      "description": "MEGとTPA（BTX由来）の重縮合で製造。飲料ボトル・食品包装・高バリアフィルムの主材料。年間消費量約80万トン。",
+      "sourceRefs": ["proxy_chem_conversion", "nikkei_naphtha_2026"],
+      "scores": {
+        "substitutability": { "value": 0.30, "basis": "proxy", "confidence": "medium", "note": "PP・ガラスで代替可能な用途あり。飲料ボトル主流材料としての急な代替は困難" },
+        "priorityScore": { "value": 74, "basis": "proxy", "confidence": "medium", "note": "飲料・食品包装・医療包装に直結" },
+        "consumerRelevance": { "value": 22, "basis": "proxy", "confidence": "medium", "note": "飲料ボトル・食品パッケージに幅広く使用" }
+      }
+    },
+    {
+      "id": "pvc_resin",
+      "type": "material",
+      "label": "PVC樹脂",
+      "labelEn": "PVC Resin",
+      "description": "VCMの重合で製造。医療用チューブ・点滴バッグ・電線被覆に使用。医療分野での代替が特に困難。",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "scores": {
+        "substitutability": { "value": 0.15, "basis": "proxy", "confidence": "medium", "note": "医療用途での代替は設備転換が必要で時間を要する" },
+        "priorityScore": { "value": 78, "basis": "proxy", "confidence": "medium", "note": "医療機器の直接原料。代替困難" },
+        "consumerRelevance": { "value": 18, "basis": "proxy", "confidence": "medium", "note": "医療機器・インフラ補修に使用" }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "ethylene__eo",
+      "from": "ethylene",
+      "to": "eo",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "エチレン接触酸化（銀触媒）" }
+    },
+    {
+      "id": "natural_gas__eo",
+      "from": "natural_gas",
+      "to": "eo",
+      "type": "chemical_conversion",
+      "dependencyStrength": "secondary",
+      "sourceRefs": [],
+      "meta": { "process": "天然ガス経由（一部プラント）" }
+    },
+    {
+      "id": "eo__meg",
+      "from": "eo",
+      "to": "meg",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "EOの水和反応" }
+    },
+    {
+      "id": "ethylene__edc",
+      "from": "ethylene",
+      "to": "edc",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "エチレン塩素化" }
+    },
+    {
+      "id": "edc__vcm",
+      "from": "edc",
+      "to": "vcm",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "EDC熱分解（クラッキング）" }
+    },
+    {
+      "id": "vcm__pvc_resin",
+      "from": "vcm",
+      "to": "pvc_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "VCM懸濁重合" }
+    },
+    {
+      "id": "ethylene__pe_resin",
+      "from": "ethylene",
+      "to": "pe_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "エチレン重合（HDPE/LDPE/LLDPE）" }
+    },
+    {
+      "id": "meg__pet_resin",
+      "from": "meg",
+      "to": "pet_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "MEGとTPA（BTX由来）の重縮合" }
+    },
+    {
+      "id": "btx__pet_resin",
+      "from": "btx",
+      "to": "pet_resin",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": [],
+      "meta": { "process": "BTX→PTA→PET（TPA経由）" }
+    },
+    {
+      "id": "eo__sterilization_eo",
+      "from": "eo",
+      "to": "sterilization_eo",
+      "type": "chemical_conversion",
+      "dependencyStrength": "primary",
+      "sourceRefs": ["proxy_chem_conversion"],
+      "meta": { "process": "EO直接使用（滅菌ガス）" }
+    }
+  ]
+}

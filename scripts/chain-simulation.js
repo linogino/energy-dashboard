@@ -77,6 +77,18 @@ const ChainSimulation = (() => {
       description: 'ディーゼル燃料の供給が60%に制約。農機稼働・食品輸送の双方が停止水準に近づく。',
       stockLevels: { diesel_fuel: 0.40 },
     },
+    c4_btx_disruption: {
+      id:          'c4_btx_disruption',
+      label:       'C4・BTX不足（香料・ポリアミド制約）',
+      description: 'C4留分・BTX供給が60%に低下。香料中間体・ポリアミドフィルムへの波及で無菌包装・日用品香料が制約。',
+      stockLevels: { c4_fraction: 0.40, btx: 0.40 },
+    },
+    propylene_shortage: {
+      id:          'propylene_shortage',
+      label:       'プロピレン不足（PP・PO・SAP制約）',
+      description: 'プロピレン供給が50%に低下。ポリプロピレン・プロピレンオキシド・アクリル酸への波及でおむつ・衛生用品・界面活性剤が制約。',
+      stockLevels: { propene: 0.50 },
+    },
     normal: {
       id:          'normal',
       label:       '平常時',

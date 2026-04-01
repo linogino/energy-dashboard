@@ -11,20 +11,25 @@ const ChainGraph = (() => {
 
   const SOURCES_FILE  = 'data/chains/sources.json';
   const CHAIN_FILES   = [
-    'data/chains/ethylene-core.json',
-    'data/chains/ethylene-eo.json',
-    'data/chains/ethylene-downstream.json',
+    'data/chains/petrochemical-core.json',
+    'data/chains/c2-chain.json',
+    'data/chains/c3-acrylic-chain.json',
+    'data/chains/c4-btx-chain.json',
+    'data/chains/aluminum-chain.json',
+    'data/chains/components-products.json',
     'data/chains/agriculture.json',
   ];
 
   // ── 有効な type 間接続ルール ─────────────────────────────────────────────
   // key = from.type, value = Set of allowed to.type
+  // 5層モデル対応（feedstock→intermediate→material→application→consumer_product）
+  // 中間層を越えた接続（intermediate→application等）も許容する
   const VALID_TYPE_CONNECTIONS = {
-    feedstock:        new Set(['feedstock', 'intermediate', 'material']),
-    intermediate:     new Set(['intermediate', 'material']),
-    material:         new Set(['application']),
-    application:      new Set(['consumer_product']),
-    consumer_product: new Set(),  // consumer_product は出力エッジを持たない
+    feedstock:        new Set(['feedstock', 'intermediate', 'material', 'application']),
+    intermediate:     new Set(['intermediate', 'material', 'application']),
+    material:         new Set(['material', 'application']),
+    application:      new Set(['application', 'consumer_product']),
+    consumer_product: new Set(),
   };
 
   // ── Load ────────────────────────────────────────────────────────────────
