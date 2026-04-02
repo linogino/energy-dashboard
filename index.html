@@ -1443,9 +1443,12 @@ function renderNews(data) {
     return;
   }
 
-  list.innerHTML = `<div class="news-grid">${data.items.map(item => {
-    const tag   = NEWS_TAG_LABELS[item.category] ?? item.category ?? '';
-    const meta  = [item.pubDate, item.source].filter(Boolean).join(' · ');
+  const preview = data.items.slice(0, 5);
+  const total   = data.items.length;
+
+  const rows = preview.map(item => {
+    const tag  = NEWS_TAG_LABELS[item.category] ?? item.category ?? '';
+    const meta = [item.pubDate, item.source].filter(Boolean).join(' · ');
     return `<a class="news-item" href="${item.url}" target="_blank" rel="noopener">
       <span class="news-tag ${item.category ?? ''}">${tag}</span>
       <div class="news-body">
@@ -1453,7 +1456,20 @@ function renderNews(data) {
         ${meta ? `<div class="news-meta">${meta}</div>` : ''}
       </div>
     </a>`;
-  }).join('')}</div>`;
+  }).join('');
+
+  const moreLink = total > 5
+    ? `<a href="news.html" style="
+        display:block; margin-top:10px; padding:10px 14px;
+        text-align:center; border:1px solid var(--slate-200);
+        border-radius:8px; font-size:.82rem; font-weight:600;
+        color:var(--slate-600); text-decoration:none; background:var(--slate-50);
+        transition:border-color .15s;">
+        すべてのニュースを見る（全${total}件） →
+      </a>`
+    : '';
+
+  list.innerHTML = `<div class="news-grid">${rows}</div>${moreLink}`;
 }
 
 async function loadNews() {

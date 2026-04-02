@@ -48,6 +48,26 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }
 
+# ── 信頼ソース ホワイトリスト ─────────────────────────────────────────────────
+# Google News RSS の source フィールドと突合。部分一致で判定。
+TRUSTED_SOURCE_KEYWORDS: tuple[str, ...] = (
+    # 経済紙・業界紙
+    "日本経済新聞", "日経",
+    "化学工業日報",
+    "日刊工業新聞",
+    "包装タイムス",
+    # 政府・省庁（直接スクレイプ分も統一ラベルとして使用）
+    "経済産業省", "資源エネルギー庁", "農林水産省",
+    # 業界団体（直接スクレイプ分）
+    "石油化学工業協会", "日本アルミニウム協会", "石油連盟",
+    "日本化学工業協会", "日本包装技術協会",
+)
+
+
+def is_trusted(source: str) -> bool:
+    """source フィールドが信頼ソースに合致するか判定。"""
+    return any(kw in source for kw in TRUSTED_SOURCE_KEYWORDS)
+
 # ── カテゴリ分類キーワード ────────────────────────────────────────────────────
 
 CATEGORY_RULES: list[tuple[str, list[str]]] = [
@@ -372,35 +392,37 @@ def scrape_meti() -> list[dict]:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# Source 7: Google News RSS ── 化学工業日報・日経指定クエリ
+# Source 7: Google News RSS ── 信頼媒体指定クエリのみ
 # ══════════════════════════════════════════════════════════════════════════════
 
-# source 名をクエリに含めることで Google News がその媒体の記事を優先返却する
+# source 名をクエリに含めることで Google News がその媒体の記事を優先返却する。
+# 取得後に is_trusted() で再フィルタし、Yahoo・TV・まとめサイトを排除。
 GNEWS_QUERIES: list[tuple[str, str]] = [
     # 化学工業日報 指定クエリ
-    ("化学工業日報 ナフサ",              "naphtha"),
-    ("化学工業日報 エチレン",            "ethylene"),
-    ("化学工業日報 プロピレン",          "propylene"),
-    ("化学工業日報 BTX 芳香族",          "btx"),
-    ("化学工業日報 尿素 アドブルー",     "urea"),
-    ("化学工業日報 アルミ 包材",         "aluminum"),
-    ("化学工業日報 包装フィルム",        "packaging"),
+    ("化学工業日報 ナフサ",          "naphtha"),
+    ("化学工業日報 エチレン",        "ethylene"),
+    ("化学工業日報 プロピレン",      "propylene"),
+    ("化学工業日報 BTX 芳香族",      "btx"),
+    ("化学工業日報 尿素 アドブルー", "urea"),
+    ("化学工業日報 アルミ 包材",     "aluminum"),
+    ("化学工業日報 包装フィルム",    "packaging"),
     # 日本経済新聞 指定クエリ
-    ("日本経済新聞 ナフサ 石油化学",     "naphtha"),
-    ("日本経済新聞 エチレン 供給",       "ethylene"),
-    ("日本経済新聞 尿素 物流",           "urea"),
-    ("日本経済新聞 アルミ 包材",         "aluminum"),
-    # 広域クエリ（媒体指定なし）
-    ("ナフサ 代替調達 中東以外",         "naphtha"),
-    ("石油化学 BTX 供給制約",            "btx"),
-    ("尿素 AdBlue ディーゼル 物流",      "urea"),
-    ("アルミ箔 包装材 供給",             "aluminum"),
-    ("軟包装 バリアフィルム 樹脂",       "packaging"),
+    ("日本経済新聞 ナフサ 石油化学", "naphtha"),
+    ("日本経済新聞 エチレン 供給",   "ethylene"),
+    ("日本経済新聞 尿素 物流",       "urea"),
+    ("日本経済新聞 アルミ 包材",     "aluminum"),
+    # 日刊工業新聞 指定クエリ
+    ("日刊工業新聞 ナフサ 石油化学", "naphtha"),
+    ("日刊工業新聞 エチレン",        "ethylene"),
+    ("日刊工業新聞 プロピレン",      "propylene"),
 ]
 
 
 def fetch_google_news(query: str, category: str) -> list[dict]:
-    """Google News RSS から記事を取得する。"""
+    """
+    Google News RSS から記事を取得し、信頼ソースのみ返す。
+    Yahoo・TV局・ポータルサイトは is_trusted() で除外。
+    """
     url = (
         "https://news.google.com/rss/search?"
         + urllib.parse.urlencode({"q": query, "hl": "ja", "gl": "JP", "ceid": "JP:ja"})
@@ -415,18 +437,26 @@ def fetch_google_news(query: str, category: str) -> list[dict]:
         return []
 
     items: list[dict] = []
+    skipped = 0
     for item in root.findall(".//item"):
         title   = (item.findtext("title") or "").strip()
         link    = (item.findtext("link")  or "").strip()
         pub_raw = (item.findtext("pubDate") or "")
         src_el  = item.find("source")
         source  = src_el.text.strip() if src_el is not None and src_el.text else ""
+
         if not title or not link:
             continue
+        # ── 信頼ソースフィルタ ──
+        if not is_trusted(source):
+            skipped += 1
+            continue
+
         try:
             pub_iso = parsedate_to_datetime(pub_raw).strftime("%Y-%m-%d")
         except Exception:
             pub_iso = parse_date_jp(pub_raw) or TODAY
+
         items.append({
             "title":    title[:140],
             "url":      link,
@@ -434,7 +464,8 @@ def fetch_google_news(query: str, category: str) -> list[dict]:
             "pubDate":  pub_iso,
             "category": category,
         })
-    print(f"[GNews] '{query}' → {len(items)} 件")
+
+    print(f"[GNews] '{query}' → {len(items)} 件採用 / {skipped} 件除外")
     return items
 
 

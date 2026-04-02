@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>供給チェーンニュース | 日本エネルギー供給ダッシュボード</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #dc2626; --red-bg: #fef2f2; --red-border: #fca5a5;
+      --amber: #d97706; --amber-bg: #fffbeb; --amber-border: #fcd34d;
+      --green: #16a34a; --green-bg: #f0fdf4; --green-border: #86efac;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+      --slate-400: #94a3b8; --slate-600: #475569; --slate-800: #1e293b;
+      --radius: 12px; --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+      background: var(--slate-100);
+      color: var(--slate-800);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--slate-200);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .83rem;
+      font-weight: 600;
+      color: var(--slate-600);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: var(--slate-50);
+      transition: border-color .15s;
+      white-space: nowrap;
+    }
+    .back-link:hover { border-color: var(--slate-400); color: var(--slate-800); }
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--slate-800);
+    }
+    .header-sub {
+      font-size: .75rem;
+      color: var(--slate-400);
+      margin-left: auto;
+    }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+    /* ── Filter bar ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .filter-label {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--slate-400);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-right: 4px;
+    }
+    .filter-btn {
+      padding: 5px 14px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 20px;
+      background: white;
+      color: var(--slate-600);
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+    }
+    .filter-btn:hover { border-color: var(--slate-400); color: var(--slate-800); }
+    .filter-btn.active {
+      background: var(--slate-800);
+      border-color: var(--slate-800);
+      color: white;
+    }
+
+    /* ── Meta row ── */
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .count-badge {
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      color: var(--slate-600);
+    }
+    .date-badge {
+      font-size: .75rem;
+      color: var(--slate-400);
+    }
+
+    /* ── News grid ── */
+    .news-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--slate-800);
+      font-size: .85rem;
+      transition: border-color .15s, box-shadow .15s;
+      box-shadow: var(--shadow);
+    }
+    .news-item:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.08);
+    }
+    .news-tag {
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .news-tag.naphtha   { background: #fef3c7; color: #92400e; }
+    .news-tag.ethylene  { background: #dbeafe; color: #1e40af; }
+    .news-tag.propylene { background: #d1fae5; color: #065f46; }
+    .news-tag.btx       { background: #ede9fe; color: #5b21b6; }
+    .news-tag.urea      { background: #fef9c3; color: #713f12; }
+    .news-tag.aluminum  { background: #e0f2fe; color: #0c4a6e; }
+    .news-tag.packaging { background: #f0fdf4; color: #14532d; }
+    .news-tag.logistics { background: #fce7f3; color: #9d174d; }
+    .news-body  { flex: 1; min-width: 0; }
+    .news-title {
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 4px;
+    }
+    .news-meta  { font-size: .72rem; color: var(--slate-400); }
+    .news-source {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      background: var(--slate-100);
+      border-radius: 4px;
+      color: var(--slate-600);
+      margin-right: 6px;
+    }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--slate-400);
+      font-size: .9rem;
+    }
+
+    /* ── Loading ── */
+    #loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+      font-size: 1rem;
+      color: var(--slate-400);
+      gap: 12px;
+    }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 3px solid var(--slate-200);
+      border-top-color: var(--slate-600);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hidden { display: none !important; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 40px;
+      padding: 20px 24px;
+      text-align: center;
+      font-size: .75rem;
+      color: var(--slate-400);
+      border-top: 1px solid var(--slate-200);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-link">← ダッシュボードに戻る</a>
+  <h1>供給チェーンニュース</h1>
+  <span class="header-sub">ナフサ・エチレン・プロピレン・BTX・尿素・アルミ・包材</span>
+</header>
+
+<main>
+  <div id="loading"><div class="spinner"></div>読み込み中…</div>
+
+  <div id="app" class="hidden">
+    <!-- フィルタバー -->
+    <div class="filter-bar">
+      <span class="filter-label">絞り込み</span>
+      <button class="filter-btn active" data-cat="">すべて</button>
+      <button class="filter-btn" data-cat="naphtha">ナフサ</button>
+      <button class="filter-btn" data-cat="ethylene">エチレン</button>
+      <button class="filter-btn" data-cat="propylene">プロピレン</button>
+      <button class="filter-btn" data-cat="btx">BTX</button>
+      <button class="filter-btn" data-cat="urea">尿素</button>
+      <button class="filter-btn" data-cat="aluminum">アルミ</button>
+      <button class="filter-btn" data-cat="packaging">包材</button>
+    </div>
+
+    <!-- 件数 / 更新日 -->
+    <div class="meta-row">
+      <span id="count-badge" class="count-badge">— 件</span>
+      <span id="date-badge" class="date-badge">取得日: —</span>
+    </div>
+
+    <!-- ニュース一覧 -->
+    <div id="news-grid" class="news-grid"></div>
+  </div>
+</main>
+
+<footer>
+  ソース: 日本経済新聞 / 化学工業日報 / 日刊工業新聞 / 包装タイムス / 経済産業省 / 業界団体公式発表
+</footer>
+
+<script>
+const TAG_LABELS = {
+  naphtha:   'ナフサ',
+  ethylene:  'エチレン',
+  propylene: 'プロピレン',
+  btx:       'BTX',
+  urea:      '尿素',
+  aluminum:  'アルミ',
+  packaging: '包材',
+  logistics: '物流',
+};
+
+let allItems = [];
+let currentCat = '';
+
+function renderItems(items) {
+  const grid = document.getElementById('news-grid');
+  if (items.length === 0) {
+    grid.innerHTML = '<div class="empty-state">該当するニュースがありません。</div>';
+    document.getElementById('count-badge').textContent = '0 件';
+    return;
+  }
+  document.getElementById('count-badge').textContent = `${items.length} 件`;
+  grid.innerHTML = items.map(item => {
+    const tag  = TAG_LABELS[item.category] ?? item.category ?? '';
+    const meta = item.pubDate ?? '';
+    return `<a class="news-item" href="${item.url}" target="_blank" rel="noopener">
+      <span class="news-tag ${item.category ?? ''}">${tag}</span>
+      <div class="news-body">
+        <div class="news-title">${item.title}</div>
+        <div class="news-meta">
+          ${item.source ? `<span class="news-source">${item.source}</span>` : ''}
+          ${meta}
+        </div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+function applyFilter(cat) {
+  currentCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.cat === cat);
+  });
+  const filtered = cat ? allItems.filter(i => i.category === cat) : allItems;
+  renderItems(filtered);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyFilter(btn.dataset.cat));
+});
+
+async function init() {
+  try {
+    const resp = await fetch('data/news.json');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    allItems = data.items ?? [];
+    document.getElementById('date-badge').textContent = `取得日: ${data.updated ?? '—'}`;
+
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+
+    applyFilter('');
+  } catch (e) {
+    document.getElementById('loading').innerHTML =
+      `<div style="color:#dc2626">ニュースデータの読み込みに失敗しました: ${e.message}</div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
