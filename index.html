@@ -446,6 +446,48 @@
       border-top: 1px solid var(--slate-200);
     }
 
+    /* ── News Section ── */
+    .news-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--slate-800);
+      font-size: .82rem;
+      transition: border-color .15s, background .15s;
+    }
+    .news-item:hover { border-color: #3b82f6; background: white; }
+    .news-tag {
+      font-size: .63rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .news-tag.naphtha   { background: #fef3c7; color: #92400e; }
+    .news-tag.ethylene  { background: #dbeafe; color: #1e40af; }
+    .news-tag.propylene { background: #d1fae5; color: #065f46; }
+    .news-tag.btx       { background: #ede9fe; color: #5b21b6; }
+    .news-tag.logistics { background: #fce7f3; color: #9d174d; }
+    .news-body  { flex: 1; min-width: 0; }
+    .news-title { font-weight: 600; line-height: 1.4; margin-bottom: 2px; }
+    .news-meta  { font-size: .7rem; color: var(--slate-400); }
+    .news-meta-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+
     /* ── Loading ── */
     #loading {
       display: flex;
@@ -641,6 +683,19 @@
 <div id="loading"><div class="spinner"></div>データを読み込み中…</div>
 
 <main id="app" class="hidden">
+
+  <!-- News Section -->
+  <div class="section-label">最新ニュース ── ナフサ・エチレン・プロピレン・BTX・代替調達</div>
+  <div class="panel">
+    <div id="news-loading" class="l3-state">⏳ ニュース読み込み中…</div>
+    <div id="news-error"   class="l3-state l3-error-msg hidden"></div>
+    <div id="news-content" class="hidden">
+      <div class="news-meta-row">
+        <span class="iip-date-badge">📅 取得日: <strong id="news-date">—</strong></span>
+      </div>
+      <div id="news-list"></div>
+    </div>
+  </div>
 
   <!-- Layer 1: Status Cards -->
   <div class="section-label">LAYER 1 ── 在庫サマリー（現状一目確認）</div>
@@ -1359,6 +1414,64 @@ function renderSources(sources) {
   `).join('');
 }
 
+/* ══════════════════════════════════════════════
+   News Section
+══════════════════════════════════════════════ */
+
+const NEWS_TAG_LABELS = {
+  naphtha:   'ナフサ',
+  ethylene:  'エチレン',
+  propylene: 'プロピレン',
+  btx:       'BTX',
+  logistics: '物流',
+};
+
+function renderNews(data) {
+  document.getElementById('news-loading').classList.add('hidden');
+  document.getElementById('news-content').classList.remove('hidden');
+  document.getElementById('news-date').textContent = data.updated ?? '—';
+
+  const list = document.getElementById('news-list');
+  if (!data.items || data.items.length === 0) {
+    list.innerHTML = '<p style="color:var(--slate-400);font-size:.82rem;padding:4px 0">現在ニュースはありません。次回スクレイピング後に表示されます。</p>';
+    return;
+  }
+
+  list.innerHTML = `<div class="news-grid">${data.items.map(item => {
+    const tag   = NEWS_TAG_LABELS[item.category] ?? item.category ?? '';
+    const meta  = [item.pubDate, item.source].filter(Boolean).join(' · ');
+    return `<a class="news-item" href="${item.url}" target="_blank" rel="noopener">
+      <span class="news-tag ${item.category ?? ''}">${tag}</span>
+      <div class="news-body">
+        <div class="news-title">${item.title}</div>
+        ${meta ? `<div class="news-meta">${meta}</div>` : ''}
+      </div>
+    </a>`;
+  }).join('')}</div>`;
+}
+
+async function loadNews() {
+  try {
+    const resp = await fetch('data/news.json');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    renderNews(data);
+  } catch (e) {
+    document.getElementById('news-loading').classList.add('hidden');
+    // ファイル未生成の場合は静かに非表示
+    if (e.message.includes('404') || e.message.includes('HTTP 404')) {
+      document.getElementById('news-content').classList.remove('hidden');
+      document.getElementById('news-list').innerHTML =
+        '<p style="color:var(--slate-400);font-size:.82rem;padding:4px 0">ニュースデータはまだ生成されていません（初回スクレイピング後に表示）。</p>';
+      document.getElementById('news-date').textContent = '—';
+    } else {
+      const err = document.getElementById('news-error');
+      err.classList.remove('hidden');
+      err.textContent = `ニュース取得エラー: ${e.message}`;
+    }
+  }
+}
+
 /* ── Main ── */
 async function loadDashboard() {
   let data;
@@ -1397,6 +1510,9 @@ async function loadDashboard() {
   if (typeof ChainGraph !== 'undefined' && typeof ChainSimulation !== 'undefined') {
     initLayer3Enhanced();
   }
+
+  // News section
+  loadNews();
 }
 
 // Fallback data (same structure — used when fetch is unavailable)
