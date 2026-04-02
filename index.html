@@ -10,6 +10,7 @@
 
     :root {
       --red: #dc2626; --red-bg: #fef2f2; --red-border: #fca5a5;
+      --orange: #f97316; --orange-bg: #fff7ed; --orange-border: #fed7aa;
       --amber: #d97706; --amber-bg: #fffbeb; --amber-border: #fcd34d;
       --green: #16a34a; --green-bg: #f0fdf4; --green-border: #86efac;
       --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
@@ -140,6 +141,7 @@
       border-radius: 20px;
     }
     .status-badge.critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+    .status-badge.orange   { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
     .status-badge.warning  { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
     .status-badge.ok       { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
 
@@ -174,6 +176,7 @@
       transition: width .8s ease;
     }
     .gauge-fill.critical { background: var(--red); }
+    .gauge-fill.orange   { background: var(--orange); }
     .gauge-fill.warning  { background: var(--amber); }
     .gauge-fill.ok       { background: var(--green); }
     .gauge-labels {
@@ -349,6 +352,7 @@
       margin: 0 6px;
     }
     .chain-box.critical { background: var(--red-bg); border-color: var(--red-border); color: var(--red); }
+    .chain-box.orange   { background: var(--orange-bg); border-color: var(--orange-border); color: var(--orange); }
     .chain-box.warning  { background: var(--amber-bg); border-color: var(--amber-border); color: var(--amber); }
     .chain-box.ok       { background: var(--green-bg); border-color: var(--green-border); color: var(--green); }
     .chain-name { font-weight: 700; font-size: .8rem; }
@@ -522,6 +526,7 @@
       box-shadow: var(--shadow);
     }
     .ir-card.avail-critical { border-top-color: var(--red); }
+    .ir-card.avail-orange   { border-top-color: var(--orange); }
     .ir-card.avail-warning  { border-top-color: var(--amber); }
     .ir-card.avail-ok       { border-top-color: var(--green); }
     .ir-card.avail-none     { border-top-color: var(--slate-300); }
@@ -538,6 +543,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,.15);
     }
     .tl-dot.critical { background: var(--red); }
+    .tl-dot.orange   { background: var(--orange); }
     .tl-dot.warning  { background: var(--amber); }
     .tl-dot.ok       { background: var(--green); }
     .tl-dot.none     { background: var(--slate-300); }
@@ -545,6 +551,7 @@
       width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
     }
     .tl-dot-sm.critical { background: var(--red); }
+    .tl-dot-sm.orange   { background: var(--orange); }
     .tl-dot-sm.warning  { background: var(--amber); }
     .tl-dot-sm.ok       { background: var(--green); }
     .tl-dot-sm.none     { background: var(--slate-300); }
@@ -675,14 +682,14 @@
       <!-- ① シナリオ連鎖説明 -->
       <div id="scenario-story" class="scenario-story"></div>
 
-      <!-- ② 消費財影響ランキング（供給可能率 低い順） -->
-      <div class="l3-sub-hd">影響を受ける生活用品 ── 供給可能率の低い順</div>
+      <!-- ② 消費財影響ランキング（リスク高い順） -->
+      <div class="l3-sub-hd">影響を受ける生活用品 ── 上流圧力・ボトルネックによる順位</div>
       <div id="impact-ranking" class="impact-ranking"></div>
 
-      <!-- ③ 上流原料（折りたたみ） -->
-      <button id="upstream-toggle" class="upstream-btn">▼ 上流原料・中間材の状況を表示</button>
+      <!-- ③ 上流圧力カテゴリ（折りたたみ） -->
+      <button id="upstream-toggle" class="upstream-btn">▼ 上流圧力カテゴリを表示（C2 / C3 / BTX / アルミ / ロジスティクス）</button>
       <div id="upstream-panel" class="hidden">
-        <div class="l3-sub-hd" style="margin-top:4px">原料・中間材の供給可能率</div>
+        <div class="l3-sub-hd" style="margin-top:4px">上流圧力カテゴリ別シグナル</div>
         <div id="upstream-nodes" class="upstream-grid"></div>
       </div>
 
@@ -1015,10 +1022,12 @@ const TYPE_BADGE = {
   consumer_product:'製品',
 };
 
+// 4-level signal: Green / Yellow / Orange / Red
 function _riskClass(risk) {
-  if (risk >= 0.6) return 'critical';
-  if (risk >= 0.3) return 'warning';
-  if (risk > 0)    return 'ok';
+  if (risk >= 0.70) return 'critical';   // Red   — supply < 30%
+  if (risk >= 0.50) return 'orange';     // Orange — supply 30-50%
+  if (risk >= 0.25) return 'warning';    // Yellow — supply 50-75%
+  if (risk > 0)     return 'ok';         // Green  — supply > 75%
   return 'none';
 }
 
@@ -1056,122 +1065,89 @@ const INVENTORY_DAYS = {
 
 // ── シナリオ連鎖ストーリー ─────────────────────────────────────────────
 const SCENARIO_STORIES = {
-  hormuz_block: {
+  best_case_partial_recovery: {
     chain: [
-      { label: 'ホルムズ封鎖', crit: true },
-      { label: 'ナフサ輸入 −97%', crit: true },
-      { label: 'エチレン生産低下', crit: true },
-      { label: 'EO・MEG不足', crit: true },
-      { label: '洗剤・ボトル・医療機器 供給制限', crit: true },
+      { label: 'ホルムズ部分回復' },
+      { label: 'ナフサ供給 75%' },
+      { label: 'LNG供給 85%' },
+      { label: '尿素制約（物流 半減）', crit: true },
+      { label: '生活物資 軽度影響' },
     ],
-    note: '国内在庫（約2〜3週間分）が緩衝材。GW明け以降に枯渇リスク。医療優先配分が始まれば一般消費財から削られる。',
+    note: '代替ルート確保により供給危機は緩和。尿素・AdBlue制約が物流に残存するが、石化チェーンは概ね機能。エチレン・プロピレン・BTX系は軽度の調整にとどまる。',
   },
-  naphtha_30pct: {
+  middle_case_hormuz_loss_60pct_replacement: {
     chain: [
-      { label: 'ナフサ在庫 30%', crit: true },
-      { label: 'エチレン生産抑制' },
-      { label: '下流中間材不足' },
-      { label: '日用品・食品包装 供給減' },
+      { label: 'ホルムズ封鎖継続', crit: true },
+      { label: '代替調達 60% 確保' },
+      { label: 'ナフサ 60%・LNG 70%', crit: true },
+      { label: '尿素制約（物流 半減）', crit: true },
+      { label: '生活物資 中程度影響', crit: true },
     ],
-    note: 'エチレンが絞られるとEO系・PE系全体に波及。一業種の不足が生活用品全般に連鎖する。',
+    note: '代替ルート確保済みだが供給は平常比60〜70%。エチレン・プロピレン系中間材が不足し、医療・日用品・食品包装への波及が見込まれる。物流も尿素制約で圧迫。',
   },
-  upstream_ethylene_30: {
+  worst_case_hormuz_loss_20pct_replacement: {
     chain: [
-      { label: 'ナフサ分解炉 大幅減産', crit: true },
-      { label: 'エチレン供給 30%', crit: true },
-      { label: '全系統で中間材不足', crit: true },
-      { label: '広範な消費財 生産停止' },
+      { label: 'ホルムズ封鎖継続', crit: true },
+      { label: '代替調達 20% のみ', crit: true },
+      { label: 'ナフサ 20%・LNG 50%', crit: true },
+      { label: '尿素制約（物流 半減）', crit: true },
+      { label: '生活物資 広範な供給停止', crit: true },
     ],
-    note: 'エチレンが全下流のボトルネック。ここが詰まると洗剤・ボトル・衣料・医療まで連鎖停止。',
-  },
-  intermediate_eo_50: {
-    chain: [
-      { label: 'EO製造設備停止', crit: true },
-      { label: 'EO供給 50%', crit: true },
-      { label: 'MEG・界面活性剤不足' },
-      { label: 'PETボトル・洗剤 供給減' },
-    ],
-    note: 'EO停止はPETボトル・洗剤・医療用消毒に直撃。上流（エチレン）には影響なし。被害は局所的だが深刻。',
-  },
-  downstream_pvc_40: {
-    chain: [
-      { label: 'PVC製造ライン停止', crit: true },
-      { label: 'PVC樹脂 40%', crit: true },
-      { label: '水道管・電気配管 供給減' },
-    ],
-    note: '上流（ナフサ・エチレン）は正常。ただし水道・電気インフラの補修部材が不足。時間差で生活インフラに影響。',
-  },
-  inventory_naphtha_30: {
-    chain: [
-      { label: 'GW以降 在庫枯渇', crit: true },
-      { label: 'ナフサ 残存 5%', crit: true },
-      { label: 'エチレン 20%', crit: true },
-      { label: '石油化学 事実上シャットダウン', crit: true },
-    ],
-    note: 'ナフサ在庫が完全に尽きたシナリオ。製造工業全体が止まり、生活用品の大半が入手困難になる最悪ケース。',
-  },
-  allocation_medical: {
-    chain: [
-      { label: '政府：医療優先配分' },
-      { label: 'EO → 医療機器に集中' },
-      { label: '一般洗剤・食品包装 後回し', crit: true },
-    ],
-    note: '危機下のトリアージ：医療・衛生を守ると日用品の棚が空になる。供給制約下での配分判断が問われる。',
-  },
-  lng_shortage: {
-    chain: [
-      { label: 'LNG供給 60%', crit: true },
-      { label: 'アンモニア不足', crit: true },
-      { label: '尿素・窒素肥料制約', crit: true },
-      { label: 'AdBlue不足', crit: true },
-      { label: '農業生産低下＋物流制約', crit: true },
-    ],
-    note: '天然ガスはエチレン系とは別系統。肥料・AdBlue経由で農業・物流に波及。収量低下と輸送停止が同時発生する複合危機。',
-  },
-  adblue_shortage: {
-    chain: [
-      { label: 'AdBlue在庫 枯渇', crit: true },
-      { label: 'SCRトラック 法令上停止', crit: true },
-      { label: '食品・医薬品 輸送停止', crit: true },
-      { label: '全産業サプライチェーン麻痺', crit: true },
-    ],
-    note: '2021年の教訓：中国が尿素輸出制限→日本のAdBlue在庫が14日分に。今回は農業・物流両面で同時発生する事態。',
-  },
-  diesel_shortage: {
-    chain: [
-      { label: 'ディーゼル供給 60%', crit: true },
-      { label: '農機稼働 制約', crit: true },
-      { label: '食品輸送 制約' },
-      { label: '生鮮食品 供給減少' },
-    ],
-    note: 'ディーゼルは農業と物流の共通インフラ。収穫・運搬が同時に制約。エチレン系とは独立した危機経路。',
-  },
-  c4_btx_disruption: {
-    chain: [
-      { label: 'C4留分・BTX 供給60%', crit: true },
-      { label: '香料中間体 不足', crit: true },
-      { label: 'ポリアミドフィルム不足', crit: true },
-      { label: '医療バリア包装・日用品香料 制約' },
-    ],
-    note: 'C4・BTX系は石化の「第三の柱」。香料（洗剤・シャンプー・おむつ全般）とポリアミド（医療無菌包装・食品高バリア）に同時波及。',
-  },
-  propylene_shortage: {
-    chain: [
-      { label: 'プロピレン供給 50%', crit: true },
-      { label: 'PP不織布不足', crit: true },
-      { label: 'SAP前駆体（アクリル酸）不足', crit: true },
-      { label: 'おむつ・衛生用品 製造停止', crit: true },
-    ],
-    note: 'プロピレン系は衛生用品の根幹。SAP（おむつ吸収コア）・PP不織布・界面活性剤が連鎖停止。新生児・要介護者に直撃。',
-  },
-  normal: {
-    chain: [
-      { label: '供給途絶なし' },
-      { label: '全系統 平常運転' },
-    ],
-    note: '全ての供給チェーンが正常に機能している状態。基準値として使用。',
+    note: '代替調達が難航。ナフサ供給が平常比20%まで低下し、石油化学プラントの大半が停止水準に近づく。医療・食品・物流の全分野で深刻な不足。',
   },
 };
+
+// ── 上流圧力カテゴリ（C2 / C3 / BTX / アルミ / ロジスティクス）────────
+const UPSTREAM_PRESSURE_CATEGORIES = [
+  {
+    id:      'c2',
+    label:   'C2',
+    desc:    'エチレン系',
+    nodeIds: ['naphtha', 'ethylene', 'eo', 'meg', 'edc', 'vcm', 'pe_resin', 'pet_resin', 'pvc_resin'],
+  },
+  {
+    id:      'c3',
+    label:   'C3',
+    desc:    'プロピレン系',
+    nodeIds: ['propene', 'po', 'pg', 'pp_resin', 'acrylic_acid', 'sap',
+              'polyether_polyol', 'c3_surfactant_intermediate', 'acrylate_intermediate'],
+  },
+  {
+    id:      'btx',
+    label:   'BTX',
+    desc:    '芳香族系',
+    nodeIds: ['btx', 'c4_fraction', 'c4_aroma_intermediate', 'btx_aroma_intermediate',
+              'fragrance_intermediate', 'polyamide_resin', 'polyamide_film'],
+  },
+  {
+    id:      'aluminum',
+    label:   'アルミ',
+    desc:    'アルミニウム系',
+    nodeIds: ['aluminum_raw', 'aluminum_foil', 'lamination_material'],
+  },
+  {
+    id:      'logistics',
+    label:   'ロジスティクス',
+    desc:    '物流・農業',
+    nodeIds: ['natural_gas', 'ammonia', 'urea', 'adblue', 'diesel_fuel',
+              'nitrogen_fertilizer', 'pesticide'],
+  },
+];
+
+// 製品の支配的な上流圧力カテゴリを返す（最大 supplyRisk のカテゴリ）
+function _getProductUpstreamPressure(graph, impactMap, productId) {
+  const ancestors = _getUpstreamNodes(graph, productId);
+  const ancestorSet = new Set(ancestors);
+  let maxRisk = 0, dominantCat = null;
+
+  for (const cat of UPSTREAM_PRESSURE_CATEGORIES) {
+    const risk = Math.max(0, ...cat.nodeIds
+      .filter(id => ancestorSet.has(id) && graph.nodes[id])
+      .map(id => impactMap[id]?.supplyRisk ?? 0));
+    if (risk > maxRisk) { maxRisk = risk; dominantCat = cat; }
+  }
+  return { category: dominantCat, risk: maxRisk, sc: _riskClass(maxRisk) };
+}
 
 // ── ヘルパー：上流ノード（feedstock/intermediate/material）を全収集 ─────
 // 上流パネル（背景圧力表示）用
@@ -1247,73 +1223,85 @@ function renderStory(scenarioId) {
 // ── 消費財 影響ランキング描画 ─────────────────────────────────────────
 function renderImpactRanking(graph, impactMap) {
   const products = (graph.byType.consumer_product ?? []).map(id => {
-    const avInfo = _productAvailability(graph, impactMap, id);
-    return { id, node: graph.nodes[id], ...avInfo };
+    const avInfo   = _productAvailability(graph, impactMap, id);
+    const pressure = _getProductUpstreamPressure(graph, impactMap, id);
+    return { id, node: graph.nodes[id], ...avInfo, pressure };
   });
 
-  // 供給可能率 低い順（影響大きい順）にソート
-  products.sort((a, b) => a.availability - b.availability);
+  // 供給リスク高い順にソート
+  products.sort((a, b) => (1 - a.availability) - (1 - b.availability) || 0);
 
   const container = document.getElementById('impact-ranking');
   container.innerHTML = products.map((p, i) => {
     const node = p.node;
-    const cat  = CATEGORY_LABELS[node.category] ?? node.category ?? '';
 
-    // 成立条件コンポーネント表示（直接入力、availability順）
+    // ボトルネックコンポーネント（最も可用性が低い直接入力のみ表示）
     let bnHtml = '';
-    if (p.ancestors.length > 0) {
-      const sorted = [...p.ancestors]
-        .map(id => ({ id, node: graph.nodes[id], avail: 1 - (impactMap[id]?.supplyRisk ?? 0) }))
-        .sort((a, b) => a.avail - b.avail);
-
-      const rows = sorted.map(anc => {
-        const sc    = _riskClass(1 - anc.avail);
-        const isBot = anc.id === p.bottleneck;
-        const tag   = isBot ? '<span class="ir-bn-tag">ボトルネック</span>' : '';
-        return `<div class="ir-bn-row">
-          <span class="tl-dot-sm ${sc}"></span>
-          <span class="ir-bn-name">${anc.node?.label ?? anc.id}</span>
-          ${tag}
-        </div>`;
-      }).join('');
-
+    if (p.bottleneck) {
+      const bnNode = graph.nodes[p.bottleneck];
+      const bnSc   = _riskClass(impactMap[p.bottleneck]?.supplyRisk ?? 0);
       bnHtml = `<hr class="ir-divider">
-        <div class="ir-bn-lbl">成立条件（コンポーネント）</div>${rows}`;
+        <div class="ir-bn-lbl">ボトルネック</div>
+        <div class="ir-bn-row">
+          <span class="tl-dot-sm ${bnSc}"></span>
+          <span class="ir-bn-name">${bnNode?.label ?? p.bottleneck}</span>
+          <span class="ir-bn-tag">制約要因</span>
+        </div>`;
     }
+
+    // 上流圧力カテゴリ
+    const pressCat  = p.pressure.category;
+    const pressHtml = pressCat
+      ? `<div class="ir-bn-row" style="margin-top:4px">
+           <span class="tl-dot-sm ${p.pressure.sc}"></span>
+           <span class="ir-bn-name" style="font-weight:700">${pressCat.label}</span>
+           <span style="font-size:.6rem;color:var(--slate-400)">${pressCat.desc}</span>
+         </div>`
+      : '';
 
     return `
       <div class="ir-card avail-${p.sc}">
         <div class="ir-head">
           <span class="ir-rank">${i + 1}</span>
           <span class="ir-name">${node.label}</span>
-          <span class="ir-cat">${cat}</span>
         </div>
         <div class="ir-tl-row">
           <span class="tl-dot ${p.sc}"></span>
         </div>
+        ${pressCat ? `<hr class="ir-divider"><div class="ir-bn-lbl">上流圧力</div>${pressHtml}` : ''}
         ${bnHtml}
       </div>`;
   }).join('');
 }
 
-// ── 上流ノード一覧描画 ────────────────────────────────────────────────
+// ── 上流圧力カテゴリ一覧描画 ──────────────────────────────────────────
 function renderUpstreamNodes(graph, impactMap) {
-  const TYPES = ['feedstock', 'intermediate', 'material'];
-  const nodes = TYPES.flatMap(t => (graph.byType[t] ?? []).map(id => graph.nodes[id]));
+  document.getElementById('upstream-nodes').innerHTML =
+    UPSTREAM_PRESSURE_CATEGORIES.map(cat => {
+      const risks = cat.nodeIds
+        .filter(id => graph.nodes[id])
+        .map(id => impactMap[id]?.supplyRisk ?? 0);
+      const maxRisk = risks.length ? Math.max(...risks) : 0;
+      const sc = _riskClass(maxRisk);
 
-  document.getElementById('upstream-nodes').innerHTML = nodes.map(node => {
-    const risk  = impactMap[node.id]?.supplyRisk ?? 0;
-    const sc    = _riskClass(risk);
-    const typeLabel = { feedstock: '原料', intermediate: '中間材', material: '素材' }[node.type] ?? node.type;
+      // 当カテゴリ内で最もリスクの高いノードをボトルネックとして表示
+      let worstId = null, worstRisk = 0;
+      for (const id of cat.nodeIds) {
+        if (!graph.nodes[id]) continue;
+        const r = impactMap[id]?.supplyRisk ?? 0;
+        if (r > worstRisk) { worstRisk = r; worstId = id; }
+      }
+      const worstLabel = worstId ? (graph.nodes[worstId]?.label ?? worstId) : null;
 
-    return `<div class="up-node">
-      <div class="up-type">${typeLabel}</div>
-      <div class="up-name">${node.label}</div>
-      <div class="up-tl-row">
-        <span class="tl-dot ${sc}"></span>
-      </div>
-    </div>`;
-  }).join('');
+      return `<div class="up-node">
+        <div class="up-type">${cat.desc}</div>
+        <div class="up-name">${cat.label}</div>
+        <div class="up-tl-row">
+          <span class="tl-dot ${sc}"></span>
+        </div>
+        ${worstLabel ? `<div style="font-size:.65rem;color:var(--slate-400);margin-top:4px">${worstLabel}</div>` : ''}
+      </div>`;
+    }).join('');
 }
 
 // ── Layer 3 初期化 ────────────────────────────────────────────────────
@@ -1356,7 +1344,9 @@ async function initLayer3Enhanced() {
   document.getElementById('upstream-toggle').addEventListener('click', function() {
     const panel = document.getElementById('upstream-panel');
     const hidden = panel.classList.toggle('hidden');
-    this.textContent = hidden ? '▼ 上流原料・中間材の状況を表示' : '▲ 上流原料・中間材を閉じる';
+    this.textContent = hidden
+      ? '▼ 上流圧力カテゴリを表示（C2 / C3 / BTX / アルミ / ロジスティクス）'
+      : '▲ 上流圧力カテゴリを閉じる';
   });
 
   refresh();

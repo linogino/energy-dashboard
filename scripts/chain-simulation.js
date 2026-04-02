@@ -15,85 +15,63 @@ const ChainSimulation = (() => {
    * stockLevel: 0.0 = 完全停止 / 1.0 = 平常
    * 指定していないノードは disruption なし（stockLevel = 1.0）
    */
+  /**
+   * 共通前提: urea_supply = 0.5 （尿素制約がディーゼル物流にグローバルに影響）
+   *
+   * 各シナリオが定義するのは上流制約のみ:
+   *   - naphtha_availability : ナフサ供給率 (0〜1)
+   *   - lng_availability     : LNG供給率   (0〜1)
+   *   - substitution_ratio   : 喪失分代替調達率
+   *
+   * エチレン・プロピレン・BTX以降の下流値は propagateImpact() が自動導出する。
+   */
   const SCENARIOS = {
-    hormuz_block: {
-      id:          'hormuz_block',
-      label:       'ホルムズ封鎖継続（現在）',
-      description: 'ホルムズ海峡通航 -97%。ナフサ・原油輸入が大幅減少。',
-      stockLevels: { naphtha: 0.25, ethylene: 0.45 },
+    best_case_partial_recovery: {
+      id:          'best_case_partial_recovery',
+      label:       'ベストケース：ホルムズ部分回復',
+      description: 'ホルムズ海峡が部分的に回復。代替ルート確保により供給危機は緩和。',
+      upstream: {
+        naphtha_availability:  0.75,
+        lng_availability:      0.85,
+        substitution_ratio:    0.75,
+      },
+      stockLevels: {
+        naphtha:     0.75,
+        natural_gas: 0.85,
+        urea:        0.50,
+      },
     },
-    naphtha_30pct: {
-      id:          'naphtha_30pct',
-      label:       'ナフサ在庫30%',
-      description: 'ナフサ在庫が平常時の30%まで低下した場合。',
-      stockLevels: { naphtha: 0.30 },
+
+    middle_case_hormuz_loss_60pct_replacement: {
+      id:          'middle_case_hormuz_loss_60pct_replacement',
+      label:       'ミドルケース：代替調達60%確保',
+      description: 'ホルムズ封鎖継続。代替ルートで喪失分の60%を補填。',
+      upstream: {
+        naphtha_availability:  0.60,
+        lng_availability:      0.70,
+        substitution_ratio:    0.60,
+      },
+      stockLevels: {
+        naphtha:     0.60,
+        natural_gas: 0.70,
+        urea:        0.50,
+      },
     },
-    // ── 粒度を上げたシナリオ ────────────────────────────────────────────
-    upstream_ethylene_30: {
-      id:          'upstream_ethylene_30',
-      label:       '上流ショック：エチレン生産30%',
-      description: 'ナフサ分解炉の大幅減産。エチレン供給が平常時の30%に低下した場合。',
-      stockLevels: { naphtha: 0.20, ethylene: 0.30 },
-    },
-    intermediate_eo_50: {
-      id:          'intermediate_eo_50',
-      label:       '中間ショック：EO供給50%',
-      description: 'エチレンオキサイド製造設備の停止。EO系誘導品（MEG・界面活性剤等）への影響を評価。',
-      stockLevels: { eo: 0.50 },
-    },
-    downstream_pvc_40: {
-      id:          'downstream_pvc_40',
-      label:       '下流ショック：PVC樹脂40%',
-      description: 'PVC製造ライン停止。水道管・電気系統への影響を評価。',
-      stockLevels: { pvc_resin: 0.40 },
-    },
-    inventory_naphtha_30: {
-      id:          'inventory_naphtha_30',
-      label:       '在庫枯渇：ナフサ30日後',
-      description: '現在の在庫2〜3週間が尽きた後（GW以降）のシナリオ。',
-      stockLevels: { naphtha: 0.05, ethylene: 0.20 },
-    },
-    allocation_medical: {
-      id:          'allocation_medical',
-      label:       '医療優先配分',
-      description: '供給制限下で医療・衛生用途に優先配分。食品包装・洗剤等の一般向けが後回しになる場合。',
-      stockLevels: { naphtha: 0.35, eo: 0.70 },
-    },
-    lng_shortage: {
-      id:          'lng_shortage',
-      label:       'LNG不足（肥料・AdBlue制約）',
-      description: '天然ガス供給が60%に低下。アンモニア→尿素→窒素肥料・AdBlueの生産が制約。農業生産と物流に波及。',
-      stockLevels: { natural_gas: 0.40, ammonia: 0.55 },
-    },
-    adblue_shortage: {
-      id:          'adblue_shortage',
-      label:       'AdBlue枯渇（物流・農機停止）',
-      description: 'AdBlue（尿素水）在庫が枯渇。SCR搭載ディーゼル車・農機が法令上運行停止。全産業サプライチェーンに即時波及。',
-      stockLevels: { adblue: 0.05, urea: 0.20 },
-    },
-    diesel_shortage: {
-      id:          'diesel_shortage',
-      label:       'ディーゼル不足（農業・物流制約）',
-      description: 'ディーゼル燃料の供給が60%に制約。農機稼働・食品輸送の双方が停止水準に近づく。',
-      stockLevels: { diesel_fuel: 0.40 },
-    },
-    c4_btx_disruption: {
-      id:          'c4_btx_disruption',
-      label:       'C4・BTX不足（香料・ポリアミド制約）',
-      description: 'C4留分・BTX供給が60%に低下。香料中間体・ポリアミドフィルムへの波及で無菌包装・日用品香料が制約。',
-      stockLevels: { c4_fraction: 0.40, btx: 0.40 },
-    },
-    propylene_shortage: {
-      id:          'propylene_shortage',
-      label:       'プロピレン不足（PP・PO・SAP制約）',
-      description: 'プロピレン供給が50%に低下。ポリプロピレン・プロピレンオキシド・アクリル酸への波及でおむつ・衛生用品・界面活性剤が制約。',
-      stockLevels: { propene: 0.50 },
-    },
-    normal: {
-      id:          'normal',
-      label:       '平常時',
-      description: '供給途絶なし。',
-      stockLevels: {},
+
+    worst_case_hormuz_loss_20pct_replacement: {
+      id:          'worst_case_hormuz_loss_20pct_replacement',
+      label:       'ワーストケース：代替調達20%のみ',
+      description: 'ホルムズ封鎖継続。代替調達難航、喪失分の20%しか補填できない。',
+      upstream: {
+        naphtha_availability:  0.20,
+        lng_availability:      0.50,
+        substitution_ratio:    0.20,
+      },
+      stockLevels: {
+        naphtha:     0.20,
+        natural_gas: 0.50,
+        urea:        0.50,
+      },
     },
   };
 
