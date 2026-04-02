@@ -1,19 +1,22 @@
 """
-石油化学・代替調達ニュース自動スクレイピング
+石油化学・包材ニュース自動スクレイピング
 
-対象キーワード:
-  ナフサ代替調達 / エチレン供給 / プロピレン石油化学 /
-  BTX芳香族 / ホルムズ封鎖 / AdBlue物流 など
+対象キーワード: ナフサ / エチレン / プロピレン / BTX / 尿素 / アルミ / 包材
 
-ソース:
-  - Google News RSS (パブリック)
-  - 経済産業省プレスリリース (meti.go.jp/press)
-  - 資源エネルギー庁 トピックス (enecho.meti.go.jp)
+ソース (優先順):
+  1. 化学工業日報   (kagakukogyonippo.com) ─ 見出し無料公開
+  2. 日刊工業新聞   (nikkan.co.jp)         ─ RSS
+  3. 包装タイムス   (hosotime.com)         ─ 包材業界紙
+  4. 日本アルミニウム協会 (aluminum.or.jp) ─ アルミ専門
+  5. 石油化学工業協会    (jpca.or.jp)      ─ 業界団体
+  6. 経済産業省         (meti.go.jp)       ─ プレスリリース
+  7. Google News RSS ─ 化学工業日報・日経指定クエリ
 
 出力: data/news.json
 """
 
 import json
+import re
 import sys
 import traceback
 import urllib.parse
@@ -21,6 +24,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import urljoin
 
 try:
     import requests
@@ -29,33 +33,371 @@ except ImportError:
     print("ERROR: pip install requests beautifulsoup4")
     sys.exit(1)
 
-ROOT = Path(__file__).parent.parent
+ROOT      = Path(__file__).parent.parent
 NEWS_FILE = ROOT / "data" / "news.json"
-MAX_ITEMS = 30
+MAX_ITEMS = 40
+TODAY     = datetime.now().strftime("%Y-%m-%d")
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (compatible; EnergyDashboard/1.0; "
-        "+https://github.com/YOUR_USERNAME/energy-dashboard)"
-    )
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "ja,en;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }
 
-# (検索クエリ, カテゴリ) のリスト
-# カテゴリ: naphtha / ethylene / propylene / btx / logistics
-GOOGLE_NEWS_QUERIES = [
-    ("ナフサ 代替調達 石油化学", "naphtha"),
-    ("ナフサ 供給 中東 代替", "naphtha"),
-    ("ナフサ クラッカー 稼働", "ethylene"),
-    ("エチレン 石油化学 供給制約", "ethylene"),
-    ("プロピレン 石油化学 供給", "propylene"),
-    ("BTX 芳香族 供給", "btx"),
-    ("石油化学 ホルムズ 代替調達", "naphtha"),
-    ("AdBlue アドブルー 尿素 物流", "logistics"),
-    ("ディーゼル 供給 物流 制約", "logistics"),
+# ── カテゴリ分類キーワード ────────────────────────────────────────────────────
+
+CATEGORY_RULES: list[tuple[str, list[str]]] = [
+    ("naphtha",   ["ナフサ", "石脳油", "クラッカー", "分解炉", "代替調達", "中東産", "ホルムズ"]),
+    ("ethylene",  ["エチレン", "PE樹脂", "ポリエチレン", "EDC", "VCM", "PVC"]),
+    ("propylene", ["プロピレン", "PP樹脂", "ポリプロピレン", "PO", "SAP", "アクリル酸"]),
+    ("btx",       ["BTX", "ベンゼン", "トルエン", "キシレン", "芳香族", "ポリアミド", "PET樹脂"]),
+    ("urea",      ["尿素", "アドブルー", "AdBlue", "アンモニア", "窒素肥料", "SCR"]),
+    ("aluminum",  ["アルミ", "アルミニウム", "AL箔", "アルミ箔", "ラミネート"]),
+    ("packaging", ["包材", "包装フィルム", "軟包装", "バリア包装", "食品包装", "無菌包装",
+                   "ポリ袋", "食品容器", "PETボトル", "紙容器"]),
+]
+
+ALL_KEYWORDS = [kw for _, kws in CATEGORY_RULES for kw in kws]
+
+
+def classify(text: str) -> str:
+    for cat, kws in CATEGORY_RULES:
+        if any(k in text for k in kws):
+            return cat
+    return "naphtha"  # デフォルト: 石油化学一般
+
+
+def is_relevant(text: str) -> bool:
+    return any(k in text for k in ALL_KEYWORDS)
+
+
+def parse_date_jp(text: str) -> str:
+    """YYYY年MM月DD日 / YYYY-MM-DD / YYYY/MM/DD → YYYY-MM-DD"""
+    m = re.search(r"(\d{4})[年\-/](\d{1,2})[月\-/](\d{1,2})", text)
+    if m:
+        return f"{m.group(1)}-{m.group(2).zfill(2)}-{m.group(3).zfill(2)}"
+    return ""
+
+
+def get(url: str, timeout: int = 15) -> requests.Response | None:
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=timeout)
+        r.raise_for_status()
+        r.encoding = r.apparent_encoding or "utf-8"
+        return r
+    except Exception as e:
+        print(f"  [WARN] GET {url} → {e}")
+        return None
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 1: 化学工業日報 ── ヘッドライン
+# ══════════════════════════════════════════════════════════════════════════════
+
+def scrape_kagaku_nippo() -> list[dict]:
+    """
+    化学工業日報 (kagakukogyonippo.com) のトップ見出しをスクレイプ。
+    記事本文は有料だが見出しリストは公開されている。
+    """
+    urls = [
+        "https://www.kagakukogyonippo.com/headline/",
+        "https://www.kagakukogyonippo.com/",
+    ]
+    items: list[dict] = []
+    for base_url in urls:
+        r = get(base_url)
+        if not r:
+            continue
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        # 記事リンクを探す（hrefが記事パスのもの）
+        for a in soup.find_all("a", href=True):
+            title = a.get_text(strip=True)
+            if len(title) < 12:
+                continue
+            if not is_relevant(title):
+                continue
+            href = a["href"]
+            full_url = urljoin(base_url, href)
+            # 日付を近傍テキストから抽出
+            ctx = ""
+            for parent in a.parents:
+                ctx = parent.get_text(" ", strip=True)
+                if len(ctx) > len(title) + 4:
+                    break
+            pub = parse_date_jp(ctx) or TODAY
+            items.append({
+                "title":    title[:140],
+                "url":      full_url,
+                "source":   "化学工業日報",
+                "pubDate":  pub,
+                "category": classify(title),
+            })
+        if items:
+            break  # どちらかで取れたら終了
+
+    print(f"[化学工業日報] {len(items)} 件")
+    return items
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 2: 日刊工業新聞 ── RSS
+# ══════════════════════════════════════════════════════════════════════════════
+
+NIKKAN_RSS_URLS = [
+    # 素材 / 化学 / 環境カテゴリを試す
+    "https://www.nikkan.co.jp/rss/1.0/category_7.xml",   # 素材・化学
+    "https://www.nikkan.co.jp/rss/1.0/category_3.xml",   # 製造業
+    "https://www.nikkan.co.jp/rss/1.0/",                 # 全記事
+    "https://www.nikkan.co.jp/rss/",
 ]
 
 
-# ── Google News RSS ──────────────────────────────────────────────────────────
+def scrape_nikkan() -> list[dict]:
+    """日刊工業新聞のRSSからキーワードにマッチする記事を抽出。"""
+    items: list[dict] = []
+    for rss_url in NIKKAN_RSS_URLS:
+        r = get(rss_url)
+        if not r:
+            continue
+        try:
+            root = ET.fromstring(r.content)
+        except ET.ParseError:
+            continue
+        for item in root.findall(".//item"):
+            title   = (item.findtext("title") or "").strip()
+            link    = (item.findtext("link")  or "").strip()
+            pub_raw = (item.findtext("pubDate") or "")
+            if not title or not link:
+                continue
+            if not is_relevant(title):
+                continue
+            try:
+                pub_iso = parsedate_to_datetime(pub_raw).strftime("%Y-%m-%d")
+            except Exception:
+                pub_iso = parse_date_jp(pub_raw) or TODAY
+            items.append({
+                "title":    title[:140],
+                "url":      link,
+                "source":   "日刊工業新聞",
+                "pubDate":  pub_iso,
+                "category": classify(title),
+            })
+        if items:
+            break
+
+    print(f"[日刊工業新聞] {len(items)} 件")
+    return items
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 3: 包装タイムス ── 包材業界紙
+# ══════════════════════════════════════════════════════════════════════════════
+
+def scrape_hosotime() -> list[dict]:
+    """
+    包装タイムス (hosotime.com) のニュース一覧をスクレイプ。
+    包材・フィルム・容器関連記事。
+    """
+    urls = [
+        "https://www.hosotime.com/category/news/",
+        "https://www.hosotime.com/",
+    ]
+    items: list[dict] = []
+    for base_url in urls:
+        r = get(base_url)
+        if not r:
+            continue
+        soup = BeautifulSoup(r.text, "html.parser")
+        for a in soup.find_all("a", href=True):
+            title = a.get_text(strip=True)
+            if len(title) < 12:
+                continue
+            href = a["href"]
+            if not href.startswith("http"):
+                href = urljoin(base_url, href)
+            # 包装タイムスは基本的に全記事が包材関連
+            ctx = ""
+            for parent in a.parents:
+                ctx = parent.get_text(" ", strip=True)
+                if len(ctx) > len(title) + 4:
+                    break
+            pub = parse_date_jp(ctx) or TODAY
+            # 石油化学関連キーワードが含まれる記事のみ対象
+            full_text = title + " " + ctx
+            if is_relevant(full_text) or any(k in full_text for k in ["包材", "フィルム", "容器", "包装"]):
+                items.append({
+                    "title":    title[:140],
+                    "url":      href,
+                    "source":   "包装タイムス",
+                    "pubDate":  pub,
+                    "category": classify(full_text),
+                })
+        if items:
+            break
+
+    print(f"[包装タイムス] {len(items)} 件")
+    return items
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 4: 日本アルミニウム協会 ── プレスリリース
+# ══════════════════════════════════════════════════════════════════════════════
+
+def scrape_aluminum_assoc() -> list[dict]:
+    """日本アルミニウム協会のニュース・トピックスをスクレイプ。"""
+    urls = [
+        "https://www.aluminum.or.jp/news/",
+        "https://www.aluminum.or.jp/topics/",
+        "https://www.aluminum.or.jp/",
+    ]
+    items: list[dict] = []
+    for base_url in urls:
+        r = get(base_url)
+        if not r:
+            continue
+        soup = BeautifulSoup(r.text, "html.parser")
+        for a in soup.find_all("a", href=True):
+            title = a.get_text(strip=True)
+            if len(title) < 10:
+                continue
+            href = a["href"]
+            if not href.startswith("http"):
+                href = urljoin(base_url, href)
+            ctx = ""
+            for parent in a.parents:
+                ctx = parent.get_text(" ", strip=True)
+                if len(ctx) > len(title) + 4:
+                    break
+            pub = parse_date_jp(ctx) or TODAY
+            items.append({
+                "title":    title[:140],
+                "url":      href,
+                "source":   "日本アルミニウム協会",
+                "pubDate":  pub,
+                "category": "aluminum",
+            })
+        if items:
+            break
+
+    print(f"[アルミニウム協会] {len(items)} 件")
+    return items
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 5: 石油化学工業協会 ── ニュース
+# ══════════════════════════════════════════════════════════════════════════════
+
+def scrape_jpca() -> list[dict]:
+    """石油化学工業協会 (jpca.or.jp) のニュース・お知らせをスクレイプ。"""
+    urls = [
+        "https://www.jpca.or.jp/06news/",
+        "https://www.jpca.or.jp/news/",
+        "https://www.jpca.or.jp/",
+    ]
+    items: list[dict] = []
+    for base_url in urls:
+        r = get(base_url)
+        if not r:
+            continue
+        soup = BeautifulSoup(r.text, "html.parser")
+        for a in soup.find_all("a", href=True):
+            title = a.get_text(strip=True)
+            if len(title) < 10:
+                continue
+            href = a["href"]
+            if not href.startswith("http"):
+                href = urljoin(base_url, href)
+            ctx = ""
+            for parent in a.parents:
+                ctx = parent.get_text(" ", strip=True)
+                if len(ctx) > len(title) + 4:
+                    break
+            pub = parse_date_jp(ctx) or TODAY
+            items.append({
+                "title":    title[:140],
+                "url":      href,
+                "source":   "石油化学工業協会",
+                "pubDate":  pub,
+                "category": classify(title),
+            })
+        if items:
+            break
+
+    print(f"[石油化学工業協会] {len(items)} 件")
+    return items
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 6: 経済産業省 ── プレスリリース
+# ══════════════════════════════════════════════════════════════════════════════
+
+METI_KEYS = ["ナフサ", "エチレン", "プロピレン", "石油化学", "BTX", "芳香族",
+             "代替調達", "備蓄", "尿素", "アンモニア", "アルミ"]
+
+
+def scrape_meti() -> list[dict]:
+    """経済産業省プレスリリース一覧から石油化学・包材関連を抽出。"""
+    r = get("https://www.meti.go.jp/press/index.html")
+    if not r:
+        return []
+    soup  = BeautifulSoup(r.text, "html.parser")
+    items: list[dict] = []
+    for a in soup.find_all("a", href=True):
+        title = a.get_text(strip=True)
+        if not title or not any(k in title for k in METI_KEYS):
+            continue
+        href = a["href"]
+        if href.startswith("/"):
+            href = "https://www.meti.go.jp" + href
+        ctx = ""
+        for parent in a.parents:
+            ctx = parent.get_text(" ", strip=True)
+            if len(ctx) > len(title) + 4:
+                break
+        pub = parse_date_jp(ctx) or TODAY
+        items.append({
+            "title":    title[:140],
+            "url":      href,
+            "source":   "経済産業省",
+            "pubDate":  pub,
+            "category": classify(title),
+        })
+    print(f"[METI] {len(items)} 件")
+    return items
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Source 7: Google News RSS ── 化学工業日報・日経指定クエリ
+# ══════════════════════════════════════════════════════════════════════════════
+
+# source 名をクエリに含めることで Google News がその媒体の記事を優先返却する
+GNEWS_QUERIES: list[tuple[str, str]] = [
+    # 化学工業日報 指定クエリ
+    ("化学工業日報 ナフサ",              "naphtha"),
+    ("化学工業日報 エチレン",            "ethylene"),
+    ("化学工業日報 プロピレン",          "propylene"),
+    ("化学工業日報 BTX 芳香族",          "btx"),
+    ("化学工業日報 尿素 アドブルー",     "urea"),
+    ("化学工業日報 アルミ 包材",         "aluminum"),
+    ("化学工業日報 包装フィルム",        "packaging"),
+    # 日本経済新聞 指定クエリ
+    ("日本経済新聞 ナフサ 石油化学",     "naphtha"),
+    ("日本経済新聞 エチレン 供給",       "ethylene"),
+    ("日本経済新聞 尿素 物流",           "urea"),
+    ("日本経済新聞 アルミ 包材",         "aluminum"),
+    # 広域クエリ（媒体指定なし）
+    ("ナフサ 代替調達 中東以外",         "naphtha"),
+    ("石油化学 BTX 供給制約",            "btx"),
+    ("尿素 AdBlue ディーゼル 物流",      "urea"),
+    ("アルミ箔 包装材 供給",             "aluminum"),
+    ("軟包装 バリアフィルム 樹脂",       "packaging"),
+]
+
 
 def fetch_google_news(query: str, category: str) -> list[dict]:
     """Google News RSS から記事を取得する。"""
@@ -63,202 +405,85 @@ def fetch_google_news(query: str, category: str) -> list[dict]:
         "https://news.google.com/rss/search?"
         + urllib.parse.urlencode({"q": query, "hl": "ja", "gl": "JP", "ceid": "JP:ja"})
     )
+    r = get(url)
+    if not r:
+        return []
     try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        r.raise_for_status()
         root = ET.fromstring(r.content)
-        items = []
-        for item in root.findall(".//item"):
-            title    = (item.findtext("title") or "").strip()
-            link     = (item.findtext("link")  or "").strip()
-            pub_raw  = (item.findtext("pubDate") or "").strip()
-            src_el   = item.find("source")
-            source   = src_el.text.strip() if src_el is not None and src_el.text else ""
-
-            if not title or not link:
-                continue
-
-            try:
-                pub_iso = parsedate_to_datetime(pub_raw).strftime("%Y-%m-%d")
-            except Exception:
-                pub_iso = ""
-
-            items.append({
-                "title":    title,
-                "url":      link,
-                "source":   source,
-                "pubDate":  pub_iso,
-                "category": category,
-            })
-        print(f"[RSS] '{query}' → {len(items)} items")
-        return items
-    except Exception:
-        print(f"[RSS] '{query}' fetch失敗")
-        traceback.print_exc()
+    except ET.ParseError as e:
+        print(f"  [WARN] RSS parse error for '{query}': {e}")
         return []
 
-
-# ── METI プレスリリース ───────────────────────────────────────────────────────
-
-METI_KEYWORDS = [
-    "ナフサ", "エチレン", "プロピレン", "石油化学",
-    "BTX", "芳香族", "代替調達", "備蓄放出",
-]
-
-def fetch_meti_press() -> list[dict]:
-    """経済産業省プレスリリース一覧から石油化学関連を抽出する。"""
-    url = "https://www.meti.go.jp/press/index.html"
-    items = []
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        r.raise_for_status()
-        soup = BeautifulSoup(r.text, "html.parser")
-
-        # プレスリリース行を走査
-        for a in soup.find_all("a", href=True):
-            text = a.get_text(strip=True)
-            if not text:
-                continue
-            if not any(kw in text for kw in METI_KEYWORDS):
-                continue
-
-            href = a["href"]
-            if href.startswith("/"):
-                href = "https://www.meti.go.jp" + href
-
-            # 日付は親要素のテキストから推測（td やリスト項目）
-            parent_text = ""
-            for parent in a.parents:
-                parent_text = parent.get_text(" ", strip=True)
-                if len(parent_text) > len(text) + 5:
-                    break
-            date_match = __import__("re").search(r"(\d{4}[年\-/]\d{1,2}[月\-/]\d{1,2})", parent_text)
-            pub_iso = ""
-            if date_match:
-                raw = date_match.group(1).replace("年", "-").replace("月", "-").replace("日", "")
-                try:
-                    pub_iso = datetime.strptime(raw, "%Y-%m-%d").strftime("%Y-%m-%d")
-                except Exception:
-                    pass
-
-            category = _classify_meti(text)
-            items.append({
-                "title":    text[:120],
-                "url":      href,
-                "source":   "経済産業省",
-                "pubDate":  pub_iso,
-                "category": category,
-            })
-
-        print(f"[METI] {len(items)} 石油化学関連プレス")
-    except Exception:
-        print("[METI] fetch失敗")
-        traceback.print_exc()
+    items: list[dict] = []
+    for item in root.findall(".//item"):
+        title   = (item.findtext("title") or "").strip()
+        link    = (item.findtext("link")  or "").strip()
+        pub_raw = (item.findtext("pubDate") or "")
+        src_el  = item.find("source")
+        source  = src_el.text.strip() if src_el is not None and src_el.text else ""
+        if not title or not link:
+            continue
+        try:
+            pub_iso = parsedate_to_datetime(pub_raw).strftime("%Y-%m-%d")
+        except Exception:
+            pub_iso = parse_date_jp(pub_raw) or TODAY
+        items.append({
+            "title":    title[:140],
+            "url":      link,
+            "source":   source,
+            "pubDate":  pub_iso,
+            "category": category,
+        })
+    print(f"[GNews] '{query}' → {len(items)} 件")
     return items
 
 
-def _classify_meti(text: str) -> str:
-    if any(k in text for k in ["ナフサ", "クラッカー", "代替調達", "備蓄"]):
-        return "naphtha"
-    if any(k in text for k in ["エチレン"]):
-        return "ethylene"
-    if any(k in text for k in ["プロピレン"]):
-        return "propylene"
-    if any(k in text for k in ["BTX", "芳香族"]):
-        return "btx"
-    return "naphtha"
+# ══════════════════════════════════════════════════════════════════════════════
+# Main
+# ══════════════════════════════════════════════════════════════════════════════
 
-
-# ── 資源エネルギー庁 トピックス ──────────────────────────────────────────────
-
-ENECHO_KEYWORDS = ["ナフサ", "エチレン", "プロピレン", "石油化学", "BTX", "代替", "備蓄"]
-
-def fetch_enecho_topics() -> list[dict]:
-    """資源エネルギー庁のトピックスページから関連記事を抽出する。"""
-    url = "https://www.enecho.meti.go.jp/notice/topics/"
-    items = []
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        r.raise_for_status()
-        soup = BeautifulSoup(r.text, "html.parser")
-        import re
-
-        for a in soup.find_all("a", href=True):
-            text = a.get_text(strip=True)
-            if not text or not any(kw in text for kw in ENECHO_KEYWORDS):
-                continue
-
-            href = a["href"]
-            if href.startswith("/"):
-                href = "https://www.enecho.meti.go.jp" + href
-
-            # 近傍の日付テキスト
-            parent_text = ""
-            for parent in a.parents:
-                parent_text = parent.get_text(" ", strip=True)
-                if len(parent_text) > len(text) + 5:
-                    break
-            date_match = re.search(r"(\d{4}[年\-]\d{1,2}[月\-]\d{1,2})", parent_text)
-            pub_iso = ""
-            if date_match:
-                raw = date_match.group(1).replace("年", "-").replace("月", "-").replace("日", "")
-                try:
-                    pub_iso = datetime.strptime(raw, "%Y-%m-%d").strftime("%Y-%m-%d")
-                except Exception:
-                    pass
-
-            items.append({
-                "title":    text[:120],
-                "url":      href,
-                "source":   "資源エネルギー庁",
-                "pubDate":  pub_iso,
-                "category": "naphtha",
-            })
-
-        print(f"[ENECHO] {len(items)} 関連トピックス")
-    except Exception:
-        print("[ENECHO] fetch失敗")
-        traceback.print_exc()
-    return items
-
-
-# ── Main ─────────────────────────────────────────────────────────────────────
-
-def main():
+def main() -> None:
     print(f"=== News Fetch === {datetime.now().isoformat()}")
 
     seen_urls: set[str] = set()
     all_items: list[dict] = []
 
-    def add_items(items: list[dict]) -> None:
+    def add(items: list[dict]) -> None:
         for item in items:
-            url = item.get("url", "")
-            if url and url not in seen_urls:
-                seen_urls.add(url)
+            u = item.get("url", "").strip()
+            if u and u not in seen_urls:
+                seen_urls.add(u)
                 all_items.append(item)
 
-    # Google News RSS (複数クエリ)
-    for query, category in GOOGLE_NEWS_QUERIES:
-        add_items(fetch_google_news(query, category))
+    # ── 業界誌・協会 (直接スクレイプ) ──
+    add(scrape_kagaku_nippo())    # 化学工業日報
+    add(scrape_nikkan())          # 日刊工業新聞
+    add(scrape_hosotime())        # 包装タイムス
+    add(scrape_aluminum_assoc())  # 日本アルミニウム協会
+    add(scrape_jpca())            # 石油化学工業協会
+    add(scrape_meti())            # 経済産業省
 
-    # 公式ソース
-    add_items(fetch_meti_press())
-    add_items(fetch_enecho_topics())
+    # ── Google News RSS (補完) ──
+    for query, cat in GNEWS_QUERIES:
+        add(fetch_google_news(query, cat))
 
     # 日付降順 → 上位 MAX_ITEMS 件
     all_items.sort(key=lambda x: x.get("pubDate", ""), reverse=True)
     all_items = all_items[:MAX_ITEMS]
 
-    print(f"[NEWS] 合計 {len(all_items)} 件（重複除去済み）")
+    print(f"\n[NEWS] 合計 {len(all_items)} 件（重複除去済み）")
+    for cat in ["naphtha", "ethylene", "propylene", "btx", "urea", "aluminum", "packaging"]:
+        n = sum(1 for i in all_items if i["category"] == cat)
+        if n:
+            print(f"  {cat}: {n} 件")
 
     result = {
-        "updated": datetime.now().strftime("%Y-%m-%d"),
+        "updated": TODAY,
         "items":   all_items,
     }
-
     with open(NEWS_FILE, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
-    print(f"[OK] Saved to {NEWS_FILE}")
+    print(f"\n[OK] Saved to {NEWS_FILE}")
     print("=== Done ===")
 
 
