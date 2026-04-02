@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Node.js 20 を引き続き使用（2026年9月まで有効）
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"
 
 permissions:
   contents: write
@@ -19,6 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # 最新のコミットを取得（並行pushによる競合を防ぐ）
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,9 +38,11 @@ jobs:
         run: python scripts/fetch_data.py
 
       - name: Fetch IIP data
+        continue-on-error: true
         run: python scripts/fetch_iip.py --out iip.html
 
       - name: Fetch news
+        continue-on-error: true
         run: python scripts/fetch_news.py
 
       - name: Check for changes
@@ -55,4 +61,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/dashboard.json data/iip.json data/news.json iip.html
           git commit -m "chore: update dashboard + IIP + news $(date +'%Y-%m-%d')"
+          git pull --rebase
           git push
