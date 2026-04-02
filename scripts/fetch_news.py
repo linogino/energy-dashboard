@@ -63,10 +63,46 @@ TRUSTED_SOURCE_KEYWORDS: tuple[str, ...] = (
     "日本化学工業協会", "日本包装技術協会",
 )
 
+# Google News の title 末尾に "- SourceName" が入る場合の検出パターン
+_TITLE_SOURCE_RE = re.compile(
+    r'\s*[ー\-]\s*(日本経済新聞|化学工業日報|日刊工業新聞|包装タイムス|経済産業省|資源エネルギー庁)\s*$'
+)
 
-def is_trusted(source: str) -> bool:
-    """source フィールドが信頼ソースに合致するか判定。"""
-    return any(kw in source for kw in TRUSTED_SOURCE_KEYWORDS)
+
+def is_trusted(source: str, title: str = "") -> bool:
+    """
+    source フィールドまたはタイトル末尾のソース表記で信頼ソースか判定。
+    Yahoo・TV・ポータルをすべて除外する。
+    """
+    if any(kw in source for kw in TRUSTED_SOURCE_KEYWORDS):
+        return True
+    # タイトルが "記事タイトル - 日本経済新聞" のような形式の場合も信頼とみなす
+    if _TITLE_SOURCE_RE.search(title):
+        return True
+    return False
+
+
+def clean_title(title: str) -> str:
+    """タイトル末尾の ' - SourceName' サフィックスを除去する。"""
+    return _TITLE_SOURCE_RE.sub('', title).strip()
+
+
+def extract_source_from_title(title: str) -> str | None:
+    """タイトル末尾にソース名が含まれていれば返す。"""
+    m = _TITLE_SOURCE_RE.search(title)
+    return m.group(1) if m else None
+
+
+# ── タイトルベース重複排除 ────────────────────────────────────────────────────
+
+def _title_key(title: str) -> str:
+    """
+    重複判定用のキー。先頭25文字（スペース・記号・ソースサフィックスを除去後）。
+    同一イベントを複数媒体が報じても1件に絞る。
+    """
+    t = clean_title(title)
+    t = re.sub(r'[　\s「」『』【】〔〕・…]+', '', t)  # 記号・スペース除去
+    return t[:25]
 
 # ── カテゴリ分類キーワード ────────────────────────────────────────────────────
 
@@ -439,18 +475,25 @@ def fetch_google_news(query: str, category: str) -> list[dict]:
     items: list[dict] = []
     skipped = 0
     for item in root.findall(".//item"):
-        title   = (item.findtext("title") or "").strip()
-        link    = (item.findtext("link")  or "").strip()
-        pub_raw = (item.findtext("pubDate") or "")
-        src_el  = item.find("source")
-        source  = src_el.text.strip() if src_el is not None and src_el.text else ""
+        raw_title = (item.findtext("title") or "").strip()
+        link      = (item.findtext("link")  or "").strip()
+        pub_raw   = (item.findtext("pubDate") or "")
+        src_el    = item.find("source")
+        source    = src_el.text.strip() if src_el is not None and src_el.text else ""
 
-        if not title or not link:
+        if not raw_title or not link:
             continue
-        # ── 信頼ソースフィルタ ──
-        if not is_trusted(source):
+
+        # ── 信頼ソースフィルタ（sourceフィールド + タイトルサフィックス両方チェック） ──
+        if not is_trusted(source, raw_title):
             skipped += 1
             continue
+
+        # タイトルサフィックスからソース名を上書き（より正確な媒体名）
+        title_src = extract_source_from_title(raw_title)
+        if title_src:
+            source = title_src
+        title = clean_title(raw_title)
 
         try:
             pub_iso = parsedate_to_datetime(pub_raw).strftime("%Y-%m-%d")
@@ -476,15 +519,43 @@ def fetch_google_news(query: str, category: str) -> list[dict]:
 def main() -> None:
     print(f"=== News Fetch === {datetime.now().isoformat()}")
 
-    seen_urls: set[str] = set()
+    seen_urls:  set[str] = set()
+    seen_keys:  set[str] = set()   # タイトルキーで類似記事を除外
     all_items: list[dict] = []
+
+    # ソース優先順位（同一イベントで複数ソースがある場合、上位を優先）
+    SOURCE_PRIORITY = ["化学工業日報", "日本経済新聞", "日刊工業新聞", "包装タイムス",
+                       "経済産業省", "資源エネルギー庁", "石油化学工業協会",
+                       "日本アルミニウム協会", "石油連盟"]
+
+    def source_rank(src: str) -> int:
+        for i, s in enumerate(SOURCE_PRIORITY):
+            if s in src:
+                return i
+        return len(SOURCE_PRIORITY)
 
     def add(items: list[dict]) -> None:
         for item in items:
-            u = item.get("url", "").strip()
-            if u and u not in seen_urls:
+            u   = item.get("url", "").strip()
+            key = _title_key(item.get("title", ""))
+
+            if u and u in seen_urls:
+                continue    # URL 完全一致
+            if key and key in seen_keys:
+                # 類似タイトルが既存 → より優先度の高いソースなら差し替え
+                for i, existing in enumerate(all_items):
+                    if _title_key(existing.get("title", "")) == key:
+                        if source_rank(item.get("source","")) < source_rank(existing.get("source","")):
+                            all_items[i] = item
+                            if u:
+                                seen_urls.add(u)
+                        break
+                continue
+            if u:
                 seen_urls.add(u)
-                all_items.append(item)
+            if key:
+                seen_keys.add(key)
+            all_items.append(item)
 
     # ── 業界誌・協会 (直接スクレイプ) ──
     add(scrape_kagaku_nippo())    # 化学工業日報
@@ -494,7 +565,7 @@ def main() -> None:
     add(scrape_jpca())            # 石油化学工業協会
     add(scrape_meti())            # 経済産業省
 
-    # ── Google News RSS (補完) ──
+    # ── Google News RSS (補完・信頼ソース指定クエリのみ) ──
     for query, cat in GNEWS_QUERIES:
         add(fetch_google_news(query, cat))
 
@@ -502,7 +573,7 @@ def main() -> None:
     all_items.sort(key=lambda x: x.get("pubDate", ""), reverse=True)
     all_items = all_items[:MAX_ITEMS]
 
-    print(f"\n[NEWS] 合計 {len(all_items)} 件（重複除去済み）")
+    print(f"\n[NEWS] 合計 {len(all_items)} 件（URL・類似タイトル重複除去済み）")
     for cat in ["naphtha", "ethylene", "propylene", "btx", "urea", "aluminum", "packaging"]:
         n = sum(1 for i in all_items if i["category"] == cat)
         if n:

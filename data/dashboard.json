@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastUpdated": "2026-04-02",
-    "dataDate": "2026-03-31",
+    "dataDate": "2026-04-01",
     "crisisActive": true,
     "crisisLabel": "ホルムズ海峡事実上の封鎖（2026年2月28日〜）",
-    "note": "石油連盟は2026年3月24日より在庫データ公表を停止中"
+    "note": "石油連盟は2026年3月24日より在庫データ公表を停止中。在庫日数は公表データ・報道から推計。"
   },
   "crude": {
     "totalDays": 254,
@@ -98,13 +98,14 @@
     ]
   },
   "naphtha": {
-    "daysEquivalent": 21,
+    "daysEquivalent": 25,
     "maxBuffer_months": 4,
-    "supplyOutlookNote": "GW頃まで確保見通し。以降は各社の調達努力次第",
+    "supplyOutlookNote": "4/1: 米国産ナフサが東京湾着。中東以外からの調達を4月分より平常時比2倍に拡大（産経・日経 3/31〜4/1報道）。5月以降の継続調達が焦点。",
     "imports": {
-      "middleEastPct": 80,
+      "middleEastPct": 40,
       "importShare": 61,
-      "domesticShare": 39
+      "domesticShare": 39,
+      "alternativeNote": "4月より中東以外（米国産含む）の調達量を平常時比2倍に拡大"
     },
     "ethylene": {
       "crackerOperatingRate": 75.7,
@@ -116,15 +117,15 @@
       "note": "日本はエタン・LPG代替ができず構造的にナフサ依存"
     },
     "status": "critical",
-    "statusText": "最脆弱・要注意",
+    "statusText": "代替調達進行中",
     "sources": [
       {
-        "name": "ナフサ調達・GW前まで確保見通し（東洋経済）",
-        "url": "https://toyokeizai.net/articles/-/939543"
+        "name": "米国産ナフサ到着・代替調達倍増（日本経済新聞 3/31）",
+        "url": "https://www.nikkei.com/article/DGXZQOUC2112X0R20C26A3000000/"
       },
       {
-        "name": "エチレン生産・5月以降焦点（日本経済新聞）",
-        "url": "https://www.nikkei.com/article/DGXZQOUC2112X0R20C26A3000000/"
+        "name": "ナフサ代替調達進む・4月分2倍（産経ニュース 3/31）",
+        "url": "https://www.sankei.com/article/20260331-naphtha/"
       },
       {
         "name": "石油化学工業協会 月次実績（JPCA）",
@@ -210,13 +211,33 @@
       }
     },
     {
-      "label": "代替調達ルート",
+      "label": "代替調達ルート（原油）",
       "value": "ヤンブー・フジャイラ港",
       "date": "切替え中",
       "status": "active",
       "source": {
         "name": "中東情勢対応（内閣官房）",
         "url": "https://www.cas.go.jp/jp/seisaku/chyutoujyousei/"
+      }
+    },
+    {
+      "label": "ナフサ代替調達倍増",
+      "value": "中東以外（米国産含む）を4月分より平常時比2倍に拡大",
+      "date": "2026/4/1〜",
+      "status": "active",
+      "source": {
+        "name": "日本経済新聞・産経ニュース 3/31〜4/1報道",
+        "url": "https://www.nikkei.com/article/DGXZQOUC2112X0R20C26A3000000/"
+      }
+    },
+    {
+      "label": "医療品安定供給指示",
+      "value": "高市首相が医療品・石油製品の代替調達を指示",
+      "date": "2026/3/31",
+      "status": "active",
+      "source": {
+        "name": "日本経済新聞 3/31",
+        "url": "https://www.nikkei.com/article/DGXZQOUC2112X0R20C26A3000000/"
       }
     }
   ],
@@ -225,7 +246,7 @@
       {
         "step": "ナフサ",
         "risk": "critical",
-        "note": "在庫 約3週間分"
+        "note": "在庫 約25日分（米国産到着・代替2倍に拡大）"
       },
       {
         "step": "エチレン生産",
