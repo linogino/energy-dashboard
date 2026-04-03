@@ -793,7 +793,7 @@
   </div>
 
   <!-- Layer 4: IIP Buffer -->
-  <div class="section-label">LAYER 4 ── 鉱工業指数（業種別在庫バッファー）</div>
+  <div class="section-label">LAYER 4 ── 鉱工業指数 品目別在庫率（石油化学・石油製品・プラスチック・紙・アルミ）</div>
   <div class="panel">
     <div id="iip-loading" class="l3-state">⏳ 鉱工業指数データ読み込み中…</div>
     <div id="iip-error"   class="l3-state l3-error-msg hidden"></div>
@@ -802,7 +802,7 @@
         <span class="iip-date-badge">📅 データ基準月: <strong id="iip-date">—</strong></span>
       </div>
       <div class="iip-grid" id="iip-grid"></div>
-      <div class="panel-title" style="margin-bottom:10px">📊 在庫バッファー比較（全業種・月数）</div>
+      <div class="panel-title" style="margin-bottom:10px">📊 在庫率 1.0未満（逼迫）品目 ── 在庫指数 ÷ 生産指数</div>
       <div class="iip-chart-outer"><canvas id="iip-bar-chart"></canvas></div>
     </div>
   </div>
@@ -1594,92 +1594,102 @@ function renderIIP(data) {
   document.getElementById('iip-content').classList.remove('hidden');
   document.getElementById('iip-date').textContent = data.data_date;
 
-  // 親業種とサブカテゴリに分離
-  const parents  = data.industries.filter(d => !d.parent);
-  const childMap = {};
-  data.industries.filter(d => d.parent).forEach(d => {
-    (childMap[d.parent] = childMap[d.parent] || []).push(d);
-  });
+  const COLOR_FG = { red:'#dc2626', yellow:'#ca8a04', green:'#16a34a', gray:'#94a3b8' };
+  const COLOR_BG = { red:'#fee2e2', yellow:'#fef9c3', green:'#dcfce7', gray:'#f1f5f9' };
 
-  const COLOR_BG  = { red:'#fee2e2', yellow:'#fef9c3', green:'#dcfce7', gray:'#f1f5f9' };
-  const COLOR_FG  = { red:'#dc2626', yellow:'#ca8a04', green:'#16a34a', gray:'#94a3b8' };
-
-  function fmtBuf(v) { return v !== null ? v.toFixed(2) : '—'; }
+  function fmtNum(v) { return v !== null && v !== undefined ? Number(v).toFixed(1) : '—'; }
+  function fmtBuf(v) { return v !== null && v !== undefined ? Number(v).toFixed(2) : '—'; }
   function fmtYoY(v) {
     if (v === null || v === undefined) return '—';
     const sign = v >= 0 ? '+' : '';
-    return `${sign}${Number(v).toFixed(1)}%`;
+    const col  = v >= 0 ? '#16a34a' : '#dc2626';
+    return `<span style="color:${col}">${sign}${Number(v).toFixed(1)}%</span>`;
   }
+
+  // グループ別に整理
+  const groupMap = {};
+  const groupOrder = [];
+  data.industries.forEach(d => {
+    const g = d.group || 'その他';
+    if (!groupMap[g]) { groupMap[g] = []; groupOrder.push(g); }
+    groupMap[g].push(d);
+  });
 
   const grid = document.getElementById('iip-grid');
   grid.innerHTML = '';
 
-  parents.forEach(ind => {
-    const children = childMap[ind.name] || [];
-    const c = ind.color;
+  groupOrder.forEach(grp => {
+    const items = groupMap[grp];
+    // グループ最悪色を決定
+    const colorRank = { red:0, yellow:1, green:2, gray:3 };
+    const worstColor = items.reduce((w, d) =>
+      colorRank[d.color] < colorRank[w] ? d.color : w, 'gray');
 
     const block = document.createElement('div');
     block.className = 'iip-industry-block';
 
-    // 親業種ヘッダー
+    // グループヘッダー
     const header = document.createElement('div');
-    header.className = `iip-industry-header ${c}`;
+    header.className = `iip-industry-header ${worstColor}`;
+    const redCnt    = items.filter(d => d.color === 'red').length;
+    const alertBadge = redCnt > 0
+      ? `<span style="font-size:.72rem;background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;padding:2px 8px;border-radius:10px;font-weight:700">⚠ 在庫低水準 ${redCnt}品目</span>`
+      : '';
     header.innerHTML = `
-      <span class="iip-ind-name">${ind.name}</span>
-      <span>
-        <span class="iip-ind-buf ${c}">${fmtBuf(ind.buffer_months)}</span>
-        <span class="iip-ind-unit">ヶ月</span>
-      </span>
-      <span class="iip-ind-yoy">
-        生産 ${fmtYoY(ind.prod_yoy)} / 在庫 ${fmtYoY(ind.inv_yoy)}（前年同月比）
-      </span>`;
+      <span class="iip-ind-name">${grp}</span>
+      ${alertBadge}
+      <span style="font-size:.75rem;color:#94a3b8;margin-left:auto">${items.length}品目</span>`;
     block.appendChild(header);
 
-    // サブカテゴリテーブル
-    if (children.length > 0) {
-      const table = document.createElement('table');
-      table.className = 'iip-sub-table';
-      table.innerHTML = `
-        <thead><tr>
-          <th>サブカテゴリ</th>
-          <th>生産指数</th><th>前年比</th>
-          <th>在庫指数</th><th>前年比</th>
-          <th>在庫バッファー</th>
-        </tr></thead>`;
-      const tbody = document.createElement('tbody');
-      children.forEach(sub => {
-        const sc = sub.color;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><span class="iip-sub-dot ${sc}"></span>${sub.name}</td>
-          <td>${sub.production !== null ? Number(sub.production).toFixed(1) : '—'}</td>
-          <td style="color:${sub.prod_yoy < 0 ? '#dc2626' : '#16a34a'}">${fmtYoY(sub.prod_yoy)}</td>
-          <td>${sub.inventory !== null ? Number(sub.inventory).toFixed(1) : '—'}</td>
-          <td style="color:${sub.inv_yoy < 0 ? '#dc2626' : '#16a34a'}">${fmtYoY(sub.inv_yoy)}</td>
-          <td style="font-weight:700;color:${COLOR_FG[sc]}">${fmtBuf(sub.buffer_months)} ヶ月</td>`;
-        tbody.appendChild(tr);
-      });
-      table.appendChild(tbody);
-      block.appendChild(table);
-    }
+    // 品目テーブル（在庫率昇順 = 最も逼迫したものが上）
+    const sorted = [...items].sort((a, b) =>
+      (a.buffer_months ?? 99) - (b.buffer_months ?? 99));
 
+    const table = document.createElement('table');
+    table.className = 'iip-sub-table';
+    table.innerHTML = `
+      <thead><tr>
+        <th>品目</th>
+        <th>生産指数</th><th style="font-size:.68rem">前年比</th>
+        <th>在庫指数</th><th style="font-size:.68rem">前年比</th>
+        <th>在庫率</th>
+      </tr></thead>`;
+    const tbody = document.createElement('tbody');
+    sorted.forEach(p => {
+      const c  = p.color;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><span class="iip-sub-dot ${c}"></span>${p.name}</td>
+        <td>${fmtNum(p.production)}</td>
+        <td>${fmtYoY(p.prod_yoy)}</td>
+        <td>${fmtNum(p.inventory)}</td>
+        <td>${fmtYoY(p.inv_yoy)}</td>
+        <td style="font-weight:700;color:${COLOR_FG[c]}">${fmtBuf(p.buffer_months)}</td>`;
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    block.appendChild(table);
     grid.appendChild(block);
   });
 
-  // 横棒グラフ（3大分類のバッファー月数比較）
-  const forChart = parents.filter(d => d.buffer_months !== null);
+  // 横棒グラフ: 赤（在庫率<1.0）品目のみ表示
+  const critical = data.industries
+    .filter(d => d.buffer_months !== null && d.buffer_months < 1.0)
+    .sort((a, b) => a.buffer_months - b.buffer_months)
+    .slice(0, 20);
+
   const chartOuter = document.querySelector('.iip-chart-outer');
-  if (chartOuter) chartOuter.style.height = Math.max(160, forChart.length * 40 + 60) + 'px';
+  if (chartOuter) chartOuter.style.height = Math.max(160, critical.length * 24 + 60) + 'px';
 
   new Chart(document.getElementById('iip-bar-chart'), {
     type: 'bar',
     data: {
-      labels: forChart.map(d => d.name),
+      labels: critical.map(d => d.name),
       datasets: [{
-        label: '在庫バッファー（月数）',
-        data:  forChart.map(d => d.buffer_months),
-        backgroundColor: forChart.map(d => COLOR_BG[d.color]),
-        borderColor:     forChart.map(d => COLOR_FG[d.color]),
+        label: '在庫率（在庫指数÷生産指数）',
+        data:  critical.map(d => d.buffer_months),
+        backgroundColor: critical.map(d => COLOR_BG[d.color]),
+        borderColor:     critical.map(d => COLOR_FG[d.color]),
         borderWidth: 2,
       }],
     },
@@ -1688,16 +1698,16 @@ function renderIIP(data) {
       responsive: true, maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)} ヶ月` } },
+        tooltip: { callbacks: { label: ctx => ` 在庫率 ${ctx.parsed.x.toFixed(2)}` } },
       },
       scales: {
         x: {
-          title: { display: true, text: '在庫バッファー月数（在庫指数÷生産指数）', font: { size: 11 } },
-          ticks: { font: { size: 11 } },
+          min: 0, max: 1.05,
+          title: { display: true, text: '在庫率（在庫指数 ÷ 生産指数）— 1.0未満が逼迫', font: { size: 11 } },
+          ticks: { font: { size: 10 } },
           grid: { color: 'rgba(0,0,0,.05)' },
-          min: 0,
         },
-        y: { ticks: { font: { size: 12 } } },
+        y: { ticks: { font: { size: 10 } } },
       },
     },
   });
