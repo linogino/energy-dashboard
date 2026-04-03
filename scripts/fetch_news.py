@@ -205,7 +205,9 @@ def scrape_kagaku_nippo() -> list[dict]:
                 ctx = parent.get_text(" ", strip=True)
                 if len(ctx) > len(title) + 4:
                     break
-            pub = parse_date_jp(ctx) or TODAY
+            pub = parse_date_jp(ctx)
+            if not pub:
+                continue  # 日付のないリンク（ナビ等）は除外
             items.append({
                 "title":    title[:140],
                 "url":      full_url,
@@ -302,7 +304,9 @@ def scrape_hosotime() -> list[dict]:
                 ctx = parent.get_text(" ", strip=True)
                 if len(ctx) > len(title) + 4:
                     break
-            pub = parse_date_jp(ctx) or TODAY
+            pub = parse_date_jp(ctx)
+            if not pub:
+                continue  # 日付のないリンク（ナビ等）は除外
             # 石油化学関連キーワードが含まれる記事のみ対象
             full_text = title + " " + ctx
             if is_relevant(full_text) or any(k in full_text for k in ["包材", "フィルム", "容器", "包装"]):
@@ -325,31 +329,40 @@ def scrape_hosotime() -> list[dict]:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def scrape_aluminum_assoc() -> list[dict]:
-    """日本アルミニウム協会のニュース・トピックスをスクレイプ。"""
-    urls = [
+    """日本アルミニウム協会のニュース・プレスリリースをスクレイプ。"""
+    # ニュース・プレスリリース専用ページのみ対象
+    news_urls = [
         "https://www.aluminum.or.jp/news/",
+        "https://www.aluminum.or.jp/release/",
         "https://www.aluminum.or.jp/topics/",
-        "https://www.aluminum.or.jp/",
     ]
+    # 受け入れるリンクのURL パスパターン（ニュース系のみ）
+    NEWS_PATH_RE = re.compile(r"/(news|release|topics|press|info)/", re.IGNORECASE)
+
     items: list[dict] = []
-    for base_url in urls:
+    for base_url in news_urls:
         r = get(base_url)
         if not r:
             continue
         soup = BeautifulSoup(r.text, "html.parser")
         for a in soup.find_all("a", href=True):
             title = a.get_text(strip=True)
-            if len(title) < 10:
+            if len(title) < 15:
                 continue
             href = a["href"]
             if not href.startswith("http"):
                 href = urljoin(base_url, href)
+            # ニュース系のURLのみ受け入れ（ナビリンクを除外）
+            if not NEWS_PATH_RE.search(href):
+                continue
             ctx = ""
             for parent in a.parents:
                 ctx = parent.get_text(" ", strip=True)
                 if len(ctx) > len(title) + 4:
                     break
-            pub = parse_date_jp(ctx) or TODAY
+            pub = parse_date_jp(ctx)
+            if not pub:
+                continue  # 日付が取れないものはナビリンクとして除外
             items.append({
                 "title":    title[:140],
                 "url":      href,
@@ -383,7 +396,7 @@ def scrape_jpca() -> list[dict]:
         soup = BeautifulSoup(r.text, "html.parser")
         for a in soup.find_all("a", href=True):
             title = a.get_text(strip=True)
-            if len(title) < 10:
+            if len(title) < 12:
                 continue
             href = a["href"]
             if not href.startswith("http"):
@@ -393,7 +406,11 @@ def scrape_jpca() -> list[dict]:
                 ctx = parent.get_text(" ", strip=True)
                 if len(ctx) > len(title) + 4:
                     break
-            pub = parse_date_jp(ctx) or TODAY
+            pub = parse_date_jp(ctx)
+            if not pub:
+                continue  # 日付のないリンク（ナビ等）は除外
+            if not is_relevant(title + " " + ctx):
+                continue
             items.append({
                 "title":    title[:140],
                 "url":      href,
