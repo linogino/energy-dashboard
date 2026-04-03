@@ -63,32 +63,52 @@ TRUSTED_SOURCE_KEYWORDS: tuple[str, ...] = (
     "日本化学工業協会", "日本包装技術協会",
 )
 
+# Google News <source url="..."> 属性のドメイン照合（テキストが合わなくてもURLで判定）
+TRUSTED_DOMAINS: tuple[str, ...] = (
+    "nikkei.com",
+    "kagakukogyonippo.com",
+    "nikkan.co.jp",
+    "hosotime.com",
+    "meti.go.jp",
+    "enecho.meti.go.jp",
+    "aluminum.or.jp",
+    "jpca.or.jp",
+    "maff.go.jp",
+    "jogmec.go.jp",
+    "cas.go.jp",
+)
+
 # Google News の title 末尾に "- SourceName" が入る場合の検出パターン
+# 「電子版」「オンライン」等のサフィックスも許容
 _TITLE_SOURCE_RE = re.compile(
-    r'\s*[ー\-]\s*(日本経済新聞|化学工業日報|日刊工業新聞|包装タイムス|経済産業省|資源エネルギー庁)\s*$'
+    r'\s*[ー\-]\s*(日本経済新聞|化学工業日報|日刊工業新聞|包装タイムス|経済産業省|資源エネルギー庁)'
+    r'[\w・]*\s*$'
 )
 
 
-def is_trusted(source: str, title: str = "") -> bool:
+def is_trusted(source: str, title: str = "", url: str = "") -> bool:
     """
-    source フィールドまたはタイトル末尾のソース表記で信頼ソースか判定。
-    Yahoo・TV・ポータルをすべて除外する。
+    source テキスト・タイトル末尾ソース表記・source URL ドメインのいずれかで
+    信頼ソースか判定。Yahoo・TV・ポータルをすべて除外する。
     """
     if any(kw in source for kw in TRUSTED_SOURCE_KEYWORDS):
         return True
-    # タイトルが "記事タイトル - 日本経済新聞" のような形式の場合も信頼とみなす
+    # タイトルが "記事タイトル - 日本経済新聞電子版" のような形式
     if _TITLE_SOURCE_RE.search(title):
+        return True
+    # Google News RSS <source url="https://www.nikkei.com"> のドメインで判定
+    if url and any(d in url for d in TRUSTED_DOMAINS):
         return True
     return False
 
 
 def clean_title(title: str) -> str:
-    """タイトル末尾の ' - SourceName' サフィックスを除去する。"""
+    """タイトル末尾の ' - SourceName[電子版]' サフィックスを除去する。"""
     return _TITLE_SOURCE_RE.sub('', title).strip()
 
 
 def extract_source_from_title(title: str) -> str | None:
-    """タイトル末尾にソース名が含まれていれば返す。"""
+    """タイトル末尾にソース名が含まれていればベース名（グループ1）を返す。"""
     m = _TITLE_SOURCE_RE.search(title)
     return m.group(1) if m else None
 
@@ -478,14 +498,15 @@ def fetch_google_news(query: str, category: str) -> list[dict]:
         raw_title = (item.findtext("title") or "").strip()
         link      = (item.findtext("link")  or "").strip()
         pub_raw   = (item.findtext("pubDate") or "")
-        src_el    = item.find("source")
-        source    = src_el.text.strip() if src_el is not None and src_el.text else ""
+        src_el     = item.find("source")
+        source     = src_el.text.strip() if src_el is not None and src_el.text else ""
+        source_url = (src_el.get("url") or "").strip() if src_el is not None else ""
 
         if not raw_title or not link:
             continue
 
-        # ── 信頼ソースフィルタ（sourceフィールド + タイトルサフィックス両方チェック） ──
-        if not is_trusted(source, raw_title):
+        # ── 信頼ソースフィルタ（source テキスト + タイトルサフィックス + source URL ドメイン）──
+        if not is_trusted(source, raw_title, source_url):
             skipped += 1
             continue
 

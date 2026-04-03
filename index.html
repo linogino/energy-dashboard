@@ -651,21 +651,52 @@
       background: var(--slate-100); border: 1px solid var(--slate-200);
       border-radius: 20px; color: var(--slate-600);
     }
-    .iip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px; margin-bottom: 20px;
+    /* 業種グループ（親業種 + サブカテゴリテーブル） */
+    .iip-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+    .iip-industry-block {
+      background: white; border-radius: 8px;
+      border: 1px solid var(--slate-200); box-shadow: var(--shadow); overflow: hidden;
     }
-    .iip-card {
-      background: white; border-radius: 8px; padding: 12px;
-      border: 1px solid var(--slate-200); border-top: 3px solid var(--slate-400);
-      box-shadow: var(--shadow);
+    /* 親業種ヘッダー */
+    .iip-industry-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 16px; border-bottom: 1px solid var(--slate-100);
     }
-    .iip-card-name { font-size: .78rem; font-weight: 600; color: var(--slate-600); margin-bottom: 6px; line-height: 1.3; }
-    .iip-buf-row   { display: flex; align-items: baseline; gap: 3px; }
-    .iip-buf-num   { font-size: 1.9rem; font-weight: 800; line-height: 1; color: var(--slate-700); }
-    .iip-buf-unit  { font-size: .75rem; color: var(--slate-400); }
-    .iip-chart-outer { position: relative; height: 220px; margin-top: 12px; }
+    .iip-industry-header.red    { border-left: 4px solid #dc2626; }
+    .iip-industry-header.yellow { border-left: 4px solid #ca8a04; }
+    .iip-industry-header.green  { border-left: 4px solid #16a34a; }
+    .iip-industry-header.gray   { border-left: 4px solid #94a3b8; }
+    .iip-ind-name  { font-size: .95rem; font-weight: 700; color: var(--slate-800); flex: 1; }
+    .iip-ind-buf   { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+    .iip-ind-buf.red    { color: #dc2626; }
+    .iip-ind-buf.yellow { color: #ca8a04; }
+    .iip-ind-buf.green  { color: #16a34a; }
+    .iip-ind-buf.gray   { color: #94a3b8; }
+    .iip-ind-unit  { font-size: .75rem; color: var(--slate-400); margin-left: 2px; }
+    .iip-ind-yoy   { font-size: .75rem; color: var(--slate-500); white-space: nowrap; }
+    /* サブカテゴリテーブル */
+    .iip-sub-table {
+      width: 100%; border-collapse: collapse; font-size: .8rem;
+    }
+    .iip-sub-table th {
+      background: var(--slate-50); color: var(--slate-500); font-weight: 600;
+      padding: 5px 12px; text-align: right; font-size: .72rem;
+    }
+    .iip-sub-table th:first-child { text-align: left; }
+    .iip-sub-table td {
+      padding: 6px 12px; border-top: 1px solid var(--slate-100);
+      color: var(--slate-700); text-align: right;
+    }
+    .iip-sub-table td:first-child { text-align: left; color: var(--slate-600); font-weight: 500; }
+    .iip-sub-dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      margin-right: 6px; vertical-align: middle;
+    }
+    .iip-sub-dot.red    { background: #dc2626; }
+    .iip-sub-dot.yellow { background: #ca8a04; }
+    .iip-sub-dot.green  { background: #16a34a; }
+    .iip-sub-dot.gray   { background: #94a3b8; }
+    .iip-chart-outer { position: relative; height: 200px; margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -1563,40 +1594,93 @@ function renderIIP(data) {
   document.getElementById('iip-content').classList.remove('hidden');
   document.getElementById('iip-date').textContent = data.data_date;
 
-  // カードグリッド（在庫バッファー月数のみ表示）
-  const grid = document.getElementById('iip-grid');
-  grid.innerHTML = '';
-  data.industries.forEach(ind => {
-    const buf = ind.buffer_months !== null ? ind.buffer_months.toFixed(2) : '—';
-    const card = document.createElement('div');
-    card.className = 'iip-card';
-    card.innerHTML = `
-      <div class="iip-card-name">${ind.name}</div>
-      <div class="iip-buf-row">
-        <span class="iip-buf-num">${buf}</span>
-        <span class="iip-buf-unit">ヶ月</span>
-      </div>`;
-    grid.appendChild(card);
+  // 親業種とサブカテゴリに分離
+  const parents  = data.industries.filter(d => !d.parent);
+  const childMap = {};
+  data.industries.filter(d => d.parent).forEach(d => {
+    (childMap[d.parent] = childMap[d.parent] || []).push(d);
   });
 
-  // 横棒グラフ（全業種バッファー月数）
-  const sorted = [...data.industries]
-    .filter(d => d.buffer_months !== null)
-    .sort((a, b) => b.buffer_months - a.buffer_months);
+  const COLOR_BG  = { red:'#fee2e2', yellow:'#fef9c3', green:'#dcfce7', gray:'#f1f5f9' };
+  const COLOR_FG  = { red:'#dc2626', yellow:'#ca8a04', green:'#16a34a', gray:'#94a3b8' };
 
+  function fmtBuf(v) { return v !== null ? v.toFixed(2) : '—'; }
+  function fmtYoY(v) {
+    if (v === null || v === undefined) return '—';
+    const sign = v >= 0 ? '+' : '';
+    return `${sign}${Number(v).toFixed(1)}%`;
+  }
+
+  const grid = document.getElementById('iip-grid');
+  grid.innerHTML = '';
+
+  parents.forEach(ind => {
+    const children = childMap[ind.name] || [];
+    const c = ind.color;
+
+    const block = document.createElement('div');
+    block.className = 'iip-industry-block';
+
+    // 親業種ヘッダー
+    const header = document.createElement('div');
+    header.className = `iip-industry-header ${c}`;
+    header.innerHTML = `
+      <span class="iip-ind-name">${ind.name}</span>
+      <span>
+        <span class="iip-ind-buf ${c}">${fmtBuf(ind.buffer_months)}</span>
+        <span class="iip-ind-unit">ヶ月</span>
+      </span>
+      <span class="iip-ind-yoy">
+        生産 ${fmtYoY(ind.prod_yoy)} / 在庫 ${fmtYoY(ind.inv_yoy)}（前年同月比）
+      </span>`;
+    block.appendChild(header);
+
+    // サブカテゴリテーブル
+    if (children.length > 0) {
+      const table = document.createElement('table');
+      table.className = 'iip-sub-table';
+      table.innerHTML = `
+        <thead><tr>
+          <th>サブカテゴリ</th>
+          <th>生産指数</th><th>前年比</th>
+          <th>在庫指数</th><th>前年比</th>
+          <th>在庫バッファー</th>
+        </tr></thead>`;
+      const tbody = document.createElement('tbody');
+      children.forEach(sub => {
+        const sc = sub.color;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="iip-sub-dot ${sc}"></span>${sub.name}</td>
+          <td>${sub.production !== null ? Number(sub.production).toFixed(1) : '—'}</td>
+          <td style="color:${sub.prod_yoy < 0 ? '#dc2626' : '#16a34a'}">${fmtYoY(sub.prod_yoy)}</td>
+          <td>${sub.inventory !== null ? Number(sub.inventory).toFixed(1) : '—'}</td>
+          <td style="color:${sub.inv_yoy < 0 ? '#dc2626' : '#16a34a'}">${fmtYoY(sub.inv_yoy)}</td>
+          <td style="font-weight:700;color:${COLOR_FG[sc]}">${fmtBuf(sub.buffer_months)} ヶ月</td>`;
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      block.appendChild(table);
+    }
+
+    grid.appendChild(block);
+  });
+
+  // 横棒グラフ（3大分類のバッファー月数比較）
+  const forChart = parents.filter(d => d.buffer_months !== null);
   const chartOuter = document.querySelector('.iip-chart-outer');
-  if (chartOuter) chartOuter.style.height = Math.max(200, sorted.length * 22 + 40) + 'px';
+  if (chartOuter) chartOuter.style.height = Math.max(160, forChart.length * 40 + 60) + 'px';
 
   new Chart(document.getElementById('iip-bar-chart'), {
     type: 'bar',
     data: {
-      labels: sorted.map(d => d.name),
+      labels: forChart.map(d => d.name),
       datasets: [{
         label: '在庫バッファー（月数）',
-        data:  sorted.map(d => d.buffer_months),
-        backgroundColor: 'rgba(71,85,105,0.5)',
-        borderColor:     'rgba(71,85,105,0.9)',
-        borderWidth: 1,
+        data:  forChart.map(d => d.buffer_months),
+        backgroundColor: forChart.map(d => COLOR_BG[d.color]),
+        borderColor:     forChart.map(d => COLOR_FG[d.color]),
+        borderWidth: 2,
       }],
     },
     options: {
@@ -1608,11 +1692,12 @@ function renderIIP(data) {
       },
       scales: {
         x: {
-          title: { display: true, text: '月数（在庫指数 ÷ 生産指数）', font: { size: 11 } },
-          ticks: { font: { size: 10 } },
+          title: { display: true, text: '在庫バッファー月数（在庫指数÷生産指数）', font: { size: 11 } },
+          ticks: { font: { size: 11 } },
           grid: { color: 'rgba(0,0,0,.05)' },
+          min: 0,
         },
-        y: { ticks: { font: { size: 10 } } },
+        y: { ticks: { font: { size: 12 } } },
       },
     },
   });

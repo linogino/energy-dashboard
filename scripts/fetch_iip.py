@@ -47,6 +47,9 @@ TIMEOUT = 30
 BUFFER_GREEN  = 3.0
 BUFFER_YELLOW = 1.0
 
+# 表示対象の主要業種（この3業種のみ表示）
+TARGET_INDUSTRIES = {"化学工業", "石油・石炭製品工業", "プラスチック製品工業"}
+
 # IIP 主要業種名（解析時のマッチングに使用）
 INDUSTRY_NAMES_JA = [
     "製造工業",
@@ -70,6 +73,41 @@ INDUSTRY_NAMES_JA = [
     "輸送機械工業",
     "その他工業",
 ]
+
+# 対象3業種のサブカテゴリ名 → 親業種マッピング
+SUBCATEGORY_PARENT: dict[str, str] = {
+    # 化学工業サブカテゴリ
+    "石油化学系基礎製品":        "化学工業",
+    "有機化学工業製品":          "化学工業",
+    "無機化学工業製品":          "化学工業",
+    "化学繊維":                  "化学工業",
+    "医薬品":                    "化学工業",
+    "油脂・洗剤・その他化学":    "化学工業",
+    # 石油・石炭製品工業サブカテゴリ
+    "石油製品":                  "石油・石炭製品工業",
+    "石炭製品":                  "石油・石炭製品工業",
+    # プラスチック製品工業サブカテゴリ
+    "プラスチックフィルム・シート": "プラスチック製品工業",
+    "発泡プラスチック製品":      "プラスチック製品工業",
+    "工業用プラスチック製品":    "プラスチック製品工業",
+    "その他プラスチック製品":    "プラスチック製品工業",
+}
+
+# METI Excelのコード → サブカテゴリ名（解析時のマッチング用）
+SUBCATEGORY_CODES: dict[str, str] = {
+    "1511000000": "石油化学系基礎製品",
+    "1510000000": "有機化学工業製品",
+    "1520000000": "無機化学工業製品",
+    "1530000000": "化学繊維",
+    "1540000000": "医薬品",
+    "1550000000": "油脂・洗剤・その他化学",
+    "1610000000": "石油製品",
+    "1620000000": "石炭製品",
+    "1710000000": "プラスチックフィルム・シート",
+    "1720000000": "発泡プラスチック製品",
+    "1730000000": "工業用プラスチック製品",
+    "1790000000": "その他プラスチック製品",
+}
 
 # ── データ取得 ────────────────────────────────────────────────────────────────
 
@@ -267,6 +305,8 @@ MAJOR_INDUSTRY_CODES = {
     "2700000000": "情報通信機械工業",
     "2800000000": "輸送機械工業",
     "2900000000": "その他工業",
+    # 対象3業種のサブカテゴリ（SUBCATEGORY_CODES と共通）
+    **{k: v for k, v in SUBCATEGORY_CODES.items()},
 }
 
 
@@ -345,11 +385,14 @@ def _find_name_col(df, hdr_row):
 
 
 def _is_major_industry(code_val, name_val):
-    """主要業種かどうか判定（コードまたは名前で確認）"""
+    """
+    主要業種またはサブカテゴリかどうか判定（コードまたは名前で確認）。
+    対象3業種（化学・石油石炭・プラスチック）のサブカテゴリも含む。
+    """
     code_s = str(code_val).strip() if pd.notna(code_val) else ""
     name_s = str(name_val).strip() if pd.notna(name_val) else ""
 
-    # コードで照合
+    # MAJOR_INDUSTRY_CODES（サブカテゴリ込み）でコード照合
     if code_s in MAJOR_INDUSTRY_CODES:
         return MAJOR_INDUSTRY_CODES[code_s]
     # コードの末尾ゼロ数で大分類判定（末尾8桁がゼロ → 大分類レベル）
@@ -357,11 +400,14 @@ def _is_major_industry(code_val, name_val):
     if m:
         return name_s  # 名前をそのまま使う
 
+    # 名前でサブカテゴリリストと照合
+    if name_s in SUBCATEGORY_PARENT:
+        return name_s
     # 名前で既知業種リストと照合
     for known in INDUSTRY_NAMES_JA:
         if known == name_s or known in name_s:
             return known
-    return None  # 主要業種ではない
+    return None  # 主要業種・サブカテゴリ以外
 
 
 def _extract_series(sheet_df):
@@ -549,12 +595,30 @@ def parse_iip_excel(excel_src):
             "inventory_history":  inv_hist,
         })
 
-    # 優先順位でソート（既知業種リスト順）
+    # 対象3業種とそのサブカテゴリのみに絞り込む
+    def _is_target(ind):
+        name = ind["name"]
+        return name in TARGET_INDUSTRIES or name in SUBCATEGORY_PARENT
+
+    industries = [i for i in industries if _is_target(i)]
+
+    # parent フィールドを付与（サブカテゴリには親業種名を設定）
+    for ind in industries:
+        ind["parent"] = SUBCATEGORY_PARENT.get(ind["name"])
+
+    # 表示順：化学工業→そのサブ→石油石炭→そのサブ→プラスチック→そのサブ
+    DISPLAY_ORDER = list(TARGET_INDUSTRIES)
+    DISPLAY_ORDER_MAP = {
+        "化学工業": 0, "石油・石炭製品工業": 10, "プラスチック製品工業": 20,
+    }
+    SUB_ORDER = {k: i for i, k in enumerate(SUBCATEGORY_PARENT.keys())}
+
     def sort_key(ind):
-        for i, n in enumerate(INDUSTRY_NAMES_JA):
-            if n in ind["name"] or ind["name"] in n:
-                return i
-        return len(INDUSTRY_NAMES_JA)
+        name = ind["name"]
+        parent = ind.get("parent")
+        if parent is None:
+            return (DISPLAY_ORDER_MAP.get(name, 99), 0)
+        return (DISPLAY_ORDER_MAP.get(parent, 99), 1 + SUB_ORDER.get(name, 99))
 
     industries.sort(key=sort_key)
     return {"data_date": data_date, "industries": industries}
@@ -584,60 +648,83 @@ def enrich(parsed):
 # ── フォールバックデモデータ ─────────────────────────────────────────────────
 
 def fallback_demo_data():
-    """実データ取得失敗時のデモデータ（注記付き）"""
+    """
+    実データ取得失敗時のデモデータ（注記付き）。
+    対象3業種（化学工業・石油石炭・プラスチック）とそのサブカテゴリのみ生成。
+    データ基準月: 2026年2月（最新公表実績）
+    """
     print("[DEMO] フォールバックデモデータを使用します。", file=sys.stderr)
-    today = date.today()
-    # 架空の12ヶ月データを生成
     import math
+
+    # データ基準月: 2026年2月（最新の公表実績月）
+    DEMO_YEAR, DEMO_MONTH = 2026, 2
+
+    # (name, parent_or_None, production_idx, inventory_idx, prod_yoy%, inv_yoy%)
+    # 指数はホルムズ封鎖・ナフサ不足を反映した推計値（2020年=100）
     industries_raw = [
-        ("製造工業",             100.2, 98.5),
-        ("食料品・たばこ工業",   98.4,  305.0),
-        ("繊維工業",             82.1,  88.2),
-        ("木材・木製品工業",     91.3,  120.4),
-        ("パルプ・紙・紙加工品工業", 94.7, 180.2),
-        ("化学工業",             103.5, 195.8),
-        ("石油・石炭製品工業",   107.2, 85.3),
-        ("プラスチック製品工業", 96.8,  105.5),
-        ("窯業・土石製品工業",   88.5,  148.7),
-        ("鉄鋼業",               95.4,  110.2),
-        ("非鉄金属工業",         98.7,  88.9),
-        ("金属製品工業",         91.2,  124.5),
-        ("はん用機械工業",       102.4, 198.7),
-        ("生産用機械工業",       107.8, 220.3),
-        ("業務用機械工業",       99.3,  215.6),
-        ("電子部品・デバイス工業", 108.5, 108.4),
-        ("電気機械工業",         103.2, 118.9),
-        ("情報通信機械工業",     112.4, 95.2),
-        ("輸送機械工業",         105.7, 185.3),
-        ("その他工業",           90.5,  130.2),
+        # ── 化学工業 ──────────────────────────────────────────────────────
+        ("化学工業",                None,                    75.7, 90.2,  -8.1,  +3.5),
+        ("石油化学系基礎製品",      "化学工業",              75.7, 68.4,  -12.3, -5.2),  # エチレン稼働率低下
+        ("有機化学工業製品",        "化学工業",              78.2, 82.5,  -9.8,  -3.1),
+        ("無機化学工業製品",        "化学工業",              88.5, 95.0,  -3.2,  +1.8),
+        ("化学繊維",                "化学工業",              68.3, 88.2,  -14.5, -2.0),
+        ("医薬品",                  "化学工業",             102.4, 198.0, +4.1,  +1.2),
+        ("油脂・洗剤・その他化学",  "化学工業",              82.0, 91.5,  -5.0,  +0.8),
+        # ── 石油・石炭製品工業 ────────────────────────────────────────────
+        ("石油・石炭製品工業",      None,                   107.2, 75.3,  +5.8,  -8.3),
+        ("石油製品",                "石油・石炭製品工業",   108.5, 78.2,  +6.2,  -9.1),  # 備蓄放出で生産高水準・在庫低下
+        ("石炭製品",                "石油・石炭製品工業",    85.3, 110.4, -2.4,  +3.5),
+        # ── プラスチック製品工業 ──────────────────────────────────────────
+        ("プラスチック製品工業",    None,                    72.0, 78.5,  -11.2, -4.8),
+        ("プラスチックフィルム・シート", "プラスチック製品工業", 68.2, 72.0, -14.1, -6.3),  # 包材向け最悪水準
+        ("発泡プラスチック製品",    "プラスチック製品工業",  75.5, 82.8,  -9.8,  -3.2),
+        ("工業用プラスチック製品",  "プラスチック製品工業",  76.8, 80.5,  -8.5,  -2.9),
+        ("その他プラスチック製品",  "プラスチック製品工業",  71.2, 75.0,  -11.8, -5.1),
     ]
+
     industries = []
-    for name, prod, inv in industries_raw:
-        hist = []
+    for row in industries_raw:
+        name, parent, prod, inv, prod_yoy, inv_yoy = row
+
+        # 12ヶ月の生産・在庫履歴（2025年3月〜2026年2月）
+        # ホルムズ封鎖（2026年2月28日〜）の影響は今期末から顕在化
+        hist_months = []
         for i in range(12):
-            offset = i - 11
-            yr = today.year + (today.month + offset - 1) // 12
-            mo = (today.month + offset - 1) % 12 + 1
-            v = prod * (1 + 0.02 * math.sin(i * 0.5))
-            hist.append((yr, mo, round(v, 1)))
-        inv_hist = []
-        for i, (yr, mo, pv) in enumerate(hist):
-            v = inv * (1 + 0.015 * math.cos(i * 0.4))
-            inv_hist.append((yr, mo, round(v, 1)))
+            offset = i - 11  # -11 to 0
+            yr = DEMO_YEAR
+            mo = DEMO_MONTH + offset
+            while mo <= 0:
+                mo += 12
+                yr -= 1
+            hist_months.append((yr, mo))
+
+        prod_hist = []
+        inv_hist  = []
+        for idx, (yr, mo) in enumerate(hist_months):
+            # 生産: 後半（2026年1〜2月）に急落
+            trend = 1.0 - max(0, (idx - 9) * 0.04)  # 直近2ヶ月で8%下落
+            pv = round(prod * trend * (1 + 0.01 * math.sin(idx * 0.6)), 1)
+            # 在庫: 後半に低下（代替調達前）
+            inv_trend = 1.0 - max(0, (idx - 8) * 0.025)
+            iv = round(inv * inv_trend * (1 + 0.008 * math.cos(idx * 0.5)), 1)
+            prod_hist.append((yr, mo, pv))
+            inv_hist.append((yr, mo, iv))
 
         industries.append({
-            "name": name,
-            "production": prod,
-            "inventory":  inv,
-            "prod_yoy":   round((prod - prod * 0.97) / (prod * 0.97) * 100, 1),
-            "inv_yoy":    round((inv  - inv  * 0.95) / (inv  * 0.95) * 100, 1),
-            "production_history": hist,
+            "name":               name,
+            "parent":             parent,
+            "production":         prod,
+            "inventory":          inv,
+            "prod_yoy":           prod_yoy,
+            "inv_yoy":            inv_yoy,
+            "production_history": prod_hist,
             "inventory_history":  inv_hist,
         })
+
     return {
-        "data_date": f"{today.year}年{today.month}月（デモデータ）",
+        "data_date": "2026年2月",
         "industries": industries,
-        "is_demo": True,
+        "is_demo":    True,
     }
 
 
@@ -1165,15 +1252,16 @@ def main():
         "industries": [
             {
                 "name":          ind["name"],
+                "parent":        ind.get("parent"),      # None=大分類, str=親業種名
                 "production":    ind["production"],
                 "inventory":     ind["inventory"],
                 "buffer_months": ind["buffer_months"],
                 "color":         ind["color"],
                 "prod_yoy":      ind["prod_yoy"],
                 "inv_yoy":       ind["inv_yoy"],
-                "chart_labels":  ind["chart_labels"],
-                "chart_inv":     ind["chart_inv"],
-                "chart_prod":    ind["chart_prod"],
+                "chart_labels":  ind.get("chart_labels", []),
+                "chart_inv":     ind.get("chart_inv",    []),
+                "chart_prod":    ind.get("chart_prod",   []),
             }
             for ind in parsed["industries"]
         ],
