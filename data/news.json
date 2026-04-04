@@ -1,229 +1,19 @@
 {
-  "updated": "2026-04-03",
+  "updated": "2026-04-04",
   "items": [
     {
-      "title": "アルミニウムできるまで",
-      "url": "https://www.aluminum.or.jp/basic/alumiprocess/",
-      "source": "日本アルミニウム協会",
+      "title": "NASA探査の小惑星「ベンヌ」に尿素、生命の起源解明に 北大",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE82dkplSUF1NGl5VlN2bHJVTmI1ZFJfS0FxMC1sY0RzOXUzakMtTXd4ZktmU24xaWhNUUlYRHdUWFhqdHFvWlZNXy1KWXp4bHBvTUVtV18wNFJ0S0p2eEdCYmFldXFoTTlISFp1bg?oc=5",
+      "source": "日本経済新聞",
       "pubDate": "2026-04-03",
-      "category": "aluminum"
+      "category": "urea"
     },
     {
-      "title": "アルミおもしろ実験動画",
-      "url": "https://www.aluminum.or.jp/basic/experiment/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "アルミニウム製品紹介",
-      "url": "https://www.aluminum.or.jp/alumi_products/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "統計情報サービス内容",
-      "url": "https://www.aluminum.or.jp/statistics/#st03",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "もっと知りたいアルミニウムのこと",
-      "url": "https://www.aluminum.or.jp/more_knowledge/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "みんなのともだちアルミニウム",
-      "url": "https://www.aluminum.or.jp/aluminumtoha/kidsmenu.html",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "アルミなるほどミュージアム",
-      "url": "https://www.aluminum.or.jp/wp-content/themes/dp-colors/img/Alumimuseum.pdf",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "当協会における環境関係の委員会",
-      "url": "https://www.aluminum.or.jp/environment/#2",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "大学の先生・学生・企業の皆様へ",
-      "url": "https://www.aluminum.or.jp/for_tsc/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "技術戦略ロードマップ",
-      "url": "https://www.aluminum.or.jp/roadmap/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "特別出張講義のご案内",
-      "url": "https://www.aluminum.or.jp/for_tsc/lecture/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "インターンシップ募集企業一覧",
-      "url": "https://www.aluminum.or.jp/for_tsc/internship/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "アルミ材料を利用される方へ",
-      "url": "https://www.aluminum.or.jp/use/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "アルミ材料の諸特性データベース",
-      "url": "https://www.aluminum.or.jp/use/materialdb/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "アルミご相談コーナー",
-      "url": "https://www.aluminum.or.jp/use/consultation/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "書籍購入・冊子閲覧・JIS関連",
-      "url": "https://www.aluminum.or.jp/publication/#pb01/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "外国人技能実習評価試験",
-      "url": "https://www.aluminum.or.jp/technicaltraining/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "品質保証ガイドライン",
-      "url": "https://www.aluminum.or.jp/wp-content/themes/dp-colors/img/quality_guideline.pdf",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "物流適正化・生産性向上に向けた自主行動計画",
-      "url": "https://www.aluminum.or.jp/wp-content/themes/dp-colors/img/logistic_schedule_2024_2.pdf",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "適正取引の推進に向けた自主行動計画",
-      "url": "https://www.aluminum.or.jp/wp-content/themes/dp-colors/img/tekiseitorihiki_2026.pdf",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "CPsアルミニウムWGビジョンロードマップ",
-      "url": "https://www.aluminum.or.jp/global_warming/cps/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "地球温暖化対策への取り組み",
-      "url": "https://www.aluminum.or.jp/global_warming/",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "Japan Aluminium Association",
-      "url": "https://www.aluminum.or.jp//",
-      "source": "日本アルミニウム協会",
-      "pubDate": "2026-04-03",
-      "category": "aluminum"
-    },
-    {
-      "title": "2026年2月生産等実績概要",
-      "url": "https://www.jpca.or.jp/statistics/monthly/memo.html",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "ペルシャ湾情勢に関する石油化学工業協会コメント",
-      "url": "https://www.jpca.or.jp/files/newsrelease/20260317.pdf",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "マスコミ向け石油化学工場見学会開催報告",
-      "url": "https://www.jpca.or.jp/files/newsrelease/20260306.pdf",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "アジア石油化学工業会議（APIC 2026・福岡大会）の参加登録開始",
-      "url": "https://apic2026.jp/ja/registration.html",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "石油化学工業協会会長年頭のご挨拶",
-      "url": "https://www.jpca.or.jp/files/newsrelease/20260101.pdf",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "CEDI電子商取引への取り組み",
-      "url": "https://www.jpca.or.jp/cedi/index.html",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "石油化学の50年年表でつづる半世紀",
-      "url": "https://www.jpca.or.jp/trends/50years.html",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "Let’s Study\n                  石油化学",
-      "url": "https://www.jpca.or.jp/studies/junior/index.html",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "サステナブル社会実現に向けた石油化学産業の挑戦",
-      "url": "https://www.jpca.or.jp/r-sustainable/index.html",
-      "source": "石油化学工業協会",
-      "pubDate": "2026-04-03",
-      "category": "naphtha"
+      "title": "迫る食料危機の足音 世界の肥料価格5割高、ホルムズ海峡ショック",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ZdDZNa3A0aVNSaURJWGJzVTRCbHJzQ0dubV9uUmNSWU5PclowdHVTMWpDUnNlODBNaFFfTzRNUHdEYWVmc0F1czNJdkZOVlBGSlNCSXg3SXNOMjJFSGR1ZWNBOWhLbEtRbm1zMA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-02",
+      "category": "urea"
     },
     {
       "title": "［クイズ］日本のナフサの輸入依存度は？ - 日経ビジネス電子版",
@@ -231,6 +21,20 @@
       "source": "日経ビジネス電子版",
       "pubDate": "2026-04-02",
       "category": "naphtha"
+    },
+    {
+      "title": "三菱ケミカルG、菓子包装用フィルムを値上げ 原料高騰で",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE42ZkVxV1Rxb2NFYlVNRGJwZjZtYWw4RENFVHRid1RLVk91MjJFay1Qb1p3cERvcVNBSjgxdnpRY2NEczBzbngyMjZlLXJ4alU2TVBjM2ZKcF8zcDJTUXFTLXE2QXlSZnJFQzIyZQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-01",
+      "category": "aluminum"
+    },
+    {
+      "title": "高市首相、医療品の安定供給指示 石油製品の代替品調達など",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1qTDNDWWJOUkpzNTJkSGhWb3ExTHdDRFJsNzZWQ19UQjUtLWFhWDVpZHY0RHhSbzdpLTB2NXFVTWdySGJuYUZxek1KZ2ZwOEowUEhNcl9xV0FCMmFCTzhPendVNkV4ZXdtM1BNWQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-31",
+      "category": "ethylene"
     },
     {
       "title": "韓国、ロシア産ナフサ2.7万トンを輸入 中東情勢受け供給逼迫",
@@ -254,11 +58,32 @@
       "category": "naphtha"
     },
     {
+      "title": "東南アジア企業の時価総額35兆円消失、石化大手などホルムズ封鎖打撃",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBFYmpxaFVOVEZuVjRGNmxxVVU4dGk4bWJMdUlWeUtrTHZiMExGT2NiTVN3clFGVUdWNGxLZk4yVjVRRWMzN05wSkc2VGtuNFBzaG1YMTJCMjdMRUE4MzNWZ2FFMllSLV9MRUg5VQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-30",
+      "category": "naphtha"
+    },
+    {
       "title": "ナフサ輸入「中東から切り替える」 高市早苗首相、Xで表明",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE02cndqQjktZG12Z0hNM3FjcWNxek5kNEZPOEZ1a2s2UXIweHI4YU01SVJtbE9yM1A5YnF5SUlaSFRZM1ZUbGF6SzNhR2pQYWZRZm9BUFU2Y1l1djNYb3NFZ3pNc0Q0RmpDQXB6RQ?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-29",
       "category": "naphtha"
+    },
+    {
+      "title": "身近な日用品は原油に通ず 石化製品、8割が中東産に依存",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1YZTh2LXVxLVRVVVo4RzZ0N1l0elM1YVdSLTA1anVPMWFCTDR4MHJ2TE9MdVVfMERlMU05cWN4U3JxLU9VTVM5WmQyQ25JcEtvMDlKRXFmUGpxeE0wNWxJN3BzeEdjLXNJbm1LRw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-26",
+      "category": "naphtha"
+    },
+    {
+      "title": "三菱ケミカル、水島エチレン停止も「勝負は中間製品」 石化再編第2章に号砲 - 日経ビジネス電子版",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE14OTh3b2xUeWVNcktjMjNzN0xOOUJhNm1PX1lPQWNWOHlhLWlvTm1CWUNPZ0h5Vjd4eWdlMl9lTkoxeldBOU1FNEZoNHpnSEdsX3VUSzBEMXJpWlBEUjNyWldyWF90eWc?oc=5",
+      "source": "日経ビジネス電子版",
+      "pubDate": "2026-03-26",
+      "category": "ethylene"
     },
     {
       "title": "オリックス不動産、グループ連携で杉乃井ホテル「中館」解体により発生した使用済みアルミ窓の水平リサイクルを実施",
@@ -280,6 +105,181 @@
       "source": "日刊工業新聞",
       "pubDate": "2026-03-26",
       "category": "ethylene"
+    },
+    {
+      "title": "「中小資金繰り 国が支援を」（石化協会長）、中東緊張化のコスト増対応 - ニュースイッチ by 日刊工業新聞社",
+      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE5rS3kyd0pVdEdDQ3M2VldIa2QwUWxoN0JoMFV5MHpnem9CeGlvZUZCSVBEVGVqejdWSFQ0eTc1UjRPUQ?oc=5",
+      "source": "ニュースイッチ by 日刊工業新聞社",
+      "pubDate": "2026-03-25",
+      "category": "naphtha"
+    },
+    {
+      "title": "イラン情勢で多難の瀬戸内 集積する石油・化学産業、原油高騰が直撃",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5YOU1XcVJNX0cySXRmMFJXX2JzY3FLUFFZbEJ2TEk4VW43UzVmcm1OWGpaMEZaWjlMUXkwZHhXVVhabWJLeUJDNEtIekVoZnRPaGJaWGpuTWc4V3k3d0N0dG9KSy1nUVpUcXJYaA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-19",
+      "category": "naphtha"
+    },
+    {
+      "title": "日化協岩田会長「製品ごとの在庫踏まえ供給網を維持」 原料調達難で",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE13MElhbGlQbzlEMHdsN2JjZjBveXZpMGZ5YnpXY3cwaUFwVGZHWWNQd0NqZThidVU3S2xacEptZ0JGZzROS2pmNV80Qzl4dDBYeF9aMmxzYmYtdXMwODkxN3lOSzVsRkxmSjF4dA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-19",
+      "category": "ethylene"
+    },
+    {
+      "title": "石油備蓄が放出されても…ホルムズ海峡封鎖が日本の産業に大打撃なワケ",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9YZElaNllmd1JxN2lTY1M3UjVrZkJ4QllkQV9ZeXlhV1NtdzFPcU0yQnNBcndycEpPYmRiNHY3UWhvY1N6bVRHN21sT2lUUDBncXlfRTVoQTd6c3JNZzlkOHg5Q2xuZjByZ3NTSGVCZnFOUDY4dlpiNUVJN245Zw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-18",
+      "category": "naphtha"
+    },
+    {
+      "title": "石化協「直ちに製品供給困難にはならず」 原料ナフサの調達難受け",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1lWDlWU1Y0d0w4WXdGNkNwREJaTWtXMXcyTm9CRE9aTHpMTXZrOEJKYkF6YlcxMlFKUzZ1ZmIweHlGc20zZ2daTF9VZUhTa3VQTzRMU29iVzRYaG1qUWJtUnBrWkZjZGNZbmtuYQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-17",
+      "category": "naphtha"
+    },
+    {
+      "title": "三菱ケミカルG、樹脂など複数製品値上げ 原料のエチレン調達難受け",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1uWXlaUDlCUjkzbF94Szl2aW54VVVxUU50TFpuSGYtRFM3aXdWQjVsOXNaWHBpcjlJbzZvcklPRUJlZ2tFb3JuaUh5VUJoVHRFaW9STGRLNXpLNGg2cXVzdWpJcnFSczlISDNNWg?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-17",
+      "category": "ethylene"
+    },
+    {
+      "title": "三井化学系、汎用樹脂値上げ ホルムズ封鎖で原料の市場価格高騰受け",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9oUkR6VGw0cm12QlRIX09HdlVISndRV29iejVEUzlkbl81bU9XUHpKRVlfOGpvQ1JuakFvZ1VGQ1daWkJ5R3B0bkI0S3djV2taZTBnX0J4LTE1dzVUNEFsMGJqYldtYnBDOG9DTg?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-17",
+      "category": "propylene"
+    },
+    {
+      "title": "信越化学が塩ビ樹脂を2割値上げ、減産 配水管などインフラ影響懸念",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IcEtkVnlIcktoTGJLLUFWWGctMk1ldU4wdkZhY0ZqbDNaOG9FcHIyVUs2a0tFZ1pUSkJBNXhsdVpXRVgxOEVHemdjWWprYXFWNmtfZVhFYWNVQ0VqT0l0UzNobkVCSGpfVkVfSQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-16",
+      "category": "naphtha"
+    },
+    {
+      "title": "日本経済新聞 印刷画面",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSkdMMzhFa0YtNlhlNDZQTW1WQXpRbTZXZzBuU3NGRTJNRklIUUJoQkVMRlZsWEI1MjA4UGo3RURtWlBHVERvZ1ZuU3V4ekRsNWpYTkFmbjZFTlU1clVaWkQzcmw2NWV5bUtQTFN1MGJQcmRiODBhaW5xSGtXam5xX0t1UDg0UlB1N1FRMEkwRWM?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-16",
+      "category": "ethylene"
+    },
+    {
+      "title": "ホルムズ海峡封鎖で肥料ショック再来懸念 硫黄・尿素など21隻滞留",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE56OFo5eFEwR0ZpNVhJUnNxbVRDdGJuakRTOGpCbGFUeUNkR1pXYzI2Z1NIMlFkczRzUHBxOExtelgtZ1VDT1lzR3lMcnZEZ3J2YjZYNExXVkoyQ1N6WjlOSmpDWlFtZVNOV08xcw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-13",
+      "category": "urea"
+    },
+    {
+      "title": "三菱ケミ・旭化成、水島でエチレン減産 ナフサ調達難想定",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUmR6WG55Q3F3RmMwSGxOV1ZjRVRES2h0ZlA5RGc5T0tIQm9WQ0RkbXpxMHdoRWxmcUhxRm5iaFJpMU1ERU12OVFYVHRGV2NQLVk0b0pqeXV5eHYyb1BOa0pvX2hzUjJ3Snh6dGwwZU9iZGVxVFBHemVoRVFxRFhlUU56R3B4R3JhNFlHQU1lUjZONFFmTUFWN3RzZ0ZPZHVIbU1ZNkNrWTI?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-13",
+      "category": "naphtha"
+    },
+    {
+      "title": "三菱ケミカルG・旭化成、水島でエチレン減産 ナフサ調達難見据え",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE82eE9xYUs4akdwMUN1c3U0eWxKNHhyV0t0MmFmal96Y25rWXhtLVROYWhsVHljeW5ieGFNYXlCODgwS1l5WmVGTlhmVjhSWTZiWjcxMVRxQ1hfVWxhN0g5QXEtQW1QenBnbm9fTA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-12",
+      "category": "naphtha"
+    },
+    {
+      "title": "丸善石油化学・住友化学、エチレン再稼働を延期 定期修理後も様子見",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA0TGo0ZWZ3SWZLbTdZWUV4U09IdVEyR2lBbE9LdU9jd1F2VjN3LTU3ZGl2dC1KdGlQZUpQeV9DdVVnZ0JDZWl1dGhvMVdnZ3VjSTQtZmVHbTRCTEJKaU03em10bG9SaUx6TWhNTw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-12",
+      "category": "naphtha"
+    },
+    {
+      "title": "一目で分かる中東の日本企業マップ 商社権益LNG、カタール生産停止",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VSWtiOUpGaHpaV1NFV1IxSVF1RlFYSlU0c09JZ0xhMzl6dWRyMnhRZzFnRXZENVF4OWR2dVI3MUlLaEVxbl9idmJOVXM2OE5fdTdZc1VzVEtONmVQUzBpbno4cXlPZkdLQjFMaw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-12",
+      "category": "urea"
+    },
+    {
+      "title": "農業肥料が前年比2割高 3年ぶり高値、中東緊迫化で原料も調達難",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE41OURmWTR6X0kxQzlIZ3h6cHl0a0Vub1VfNmRpdHY1Y1IxaDY2RkZ2VS1HbmZEVVhNdVJZS3NjQjRDMXdkSGt1aVpfZEExZ2lVSzBuSFZQLTJZcTNPeTlKNzgzS0dncWhONzdYZw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-11",
+      "category": "urea"
+    },
+    {
+      "title": "イラン攻撃、食品価格押し上げ要因に 肥料高騰が米国の作付け期直撃",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1BNmk4T1Bjc003c0RRMklWbk5KS0hza1d2d1dmenN0eEF0dFFtOW5EcUFQWGJVVngyRklUam5Dbk1QYkZGNW92bTNsb3pQdTlibm1yRE5USG5IMkhBQmJydHM5Vk1ZZGZzanRxcA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-11",
+      "category": "urea"
+    },
+    {
+      "title": "三井化学、千葉・大阪でエチレン減産 ホルムズ海峡封鎖で原料調達難",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBjZi1rSThpUUp3d01uMVhmaDExSHVJNTJmeDBLOW02NXR2RXl1TmxKMUd5R0lDRVA5YV8zWkRqZWFzYktjUkxTQlNNZEZjaU9NdGpYNWFabHo2QVpPc0JsSUtRZGozcUxneko1ZQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-10",
+      "category": "naphtha"
+    },
+    {
+      "title": "三菱ケミG、エチレン減産 供給網、ホルムズ海峡封鎖響く",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBzdlpQeGJlRFlNSGFtRFhTQlFPWUdIbFg0U0xIWDJiNFZPN0JmWkZGRkg0TnhCMjRpNXFHZi1ld0I5b0FtVndQb3VLM2w4bmM0dkhvNkJhTFgxQmNBSldNdFdoMVVZdjAxRlNaWA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-10",
+      "category": "naphtha"
+    },
+    {
+      "title": "住友化学、シンガポールの汎用樹脂企業で不可抗力宣言 原料調達難で",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5IbjZnYUxSZzlqR2RDOW1KZ1BJc1Q4ZW9wdTMydkJZSTV0N1RHeU41UDktUHYwZXlCeUNhNzJnb0RXX2ItTHk0czAxaElzSGpmLV93OUhoeWQzaGxxeHVmWXBDYnVYMFp3SWpwbw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-10",
+      "category": "propylene"
+    },
+    {
+      "title": "三菱ケミカルG、ホルムズ海峡封鎖でエチレン減産 茨城の生産設備",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5JYUxPQmx3Y2V6N2tJTk50aWRPM3JoanRLM3NPQzJna0JFcEdxMDloWTZkVEtWRXM3VmF2ekF1RFY3SGhPRlVqcnZSNkhoX0JhMWNmNUNYYWpTSTlkbEM3N0cycHE3U2xoLWRkQQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-09",
+      "category": "naphtha"
+    },
+    {
+      "title": "住友化学、シンガポール樹脂原料企業で不可抗力宣言 エチレン調達難",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xWXBkVE9IS0JpbHlpMVhwaTZIbUNKQ2s3MHRtRG1KenBNdGVSbDVieGJZMDJIZ2dLODV3Q2JLUEIzU0p5NU5BRjNSWTZ0a19ORDRPcWlpbWNCQ0lPSGpLZGptUW9NRk9fQ1pweg?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-09",
+      "category": "ethylene"
+    },
+    {
+      "title": "海ごみを生まない段ボールで 魚箱の未来を変える[PR] - 日経BizGate",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5tdExfRjEyV0d0emp6SXZhdjFBNC1La1JIczg0RGg1em5oVW1NcG80dDV4WmtXTVpadjJIcFBzM0NSTVEzZVZsOENOeVdualdERU96dGZ6LWJwX19qeEgxamp3SERQXzdKSzlOTUZ0c2Y?oc=5",
+      "source": "日経BizGate",
+      "pubDate": "2026-03-09",
+      "category": "aluminum"
+    },
+    {
+      "title": "ナフサ、アジアで上昇圧力 中東産の依存度高く 合成樹脂製品値上げも",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VUThfaDUySEVlendjNUV2Q2pnZjB5U1NGa0ZTcFRRZ2hPTlpzM3BURlJFcTJGLXNZRlVlOHc0SlFxV05kSEtFV3Q0cUVGb0dBOWh3VkppTlhhR2lGYnBCdkMzWXZQT284clZ1aw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-07",
+      "category": "naphtha"
+    },
+    {
+      "title": "アジアのナフサ価格に上昇圧力 ホルムズ海峡封鎖で調達に懸念",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1VOTdvcURJWVVKRV9abmJPd21zV0praVNuSlpfV2U0dWhKZGVlcVlUclU0am9DcWoyOGV4bmlkR3BMQlpZRzl3ZHAyZ2sxMURwS2t6R1lxdGdQYU5zTHV3VWhOY2FMUEI3akxMYw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-07",
+      "category": "naphtha"
+    },
+    {
+      "title": "出光興産「ホルムズ封鎖長期化ならエチレン生産停止も」 取引先に通知",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5QcVZNVHZvMnlqN1VWbm92YXRRSGpJTF93S1ZQaC1tay1kTTFOSUhGdmV4Wk9aYlU1bHMtSHE0VVFQVmFSZXpnREpVd0pNNlZiNTBhb1lPVEJENlhRMlFEbmdYTTBmU3c0R3l1eQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-07",
+      "category": "naphtha"
     }
   ]
 }
