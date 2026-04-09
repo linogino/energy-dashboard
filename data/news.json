@@ -1,6 +1,20 @@
 {
-  "updated": "2026-04-08",
+  "updated": "2026-04-09",
   "items": [
+    {
+      "title": "東洋アルミ、「表面つるつる」半導体で通信サクサク EV低迷でシフト",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZNm9nNGJ4NWJFdXM3ay1OckZuN1M4LVhNemIyNVFseXg4X2dFbWU5XzEyRnRic2F5a0ticGFLckk4el94T1Q2Uk9NR2RTOXdYRnpNX0doWGRjaV8wNlBVTGMzX3JWSWFWd1dXSw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-08",
+      "category": "aluminum"
+    },
+    {
+      "title": "トランプ米政権、米フォードのアルミ関税軽減申請を却下 米報道",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZbjJMOXQ3VzU4OUVMTm9YajlTRkRuYTRSUE9LakU4bWFSRkU4YnJsN2lYSXA4QlM2M1I1dFI3Y2htNjJGeVNhZWhJMnNpZzRyTXVsS0FMX19xRlhSZUEwSzE0RkJma3NxeU96dQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-08",
+      "category": "aluminum"
+    },
     {
       "title": "ナフサ、高市首相「在庫4カ月」で安心? 状況改善でも一部化学品は不足",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9YQWE0VUNmNU5POU9zV0RUYm14Vm9qVUJRazZRV1BWYnFtbS1IQjJxQ05DUUpHNk5kMEJZU2hWMDdPRFI1OHFvV05NZmRzcHVJdlZBbDZLN29USDVXNi1IeHVzUHNmZXAteDZZcA?oc=5",
@@ -72,13 +86,6 @@
       "category": "urea"
     },
     {
-      "title": "旭化成、汎用樹脂のポリエチレンを3割超値上げ 中東影響で",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNY0N2N2pDU3I0Z0QxcE1jTlgwWmtoX0NmOEkza1UyTlRheFg2MzRnQWdHWjYzTDNXWXNGbjFzeDYxMU1YZjZhY1VZRzY0RERqWW9Md2M2cmx5NEVZSS1WWDJaUEU1OVlqSE5sbzJWc09QMjhmRDBYb3FyN05ZVllYaTZWbEJrUHF5WVlpZWhkbHUweER4Z0FCZnYtRkdZTVYwcVZWdFhjUGo?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-31",
-      "category": "ethylene"
-    },
-    {
       "title": "高市首相、医療品の安定供給指示 石油製品の代替品調達など",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1qTDNDWWJOUkpzNTJkSGhWb3ExTHdDRFJsNzZWQ19UQjUtLWFhWDVpZHY0RHhSbzdpLTB2NXFVTWdySGJuYUZxek1KZ2ZwOEowUEhNcl9xV0FCMmFCTzhPendVNkV4ZXdtM1BNWQ?oc=5",
       "source": "日本経済新聞",
@@ -88,13 +95,6 @@
     {
       "title": "三井化学や三菱ケミカル、中東外からナフサ代替調達 ホルムズ封鎖で",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9JLVVzUFZvUmxfSHE1aW9RekpRTTlwZXpJWGNlcnZpT2JFRWhJZnhGYzNZcEdyV2Z2Z3NiLVQteFpvS0htT09oazh6QkJPR2hQbFgxUDFVSk9FZ25BV2pfMDdsQ1dVQ0ZjUE9FVg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-30",
-      "category": "naphtha"
-    },
-    {
-      "title": "韓国、ロシア産ナフサ2.7万トンを輸入 中東情勢受け供給逼迫",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1velRnTXlqYzZxMHc2VDNkZHp4bkE2V1JEcmxRaG81OWdDZUVUMmM2N3ZBaTVrNXluX2dLZWhZakFUSll3c0hYc3BsU1BSR2JzdjVYd3pCTG1xQ0FXQW5xVzNDTVFnOWxPSTZkTw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-30",
       "category": "naphtha"
@@ -154,6 +154,13 @@
       "source": "日経ビジネス電子版",
       "pubDate": "2026-03-25",
       "category": "naphtha"
+    },
+    {
+      "title": "飯田商店・とみ田も監修 冷凍ラーメンに名店が乗るワケ ヒットの軌跡 キンレイ「鍋焼うどん」（下） - 日経BizGate",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5Oa3FKNUFxeDJ1SUtSU251dHBSTkFrb2JrOFNZaVZneW8xZ1QzdFIxSV8zV3hjTkpwTENfcU5wX0lqYl9jU2xZRFN0Mi1ZS09veEkzT2JySmJieXZMMDFQTmFpWGs2VmVvYjVrMGFWWHY?oc=5",
+      "source": "日経BizGate",
+      "pubDate": "2026-03-25",
+      "category": "aluminum"
     },
     {
       "title": "「中小資金繰り 国が支援を」（石化協会長）、中東緊張化のコスト増対応 - ニュースイッチ by 日刊工業新聞社",
@@ -219,18 +226,18 @@
       "category": "ethylene"
     },
     {
+      "title": "カネカなど、汎用樹脂で値上げ ホルムズ封鎖影響し原料エチレン減産",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1KdHJMMjRlODdlUjRaM0RJX0JOYUE0UnJoY2h1cVRxeHRrSDdaSXVkdzQzNDBLbEoya1I3bFFNNmJtOTU4dW5FYjhyeEluanZBRHMzTk1MUzgyTjd6bVVyWGRJTHY2SEFHZjBFbg?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-19",
+      "category": "ethylene"
+    },
+    {
       "title": "石油備蓄が放出されても…ホルムズ海峡封鎖が日本の産業に大打撃なワケ",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9YZElaNllmd1JxN2lTY1M3UjVrZkJ4QllkQV9ZeXlhV1NtdzFPcU0yQnNBcndycEpPYmRiNHY3UWhvY1N6bVRHN21sT2lUUDBncXlfRTVoQTd6c3JNZzlkOHg5Q2xuZjByZ3NTSGVCZnFOUDY4dlpiNUVJN245Zw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-18",
       "category": "naphtha"
-    },
-    {
-      "title": "アルミ鍋入りうどんの先駆者 関西風だし文化で全国制覇 ヒットの軌跡 キンレイ「鍋焼うどん」（上）（3ページ目） - 日経BizGate",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0tU0NoS1p3d25kUXRITXZkbTNYRGNKT042MURFdU13LTlzTEZEZTI5VFhINUpjZEZoOXVKakZWSDAtZS1JMU16OHhCQ25Nd3NscUo1TGJZaHE5RnNKd0k5OHExU1c0NlpOR2hWNEFKY1Vqd1RvVi14aHhB?oc=5",
-      "source": "日経BizGate",
-      "pubDate": "2026-03-18",
-      "category": "aluminum"
     },
     {
       "title": "石化協「直ちに製品供給困難にはならず」 原料ナフサの調達難受け",
@@ -273,13 +280,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-03-16",
       "category": "naphtha"
-    },
-    {
-      "title": "ホルムズ海峡封鎖で肥料ショック再来懸念 硫黄・尿素など21隻滞留",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE56OFo5eFEwR0ZpNVhJUnNxbVRDdGJuakRTOGpCbGFUeUNkR1pXYzI2Z1NIMlFkczRzUHBxOExtelgtZ1VDT1lzR3lMcnZEZ3J2YjZYNExXVkoyQ1N6WjlOSmpDWlFtZVNOV08xcw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-13",
-      "category": "urea"
     }
   ]
 }
