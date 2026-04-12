@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-11",
+  "updated": "2026-04-12",
   "items": [
     {
       "title": "化学株、ナフサ調達難で不透明感強く 野村証券の岡崎アナリスト",
@@ -9,15 +9,22 @@
       "category": "naphtha"
     },
     {
-      "title": "トランプ米政権、米フォードのアルミ関税軽減申請を却下 米報道",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZbjJMOXQ3VzU4OUVMTm9YajlTRkRuYTRSUE9LakU4bWFSRkU4YnJsN2lYSXA4QlM2M1I1dFI3Y2htNjJGeVNhZWhJMnNpZzRyTXVsS0FMX19xRlhSZUEwSzE0RkJma3NxeU96dQ?oc=5",
+      "title": "三菱ケミカルG・旭化成、岡山のエチレン設備稼働を6月中旬まで維持へ",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE91TWVveXRUUEU4VVltOXRKZXBFcTRYUjhIWDRfOHVraHpJcm05XzM0b1VvQ0xIbjRMNUd6R29Na1EtQWlHRk8tZnBHLXB2aGstYjYxQTNBNUI3RDdBRlpjcVR6UU04dlVfR0RSTQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-09",
+      "category": "naphtha"
+    },
+    {
+      "title": "東洋アルミ、「表面つるつる」半導体で通信サクサク EV低迷でシフト",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZNm9nNGJ4NWJFdXM3ay1OckZuN1M4LVhNemIyNVFseXg4X2dFbWU5XzEyRnRic2F5a0ticGFLckk4el94T1Q2Uk9NR2RTOXdYRnpNX0doWGRjaV8wNlBVTGMzX3JWSWFWd1dXSw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-04-08",
       "category": "aluminum"
     },
     {
-      "title": "東洋アルミ、「表面つるつる」半導体で通信サクサク EV低迷でシフト",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZNm9nNGJ4NWJFdXM3ay1OckZuN1M4LVhNemIyNVFseXg4X2dFbWU5XzEyRnRic2F5a0ticGFLckk4el94T1Q2Uk9NR2RTOXdYRnpNX0doWGRjaV8wNlBVTGMzX3JWSWFWd1dXSw?oc=5",
+      "title": "トランプ米政権、米フォードのアルミ関税軽減申請を却下 米報道",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZbjJMOXQ3VzU4OUVMTm9YajlTRkRuYTRSUE9LakU4bWFSRkU4YnJsN2lYSXA4QlM2M1I1dFI3Y2htNjJGeVNhZWhJMnNpZzRyTXVsS0FMX19xRlhSZUEwSzE0RkJma3NxeU96dQ?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-04-08",
       "category": "aluminum"
@@ -58,13 +65,6 @@
       "category": "naphtha"
     },
     {
-      "title": "ホルムズ危機の裏で進む原油･ナフサの代替調達 「一時しのぎ」で終わらせるな - 日経ビジネス電子版",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmWEsxTk9ha1YtcnlrWHRpN3VtQnFWVTB0RjJIbnZIcTNTdV9YUFg2Vm5PVmc4bzNBWTdnVWdMaGdHamwwUVNDTWFMUnJaaG1FMDlUTWZCcnVpajN6V01GOS1HeGxQazQ?oc=5",
-      "source": "日経ビジネス電子版",
-      "pubDate": "2026-04-06",
-      "category": "naphtha"
-    },
-    {
       "title": "高市早苗首相、ナフサ「国内需要4カ月分確保」 Xに投稿",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE83NDdOb0g2dVdrWmpadW5feGh5QmtpYXJ4T3NTSjFtNGJFNVdRSm9EdDRvbzhJSTRaamxpQ004N3F6MVBNUDYydVVJN3RjeWw1R29XOGNjNjRFYmY1WVc5eDFFME1xSHF0d3RnWQ?oc=5",
       "source": "日本経済新聞",
@@ -86,17 +86,17 @@
       "category": "naphtha"
     },
     {
-      "title": "NASA探査の小惑星「ベンヌ」に尿素、生命の起源解明に 北大",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE82dkplSUF1NGl5VlN2bHJVTmI1ZFJfS0FxMC1sY0RzOXUzakMtTXd4ZktmU24xaWhNUUlYRHdUWFhqdHFvWlZNXy1KWXp4bHBvTUVtV18wNFJ0S0p2eEdCYmFldXFoTTlISFp1bg?oc=5",
+      "title": "迫る食料危機の足音 世界の肥料価格5割高、ホルムズ海峡ショック",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ZdDZNa3A0aVNSaURJWGJzVTRCbHJzQ0dubV9uUmNSWU5PclowdHVTMWpDUnNlODBNaFFfTzRNUHdEYWVmc0F1czNJdkZOVlBGSlNCSXg3SXNOMjJFSGR1ZWNBOWhLbEtRbm1zMA?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-04-03",
       "category": "urea"
     },
     {
-      "title": "迫る食料危機の足音 世界の肥料価格5割高、ホルムズ海峡ショック",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ZdDZNa3A0aVNSaURJWGJzVTRCbHJzQ0dubV9uUmNSWU5PclowdHVTMWpDUnNlODBNaFFfTzRNUHdEYWVmc0F1czNJdkZOVlBGSlNCSXg3SXNOMjJFSGR1ZWNBOWhLbEtRbm1zMA?oc=5",
+      "title": "NASA探査の小惑星「ベンヌ」に尿素、生命の起源解明に 北大",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE82dkplSUF1NGl5VlN2bHJVTmI1ZFJfS0FxMC1sY0RzOXUzakMtTXd4ZktmU24xaWhNUUlYRHdUWFhqdHFvWlZNXy1KWXp4bHBvTUVtV18wNFJ0S0p2eEdCYmFldXFoTTlISFp1bg?oc=5",
       "source": "日本経済新聞",
-      "pubDate": "2026-04-02",
+      "pubDate": "2026-04-03",
       "category": "urea"
     },
     {
@@ -105,13 +105,6 @@
       "source": "日経ビジネス電子版",
       "pubDate": "2026-04-02",
       "category": "naphtha"
-    },
-    {
-      "title": "高市首相、医療品の安定供給指示 石油製品の代替品調達など",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1qTDNDWWJOUkpzNTJkSGhWb3ExTHdDRFJsNzZWQ19UQjUtLWFhWDVpZHY0RHhSbzdpLTB2NXFVTWdySGJuYUZxek1KZ2ZwOEowUEhNcl9xV0FCMmFCTzhPendVNkV4ZXdtM1BNWQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-31",
-      "category": "ethylene"
     },
     {
       "title": "三井化学や三菱ケミカル、中東外からナフサ代替調達 ホルムズ封鎖で",
@@ -170,11 +163,18 @@
       "category": "aluminum"
     },
     {
-      "title": "2月エチレン稼働75％ 消費回復見られず市況低迷",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBZQ0EzODVWRWhKdG4xVnl1OHFVdFdvVVdOQ05XM3hWVF9xaVVoUU1DZlRmVmdnWldqYkMzMk5EMzFMc21Zd2dxY3h5c2pNZHd3Z3c4ZmxTTTZJVDZQOF9uVG5STmE1bUQxVk0wUFJKWXBfOHlD?oc=5",
-      "source": "日刊工業新聞",
+      "title": "「中小資金繰り 国が支援を」（石化協会長）、中東緊張化のコスト増対応 - ニュースイッチ by 日刊工業新聞社",
+      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE5rS3kyd0pVdEdDQ3M2VldIa2QwUWxoN0JoMFV5MHpnem9CeGlvZUZCSVBEVGVqejdWSFQ0eTc1UjRPUQ?oc=5",
+      "source": "ニュースイッチ by 日刊工業新聞社",
       "pubDate": "2026-03-26",
       "category": "naphtha"
+    },
+    {
+      "title": "飯田商店・とみ田も監修 冷凍ラーメンに名店が乗るワケ ヒットの軌跡 キンレイ「鍋焼うどん」（下） - 日経BizGate",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5Oa3FKNUFxeDJ1SUtSU251dHBSTkFrb2JrOFNZaVZneW8xZ1QzdFIxSV8zV3hjTkpwTENfcU5wX0lqYl9jU2xZRFN0Mi1ZS09veEkzT2JySmJieXZMMDFQTmFpWGs2VmVvYjVrMGFWWHY?oc=5",
+      "source": "日経BizGate",
+      "pubDate": "2026-03-25",
+      "category": "aluminum"
     },
     {
       "title": "エチレン生産、5月以降焦点「4月は稼働維持」 中間材は値上げ相次ぐ",
@@ -268,18 +268,18 @@
       "category": "naphtha"
     },
     {
-      "title": "出光興産がエチレン減産 千葉と山口、ホルムズ封鎖で原料調達難",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9wTHhKeTBYdDk5YjN5WU5OSkdBZ2VDaXNJQnhYWTh4Ymd5d25CWktpcjVZN09fTFk0RGhEMzBMdGpSMnppcHg4WXZldWRfbXVVN2o5ZzJ0NGt2Y0NtUUtpV0Z6Ny1hQ0tMZVFnVA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-16",
-      "category": "naphtha"
-    },
-    {
       "title": "ホルムズ海峡封鎖で肥料ショック再来懸念 硫黄・尿素など21隻滞留",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE56OFo5eFEwR0ZpNVhJUnNxbVRDdGJuakRTOGpCbGFUeUNkR1pXYzI2Z1NIMlFkczRzUHBxOExtelgtZ1VDT1lzR3lMcnZEZ3J2YjZYNExXVkoyQ1N6WjlOSmpDWlFtZVNOV08xcw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-13",
       "category": "urea"
+    },
+    {
+      "title": "丸善石油化学・住友化学、エチレン再稼働を延期 定期修理後も様子見",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA0TGo0ZWZ3SWZLbTdZWUV4U09IdVEyR2lBbE9LdU9jd1F2VjN3LTU3ZGl2dC1KdGlQZUpQeV9DdVVnZ0JDZWl1dGhvMVdnZ3VjSTQtZmVHbTRCTEJKaU03em10bG9SaUx6TWhNTw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-12",
+      "category": "naphtha"
     }
   ]
 }
