@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14",
+  "updated": "2026-04-15",
   "items": [
     {
       "title": "ナフサ高騰、旭化成系は住宅値上げ 建材メーカー4割が在庫に影響",
@@ -23,9 +23,9 @@
       "category": "naphtha"
     },
     {
-      "title": "トランプ米政権、米フォードのアルミ関税軽減申請を却下 米報道",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZbjJMOXQ3VzU4OUVMTm9YajlTRkRuYTRSUE9LakU4bWFSRkU4YnJsN2lYSXA4QlM2M1I1dFI3Y2htNjJGeVNhZWhJMnNpZzRyTXVsS0FMX19xRlhSZUEwSzE0RkJma3NxeU96dQ?oc=5",
-      "source": "日本経済新聞",
+      "title": "LIXIL、建材の脱炭素に照準 据え置き価格で再生アルミ形材の販売増狙う - 日経ビジネス電子版",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1aM0FKc0xVX2I0ckYzQXNLY3hyQnpTa19Ub0RLSW44cnI4QS16REpDOWdCTVNIa1oxWGVYSXRyRGVtYUJvaVlXYjlicElNUXo5Qk8xdnBKUk1pZ09PN01HTDlURUVobWM?oc=5",
+      "source": "日経ビジネス電子版",
       "pubDate": "2026-04-08",
       "category": "aluminum"
     },
@@ -65,6 +65,13 @@
       "category": "naphtha"
     },
     {
+      "title": "信越化学工業、樹脂製品を値上げ 原料のエチレン調達困難",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5vRHpEOEJhUThDeFhaZ3l0MDdTRjAtN0xSS2NrWjU3Rkk2MDdrTy02V09kU0dVQXJBVDVYZXFNR1VHUE5YT0s1eTNVM2xkRHNJQjllb0E1UFRkU184UFRxSHN1WFpRWW13dUVFcA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-06",
+      "category": "naphtha"
+    },
+    {
       "title": "木原官房長官、ナフサ供給不安の情報否定 誤情報の拡散に注意喚起",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE81NjVPWDI2Q2RFc1BYeFl6M29YUy0tTUI2Q21ZMFRDNmRlTlpKazhuZnoxQm92ek5felJmSnlJSE55QnBYc2hNWm80aUc0WGRkOFJhZ24ydXlzWVBnWGFCbDhhSVN3YmYyS1pmbw?oc=5",
       "source": "日本経済新聞",
@@ -74,13 +81,6 @@
     {
       "title": "高市早苗首相、ナフサ「国内需要4カ月分確保」 Xに投稿",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE83NDdOb0g2dVdrWmpadW5feGh5QmtpYXJ4T3NTSjFtNGJFNVdRSm9EdDRvbzhJSTRaamxpQ004N3F6MVBNUDYydVVJN3RjeWw1R29XOGNjNjRFYmY1WVc5eDFFME1xSHF0d3RnWQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-04-05",
-      "category": "naphtha"
-    },
-    {
-      "title": "信越化学工業、樹脂製品を値上げ 原料のエチレン調達困難",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5vRHpEOEJhUThDeFhaZ3l0MDdTRjAtN0xSS2NrWjU3Rkk2MDdrTy02V09kU0dVQXJBVDVYZXFNR1VHUE5YT0s1eTNVM2xkRHNJQjllb0E1UFRkU184UFRxSHN1WFpRWW13dUVFcA?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-04-05",
       "category": "naphtha"
@@ -128,13 +128,6 @@
       "category": "ethylene"
     },
     {
-      "title": "旭化成、汎用樹脂のポリエチレンを3割超値上げ 中東影響で",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNY0N2N2pDU3I0Z0QxcE1jTlgwWmtoX0NmOEkza1UyTlRheFg2MzRnQWdHWjYzTDNXWXNGbjFzeDYxMU1YZjZhY1VZRzY0RERqWW9Md2M2cmx5NEVZSS1WWDJaUEU1OVlqSE5sbzJWc09QMjhmRDBYb3FyN05ZVllYaTZWbEJrUHF5WVlpZWhkbHUweER4Z0FCZnYtRkdZTVYwcVZWdFhjUGo?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-31",
-      "category": "ethylene"
-    },
-    {
       "title": "三井化学や三菱ケミカル、中東外からナフサ代替調達 ホルムズ封鎖で",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9JLVVzUFZvUmxfSHE1aW9RekpRTTlwZXpJWGNlcnZpT2JFRWhJZnhGYzNZcEdyV2Z2Z3NiLVQteFpvS0htT09oazh6QkJPR2hQbFgxUDFVSk9FZ25BV2pfMDdsQ1dVQ0ZjUE9FVg?oc=5",
       "source": "日本経済新聞",
@@ -149,15 +142,15 @@
       "category": "naphtha"
     },
     {
-      "title": "韓国、ロシア産ナフサ2.7万トンを輸入 中東情勢受け供給逼迫",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1velRnTXlqYzZxMHc2VDNkZHp4bkE2V1JEcmxRaG81OWdDZUVUMmM2N3ZBaTVrNXluX2dLZWhZakFUSll3c0hYc3BsU1BSR2JzdjVYd3pCTG1xQ0FXQW5xVzNDTVFnOWxPSTZkTw?oc=5",
+      "title": "東南アジア企業の時価総額35兆円消失、石化大手などホルムズ封鎖打撃",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBFYmpxaFVOVEZuVjRGNmxxVVU4dGk4bWJMdUlWeUtrTHZiMExGT2NiTVN3clFGVUdWNGxLZk4yVjVRRWMzN05wSkc2VGtuNFBzaG1YMTJCMjdMRUE4MzNWZ2FFMllSLV9MRUg5VQ?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-30",
       "category": "naphtha"
     },
     {
-      "title": "東南アジア企業の時価総額35兆円消失、石化大手などホルムズ封鎖打撃",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBFYmpxaFVOVEZuVjRGNmxxVVU4dGk4bWJMdUlWeUtrTHZiMExGT2NiTVN3clFGVUdWNGxLZk4yVjVRRWMzN05wSkc2VGtuNFBzaG1YMTJCMjdMRUE4MzNWZ2FFMllSLV9MRUg5VQ?oc=5",
+      "title": "韓国、ロシア産ナフサ2.7万トンを輸入 中東情勢受け供給逼迫",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1velRnTXlqYzZxMHc2VDNkZHp4bkE2V1JEcmxRaG81OWdDZUVUMmM2N3ZBaTVrNXluX2dLZWhZakFUSll3c0hYc3BsU1BSR2JzdjVYd3pCTG1xQ0FXQW5xVzNDTVFnOWxPSTZkTw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-30",
       "category": "naphtha"
@@ -175,6 +168,13 @@
       "source": "日経ビジネス電子版",
       "pubDate": "2026-03-27",
       "category": "naphtha"
+    },
+    {
+      "title": "2月エチレン稼働75％ 消費回復見られず市況低迷",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBZQ0EzODVWRWhKdG4xVnl1OHFVdFdvVVdOQ05XM3hWVF9xaVVoUU1DZlRmVmdnWldqYkMzMk5EMzFMc21Zd2dxY3h5c2pNZHd3Z3c4ZmxTTTZJVDZQOF9uVG5STmE1bUQxVk0wUFJKWXBfOHlD?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-03-27",
+      "category": "ethylene"
     },
     {
       "title": "三菱ケミカル、水島エチレン停止も「勝負は中間製品」 石化再編第2章に号砲 - 日経ビジネス電子版",
@@ -233,11 +233,18 @@
       "category": "naphtha"
     },
     {
-      "title": "韓国、ロシア産原油・ナフサの輸入検討 中東情勢の緊迫化受け",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVFBhT2RqcGQweUk5MG10Z09GN3dFYVNVNEw5Yl85bERYZWVua0lwa1dpaTBoYlNVNTFtYnVGQkFKYm44RG81cC12THBtOW1LOEswcnpyLXU3VDlFSWJVSndRMjV0WGNMSmhuc0dINWo5TTNPZGNvV2hsaGtuY0lPa09ueU5WTDZkWWtkbzFKUXJ0TXVON2ZkcXR6OXN2blRyMEJlNUN3?oc=5",
+      "title": "日化協岩田会長「製品ごとの在庫踏まえ供給網を維持」 原料調達難で",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE13MElhbGlQbzlEMHdsN2JjZjBveXZpMGZ5YnpXY3cwaUFwVGZHWWNQd0NqZThidVU3S2xacEptZ0JGZzROS2pmNV80Qzl4dDBYeF9aMmxzYmYtdXMwODkxN3lOSzVsRkxmSjF4dA?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-03-19",
-      "category": "naphtha"
+      "category": "ethylene"
+    },
+    {
+      "title": "カネカなど、汎用樹脂で値上げ ホルムズ封鎖影響し原料エチレン減産",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1KdHJMMjRlODdlUjRaM0RJX0JOYUE0UnJoY2h1cVRxeHRrSDdaSXVkdzQzNDBLbEoya1I3bFFNNmJtOTU4dW5FYjhyeEluanZBRHMzTk1MUzgyTjd6bVVyWGRJTHY2SEFHZjBFbg?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-03-19",
+      "category": "ethylene"
     },
     {
       "title": "石油備蓄が放出されても…ホルムズ海峡封鎖が日本の産業に大打撃なワケ",
@@ -273,13 +280,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-03-17",
       "category": "ethylene"
-    },
-    {
-      "title": "三井化学系、汎用樹脂値上げ ホルムズ封鎖で原料の市場価格高騰受け",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9oUkR6VGw0cm12QlRIX09HdlVISndRV29iejVEUzlkbl81bU9XUHpKRVlfOGpvQ1JuakFvZ1VGQ1daWkJ5R3B0bkI0S3djV2taZTBnX0J4LTE1dzVUNEFsMGJqYldtYnBDOG9DTg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-03-17",
-      "category": "propylene"
     }
   ]
 }
