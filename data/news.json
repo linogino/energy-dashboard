@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-25",
+  "updated": "2026-04-26",
   "items": [
     {
       "title": "高市首相「心配しなくていい情報をお伝えできる」 ナフサ不足巡り",
@@ -9,8 +9,22 @@
       "category": "naphtha"
     },
     {
+      "title": "海峡封鎖「飢餓4500万人」警鐘 国連分析 肥料不足で収量減恐れ 中東産尿素は8割高",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5XZ2hsX3FoclgzSjNLSXl2WjVPX1lvVVRhenllNXRwU1oxdWZHNzkzVUhwUTRvelJqeXJ3X1BZMjE2d2JzWEUxVlBnRVZnUDVkMkdkWGhYaEZTaVNXUE5fSTgwVHFSbHFTQ0FMcQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-04-24",
+      "category": "urea"
+    },
+    {
       "title": "３月のエチレン稼働６８・６％ 統計開始以来最低に - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBlUWNlZENxMWQ0dmZZN2JZTlFxU1NzSG1jeUMtellYUlFwMENDRXcxYVUwbXNfM1Y1ZDdNY0FzSGFuUE5Nay0xcGRvbFdvSmxpM2hB?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-23",
+      "category": "naphtha"
+    },
+    {
+      "title": "アスベスト研究会、２６年度総会を都内で開催 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1FUnBDRXJlZUtucjNLOVZXVmFxVUpRNHc4bXBPWGpPaUJJUU1jYTlzWlpMbEZLQ0VUd1pDd09JYXlmckViblJWX1p3RjFjX0R5NUJz?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-23",
       "category": "naphtha"
@@ -21,6 +35,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-23",
       "category": "naphtha"
+    },
+    {
+      "title": "ドラム缶出荷本数、２５年度は減少 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBRbzI4ODRHR1J2WjVQdHV0dDAwVHhMNkd5MTlTRUVwenJSVGNuUEZLcXZuT1FrTDY1YW5qbFFGRmQ0QWItRjFFUHFuQ2MzQ2JmR1FF?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-23",
+      "category": "packaging"
     },
     {
       "title": "エチレン設備稼働率、3月68.6%で最低 原料調達の多様化で稼働継続",
@@ -51,22 +72,22 @@
       "category": "ethylene"
     },
     {
-      "title": "塩ビ協会長、生産・調達「6月以降は不透明」 エチレン減産響く",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUkFkb1M2bVQ3MVc5UjdSUEY3Tmt5LXZSNDI5VUhkeTJSMHdHekhLQXZTZDJGUTNvNW5FNlM5MzdHRWZlLS1kVU1ZM1ZLaUs1TkdxLWNjcVROaXZTTVpFSEY5ZE9VTTAtc3RhdndGUEV3VmhWSkg5TzZ1SjBaaGtqWVBocTh1LXZHRTVnY1hSYUlUV1VrS2ZLazNOYjljUXhYNE92a3FQZF8?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-04-22",
-      "category": "ethylene"
+      "title": "日本ゼオン、エラストマーを値上げ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBOUWo1cEJOSXVKMHd3X0l5blgzQmRYX1c5d0M4NjdmMTlJRXRBaEZSb0N2eVU1VGVHX0FGM19kWVhRT2x4MUthUjltVFFfUGM3UWhV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-21",
+      "category": "naphtha"
+    },
+    {
+      "title": "東亞合成、化成品値上げ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1RQk9naFVYbGZyZzBBOGR3YkdxV1hBRFl0Y2tqaG5nVk5ZOWxZSlFqenBYS1J1cUhEQmNNWlExU0NGaXhzUklyVk8zTHBSQlp4ZlZr?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-21",
+      "category": "packaging"
     },
     {
       "title": "ナフサ不足、４・７万社に影響 全製造業の３割相当 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1GMXdrZllHQUYzc2tHY3lETWZ0MHJNZmFKdE9yQ3hoOE43ckJrVDhvSm5OUEg1Y2lLZUZZcXFYTzlfdEtLZlZ6aHVjdm5IY0gtS2JZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-04-20",
-      "category": "naphtha"
-    },
-    {
-      "title": "日塗工が国内需要予測 ２６年度は緩やかな回復基調 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1JUEU0S0hZUy0yTkJLTmFmb0d0LV9tVWQta29LSE5LU3VnVVR5Nk45X3lwQmFmUDRkb1B0c0JlV2xIaXQwUFloejhfOVNMXzg1R0NB?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-20",
       "category": "naphtha"
@@ -81,13 +102,6 @@
     {
       "title": "東ソー、４月２５日にエチレン設備再稼働 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBrZTQyZkJudjA5U2p3blFzVHNodDBBM0xSZzZaZmN4dFl3b0tROXVkek5qTzZiSUlnelVSbDRaUzFQV1E5aGU3VnRJMTdsUzlHN1dR?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-04-19",
-      "category": "ethylene"
-    },
-    {
-      "title": "石化再編、誘導品が主戦場に オレフィンなどへ波及 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5DRnozN0N2X241UzV4Q0hwTFdCdWxCYzRyQUh6OHNxcHVpa2l5TW1UX04yOVJkbXNBMHp4Mnh5U21fWUx2a2FuVUcxUkZLaFBnQTYw?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-19",
       "category": "ethylene"
@@ -114,6 +128,13 @@
       "category": "aluminum"
     },
     {
+      "title": "自工会会長「アルミ・ナフサ不足」に危機感、イラン攻撃でランクル減産 - 日経クロステック",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBRdTktR0FkcE5ZU0N1aHNUUklMSFZtQTJ4VUUxOFZmUEFxNWNiRXc5UWxMZWlfT3cyNFpjYWhESm9jNmNCVjlZZU5nbE9XN2ZYMUhoWHlpMVk3M2IyNWhuMTNaY2xzb0k?oc=5",
+      "source": "日経クロステック",
+      "pubDate": "2026-04-17",
+      "category": "aluminum"
+    },
+    {
       "title": "TOPPAN・大日本印刷…石化原料の調達環境悪化、顧客と価格協議 - ニュースイッチ by 日刊工業新聞社",
       "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE1XOUttMWV4SHdvMVRlYzhScEFtSmRCbkVKX1lGdm8zY2dwWlRNeW1IWVZrOGloSUN4XzFvZ1huOXZaUQ?oc=5",
       "source": "ニュースイッチ by 日刊工業新聞社",
@@ -128,8 +149,8 @@
       "category": "naphtha"
     },
     {
-      "title": "三菱ケミなど、オフィス廃プラＣＲ実証 社会実装へ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5SLWFmYXMtOXkwOXg2RTZINHh2bWMzUlZpcE5jQnZnMnl1ZXdYUHRtdTNsZ3pnT0s1U3U0T2toZDVQVmxUaUJzejJGV0VkTWZTTDlz?oc=5",
+      "title": "富士フイルム、金属導入のＥＵＶレジストを開発 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBNSWpxVlF0b09CcXFIRmRMRmRjRG55bDZXN09PMkxGODRUb0wwUkFqVmw5cU9PVjJKcmRPMENLS1dyeTItcmJad18tSUsyU0NYajBz?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-16",
       "category": "packaging"
@@ -212,11 +233,11 @@
       "category": "packaging"
     },
     {
-      "title": "住友化学、自動運転トラック商用運行開始 業界初 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5NWHNDdHp0eVNqLXVIOXdhSnRHWDlKMkhpaEMtX1FEeXcxcjNpdnlaMDc1dzBpYy1oaVlPZkc2RTVyMTM5S2dJc19WcFhqbTNJN29r?oc=5",
+      "title": "エネソルブホールディングス発足 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE15N1ViVEN0WWhBX2NacXU4ZWNCQ0lwRGl5R3FncUFvUUs2eFpwZ3lOU0N5WDZSTEVwVHFiVnRaQ0hvOFFqTDUwcVhUSG5JZE1KWTFB?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-07",
-      "category": "packaging"
+      "category": "naphtha"
     },
     {
       "title": "ナフサ、高市首相「在庫4カ月」で安心? 状況改善でも一部化学品は不足",
@@ -233,11 +254,11 @@
       "category": "naphtha"
     },
     {
-      "title": "三井物産ロジ、市原で危険物倉庫竣工 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5WOXRLX25oSndzVDllRkwtLWVndHBrdkxEbTNENVpQR1R1bVZUM1R0enZpMldKczhrVzhxLWZGWkNCTHU3b1JXcW5vQWE5dnp6N1FR?oc=5",
+      "title": "２月の化学品貿易、輸出額６・１％減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5BSV9NZl9RVkhXWXo5ZlhOTkZYNklZZXpFYlFiUXdkcFhZZlFHekpWY3JCYlEwS3FqbWJacWVSdnBsTUtZS2h1c1lPdDZpMm1NMC1V?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-06",
-      "category": "naphtha"
+      "category": "packaging"
     },
     {
       "title": "ＯＫＩ、スマホで在庫一元管理 視覚的に把握 - 化学工業日報 電子版",
@@ -247,38 +268,17 @@
       "category": "packaging"
     },
     {
+      "title": "三井物産ロジ、市原で危険物倉庫竣工 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5WOXRLX25oSndzVDllRkwtLWVndHBrdkxEbTNENVpQR1R1bVZUM1R0enZpMldKczhrVzhxLWZGWkNCTHU3b1JXcW5vQWE5dnp6N1FR?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-06",
+      "category": "packaging"
+    },
+    {
       "title": "丸善石油化学と住友化学、エチレン設備を9日に再稼働 定期修理明け",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85U1lZYlNmd19CR1h4U1oxeTl4MzdPQzZzSkJMNTVXOHdEbnkyWlNmVVVyMmxYVXE4SHVXRXdUQmtEQ0Q1UnNIaFhFM0VlUzlnRTExQVZmSkFlMnBDdEkzWm9icGdHQUptMWthNA?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-04-06",
-      "category": "naphtha"
-    },
-    {
-      "title": "信越化学工業、樹脂製品を値上げ 原料のエチレン調達困難",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5vRHpEOEJhUThDeFhaZ3l0MDdTRjAtN0xSS2NrWjU3Rkk2MDdrTy02V09kU0dVQXJBVDVYZXFNR1VHUE5YT0s1eTNVM2xkRHNJQjllb0E1UFRkU184UFRxSHN1WFpRWW13dUVFcA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-04-06",
-      "category": "naphtha"
-    },
-    {
-      "title": "木原官房長官、ナフサ供給不安の情報否定 誤情報の拡散に注意喚起",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE81NjVPWDI2Q2RFc1BYeFl6M29YUy0tTUI2Q21ZMFRDNmRlTlpKazhuZnoxQm92ek5felJmSnlJSE55QnBYc2hNWm80aUc0WGRkOFJhZ24ydXlzWVBnWGFCbDhhSVN3YmYyS1pmbw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-04-06",
-      "category": "naphtha"
-    },
-    {
-      "title": "流通の目詰まり解消急ぐ…政府、重要物資安定供給で連携 - ニュースイッチ by 日刊工業新聞社",
-      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE84YWQzX3VxNXhobV9UbXkxZlFqd3d1Wkl3anZKSEFYQ0dkckZXdWJtWHZJNUNpY2VpcW1JbkgtSEU0Zw?oc=5",
-      "source": "ニュースイッチ by 日刊工業新聞社",
-      "pubDate": "2026-04-06",
-      "category": "naphtha"
-    },
-    {
-      "title": "高市早苗首相、ナフサ「国内需要4カ月分確保」 Xに投稿",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE83NDdOb0g2dVdrWmpadW5feGh5QmtpYXJ4T3NTSjFtNGJFNVdRSm9EdDRvbzhJSTRaamxpQ004N3F6MVBNUDYydVVJN3RjeWw1R29XOGNjNjRFYmY1WVc5eDFFME1xSHF0d3RnWQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-04-05",
       "category": "naphtha"
     }
   ]
