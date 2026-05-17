@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-16",
+  "updated": "2026-05-17",
   "items": [
     {
       "title": "日本経済新聞 印刷画面",
@@ -93,13 +93,6 @@
       "category": "naphtha"
     },
     {
-      "title": "イラン危機でアジアに「プラスチックショック」 包装材不足が深刻化",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1KbkJuWU9Ea0R5ZEZEV2lWVWlGMTNWQTV1YkNRVjVxZGJGTkRrZWpZMkFSb01LRHVhSUI1UElDUGxaYmRlc0FtdlVWRTJWTkg4Nl8xeTNhRVRMUmszQXVUczh6cXlRTjI5eEJVUXJaREREaC10ZzFB?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-05-11",
-      "category": "aluminum"
-    },
-    {
       "title": "プラ製品出荷、２月は１・２％減 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1KUjNORk9aRWlJY2VhSEQ0N2RxU2RycXFSQ3JGeFhwazltRFI2S0V5dVZFZV9xYmFmMThBSGFfYXdicDhDNTJKMzV0NEE4ME0tajBN?oc=5",
       "source": "化学工業日報 電子版",
@@ -121,18 +114,25 @@
       "category": "naphtha"
     },
     {
-      "title": "自動車素材、軒並み高騰 アルミ2割、樹脂は3割 完成車に値上げ圧力",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1GelM1TlZZR2d4MnlXdGU2LXIyR0wwcTdldm1qem5xV1FWbFFZbWVEMVh1MkNtNVl3QU5TX3BJNVR6VVRzVzBRTXZlS2RzS3kta0cxNUQ3VWR3ZGpER0d2bGtCSmxSeVBmOHNaMA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-05-06",
-      "category": "aluminum"
+      "title": "アールエム東セロ、包装用フィルム製品を追加値上げ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE82Yi1rem1uT1RwVndCSlFNTGlSSEQwU0xBUkxKdmZaQk1PYVlmelNWaTRVamg5VVh6Z3YtTmwyOXZoOS1Sclk0TllfTzNicVIwTWxZ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-07",
+      "category": "packaging"
     },
     {
       "title": "ナフサ危機から考える健康医療安全保障と保健医療の構造的強靱化 - 日経メディカル",
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSkJ0STQ3MFdKeDh4a1dIM2hOZ2NWNDdRdDVhWDhNQ0ljd051cVNyU2wwdXZLMjk3M1luRzZZZlRDc3JqRUJOZGRoVTM1RnA1ODdzSEpLZ1hOeFY3aGl5a2N2UXlXWmU3eDRaZTFyeE45QXN0VjRQQUlBQXZ1cWZHWlB3?oc=5",
       "source": "日経メディカル",
-      "pubDate": "2026-05-06",
+      "pubDate": "2026-05-07",
       "category": "naphtha"
+    },
+    {
+      "title": "自動車素材、軒並み高騰 アルミ2割、樹脂は3割 完成車に値上げ圧力",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1GelM1TlZZR2d4MnlXdGU2LXIyR0wwcTdldm1qem5xV1FWbFFZbWVEMVh1MkNtNVl3QU5TX3BJNVR6VVRzVzBRTXZlS2RzS3kta0cxNUQ3VWR3ZGpER0d2bGtCSmxSeVBmOHNaMA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-05-06",
+      "category": "aluminum"
     },
     {
       "title": "続く肥料高、アジアのコメ直撃 ホルムズ危機で国際価格さらに2割高",
@@ -143,7 +143,7 @@
     },
     {
       "title": "産業春秋／「節約要請」は不要か？",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5uM3NZN3hrcG9RRlZVS3NnS3RhZ29KV29tUnJVVG16SldNYWNZek5Qc1JTX01lLWlpaEl5eWVlQnhZQVI5Z2V6SzhXMFhXTUNkdjR5OEx4QWxNSkk?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBDMFVOTzhJRXlXaTBJWmNlM2VHSGx3ZV9xbXRQMURxak16VzdOQ3hVa2pydXN1cU1jU0h0QTNTWDIxOWNLOW83dF9iS2JWTmZmenl2RFQyZlVSZVg3MUdLemdKR2dlTnVqNWFpcDJXQ1hFS3Vo?oc=5",
       "source": "日刊工業新聞",
       "pubDate": "2026-05-04",
       "category": "naphtha"
@@ -151,6 +151,13 @@
     {
       "title": "国産ナフサ価格、過去最高へ １～３月は横ばい - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1YZFhQVE1oTVJ3cUNTYnRKUl93MjhoSG4tcUtpNFlYTlU1YTNibnFhY1pYTm5acng5cFVwc1JhdW9fTktMSnhmSkNBLUlOMlBBNFNj?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-30",
+      "category": "naphtha"
+    },
+    {
+      "title": "グリセリン、青天井の様相 国内も大幅値上げへ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1taTZpeGVGcTVfcXJZOUtBZ2QyUFE4YzlnWHRPTVV3QnUtUWVUMnZhbEpwdG50SDE4WXlzTm14bzlNRnRrcnhvbzBjX05TazhjcjJv?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-04-30",
       "category": "naphtha"
@@ -219,6 +226,20 @@
       "category": "urea"
     },
     {
+      "title": "ナフサ、民間備蓄再開を 自民、イラン情勢受け提言 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB4Ym14M3JlV1lNYi1OVWZ4WERDMnlpYnBRR1FFZlBTdjNLWG5LekRyazJIYi1GTkVzOWQ0LUdCUFM5aUlzLW5RbDVLdGhUNjBlTHN3?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-24",
+      "category": "naphtha"
+    },
+    {
+      "title": "ダイセル、酢酸・溶剤など値上げ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB0M2l2N0xmd29aUV80NGZZUHBwRUlPN1lYLS1jSklMNnFQYUludFZnQVdxdlROSEZLUnlueEl5c3lXVWtaWmNiNmoyV0MycGRSVTJF?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-04-24",
+      "category": "naphtha"
+    },
+    {
       "title": "３月のエチレン稼働６８・６％ 統計開始以来最低に - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBlUWNlZENxMWQ0dmZZN2JZTlFxU1NzSG1jeUMtellYUlFwMENDRXcxYVUwbXNfM1Y1ZDdNY0FzSGFuUE5Nay0xcGRvbFdvSmxpM2hB?oc=5",
       "source": "化学工業日報 電子版",
@@ -259,27 +280,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-04-22",
       "category": "ethylene"
-    },
-    {
-      "title": "ホルムズ危機で燃料費月50万円増 夏野菜「収穫できぬ」 - 日経ビジネス電子版",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBGTVpUMU92UlRtZm13bmxYMUU5MURmcG5OZHJoV1hjeUlRS29DZkZVbWo5WTBXclhrQjMtOVVjRDE2X29OLVEtZVVDVmJ2Mms4YndBMEJxbFhyVFU3RUxTRFZZYWdvQ2M?oc=5",
-      "source": "日経ビジネス電子版",
-      "pubDate": "2026-04-22",
-      "category": "urea"
-    },
-    {
-      "title": "ナフサ不足、４・７万社に影響 全製造業の３割相当 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1GMXdrZllHQUYzc2tHY3lETWZ0MHJNZmFKdE9yQ3hoOE43ckJrVDhvSm5OUEg1Y2lLZUZZcXFYTzlfdEtLZlZ6aHVjdm5IY0gtS2JZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-04-21",
-      "category": "naphtha"
-    },
-    {
-      "title": "信越化学、塩ビ３０円以上値上げ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1jVE9sNXE1SUhHTVJHcGl4cVc4ZVVfSF9SVUdVNldDa3QtZFVpcEl5dlZGeXJrQm94MEdhTF9pcEZZdDBIQlgyTlhuT3RhZzRqcWVv?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-04-21",
-      "category": "naphtha"
     }
   ]
 }
