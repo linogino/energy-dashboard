@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-24",
+  "updated": "2026-05-25",
   "items": [
     {
       "title": "石化協・工藤会長、需要減退が最大のリスク - 化学工業日報 電子版",
@@ -9,11 +9,11 @@
       "category": "naphtha"
     },
     {
-      "title": "ＰＴＴ、年内に石化統合の方向性決定 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0yTjJDZDE2UWs1c18ybzZGNHRaaVpBYVFBMkNpQTVyeVU0dHUxMHVIVWhpRHQtUHNlbTFJZDQ0QmJBaXY1TWVRR2ZqSkMzZXRaN0Vj?oc=5",
+      "title": "原材料高騰、中小企業にも目配りを - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5WZDBsR3RFbHBBR016TVd3VDgzM2Y3cjFSUkhGYlNtNW1WRkgxZ0Mwd3Y5VTltVTY0bXBnSzlWQlhOdkpnUkRFS2NiYUxnbVl1bzFV?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-21",
-      "category": "ethylene"
+      "category": "naphtha"
     },
     {
       "title": "バンドー化学、絶縁タイプの高熱伝導シート発売 - 化学工業日報 電子版",
@@ -63,13 +63,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-20",
       "category": "ethylene"
-    },
-    {
-      "title": "２５年度アルミ圧延品生産・出荷、４年度連続で減少 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5yOGFwenhjUmt5VWlfRDFZOHJmSGxvckN3UXNlcVd6RkZDLWd4UG9PTEduWWxvMGtKZlRIRnFOSXYxdkNqWmJzU0YyZTBTbE9ERmZZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-20",
-      "category": "aluminum"
     },
     {
       "title": "「ナフサはお金を出せば確保できる」 化学大手が悩む高値在庫リスク",
@@ -142,6 +135,13 @@
       "category": "urea"
     },
     {
+      "title": "２月の輸出物価指数、エチレンは７・２ポイント減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE02eWpMSWRjMU5XdVJmLXZqVS05TTFDUnhFRHVMWVB4NmE5dUdLckpweXNLWndoMC1RLUQ3ZDZmdFQxWDVmaDJQN01ubG5NTDVNelhR?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-13",
+      "category": "ethylene"
+    },
+    {
       "title": "２月のＰＰフィルム出荷 ＣＰＰが堅調 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8wZlk2NFpFcnBOTENNeVd6ai1UQUdyWHpzckEtZkVZaFMzRnlzeU40LUdqWEI3S1FLMmdlRVZTUThfU0ItUmVXWGZZYUtSNGZTVzlv?oc=5",
       "source": "化学工業日報 電子版",
@@ -170,6 +170,20 @@
       "category": "naphtha"
     },
     {
+      "title": "ＡＧＣ１～３月期、化学・ライフが改善 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1SWjBVdk9rd01INFFvR2Z0cUpEVmxhQlAySWtnS1ZXbzd6cDlNSjhvcEZWT2lkUnc3Q0tCTkZzbkxzcUprU0o4SEhiNmRqMHAxcjJR?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-12",
+      "category": "ethylene"
+    },
+    {
+      "title": "価格修正ダイジェスト（５月７～８日） - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1yYXk3LVR5TUNYOS1haTh4RnRrR25uYWl6QmpfSG1EOE5lVFZhWXgyc1pqWnQwOVA5WDR2VUhDTjA2T0JIWkxPbVdTMUhLNW5LZU9R?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-12",
+      "category": "ethylene"
+    },
+    {
       "title": "川崎重工、水素からナフサを生産する技術を提案 原油の代わりに",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9jQ2N4Wi1raC14LXRCNEZLLU9wdEE5MXFzQkhZRHZDVzRDb3E2UlZacGY3UjBDc2s3U1ZjNVg2anhiTzNNbU5SNlNITERSM0NySGZaR1h4QVlWbXFjRllhWjdhMzI2UlJTMUVMbw?oc=5",
       "source": "日本経済新聞",
@@ -184,25 +198,11 @@
       "category": "ethylene"
     },
     {
-      "title": "巴商会、バイオマスボイラー 公共施設に提案強化 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5abWhPNWdPTThsWE1ma09IM2FBYW5HWmt3MzQxUTNoaXJGR2FGNUlPcU8yVHM2ZjBVS2pIYXBEMm5LbV9CQldOWmNKeDVIVW9ybXhj?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-11",
-      "category": "naphtha"
-    },
-    {
       "title": "逆の視点 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5sR1VrZWl2WHpVYnZpd3gxR1Jadnoxc1BzaDI3cHF0U0RYVV92MWx3T3ZndHZUSWRXXzFJbFZKNURUdU1VV0tmLWtZU1pnbG9YZG9R?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-11",
       "category": "naphtha"
-    },
-    {
-      "title": "アジア系ファンドMBK、1300億円でアルミ大手買収 外為法審査承認",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNVW5SN0RLLXN4STNmTWxVUWNxcFM2alB5TzlrcHNxS0o2VTFnal83ek56cHhUeEF2OUhJN2pnWXI4WVQyZUJoU2NfRWhMTlZRUmN2SnFXMHFUSWU1OFRKUkJQME55UW5ocmFLTklJbTBpYmdZZ25QenVyRXRsWVkxUmt3N0hXUWVJNnJfUWFPQmhidlhFTFRYc0NHVFlTRTEwbk94RGRR?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-05-11",
-      "category": "aluminum"
     },
     {
       "title": "プラ製品出荷、２月は１・２％減 - 化学工業日報 電子版",
@@ -212,8 +212,22 @@
       "category": "naphtha"
     },
     {
+      "title": "酢ビモノマー、３月出荷量１２％減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5lSjFKa0VfUXhzT1d3VTBOSmh3SnBfMUVjMHlPV19yRDUybFdvNWQzV1c2dk13NElpUjhvMTcySHpiNXI1Q05KODhPTEpBcjFYdk5J?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-08",
+      "category": "naphtha"
+    },
+    {
       "title": "ＤＩＣグラフィックス、オフセットインキを値上げ - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9wZWJtN045V1VVcVFrWlRfZElWR0RobmVTdXJndHRKaXFLQXhFNGdEOWZzMHNiR2RmVmtkejNoMmZPcUpkcGhudUhaZmx5OG52ZFM4?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-07",
+      "category": "naphtha"
+    },
+    {
+      "title": "石化製品供給見通し 政府「越年供給にめど」 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAzQzFRamZ4Ul8tdjBhWDcwRkNtY1JhelNPaDkxd3pkSTZEdk91SlBGWmtHdVNpbkp2dWVVUVRzeFR1M3BDYU1yejNRNXpJSWNSME5V?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-07",
       "category": "naphtha"
@@ -230,20 +244,6 @@
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSkJ0STQ3MFdKeDh4a1dIM2hOZ2NWNDdRdDVhWDhNQ0ljd051cVNyU2wwdXZLMjk3M1luRzZZZlRDc3JqRUJOZGRoVTM1RnA1ODdzSEpLZ1hOeFY3aGl5a2N2UXlXWmU3eDRaZTFyeE45QXN0VjRQQUlBQXZ1cWZHWlB3?oc=5",
       "source": "日経メディカル",
       "pubDate": "2026-05-07",
-      "category": "naphtha"
-    },
-    {
-      "title": "中央化学、全製品で値上げ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9VWldaU1FQZFdVb3gxMDNnSlp5dzd6WjZqaERjeVU3OURlOTNicnpoUVVGUFRuU2F6TWJsM0FuQl9WM3pXZEVEQTRzN1Y5ai1EVzBZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-06",
-      "category": "naphtha"
-    },
-    {
-      "title": "東大発ＧＣＢ、第三者割当で２億円を調達 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rNEZ4SFhrcVpIajZGampNSC0zenNuQ09EeUtLVEJzcWIyWGp2MWEtY0tYN2NqeEFyUXZTbjJ2NWs1ZnhFUHY5cnVaMGpBenBZcEdr?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-06",
       "category": "naphtha"
     },
     {
