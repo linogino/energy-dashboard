@@ -1,26 +1,47 @@
 {
-  "updated": "2026-05-25",
+  "updated": "2026-05-26",
   "items": [
+    {
+      "title": "２月の化学工業統計 エチレン生産１８％減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5POVZQMlZMbEdON3RZMnNjakVUQnZyQ3lmYldhSTlXV2NZbDV4OGNnalE2eGV1ZXEtRGVfOGdRNE9Ybm0xZDdiakd3Sk5vQ3J1R1hJ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-25",
+      "category": "ethylene"
+    },
+    {
+      "title": "ユニチカ、高機能フィルム軸に拡大へ 成長フェーズ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0xV0tQT0k4bDljMWlwSmlOWGE4bHloUlNmQ3BwWjdpbENaSWNzWjRwQkthSkFJVVI2RWVWcjZOb2M0NGl0VEcxaHdIMDZQTnNUM18w?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-25",
+      "category": "packaging"
+    },
+    {
+      "title": "三菱ケミカルG、石化事業の分社化を検討 27年度目指す",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9McGViVFhRMXRwNFFURnEyUkNOLTZGMVJpU04wNEZmZEs1N0s3MmoxWUNhRFhiR2FyNENRcVlZZVBPSFctb1llTnNZUUZCbnBmTE1sU0haM2dXakFLWG5JRjRuTlAwdmNqVFhXZQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-05-25",
+      "category": "naphtha"
+    },
+    {
+      "title": "エチレン稼働率の低下が止まらない、2ヶ月連続で最低更新 - ニュースイッチ by 日刊工業新聞社",
+      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE1VVlo5WXg3LWYybEV3dXY0R0tubkhqdXhub3FPS05sMUhFV01rd3BUSkVib3BMUWYxZjhYOVlBd1pPUQ?oc=5",
+      "source": "ニュースイッチ by 日刊工業新聞社",
+      "pubDate": "2026-05-25",
+      "category": "naphtha"
+    },
+    {
+      "title": "三菱ケミ、27年度めど石化分社化",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE43X3RXVUZabEk4alladHN6bk0xX3VKZEd6LW4wRldUVzU1R0ZoVzctUlZERGxfTTZWT2R4X0JraHh1RmdNbVJQeWxjbnNhUGc0bmJINzZMU3RDM0k?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-05-25",
+      "category": "naphtha"
+    },
     {
       "title": "石化協・工藤会長、需要減退が最大のリスク - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5LdVJfQnhVV0NGUW8wbkVfTVJDWUQ0WUFRRi11U0pDbDRxT3ZjM0lrVjNzMXRkNmxGQ3MtZk5BdWtGZkZPd05zYkVXaTVYejBMTGxB?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-21",
       "category": "naphtha"
-    },
-    {
-      "title": "原材料高騰、中小企業にも目配りを - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5WZDBsR3RFbHBBR016TVd3VDgzM2Y3cjFSUkhGYlNtNW1WRkgxZ0Mwd3Y5VTltVTY0bXBnSzlWQlhOdkpnUkRFS2NiYUxnbVl1bzFV?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-21",
-      "category": "naphtha"
-    },
-    {
-      "title": "バンドー化学、絶縁タイプの高熱伝導シート発売 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB1bVgxVllXNWcyNGRORmdCNGFXczhfekEwNDh3S0RBUlJ6bFVsb3cteFk3V2RlSDNxY0dudlhjMHJJZlpnQml4bHB3SVBHX0hlNTRj?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-21",
-      "category": "ethylene"
     },
     {
       "title": "エチレン設備稼働率、4月67.3%で最低 「5月以降は改善へ」",
@@ -65,6 +86,13 @@
       "category": "ethylene"
     },
     {
+      "title": "丸善石化、エチレン設備一時停止 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBLRGRBYVhfYkRTT211OXI5LVctTUdqeWhIOEY4QTJaUFFBS3lMbEhKQU5vNmNTM3d5U2k5LW9DVzlJOXZIWXNGNk5QOGpsRmV6STU4?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-20",
+      "category": "ethylene"
+    },
+    {
       "title": "「ナフサはお金を出せば確保できる」 化学大手が悩む高値在庫リスク",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAyODRFY3dyUkdQcHpjSi1sbHA0clgyeXRDTkVyajZKeTZsalRUbE5hdFdRS3MxaXpDcEVHdW92SktDclhTQ3pIQWoxbllKNHFLUG01YVFpLUJoZXlZS2FpcXNIRU5HbTM3NTN5OA?oc=5",
       "source": "日本経済新聞",
@@ -77,13 +105,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-19",
       "category": "ethylene"
-    },
-    {
-      "title": "廃棄物から「国産ナフサ」を製造 エナウム株式会社、WTEシステムで輸入依存ゼロへ。ケミカルリサイクル事業の共同開発・出資パートナーを募集",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE13RWVHRmxyYXVmU3pTVnM2ZktXSG5aejJrQ2RaWUp3aUhfLTlXbkJDckR3VVd6WFhKZnRweGxnc0VfRThLaVg2eDZTWXBWUWJEN1hyRDh0MUo?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-05-19",
-      "category": "naphtha"
     },
     {
       "title": "ＳＣＧ、ＰＴＴと統合「２７年視野」 エチレンなど - 化学工業日報 電子版",
@@ -135,8 +156,8 @@
       "category": "urea"
     },
     {
-      "title": "２月の輸出物価指数、エチレンは７・２ポイント減 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE02eWpMSWRjMU5XdVJmLXZqVS05TTFDUnhFRHVMWVB4NmE5dUdLckpweXNLWndoMC1RLUQ3ZDZmdFQxWDVmaDJQN01ubG5NTDVNelhR?oc=5",
+      "title": "ＡＧＣ１～３月期、化学・ライフが改善 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1SWjBVdk9rd01INFFvR2Z0cUpEVmxhQlAySWtnS1ZXbzd6cDlNSjhvcEZWT2lkUnc3Q0tCTkZzbkxzcUprU0o4SEhiNmRqMHAxcjJR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-13",
       "category": "ethylene"
@@ -170,13 +191,6 @@
       "category": "naphtha"
     },
     {
-      "title": "ＡＧＣ１～３月期、化学・ライフが改善 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1SWjBVdk9rd01INFFvR2Z0cUpEVmxhQlAySWtnS1ZXbzd6cDlNSjhvcEZWT2lkUnc3Q0tCTkZzbkxzcUprU0o4SEhiNmRqMHAxcjJR?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-12",
-      "category": "ethylene"
-    },
-    {
       "title": "価格修正ダイジェスト（５月７～８日） - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1yYXk3LVR5TUNYOS1haTh4RnRrR25uYWl6QmpfSG1EOE5lVFZhWXgyc1pqWnQwOVA5WDR2VUhDTjA2T0JIWkxPbVdTMUhLNW5LZU9R?oc=5",
       "source": "化学工業日報 電子版",
@@ -207,13 +221,6 @@
     {
       "title": "プラ製品出荷、２月は１・２％減 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1KUjNORk9aRWlJY2VhSEQ0N2RxU2RycXFSQ3JGeFhwazltRFI2S0V5dVZFZV9xYmFmMThBSGFfYXdicDhDNTJKMzV0NEE4ME0tajBN?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-08",
-      "category": "naphtha"
-    },
-    {
-      "title": "酢ビモノマー、３月出荷量１２％減 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5lSjFKa0VfUXhzT1d3VTBOSmh3SnBfMUVjMHlPV19yRDUybFdvNWQzV1c2dk13NElpUjhvMTcySHpiNXI1Q05KODhPTEpBcjFYdk5J?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-08",
       "category": "naphtha"
@@ -268,18 +275,11 @@
       "category": "naphtha"
     },
     {
-      "title": "石化製品、越年で供給見通し - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBXSkRHY1BtYmZxOHlydENRcUc5d1NuX0lIUXk0NTJ5RVhFYU1URU1MdmlGOXV6Y1luVGhET2Fxa0JWVTJ2TU10YldXeXZYSW1QbkM0?oc=5",
-      "source": "化学工業日報 電子版",
+      "title": "鈴木農相、肥料原料の契約期間の長期化要請 マレーシア国営企業訪問",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9HcW5vNktTVUtpTFNoZlk5Qjg1ZHhNZWlCNTNLckc5dnl2c2RTU0NnZGhZUHR0ZHpaQmtfUFViXzVjMUU4VEcyVk5nNVEzaWNkRW1CUDdXS1d3X09qcGVuS1I4ZFNkTjhYOVgwYg?oc=5",
+      "source": "日本経済新聞",
       "pubDate": "2026-05-01",
-      "category": "naphtha"
-    },
-    {
-      "title": "村田製作所、ＭＬＣＣ包装材料を最大９９％削減 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1ZYzFHRmFVSGRhVjZlaFZsRUdZSnAwcV9RQklRZ0NMQXNMVElTcHB4T25PVVNEc041NmhIT2Uta1dGMVVTMF9scWstY3NRZXNFc3Zz?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-01",
-      "category": "aluminum"
+      "category": "urea"
     }
   ]
 }
