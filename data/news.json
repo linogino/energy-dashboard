@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-01",
+  "updated": "2026-06-02",
   "items": [
     {
       "title": "ユニチカ、包装フィルム再値上げ ６月２１日分から - 化学工業日報 電子版",
@@ -7,6 +7,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-31",
       "category": "packaging"
+    },
+    {
+      "title": "「ナフサある」と政府は言うけど現場は不安 疑心が生んだ流通停滞",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAxLTN5YTk0UUljamZqWFZya0VmUXk5YXNFZXcyWHllOWFaZFZUTXk5UEV5UUhISGNFbGpiSnRhNGJQajgwRXZpdWVYRG4xVktVRnpXYmpLb3hlbG1odk41YW5yOTRaalU2V2ZRLQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-05-31",
+      "category": "naphtha"
     },
     {
       "title": "日本経済新聞 印刷画面",
@@ -23,8 +30,22 @@
       "category": "naphtha"
     },
     {
+      "title": "デンカ、スチレン系樹脂２５円以上値上げ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE81WmpnaFg0X293V3RDOVJYYmE2dlEwRG1ldGhsY09PX3FCNkJGV2tTR0ViOG16NlFqUHRRMS1HT2ZsY2k5Y2VkS3hESGk3NTl1Rk5j?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-28",
+      "category": "naphtha"
+    },
+    {
       "title": "東洋紡、包装用フィルム値上げ - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rNTJMWmxvMlhPd21wLXFnbVhjRzJyXzMyWkQzN3RxU2tINUYtem1VcDZya0NEUnZicXhLODdsbFM2LTAtNWVtcm14cS1VMWVWODVz?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-28",
+      "category": "packaging"
+    },
+    {
+      "title": "グンゼ、包装用ＯＰＰフィルムを５００円値上げ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5ZOUF5NWtYZTRQSFh6bE5OTDFOV21KX3F0ZTlHVUktaWVxTXlkVHF5WTZJZ3dtQmI2MlVvSkI2Wk9CbFp0Q01TcHhPYlZWYjBiaVU0?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-28",
       "category": "packaging"
@@ -42,20 +63,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-27",
       "category": "packaging"
-    },
-    {
-      "title": "善ケミカル・牧野社長「社員にきめ細かい心遣いを」 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE01enIteFRnNmhRYjJHbkw5WEJBU0lPaS14dkZVRVR6RHpLZThyeVNtSklNcldtWjA4UHNDNXhNZHRyUXRCZ3FFU3FqRlBLekRMdnpj?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-27",
-      "category": "packaging"
-    },
-    {
-      "title": "米国からのナフサ輸入5倍に 中東危機で調達シフト、相場は3割高",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1XbXdHVzI5UWpCUHNUb093dmQwSEgwbmhSOGFQMGZILWVrVHVESFo2clFpb0Y5YlJHWE5lUFlmVm40QXBUYm1BWVEza0I0NUZPd29zdHlSb0xYWDFCY0UzdXQwckJvSVhrU1pDcw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-05-27",
-      "category": "naphtha"
     },
     {
       "title": "三井化学、エチレン設備稼働率「7〜8月は約8割に」 在庫積み増し",
@@ -77,6 +84,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-05-26",
       "category": "packaging"
+    },
+    {
+      "title": "UACJ、アルミ全製品を値上げ 中東情勢で地金価格高騰",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPOGs2ZXV3QnhTX0tKTmRBY0tlWGstTkhvLWRxWkFqbFBOa29IUDJtTkFUZDFySF9rSjdyOGVLNHZacnZWVl9IdVNwNmJqUVlmZnVJWjB1VHFHNXJEeVdOZGVGVE1PVzRqTXFieHRRNU5RbzFSem9ELVdRQkhSQ0o4WDZVZmh0dGdleHJBTHNQRUlwcndJUWZpZVRMRk9LWnNrNERkeURB?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-05-26",
+      "category": "aluminum"
     },
     {
       "title": "２月の化学工業統計 エチレン生産１８％減 - 化学工業日報 電子版",
@@ -184,20 +198,6 @@
       "category": "ethylene"
     },
     {
-      "title": "ＴＯＰＰＡＮ、ＥＢオフセット印刷の軟包装を初量産 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBuWlozeWlLUmtyVWlkbmpNYmVnOTJldVFkYUhlOFFhNU5JTjNxQUNuQUVDRXJrVUJRT29qM3g1c0FickEyRjZDTEdNaktUdjNrM3lr?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-20",
-      "category": "aluminum"
-    },
-    {
-      "title": "塩ビ樹脂の出荷4月5%増、調達不安で買い増しも 在庫水準が低下",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBqaGZQdzhiSDVvWkx0STdzV3JiLWpSeF9Wdi1KczJoSUhqNHBIQzlsMktzVjM4bjZPT05IOTkwd3pDUVVic1ptWjBiRjZBSzBrcExrSVdoa0Y0dDR0SkhwQ1JXaWpsZ1ZFbXg1SQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-05-20",
-      "category": "ethylene"
-    },
-    {
       "title": "ＳＣＧ、ＰＴＴと統合「２７年視野」 エチレンなど - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Wa0hNVk1vUktOdFJHcU5EMU1HVE1uZ1cwMzQzYlZjYW1ueHNfWDI5Tm5ucjhwaTJyR25rbVpZdzRoeW1RT1QzcWszZ3ZpdVRzQ3VF?oc=5",
       "source": "化学工業日報 電子版",
@@ -219,15 +219,8 @@
       "category": "naphtha"
     },
     {
-      "title": "日本触媒、酸化エチレン・誘導品値上げ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1wMTBZTF83b29DYUpXS292aWdvU2lrWi0wdXpoamxZZzU0WGVHMFBhSzRMYWRmd0RSTE5Vd2dKM2lvQWFhYkU0QjRjdDFSLXFDSGxj?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-15",
-      "category": "ethylene"
-    },
-    {
       "title": "JA全農、肥料3期連続値上げ 尿素14.5%高 代替肥料活用の動きも",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xV1AtWkNaTG5id1o1bWZVNVBKZUh4NmVUelBvR0ZHaUJsVGFUT2FmRno2WWU2Ynh5aC1wZVBaREstMklERFBRWnpMeVdnR1AtdG0tMVNiSjk0R3BzZUpFdy1yaGljeDdnYk9fWA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdUhCV3NBRXNiajl0YW5uV1JUc2JFQ0pIc3pPQ0pHMlBGczJJdFJtN1pOekIyXzNReFgyQi1KemlUc1F6OEMzdmJDaVlJaFhKSUkzMDJ6cFRmT1pmY2pMMUpUVmo5T29RT29RRkl3YUNBUXgwNUhIUEhlZFlKd3Y5bFdNa2diUzBmMEVXQU96QkNab0FZYkIyUFVqbjA4bko2YTY4TXdB?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-05-15",
       "category": "urea"
@@ -247,11 +240,11 @@
       "category": "ethylene"
     },
     {
-      "title": "米国で高騰する鉄鋼・アルミ、世界の2倍に 自動車に値上げ圧力",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1rZldQUFV4eFRaeFdPck5Qc2RPcnlOeTQzSndOYjBDU3JZdzhsekJLcGcyaS16d0Iteld1VGYtZHR4d3RBYlF4OS1kZk9LbGt2eU1PUXpnQkR4LVY3NVVsS3VQNXVxdHlrWHQzNA?oc=5",
-      "source": "日本経済新聞",
+      "title": "日本プラスチック食品容器工業会、定時総会を開催 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB5aUkySmI2eUZtejlUM0hBQkx0c2dVcVlMUHhKY0llTWxGU05mU1RkQU9zRmptRnJ0ZVMtcDFxc1Izem9KdU0wLVhLQTFYXy03a0d3?oc=5",
+      "source": "化学工業日報 電子版",
       "pubDate": "2026-05-13",
-      "category": "aluminum"
+      "category": "packaging"
     },
     {
       "title": "国内塩ビチェーン、追加値上げ焦点 ナフサ高騰で - 化学工業日報 電子版",
@@ -268,17 +261,24 @@
       "category": "ethylene"
     },
     {
-      "title": "５～７月の国内合成ゴム価格、ＢＤ系の上げ足強く - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pdThDNllYdGkzOEl2bmt5dWxyMEhYdDBiWkxJbW41UFVqZVJOaTlWQmxJR0JsTno5TGxPVkN4b2JMZnhVeVVVWkE0ankxNDd4dmpz?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-05-12",
-      "category": "packaging"
-    },
-    {
       "title": "川崎重工、水素からナフサを生産する技術を提案 原油の代わりに",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9jQ2N4Wi1raC14LXRCNEZLLU9wdEE5MXFzQkhZRHZDVzRDb3E2UlZacGY3UjBDc2s3U1ZjNVg2anhiTzNNbU5SNlNITERSM0NySGZaR1h4QVlWbXFjRllhWjdhMzI2UlJTMUVMbw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-05-12",
+      "category": "naphtha"
+    },
+    {
+      "title": "ＥＮＥＯＳ、５月ベンゼンＡＣＰ３０ドル高 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAwWUNBNEhCdlVGbjV0a0FyVXdTU1J1SzJKTUlZbFd0TE5mUkozV2J5V1BFSkl6dkNpTGc4SThxZU5tSkdOeW9Ua2xiRDZpMDNkdEpv?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-11",
+      "category": "packaging"
+    },
+    {
+      "title": "酢エチ、アジアで１０００ドル超え 中東情勢受け - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE04Q1RuWjRZaHZ4WHpJSVZMVDRNTXY3V25xUy1qaFByTjhOQ3I0WWVQVEJNbUs5bm5UYm5zR3F3a3h0US13WkJUanBjLXBEbXRQdUFz?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-05-08",
       "category": "naphtha"
     }
   ]
