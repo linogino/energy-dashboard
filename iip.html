@@ -110,14 +110,14 @@ footer a:hover { text-decoration: underline; }
 <header>
   <div class="container" style="padding-top:0;padding-bottom:0">
     <h1>🏭 鉱工業指数 — 業種別在庫バッファー</h1>
-    <div class="sub">データ基準月: <strong>2026年4月</strong>　|　2020年基準　|　生成: 2026年07月14日 01:17</div>
+    <div class="sub">データ基準月: <strong>2026年5月</strong>　|　2020年基準　|　生成: 2026年07月15日 01:14</div>
   </div>
 </header>
 
 <div class="container">
 
   <div class="summary-bar" style="margin-top:16px">
-    <span class="badge" style="background:#dcfce7;color:#16a34a;border:1px solid #86efac">🟢 3ヶ月以上 0業種</span><span class="badge" style="background:#fef9c3;color:#ca8a04;border:1px solid #fde047">🟡 1〜3ヶ月 0業種</span><span class="badge" style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5">🔴 1ヶ月未満 1業種</span><span class="badge" style="background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db">⚪ データなし 0業種</span>
+    <span class="badge" style="background:#dcfce7;color:#16a34a;border:1px solid #86efac">🟢 3ヶ月以上 0業種</span><span class="badge" style="background:#fef9c3;color:#ca8a04;border:1px solid #fde047">🟡 1〜3ヶ月 1業種</span><span class="badge" style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5">🔴 1ヶ月未満 0業種</span><span class="badge" style="background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db">⚪ データなし 0業種</span>
   </div>
 
   <div class="filter-bar">
@@ -155,14 +155,13 @@ footer a:hover { text-decoration: underline; }
 const INDUSTRIES = [
   {
     "name": "発泡プラスチック製品",
-    "production": 96.7,
-    "inventory": 96.1,
-    "buffer_months": 0.99,
-    "color": "red",
-    "prod_yoy": 7.9,
-    "inv_yoy": -3.0,
+    "production": 87.7,
+    "inventory": 95.5,
+    "buffer_months": 1.09,
+    "color": "yellow",
+    "prod_yoy": 1.4,
+    "inv_yoy": -2.5,
     "chart_labels": [
-      "2025年5月",
       "2025年6月",
       "2025年7月",
       "2025年8月",
@@ -173,10 +172,10 @@ const INDUSTRIES = [
       "2026年1月",
       "2026年2月",
       "2026年3月",
-      "2026年4月"
+      "2026年4月",
+      "2026年5月"
     ],
     "chart_inv": [
-      97.9,
       100.2,
       99.7,
       98.7,
@@ -187,10 +186,10 @@ const INDUSTRIES = [
       98.8,
       96.7,
       97.8,
-      96.1
+      96.1,
+      95.5
     ],
     "chart_prod": [
-      86.5,
       90.2,
       95.5,
       81.2,
@@ -201,7 +200,8 @@ const INDUSTRIES = [
       87.3,
       84.4,
       93.4,
-      96.7
+      96.7,
+      87.7
     ]
   }
 ];
