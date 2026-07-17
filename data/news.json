@@ -1,19 +1,40 @@
 {
-  "updated": "2026-07-16",
+  "updated": "2026-07-17",
   "items": [
     {
-      "title": "石連、中東情勢を注視 ホルムズ依存度低減がカギ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1SNWNvNGprWDZibThQNzBEc0FLT3lUQlAwbkI4c0ZGcWN4LWVKS2o2Z1ZjZ0pqZVE4OTRRdTZnTkhRRDEwZlRueFB1VFVZWWlFSFlB?oc=5",
+      "title": "国内エチレン設備、６月稼働率６６・５％で過去最低 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1RM01femxtbTc3eHVuZFBISmt4YVNfVHVUdG1CeEdVZjRKN3dNRmlhVGF3TVB4Zl9lU0w1MXQxV3B2SlhjWFYyOERMNi1fb3ZuTEY4?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-15",
+      "pubDate": "2026-07-16",
+      "category": "ethylene"
+    },
+    {
+      "title": "６月のエチレン生産量１９％減、定修や稼働抑制で - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBRd3dXQ2NIR1pzRlYzY2poY0dYR0tUUGRPYXo1Wkx4YUlCRXdNdWRTdlBOa2wwVGs2akFNVVRpRzJ0YTBFWGVfVlByQ28zeHI3Z1lF?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-16",
+      "category": "ethylene"
+    },
+    {
+      "title": "エチレン稼働率、6月66.5%で最低 ナフサ値下がり見越して買い控え",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zTWhabWpfR0dyTkZZZXM3SHF4T2c3MFZNZlJORTRCdmxYNkxsU25iVkFQQUpaQTRvbTFMWEFJOWlRTHM1d3M5Q2xWOVgzSm5VRUlUc0FBZHhQa0RoN1JHR0RYOFVvb3dCLWJlSw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-16",
       "category": "naphtha"
     },
     {
-      "title": "１～６月のＰＳ内需、１％増加 ＳＭ生産は２３％減 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9kQ2dtQXFFMktjZUxNT3NMSDc5ZF8ycjVBTWwwYWJ4VUFjT2o0VjFwT0lVbE9GQTZZcm9QTnpmdVkyWC1yNXRGV18tLTJBUThsUW44?oc=5",
+      "title": "石化協会長「エチレン稼働低位安定」 中東情勢再緊迫化で",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1BclJ5QzM4QUZwV3FYRTYtX2NxcmRSLTdBdVg4c1lDLUl2V1dRcEZuaWR1ejgxWGVEVHJEVzRBMmNsc3l2V1kyLVBnUy1MZmZ2a1hWem5FZEJWRFluc01wTElueTBqN1VFQUREMkZLUTlVWHNj?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-07-16",
+      "category": "ethylene"
+    },
+    {
+      "title": "ポリオレフィン下落加速、アジア需給バランスに緩み - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBDemZzV0FlTHg2ZU4za2tNeGNCajFwd0xrY3pEelRDN2JybFpZSDhkNzNIdVdESnRnTkxxT3pZMFIxMEJTekdlVzlWWDZyeWExSHNB?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-14",
-      "category": "naphtha"
+      "pubDate": "2026-07-15",
+      "category": "ethylene"
     },
     {
       "title": "“令和の米騒動”で脚光 米を3年守る異色商品が大ヒット 原点は遺体袋 - 日経クロストレンド",
@@ -23,17 +44,17 @@
       "category": "aluminum"
     },
     {
+      "title": "主要資材で「時間差インフレ」 鉄鋼・化学製品など過半が値上がり",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBuR3Myek9fYnpNQlA2eEJxb1JNUzdOMkhJbEdtN1VpUU54bEtodlZEQTgzY1hCeHJ0MGZhcFpMMDRVY0xlVWMwUkRkWXBsQm1fWVVWU0U0Smx1b0hSVGtIZV9keGNZQU1IY1RySQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-11",
+      "category": "aluminum"
+    },
+    {
       "title": "パッケージの簡素化、ナフサショック解消後も定着へ 大手のPB先行",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5xN0ZaSk1KOC00al92OWpfcXFaOUlaa1U3OGRhTzF1RjBhZTh4TnUyNDBPcjhpTm1NYnVLZU5jZU1ieG51dy1BazBnYmlZbEFSa0lwNVJXZzYyU1J2ZnExTWRrU2s0SnExVHJpLQ?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-07-10",
-      "category": "aluminum"
-    },
-    {
-      "title": "太陽工業、暑さ対策で雪を配送 新潟→首都圏まで特殊な袋で",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5oTTN3YURZTEFwQW1ZM2d4RTliODlaaEI0eFZSeGZlLWFnUU1lNl9NVDExVGd5UWpIRmFsYklUc3daUXRrMW82enI1SDk1bkxKN3NvdWVVOHdDTDUtN0VJdVA1cXJ5UC1zcTllMA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-07",
       "category": "aluminum"
     },
     {
@@ -51,11 +72,18 @@
       "category": "aluminum"
     },
     {
-      "title": "石化協の筑本新会長、「エチレン生産設備の稼働改善へ」",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xN09MaUpEcEhQYlU0SElyZllQclhHYzRjZ3ZJNko3VzhTNWJLeDlpU3BSQ3VwWGVyOFBtYjhOVkpvN0VuQmsyRTJIWFctQjZmNTRrR0hPUnRvUzVaUjRXS0pjMmlNbHBobXZTbw?oc=5",
-      "source": "日本経済新聞",
+      "title": "石化協、筑本会長が就任 エチレン設備を最新鋭に - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE00Q2JnM2Q0YkhJRWxCVUNCYzBla2VJOFlUbjNtTzVEQ1hwb0hWSFhpT05MTTBrRkdQZEZKWC0zcEtrbUM3cXhJUUU3TzdmQk5WOUdV?oc=5",
+      "source": "化学工業日報 電子版",
       "pubDate": "2026-07-02",
-      "category": "naphtha"
+      "category": "ethylene"
+    },
+    {
+      "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 - 日経クロストレンド",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5qWVNGS1J1am9Yd1cwVFlxWFBKLU9FbzFKU28wLXUzMWMwa0FNeVZDR2xWYk14U2p3VU1iZ29lZ3lndHNJLVVwRnlaY1JRaGVqQUtVOXlHSDFGWW5abUpCQVNTbi1JWi0zWUwyM2oyMA?oc=5",
+      "source": "日経クロストレンド",
+      "pubDate": "2026-07-01",
+      "category": "aluminum"
     },
     {
       "title": "5月のナフサ販売量18%減 3カ月連続2桁マイナス、設備稼働率低く",
@@ -86,22 +114,15 @@
       "category": "naphtha"
     },
     {
-      "title": "創立９０周年記念特集 第１部 化学の存在感、危機で鮮明に - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rVExPXzZLZndKb19jTy1nU19ZTjUtSnBhNU8zQUJLZFYwSGJHZ3NpQzd6M1lqUkhkdm5IMF9oY3I5UjdQR3loTTdJUmNENW5qbjZr?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-29",
-      "category": "ethylene"
-    },
-    {
-      "title": "四国の企業、石油化学原料の調達「支障ある」8割超 民間調査",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43V1pNSlJGTzJBRmZkZmhYZUpsaG41XzFTdmdkTEhzTkRmR0I2X0JXZHVNT3Z0cDA0TjNsNXVFeEFzVUUxMGNpSUotcVBIUlBJWnljN3d1aGJCVnMyQ3A2MTdYOXdrcEFpNVdiMw?oc=5",
+      "title": "ナフサ、アジアで下落 中東衝突前を下回る",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VelZSOWNRMndfYTljTkxYRjFEX0tVVmlzdE5aZ2VEZjg4RkNBdk9wNnBSaFRQN1B5aktKV3hoaEFVTkU5bHJvY3VVcFZKOEVuX0pDSFRmQ3l3d3ZOMXBENTl2YXUwN2w2b3l3Uw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-06-26",
       "category": "naphtha"
     },
     {
-      "title": "ナフサ、アジアで下落 中東衝突前を下回る",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VelZSOWNRMndfYTljTkxYRjFEX0tVVmlzdE5aZ2VEZjg4RkNBdk9wNnBSaFRQN1B5aktKV3hoaEFVTkU5bHJvY3VVcFZKOEVuX0pDSFRmQ3l3d3ZOMXBENTl2YXUwN2w2b3l3Uw?oc=5",
+      "title": "四国の企業、石油化学原料の調達「支障ある」8割超 民間調査",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43V1pNSlJGTzJBRmZkZmhYZUpsaG41XzFTdmdkTEhzTkRmR0I2X0JXZHVNT3Z0cDA0TjNsNXVFeEFzVUUxMGNpSUotcVBIUlBJWnljN3d1aGJCVnMyQ3A2MTdYOXdrcEFpNVdiMw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-06-26",
       "category": "naphtha"
@@ -184,13 +205,6 @@
       "category": "naphtha"
     },
     {
-      "title": "東洋インキタイランド、タイを拠点に世界開拓 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB2OGliUUJURmtfZFBlRzh5Y1NwSllGajVMLXAwRGtCVnFhdjdTcmdMa2NUM3BnRWpPdS16Q2ZuVHM5Tk1CSkVoZ2UySTJvaXV0cEVn?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-18",
-      "category": "packaging"
-    },
-    {
       "title": "エチレン設備稼働率、5月68.1%で4月から改善 原料の中東外調達進む",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBCNVlsMXI4ckNNbkR2TC12WWljX2xIZW5VZHY2RWk3RTY0WHJpZnhzcDRQb1ZHQXlycXlvNU8zc0hOb19BYnA3WGlpZ2dXWXpoNmpCTWQ3N1lYQ0hINHVXcmVwYXE3OTdBLWVHSQ?oc=5",
       "source": "日本経済新聞",
@@ -233,13 +247,6 @@
       "category": "naphtha"
     },
     {
-      "title": "タイ特集 ＤＩＣグラフィックス（タイランド）、グループ内他事業拡大へ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBYNG1BZ3Fld2RnQ0FIS3FnaWZMdGR6b0E2ODFKV21GdGEwQ2IzbE1RY3RQdFdDUE0wSC1UQkpkSUVsREplemI4NjAzVS0tajdHdURV?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-08",
-      "category": "packaging"
-    },
-    {
       "title": "東洋エンジ、シンガポールでエチレン改修受注",
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1zTGpWRXoyZWR3UTd6SUhYN1NOR2FCTEZWN3hfYlR0UG9PamMyXzZHWFVBM2swQUJmOHJWemV1a3NPMnQ2RUdUY0VKMjBSOFBPTExuSnA0MXFXMklRQlVJRUxZaGlHSTJIUm9aaE9XYnQwTGdG?oc=5",
       "source": "日刊工業新聞",
@@ -273,13 +280,6 @@
       "source": "日経ビジネス電子版",
       "pubDate": "2026-06-05",
       "category": "naphtha"
-    },
-    {
-      "title": "TOPPAN、トレカ包装材をプラから透けない紙に 欧州新規制に対応",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBLN2NYNHdkdURpYlJ1Y05EeHdaRFQtMzZPM1hFaS1GVFJ2TEJoZm4yMENra0dRc0pTbUFNcUVCaG5MM3lEbmpWQnAzcTVLMWFLajRYcFZzN0VjWkFmOXk5Q2tvQmJobGI0cy1fMw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-06-05",
-      "category": "aluminum"
     }
   ]
 }
