@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18",
+  "updated": "2026-07-19",
   "items": [
     {
       "title": "石化協・筑本会長、エチレン低位操業継続も - 化学工業日報 電子版",
@@ -44,17 +44,17 @@
       "category": "ethylene"
     },
     {
+      "title": "試練続く国内石化 ナフサ調達難越えも需要減速懸念 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE43MUJjMW9tV3dkWWU4WnFGYXhPRENsaTNqemtROFFnNDVBM1h5SUVKX0R4dV90VFpJaVVZRGVSUzk2Q0FCMmg4QmZhdnVhZ3VNSWFN?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-13",
+      "category": "naphtha"
+    },
+    {
       "title": "主要資材で「時間差インフレ」 鉄鋼・化学製品など過半が値上がり",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBuR3Myek9fYnpNQlA2eEJxb1JNUzdOMkhJbEdtN1VpUU54bEtodlZEQTgzY1hCeHJ0MGZhcFpMMDRVY0xlVWMwUkRkWXBsQm1fWVVWU0U0Smx1b0hSVGtIZV9keGNZQU1IY1RySQ?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-07-11",
-      "category": "aluminum"
-    },
-    {
-      "title": "パッケージの簡素化、ナフサショック解消後も定着へ 大手のPB先行",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5xN0ZaSk1KOC00al92OWpfcXFaOUlaa1U3OGRhTzF1RjBhZTh4TnUyNDBPcjhpTm1NYnVLZU5jZU1ieG51dy1BazBnYmlZbEFSa0lwNVJXZzYyU1J2ZnExTWRrU2s0SnExVHJpLQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-10",
       "category": "aluminum"
     },
     {
@@ -63,13 +63,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-07-09",
       "category": "urea"
-    },
-    {
-      "title": "太陽工業、暑さ対策で雪を配送 新潟→首都圏まで特殊な袋で",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5oTTN3YURZTEFwQW1ZM2d4RTliODlaaEI0eFZSeGZlLWFnUU1lNl9NVDExVGd5UWpIRmFsYklUc3daUXRrMW82enI1SDk1bkxKN3NvdWVVOHdDTDUtN0VJdVA1cXJ5UC1zcTllMA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-07",
-      "category": "aluminum"
     },
     {
       "title": "日本ペイントやLIXILが「値上げしない脱炭素」 建築資材のCO2削減を競争力に - 日経ビジネス電子版",
@@ -98,13 +91,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-07-02",
       "category": "naphtha"
-    },
-    {
-      "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 - 日経クロストレンド",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5qWVNGS1J1am9Yd1cwVFlxWFBKLU9FbzFKU28wLXUzMWMwa0FNeVZDR2xWYk14U2p3VU1iZ29lZ3lndHNJLVVwRnlaY1JRaGVqQUtVOXlHSDFGWW5abUpCQVNTbi1JWi0zWUwyM2oyMA?oc=5",
-      "source": "日経クロストレンド",
-      "pubDate": "2026-07-01",
-      "category": "aluminum"
     },
     {
       "title": "5月のナフサ販売量18%減 3カ月連続2桁マイナス、設備稼働率低く",
@@ -261,6 +247,13 @@
       "category": "naphtha"
     },
     {
+      "title": "タイ特集 ＤＩＣグラフィックス（タイランド）、グループ内他事業拡大へ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBYNG1BZ3Fld2RnQ0FIS3FnaWZMdGR6b0E2ODFKV21GdGEwQ2IzbE1RY3RQdFdDUE0wSC1UQkpkSUVsREplemI4NjAzVS0tajdHdURV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-06-08",
+      "category": "packaging"
+    },
+    {
       "title": "決算:三井化学、ホルムズショックしのぐ 安定さ増した石油化学事業",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBiTlZEbTBySm9OZ3ZzcFZWdHFFWUN0YmlyODh1QU1BZDVlakZQNkRLV1lwaTBQVk5XQU90cENlSVhUR0FkWnR2LVJhQlo1OGxVN3FQNENhTndXcVd5OVBhNV9KbFlUN0NXREYxbQ?oc=5",
       "source": "日本経済新聞",
@@ -278,6 +271,13 @@
       "title": "ナフサ由来品の供給、経産省「平年並み」 塗料・シンナー15%増",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE90MTRVZGNUM2o2ZWZYWEtDUnVjdXpBWjF0QUtZUTFycTltMTA2Z3h1VHctcUI1cFlYVWdHSmpZazN6VVQxTVN0Tkd5VjF2dUVydDExMlNpTE15OWRXX05LR3pVRnJBQ3BhSXdZQw?oc=5",
       "source": "日本経済新聞",
+      "pubDate": "2026-06-05",
+      "category": "naphtha"
+    },
+    {
+      "title": "ナフサ騒動、冷静な対応を 石化協専務理事「中東情勢長引けど例年並み出荷」 - 日経ビジネス電子版",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8zVXJSaGlLbW5SbUZpQWt4S1FpMGtzT0VBMVFrNkJ4My1PRjdnQkdvT2hjcWtjMEZXNUhIcWVoVHFPZk9YZ3AwSVl4dTRCakpQZkM4anQwRHF5OVNMMVdVSzl4T0JvZTA?oc=5",
+      "source": "日経ビジネス電子版",
       "pubDate": "2026-06-05",
       "category": "naphtha"
     }
