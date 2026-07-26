@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25",
+  "updated": "2026-07-26",
   "items": [
     {
       "title": "石油化学製品が輸入超過に ナフサ高騰でエチレン調達14倍",
@@ -16,18 +16,18 @@
       "category": "ethylene"
     },
     {
+      "title": "タンカー通過10隻→60隻→一桁、停戦合意もホルムズ危機再び 韓国は中国頼る - 日経ビジネス電子版",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmSW1hUERkV3RzQW4yZzFQQVhDVkRFazE1UlFNSkNDRWRVN2V1dUk5UWRON2hteWFDZkhNbjJRS2ZnRXBGN296VG5uQmpXaXBvZm94Z2xMZGNjZS1BckptUnhvYjdGTXc?oc=5",
+      "source": "日経ビジネス電子版",
+      "pubDate": "2026-07-22",
+      "category": "naphtha"
+    },
+    {
       "title": "塩ビ工業・環境協会長、塩ビ樹脂4-6月が底 エチレン供給安定",
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBVOWpydmhGcTB1RjM2LWxvLUdSOHJDN3lsY2VmNEZPTk5aaUdfVXlyVUEzRS1XOGlmTG1KNk9xcTloY2xkZGs2U2hhRXpvMzhzMmZSWHdKUGZCcEE?oc=5",
       "source": "日刊工業新聞",
       "pubDate": "2026-07-22",
       "category": "ethylene"
-    },
-    {
-      "title": "半導体材料特集 ＫＨネオケム、溶剤にメモリー需要追い風 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1xMk0tV1d2OVB2RkxxTWtycGNKaE40dzVQTl9WLVZIWXhEbWFwZElwQjRGamhNM0FxeHVzYlB5a0owUEtTNHp3ZWtFZ2QxQ3RBb2dZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-21",
-      "category": "propylene"
     },
     {
       "title": "５月エチレン換算輸出５６％減 異例の輸入超過 - 化学工業日報 電子版",
@@ -89,15 +89,8 @@
       "title": "試練続く国内石化 ナフサ調達難越えも需要減速懸念 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE43MUJjMW9tV3dkWWU4WnFGYXhPRENsaTNqemtROFFnNDVBM1h5SUVKX0R4dV90VFpJaVVZRGVSUzk2Q0FCMmg4QmZhdnVhZ3VNSWFN?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-13",
+      "pubDate": "2026-07-14",
       "category": "naphtha"
-    },
-    {
-      "title": "伊藤忠とダイキン、エアコンからアルミ回収 脱中東依存へ資源循環網",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ISzRucG83RTNoS3NMRWRZcWRSS1lFc2EtRE9ILWg1LThqOWlJMVlvU3k0SlVkSWpnRGV5Um9scXl4OFpEcTY1WTVPZUJfY2xGVURSRHo1dUhvLUJYQ00zMnNuNlRMbXM4SmZyZw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-08",
-      "category": "aluminum"
     },
     {
       "title": "太陽工業、暑さ対策で雪を配送 新潟→首都圏まで特殊な袋で",
@@ -121,18 +114,25 @@
       "category": "ethylene"
     },
     {
-      "title": "5月のナフサ販売量18%減 3カ月連続2桁マイナス、設備稼働率低く",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBscHdPdlJtNVNKTkRfSExLTEZvUmFIWTJfSS1iakZHRmdEYkt5SlBhNFdhVHRqVVVucEZvQXVXQVQzdXNkcXRMeXNXX0ZKWWFHZGV1emd0WThMbXprZmxjSUkzZ2RiTUF0TlBzYQ?oc=5",
+      "title": "石化協の筑本新会長、「エチレン生産設備の稼働改善へ」",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xN09MaUpEcEhQYlU0SElyZllQclhHYzRjZ3ZJNko3VzhTNWJLeDlpU3BSQ3VwWGVyOFBtYjhOVkpvN0VuQmsyRTJIWFctQjZmNTRrR0hPUnRvUzVaUjRXS0pjMmlNbHBobXZTbw?oc=5",
       "source": "日本経済新聞",
-      "pubDate": "2026-06-30",
+      "pubDate": "2026-07-02",
       "category": "naphtha"
     },
     {
       "title": "ロッテがミネラルウオーター参入 アルミ缶入りで差別化、若者狙い撃ち - 日経クロストレンド",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBDdHpQQTc3OS1EcjBCbWpRc2tVWVM3Y2hIUEJBM1d3T002NFYzbzY4emRVUjZyY1dkWEtjX0txeWQ2XzRkc3VKWEU0d253ci1MUHBSSm92OFhSbVAySjRNakotMjNmZw?oc=5",
       "source": "日経クロストレンド",
-      "pubDate": "2026-06-30",
+      "pubDate": "2026-07-01",
       "category": "aluminum"
+    },
+    {
+      "title": "5月のナフサ販売量18%減 3カ月連続2桁マイナス、設備稼働率低く",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBscHdPdlJtNVNKTkRfSExLTEZvUmFIWTJfSS1iakZHRmdEYkt5SlBhNFdhVHRqVVVucEZvQXVXQVQzdXNkcXRMeXNXX0ZKWWFHZGV1emd0WThMbXprZmxjSUkzZ2RiTUF0TlBzYQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-06-30",
+      "category": "naphtha"
     },
     {
       "title": "５月のナフサ輸入増 米産拡大、価格は１２万円台に - 化学工業日報 電子版",
@@ -142,15 +142,15 @@
       "category": "naphtha"
     },
     {
-      "title": "ナフサ、アジアで下落 中東衝突前を下回る",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VelZSOWNRMndfYTljTkxYRjFEX0tVVmlzdE5aZ2VEZjg4RkNBdk9wNnBSaFRQN1B5aktKV3hoaEFVTkU5bHJvY3VVcFZKOEVuX0pDSFRmQ3l3d3ZOMXBENTl2YXUwN2w2b3l3Uw?oc=5",
+      "title": "四国の企業、石油化学原料の調達「支障ある」8割超 民間調査",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43V1pNSlJGTzJBRmZkZmhYZUpsaG41XzFTdmdkTEhzTkRmR0I2X0JXZHVNT3Z0cDA0TjNsNXVFeEFzVUUxMGNpSUotcVBIUlBJWnljN3d1aGJCVnMyQ3A2MTdYOXdrcEFpNVdiMw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-06-26",
       "category": "naphtha"
     },
     {
-      "title": "四国の企業、石油化学原料の調達「支障ある」8割超 民間調査",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43V1pNSlJGTzJBRmZkZmhYZUpsaG41XzFTdmdkTEhzTkRmR0I2X0JXZHVNT3Z0cDA0TjNsNXVFeEFzVUUxMGNpSUotcVBIUlBJWnljN3d1aGJCVnMyQ3A2MTdYOXdrcEFpNVdiMw?oc=5",
+      "title": "ナフサ、アジアで下落 中東衝突前を下回る",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VelZSOWNRMndfYTljTkxYRjFEX0tVVmlzdE5aZ2VEZjg4RkNBdk9wNnBSaFRQN1B5aktKV3hoaEFVTkU5bHJvY3VVcFZKOEVuX0pDSFRmQ3l3d3ZOMXBENTl2YXUwN2w2b3l3Uw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-06-26",
       "category": "naphtha"
@@ -212,13 +212,6 @@
       "category": "naphtha"
     },
     {
-      "title": "5月のエチレン稼働68％ 46カ月連続90％割れ 前月より0.8ポイント増",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE93QU01aWdIY3NiSF9mOWhzeU1yd0RNWlc5b1lSQUZmcVdibjd6alNPd3hoTFU3TllxTmRQWTRVZkxwREs4WFFqZUF5NHRsZnU3OHB2TWZpWFhfMFk?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-06-19",
-      "category": "ethylene"
-    },
-    {
       "title": "３月のカーバイド内需１２％減 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9oY21FdTVyT244bTZoTnk0eTRWVUtOS0RpUU9JZWJ6czJiN25UanYwNGNSWFlYNTh6MHV0UmJnSDNJTnBEUTRnMEFNMUxCM2V1LXE0?oc=5",
       "source": "化学工業日報 電子版",
@@ -238,6 +231,13 @@
       "source": "日本経済新聞",
       "pubDate": "2026-06-18",
       "category": "naphtha"
+    },
+    {
+      "title": "5月のエチレン稼働68％ 46カ月連続90％割れ 前月より0.8ポイント増",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE93QU01aWdIY3NiSF9mOWhzeU1yd0RNWlc5b1lSQUZmcVdibjd6alNPd3hoTFU3TllxTmRQWTRVZkxwREs4WFFqZUF5NHRsZnU3OHB2TWZpWFhfMFk?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-06-18",
+      "category": "ethylene"
     },
     {
       "title": "ナフサ、アジアで3カ月ぶり安値 原油下落で9%安",
