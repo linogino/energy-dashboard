@@ -1,12 +1,19 @@
 {
-  "updated": "2026-07-27",
+  "updated": "2026-07-28",
   "items": [
     {
-      "title": "長瀬産業が交流会、化学品共同輸送拡大へ伴走支援 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1QYlFjSV9EWWN1bnh0VE45MjRqQlZCUm1HVlR2NUJMU0pwNmJTT0w4ekN2YV9ZNW9YazdDLXJSN3BJSDA2RjVkMXlJV3dHeXFqQU9Z?oc=5",
+      "title": "国産ナフサ高止まり ７～９月は１０万円近傍の様相 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XQUw3TFNKM3Q1MWpoUkUybkJXYUplaUVwM3lOTl9JOFNCVXpFY3J1LTZ2M1VmZHllS0FHS2JXZkRsVW9CUFpTVHgwaHYzMmlucHc0?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-26",
-      "category": "ethylene"
+      "pubDate": "2026-07-27",
+      "category": "naphtha"
+    },
+    {
+      "title": "カ性ソーダ、国内各社値上げ出揃う ７月中に妥結か - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9nNnRRelZhSlJCS3plUTZYNkpwZzJWRVpXUUtoSl9NUGVBZlVfU2J6OGNsLVlfLWZVamRDMzBNVnd4eFlOdE95NUFZX2NDMmlVa1ZJ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-27",
+      "category": "naphtha"
     },
     {
       "title": "微生物から半導体部材の原料量産 東大発新興企業、ナフサ依存脱却へ",
@@ -86,13 +93,6 @@
       "category": "ethylene"
     },
     {
-      "title": "エチレン稼働率、6月66.5%で最低 ナフサ値下がり見越して買い控え",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zTWhabWpfR0dyTkZZZXM3SHF4T2c3MFZNZlJORTRCdmxYNkxsU25iVkFQQUpaQTRvbTFMWEFJOWlRTHM1d3M5Q2xWOVgzSm5VRUlUc0FBZHhQa0RoN1JHR0RYOFVvb3dCLWJlSw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-16",
-      "category": "naphtha"
-    },
-    {
       "title": "石化協会長「エチレン稼働低位安定」 中東情勢再緊迫化で",
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1BclJ5QzM4QUZwV3FYRTYtX2NxcmRSLTdBdVg4c1lDLUl2V1dRcEZuaWR1ejgxWGVEVHJEVzRBMmNsc3l2V1kyLVBnUy1MZmZ2a1hWem5FZEJWRFluc01wTElueTBqN1VFQUREMkZLUTlVWHNj?oc=5",
       "source": "日刊工業新聞",
@@ -105,6 +105,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-14",
       "category": "naphtha"
+    },
+    {
+      "title": "主要資材で「時間差インフレ」 鉄鋼・化学製品など過半が値上がり",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBuR3Myek9fYnpNQlA2eEJxb1JNUzdOMkhJbEdtN1VpUU54bEtodlZEQTgzY1hCeHJ0MGZhcFpMMDRVY0xlVWMwUkRkWXBsQm1fWVVWU0U0Smx1b0hSVGtIZV9keGNZQU1IY1RySQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-11",
+      "category": "aluminum"
     },
     {
       "title": "太陽工業、暑さ対策で雪を配送 新潟→首都圏まで特殊な袋で",
@@ -142,6 +149,13 @@
       "category": "aluminum"
     },
     {
+      "title": "４月の化学工業統計、エチレン生産は３７・４％減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBUYndnVWthUXp4Q2xRcVlrVnhwdEZKSlNZSE9aX25DOXNkc3k4LUI2TlpCelZldEpuTXliSzVER3hWUzV2cmdvcGFzMkpudWhPYnM4?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-01",
+      "category": "ethylene"
+    },
+    {
       "title": "ロッテがミネラルウオーター参入 アルミ缶入りで差別化、若者狙い撃ち - 日経クロストレンド",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBDdHpQQTc3OS1EcjBCbWpRc2tVWVM3Y2hIUEJBM1d3T002NFYzbzY4emRVUjZyY1dkWEtjX0txeWQ2XzRkc3VKWEU0d253ci1MUHBSSm92OFhSbVAySjRNakotMjNmZw?oc=5",
       "source": "日経クロストレンド",
@@ -170,13 +184,6 @@
       "category": "naphtha"
     },
     {
-      "title": "四国の企業、石油化学原料の調達「支障ある」8割超 民間調査",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE43V1pNSlJGTzJBRmZkZmhYZUpsaG41XzFTdmdkTEhzTkRmR0I2X0JXZHVNT3Z0cDA0TjNsNXVFeEFzVUUxMGNpSUotcVBIUlBJWnljN3d1aGJCVnMyQ3A2MTdYOXdrcEFpNVdiMw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-06-26",
-      "category": "naphtha"
-    },
-    {
       "title": "ＳＡＢＩＣ、再生材７５％の強化ＰＣコンパウンド - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1QV3NMU0U1d0dCNkpCTFFnbVFOMnhNdTJlSlJFbDY4T2xSbHZXeWx4RFQwVWZmZTR3OG5CSDZzM0loeWJxRDZhbzFlUWptTzdoLWVr?oc=5",
       "source": "化学工業日報 電子版",
@@ -195,6 +202,13 @@
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1tT2tYZ0d2R2NrdFdZTFdwQzdfSndFTTYyWjhrQTg0cDctWGFld2JHUl93Z09Ha0RDekhjVWEtUWhWR3VqWUFYU0dVRVFoaEQzMWJjXzV3aFU2SFNUdFZaRUdOMGFWb1U?oc=5",
       "source": "日経ビジネス電子版",
       "pubDate": "2026-06-25",
+      "category": "naphtha"
+    },
+    {
+      "title": "独ワッカー、チェコで特殊シリコーン新工場竣工 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE91Y3phZ040cnduMWVYVVpDT1pkX3ZxbHlFYWpieVU2RktpVkQyeFo5cmFyR3QwT241dEptM1JRMEl4MGVZZ05sTzlvMTNackE4SmZn?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-06-24",
       "category": "naphtha"
     },
     {
@@ -265,20 +279,6 @@
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5zNkJ0bVBvYTZYZE5kQ3lLNEJmMVBnVGY1RmdPZFJoNTBIVHpHUlpIVHlvSllVUDhHOWkxUkxFOEgxOXZzdE5JMnhTbUliOW9BNnlzVUE0OXZIVWhLdzN6bnFrNC02eTFuSjRnYg?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-06-15",
-      "category": "naphtha"
-    },
-    {
-      "title": "包装資材再値上げ必至 フィルム・溶剤・インキ上昇 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE55SjFTNXVBbklkSU1iM2tIWnp3a0dKWXNpbHBqRnJqaHhhT0JiRkE4S182dFo3ZUVNZGFsemt1T0MtVHhlMUZJUXQ1b3BROEt1NS1Z?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-11",
-      "category": "packaging"
-    },
-    {
-      "title": "ナフサなどの調達、8割超の企業「支障ある」 商工リサーチ調べ",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1SaGtwbW5NYlZyNlllYUQzSUFtRGRzc2J6dm9FYlhYLWxNTk5EUHdhSnotTzFkeFBiN2JHV0VDblFDOVJIRkk0QWlGc3ZEdWRRaWNhSGxGdW1KX0ZaUElWQlJpOU1hNWZnOThmNA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-06-11",
       "category": "naphtha"
     }
   ]
