@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "items": [
     {
       "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増",
@@ -27,6 +27,13 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XQUw3TFNKM3Q1MWpoUkUybkJXYUplaUVwM3lOTl9JOFNCVXpFY3J1LTZ2M1VmZHllS0FHS2JXZkRsVW9CUFpTVHgwaHYzMmlucHc0?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-28",
+      "category": "naphtha"
+    },
+    {
+      "title": "価格修正ダイジェスト（７月２０～２４日） - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBONTNTa1JCbkFFT1RKcUlROXZLMzJYVGZnQWkwNWtXRXEtV09MZDVJdnR1MkZ5amY4UnlaN1dDeWxaY0FYUkpZUU9YSk9RUTBmblhJ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-27",
       "category": "naphtha"
     },
     {
@@ -112,6 +119,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-03",
       "category": "ethylene"
+    },
+    {
+      "title": "石化協の筑本新会長、「エチレン生産設備の稼働改善へ」",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xN09MaUpEcEhQYlU0SElyZllQclhHYzRjZ3ZJNko3VzhTNWJLeDlpU3BSQ3VwWGVyOFBtYjhOVkpvN0VuQmsyRTJIWFctQjZmNTRrR0hPUnRvUzVaUjRXS0pjMmlNbHBobXZTbw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-02",
+      "category": "naphtha"
     },
     {
       "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 - 日経クロストレンド",
@@ -261,22 +275,8 @@
       "category": "naphtha"
     },
     {
-      "title": "包装資材再値上げ必至 フィルム・溶剤・インキ上昇 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE55SjFTNXVBbklkSU1iM2tIWnp3a0dKWXNpbHBqRnJqaHhhT0JiRkE4S182dFo3ZUVNZGFsemt1T0MtVHhlMUZJUXQ1b3BROEt1NS1Z?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-11",
-      "category": "packaging"
-    },
-    {
       "title": "ナフサなどの調達、8割超の企業「支障ある」 商工リサーチ調べ",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1SaGtwbW5NYlZyNlllYUQzSUFtRGRzc2J6dm9FYlhYLWxNTk5EUHdhSnotTzFkeFBiN2JHV0VDblFDOVJIRkk0QWlGc3ZEdWRRaWNhSGxGdW1KX0ZaUElWQlJpOU1hNWZnOThmNA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-06-11",
-      "category": "naphtha"
-    },
-    {
-      "title": "ナフサ「お金出せば確保可能」 化学大手が悩む高値在庫リスク",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE42WmFKUlNwS1ZGOHRQN2RJanY1SWdxYTFpaXl6am5QWlBjSHRrM29IOXlMUlJOdmpZSXE1b0ZyX19mVDBSb1N6MEVfS1dqR1dUZ2J6cTMyNzhQdGNiYl9WS290bGJIY3ZlcVA3ag?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-06-11",
       "category": "naphtha"
