@@ -1,13 +1,6 @@
 {
-  "updated": "2026-08-13",
+  "updated": "2026-08-14",
   "items": [
-    {
-      "title": "東洋製缶、軟包装材の資源循環実証に参加 9社が連携",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrcmxwVUVjZ2NWVzdZNWlGdmU2TC1zT3piMFBjQTJsZHBxcXdPUU91d0pLZmtZQjJXNktzRlA1ekVTbVh6bnhIUFVmU3IyLWdsV2JvcnZEQzYycUFlYXZQXzV0ZkpBYWFscnB6aQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-08-06",
-      "category": "aluminum"
-    },
     {
       "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBXWnRkZC1WWlZ1eDZ0ZG12V0RFSkxMM0d1UmRBTzJFMEFPdUkyMmFVeW40cVl6WFZ2SzNjMGZRN3FNZUZ0UTB1NlJvNWdqdXJwVmdOM2Fsa2xVcWc4Y21FWDlwa1Jyc2Iwc1ZsLQ?oc=5",
@@ -16,11 +9,11 @@
       "category": "naphtha"
     },
     {
-      "title": "決算:LIXIL最終赤字35億円 4〜6月、アルミ高騰が重荷",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9jXzNyR2FKYWNXR0MwbUVIMlAwTWVnaGo0YzdUWlpHMG9ZZFEwVDBPYzByaHhxYmJnQ1pyWjhzV3ZiRjV2dDhsNEw2X3BaQ2NOZ1NZQ2prU3RUZFQ5VzhGWWh2ZEJMX0poM3pWWg?oc=5",
-      "source": "日本経済新聞",
+      "title": "４～６月の国産ナフサ１１・８万円 上げ幅含め最高 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBTRkJwcFlBbDQtRXFVMTc5bkw5bEZyYnB0amtHcHY4M0tRNklZVEFZVVBkU0x3V2dkQnZHM1k4UDZ3UFdQVlNzT0xZSUpSeFZqbXZN?oc=5",
+      "source": "化学工業日報 電子版",
       "pubDate": "2026-07-31",
-      "category": "aluminum"
+      "category": "naphtha"
     },
     {
       "title": "国産ナフサ高止まり ７～９月は１０万円近傍の様相 - 化学工業日報 電子版",
@@ -37,23 +30,9 @@
       "category": "naphtha"
     },
     {
-      "title": "プラ製緩衝材→段ボール製に 山内紙器、引き合い増 - ニュースイッチ by 日刊工業新聞社",
-      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTFAzV015RVFPcV9JTEFVTHZwNnozN1l1dzl3Nnk4NFFsM2lEeGNuaVc4NkFzTXU1TVM0TTNYcmhxR1pxUQ?oc=5",
-      "source": "ニュースイッチ by 日刊工業新聞社",
-      "pubDate": "2026-07-25",
-      "category": "naphtha"
-    },
-    {
       "title": "石油化学製品が輸入超過に ナフサ高騰でエチレン調達14倍",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBSUUVfWVNRYzF1VEdWV3JmeEM5R0xNR2JXN1FRa1A4em9MUnBJbnFINEl6YkJpcGFsV20yMERPOEN5OGNwUV90Z3Z3WDVsbzFYRlhLMW5XLTF4UGo1ZkZRUUJlV2d0WGN0UGRjdg?oc=5",
       "source": "日本経済新聞",
-      "pubDate": "2026-07-23",
-      "category": "naphtha"
-    },
-    {
-      "title": "タンカー通過10隻→60隻→一桁、停戦合意もホルムズ危機再び 韓国は中国頼る - business.nikkei.com",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmSW1hUERkV3RzQW4yZzFQQVhDVkRFazE1UlFNSkNDRWRVN2V1dUk5UWRON2hteWFDZkhNbjJRS2ZnRXBGN296VG5uQmpXaXBvZm94Z2xMZGNjZS1BckptUnhvYjdGTXc?oc=5",
-      "source": "business.nikkei.com",
       "pubDate": "2026-07-23",
       "category": "naphtha"
     },
@@ -86,16 +65,9 @@
       "category": "aluminum"
     },
     {
-      "title": "三菱商事が狙う「高機能肥料」 ホルムズ封鎖が突く食料生産の急所",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5rdmNFcm83elpabWpVSVp6Y2lXWlRkcmhnRnVKS2hCMG5rTTVVOUdBcXdEdGFPWU56akUwdE1iekZnbnd4OG4tNHktbHRIZkFJY2dRTkxhMm1hOWstMXVqU2kyc042djJ0TVFQdQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-10",
-      "category": "urea"
-    },
-    {
-      "title": "日本ペイントやLIXILが「値上げしない脱炭素」 建築資材のCO2削減を競争力に - business.nikkei.com",
+      "title": "日本ペイントやLIXILが「値上げしない脱炭素」 建築資材のCO2削減を競争力に - 日経ビジネス電子版",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5hQjJZNWJ6c1FlQTBlOWxGclIzWFZoOFBIOVVnRlVGZkZNVi1MZktxeFlGMDBhMVdFa0RfOFpaUTF0TG1aZ2ZSXzdIRFdFV3dzekdJSXRkemE5MS1GQlkxWGZYcG55Unc?oc=5",
-      "source": "business.nikkei.com",
+      "source": "日経ビジネス電子版",
       "pubDate": "2026-07-06",
       "category": "aluminum"
     },
@@ -191,9 +163,9 @@
       "category": "naphtha"
     },
     {
-      "title": "ホルムズ海峡封鎖の余波 中国が世界最大級の石油化学製品輸出国に - business.nikkei.com",
+      "title": "ホルムズ海峡封鎖の余波 中国が世界最大級の石油化学製品輸出国に - 日経ビジネス電子版",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1tT2tYZ0d2R2NrdFdZTFdwQzdfSndFTTYyWjhrQTg0cDctWGFld2JHUl93Z09Ha0RDekhjVWEtUWhWR3VqWUFYU0dVRVFoaEQzMWJjXzV3aFU2SFNUdFZaRUdOMGFWb1U?oc=5",
-      "source": "business.nikkei.com",
+      "source": "日経ビジネス電子版",
       "pubDate": "2026-06-25",
       "category": "naphtha"
     },
@@ -212,9 +184,9 @@
       "category": "aluminum"
     },
     {
-      "title": "「買うなら1時間内に前金を」 ナフサ危機に即応した長瀬産業、緊迫の現場 - business.nikkei.com",
+      "title": "「買うなら1時間内に前金を」 ナフサ危機に即応した長瀬産業、緊迫の現場 - 日経ビジネス電子版",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAtQ3FrWWNWSFltcUk5djM4dHJTSVE3V1VjMkprLWZMbHZmRFB0YzZIekh5czdVeVQxZnFsNEVCMUxHSWdiUUpCOFRxWmxBcVFaWlpzVVNOalF1aE02U1JLOWF3dmE2WnM?oc=5",
-      "source": "business.nikkei.com",
+      "source": "日経ビジネス電子版",
       "pubDate": "2026-06-23",
       "category": "naphtha"
     },
@@ -226,9 +198,9 @@
       "category": "naphtha"
     },
     {
-      "title": "止まる工事、相次ぐ値上げ きしむ化学品供給網 「牛追い鞭効果」の罠 - business.nikkei.com",
+      "title": "止まる工事、相次ぐ値上げ きしむ化学品供給網 「牛追い鞭効果」の罠 - 日経ビジネス電子版",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFAyajA3dTF1aGw0RFEtSmxRd1ZYUE84LVU2ckVWRDJuczBFTmMwNVZ4UDJQbDdoczRJcFMzbWZ2emNOdUNqNFpFWE94LXU4WUtKZTUwdU55eFBsbVFsUmlwMkNtLUk?oc=5",
-      "source": "business.nikkei.com",
+      "source": "日経ビジネス電子版",
       "pubDate": "2026-06-19",
       "category": "naphtha"
     },
@@ -280,6 +252,34 @@
       "source": "日本経済新聞",
       "pubDate": "2026-06-11",
       "category": "naphtha"
+    },
+    {
+      "title": "アジア石油化学の中国一強、中東危機で加速 日本が探る対中連携網",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5jSkhmVUpFNXhDVFA0YlhGYkt1N2lCQVFtU2xOTFhqUndadlhwdC0zMjFUTzhWVkJSZG1pM0JxQVBIcnVGQ2dQdGRVYnE0cXRWLXIzQko4M1ZsNXMxS21RVmtqRGZrLWJxdUgyWg?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-06-10",
+      "category": "naphtha"
+    },
+    {
+      "title": "タイ特集 石油化学、ホルムズ緊迫も供給寸断を回避 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE95VWdpZ1Z0TjNidHc3bHQ1dmJVa3lROXlvUm1OVE12aVZhRXJ6Sld6dnZjcXhnVDVqZVB2cUVPNWJPRnA4QkxZQW9XZmpSTkctLU04?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-06-08",
+      "category": "ethylene"
+    },
+    {
+      "title": "タイ特集 エージレス・タイランド、タイでも脱酸素剤販売へ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB4aG81N2U4SW80TG5FVTJnMmV5ejZCNzAxUmc4QTNfaHRRcUhXcnN2QVpLYVJoOG1uRjlwZGJnWVBGX2Itcm5HTUJuLUNhSVppeEtn?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-06-08",
+      "category": "packaging"
+    },
+    {
+      "title": "東洋エンジ、シンガポールでエチレン改修受注",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1zTGpWRXoyZWR3UTd6SUhYN1NOR2FCTEZWN3hfYlR0UG9PamMyXzZHWFVBM2swQUJmOHJWemV1a3NPMnQ2RUdUY0VKMjBSOFBPTExuSnA0MXFXMklRQlVJRUxZaGlHSTJIUm9aaE9XYnQwTGdG?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-06-07",
+      "category": "ethylene"
     }
   ]
 }
