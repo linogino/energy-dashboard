@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-15",
+  "updated": "2026-08-16",
   "items": [
     {
       "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増",
@@ -23,13 +23,6 @@
       "category": "naphtha"
     },
     {
-      "title": "価格修正ダイジェスト（７月２０～２４日） - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBONTNTa1JCbkFFT1RKcUlROXZLMzJYVGZnQWkwNWtXRXEtV09MZDVJdnR1MkZ5amY4UnlaN1dDeWxaY0FYUkpZUU9YSk9RUTBmblhJ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-27",
-      "category": "naphtha"
-    },
-    {
       "title": "プラ製緩衝材→段ボール製に 山内紙器、引き合い増 - ニュースイッチ by 日刊工業新聞社",
       "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTFAzV015RVFPcV9JTEFVTHZwNnozN1l1dzl3Nnk4NFFsM2lEeGNuaVc4NkFzTXU1TVM0TTNYcmhxR1pxUQ?oc=5",
       "source": "ニュースイッチ by 日刊工業新聞社",
@@ -42,6 +35,13 @@
       "source": "日本経済新聞",
       "pubDate": "2026-07-23",
       "category": "naphtha"
+    },
+    {
+      "title": "５月エチレン換算輸出５６％減 異例の輸入超過 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBKTUFZdU81cW1teWpESUh2Q0hmb1JUdDdoRnZ5T1JBazh6cHMtLU9JcGVfdGxWUjltV1dTeExMeXg1OXJYYTlvLTB2QlY3aUtRcFNV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-21",
+      "category": "ethylene"
     },
     {
       "title": "ＯＳＰＨＤ、印刷調整用フィルムの再利用実証 - 化学工業日報 電子版",
@@ -67,6 +67,13 @@
     {
       "title": "エチレン稼働率、6月66.5%で最低 ナフサ値下がり見越して買い控え",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zTWhabWpfR0dyTkZZZXM3SHF4T2c3MFZNZlJORTRCdmxYNkxsU25iVkFQQUpaQTRvbTFMWEFJOWlRTHM1d3M5Q2xWOVgzSm5VRUlUc0FBZHhQa0RoN1JHR0RYOFVvb3dCLWJlSw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-16",
+      "category": "naphtha"
+    },
+    {
+      "title": "中国の石化生産、ナフサ不足に動じず 代替原料で中東リスク軽減",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBKRTh5X1dNNjhGMWMydzRyZDVwYzZrbFFXdS1uN282dEN6dGhTS1BYUFE1WWQtWTZmQ3pDU2s3eldWeW81ak5DYVdLMHpOOEhtQVJ4d01nQkdkVjVpZFA0eDZCTnlwWmdUR05FTw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-07-16",
       "category": "naphtha"
@@ -114,9 +121,9 @@
       "category": "naphtha"
     },
     {
-      "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 - xtrend.nikkei.com",
+      "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 - 日経クロストレンド",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5qWVNGS1J1am9Yd1cwVFlxWFBKLU9FbzFKU28wLXUzMWMwa0FNeVZDR2xWYk14U2p3VU1iZ29lZ3lndHNJLVVwRnlaY1JRaGVqQUtVOXlHSDFGWW5abUpCQVNTbi1JWi0zWUwyM2oyMA?oc=5",
-      "source": "xtrend.nikkei.com",
+      "source": "日経クロストレンド",
       "pubDate": "2026-07-02",
       "category": "aluminum"
     },
@@ -128,9 +135,9 @@
       "category": "ethylene"
     },
     {
-      "title": "ロッテがミネラルウオーター参入 アルミ缶入りで差別化、若者狙い撃ち - xtrend.nikkei.com",
+      "title": "ロッテがミネラルウオーター参入 アルミ缶入りで差別化、若者狙い撃ち - 日経クロストレンド",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBDdHpQQTc3OS1EcjBCbWpRc2tVWVM3Y2hIUEJBM1d3T002NFYzbzY4emRVUjZyY1dkWEtjX0txeWQ2XzRkc3VKWEU0d253ci1MUHBSSm92OFhSbVAySjRNakotMjNmZw?oc=5",
-      "source": "xtrend.nikkei.com",
+      "source": "日経クロストレンド",
       "pubDate": "2026-07-01",
       "category": "aluminum"
     },
@@ -198,9 +205,9 @@
       "category": "naphtha"
     },
     {
-      "title": "カルビー白黒包装で購入意向が激減 3000人調査で判明、湖池屋を下回る - xtrend.nikkei.com",
+      "title": "カルビー白黒包装で購入意向が激減 3000人調査で判明、湖池屋を下回る - 日経クロストレンド",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1WT3o2MUpmcGdUUzRCZG1PVkRLR2hSeXF6di1hd1FxeEszZUZuVjBid1VHeFhidGhyOXdUdVdrVXNFd1laY240NXFXMXBwOHBaam5PZi1iT2NjYk5nT3gtbmJVMTFxZw?oc=5",
-      "source": "xtrend.nikkei.com",
+      "source": "日経クロストレンド",
       "pubDate": "2026-06-24",
       "category": "aluminum"
     },
@@ -273,13 +280,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-06-10",
       "category": "naphtha"
-    },
-    {
-      "title": "タイ特集 石油化学、ホルムズ緊迫も供給寸断を回避 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE95VWdpZ1Z0TjNidHc3bHQ1dmJVa3lROXlvUm1OVE12aVZhRXJ6Sld6dnZjcXhnVDVqZVB2cUVPNWJPRnA4QkxZQW9XZmpSTkctLU04?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-08",
-      "category": "ethylene"
     }
   ]
 }
