@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16",
+  "updated": "2026-08-17",
   "items": [
     {
       "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増",
@@ -37,11 +37,11 @@
       "category": "naphtha"
     },
     {
-      "title": "５月エチレン換算輸出５６％減 異例の輸入超過 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBKTUFZdU81cW1teWpESUh2Q0hmb1JUdDdoRnZ5T1JBazh6cHMtLU9JcGVfdGxWUjltV1dTeExMeXg1OXJYYTlvLTB2QlY3aUtRcFNV?oc=5",
+      "title": "半導体材料特集 ＫＨネオケム、溶剤にメモリー需要追い風 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1xMk0tV1d2OVB2RkxxTWtycGNKaE40dzVQTl9WLVZIWXhEbWFwZElwQjRGamhNM0FxeHVzYlB5a0owUEtTNHp3ZWtFZ2QxQ3RBb2dZ?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-21",
-      "category": "ethylene"
+      "category": "propylene"
     },
     {
       "title": "ＯＳＰＨＤ、印刷調整用フィルムの再利用実証 - 化学工業日報 電子版",
@@ -79,18 +79,18 @@
       "category": "naphtha"
     },
     {
-      "title": "主要資材で「時間差インフレ」 鉄鋼・化学製品など過半が値上がり",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBuR3Myek9fYnpNQlA2eEJxb1JNUzdOMkhJbEdtN1VpUU54bEtodlZEQTgzY1hCeHJ0MGZhcFpMMDRVY0xlVWMwUkRkWXBsQm1fWVVWU0U0Smx1b0hSVGtIZV9keGNZQU1IY1RySQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-11",
-      "category": "aluminum"
-    },
-    {
       "title": "三菱商事が狙う「高機能肥料」 ホルムズ封鎖が突く食料生産の急所",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5rdmNFcm83elpabWpVSVp6Y2lXWlRkcmhnRnVKS2hCMG5rTTVVOUdBcXdEdGFPWU56akUwdE1iekZnbnd4OG4tNHktbHRIZkFJY2dRTkxhMm1hOWstMXVqU2kyc042djJ0TVFQdQ?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-07-10",
       "category": "urea"
+    },
+    {
+      "title": "伊藤忠とダイキン、エアコンからアルミ回収 脱中東依存へ資源循環網",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ISzRucG83RTNoS3NMRWRZcWRSS1lFc2EtRE9ILWg1LThqOWlJMVlvU3k0SlVkSWpnRGV5Um9scXl4OFpEcTY1WTVPZUJfY2xGVURSRHo1dUhvLUJYQ00zMnNuNlRMbXM4SmZyZw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-08",
+      "category": "aluminum"
     },
     {
       "title": "日本ペイントやLIXILが「値上げしない脱炭素」 建築資材のCO2削減を競争力に - 日経ビジネス電子版",
@@ -168,13 +168,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-06-29",
       "category": "ethylene"
-    },
-    {
-      "title": "創立９０周年記念特集 第１部 中東ショック、石化サプライチェーンに衝撃 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBmSUxPLURYNF9wX3ByVWNkaEd0SXI0SExTSDUwb0xXTzRKelhpVFlWZlBBMVJOWXQ4X042ZkNQcDVLcjJrNkliMDZheWxpemVZZWZz?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-06-29",
-      "category": "packaging"
     },
     {
       "title": "ナフサ、アジアで下落 中東衝突前を下回る",
@@ -280,6 +273,13 @@
       "source": "日本経済新聞",
       "pubDate": "2026-06-10",
       "category": "naphtha"
+    },
+    {
+      "title": "タイ特集 石油化学、ホルムズ緊迫も供給寸断を回避 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE95VWdpZ1Z0TjNidHc3bHQ1dmJVa3lROXlvUm1OVE12aVZhRXJ6Sld6dnZjcXhnVDVqZVB2cUVPNWJPRnA4QkxZQW9XZmpSTkctLU04?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-06-08",
+      "category": "ethylene"
     }
   ]
 }
