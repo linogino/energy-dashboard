@@ -1,12 +1,33 @@
 {
-  "updated": "2026-08-20",
+  "updated": "2026-08-21",
   "items": [
     {
-      "title": "６月の石油製品ＣＩＦ単価、原油が２・５８ドル高 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBlU3UtVXIxalU0TW9Qa1FsUkhEQktXaVl3VXBBU01TX2Q1ak9WVTFTWHd3bEtyYUxfQWN3T0kyMUx3VlBiRnA4V3VWU05ITVo0LTRv?oc=5",
+      "title": "エチレン７月稼働率６９・９％ 改善傾向も低位操業 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBXN3hWTm9PZUR6OWJzYzJfRG5DR1ZRMVJ2SkxkX21HVGx1eHc2TnQ4OW54MlRpVUg1SXBWWkRSVFNEUG9Ma2FfWkxkQ1JmaFBHVTVn?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-20",
+      "category": "naphtha"
+    },
+    {
+      "title": "伊藤園、栄養機能食品「カリウム野菜」を発売",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4yaDFSNG9PMDN4YTlGbU9NQWlOXzBtdnZPRnJ2R0RmalVieXBwRm9ONXFsSlJ6WTEzSUJmdnRVZHFyYUVGUVVhS3VVTzhra2tEY3Y2TVF0X3E0MU0tNDB6TzhoWHBQRWVKNjQyaw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-08-20",
+      "category": "aluminum"
+    },
+    {
+      "title": "包装機械工業会、学生向け包装業界見学ツアー開催 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5INDkwemw4OE9QRzhXc1B0N05Jc25Jd3JwUTFXVnZkaV9TdDVyRm5wZlRUN3VHU1VvbV96eG1rX3pkRjFDc2h3eEZVU25uT052X2cw?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-08-19",
-      "category": "naphtha"
+      "category": "packaging"
+    },
+    {
+      "title": "６月のＯＰＰフィルム出荷１２％増 食品用途伸び - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5fSDA4WDRBVi01ZWJuNmI4OUhGck9pdXhUTUpsWU5RZEhqMmFQbmc0MUtwcDEwYWJfb0hDdnZnY3VqS0syZzdxTGNLTFI4aTVreFpJ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-19",
+      "category": "packaging"
     },
     {
       "title": "経産省、原油・ナフサ値差支援へ 脱ホルムズを促進 - 化学工業日報 電子版",
@@ -16,16 +37,16 @@
       "category": "naphtha"
     },
     {
-      "title": "石油化学、半世紀進まぬ再編「情けない」 再びの中東危機が迫る覚悟 - nikkei.com",
+      "title": "石油化学、半世紀進まぬ再編「情けない」 再びの中東危機が迫る覚悟",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5aZ1JzbWVTMHV2QlJncjlQemZxcmdCeTFhYUdsbm5vX3B0VkdNMTg0MGtfMnotM1dPVWI1ZHVNT05hWmtrcklOR0lncWpCOFhLYVZtYXEzM0lGc2hnNDZkbG9YV2FvZ3ZiMXhPZA?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-08-17",
       "category": "naphtha"
     },
     {
-      "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増 - nikkei.com",
+      "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBXWnRkZC1WWlZ1eDZ0ZG12V0RFSkxMM0d1UmRBTzJFMEFPdUkyMmFVeW40cVl6WFZ2SzNjMGZRN3FNZUZ0UTB1NlJvNWdqdXJwVmdOM2Fsa2xVcWc4Y21FWDlwa1Jyc2Iwc1ZsLQ?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-08-05",
       "category": "naphtha"
     },
@@ -37,9 +58,9 @@
       "category": "naphtha"
     },
     {
-      "title": "国産ナフサが最高値更新、4〜6月の価格確定 中東危機で2倍に - nikkei.com",
+      "title": "国産ナフサが最高値更新、4〜6月の価格確定 中東危機で2倍に",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1rWmNzTlJEdzZSYnAtQnAxeVZERWdERnhiOFM4RE1VWnEtVFc2NzFLOWJrRy1VYXoyUlYyWGRUdWdOODcwYW4xZnpDcUNjZ09ZZVFWWUhlMzNZVWY2RF9rRm43bU1wQW56aFJNUA?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-30",
       "category": "naphtha"
     },
@@ -58,9 +79,16 @@
       "category": "naphtha"
     },
     {
-      "title": "石油化学製品が輸入超過に ナフサ高騰でエチレン調達14倍 - nikkei.com",
+      "title": "微生物から半導体部材の原料量産 東大発新興企業、ナフサ依存脱却へ",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Ya01CUGRONjJUWDYxOXlWeGk2LWlDMkEzVFVaYXhFM1F0UHduTFU2REQ4ai0tcFY0cm9ndktQbThRMUZZbDlVdFBfV3lJaTFDNFpfc2VQVEVQSkU2LWE0X000ZTZRMS1mT1pKag?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-24",
+      "category": "naphtha"
+    },
+    {
+      "title": "石油化学製品が輸入超過に ナフサ高騰でエチレン調達14倍",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBSUUVfWVNRYzF1VEdWV3JmeEM5R0xNR2JXN1FRa1A4em9MUnBJbnFINEl6YkJpcGFsV20yMERPOEN5OGNwUV90Z3Z3WDVsbzFYRlhLMW5XLTF4UGo1ZkZRUUJlV2d0WGN0UGRjdg?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-23",
       "category": "naphtha"
     },
@@ -107,18 +135,18 @@
       "category": "ethylene"
     },
     {
-      "title": "中国の石化生産、ナフサ不足に動じず 代替原料で中東リスク軽減 - nikkei.com",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBKRTh5X1dNNjhGMWMydzRyZDVwYzZrbFFXdS1uN282dEN6dGhTS1BYUFE1WWQtWTZmQ3pDU2s3eldWeW81ak5DYVdLMHpOOEhtQVJ4d01nQkdkVjVpZFA0eDZCTnlwWmdUR05FTw?oc=5",
-      "source": "nikkei.com",
+      "title": "エチレン稼働率、6月66.5%で最低 ナフサ値下がり見越して買い控え",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zTWhabWpfR0dyTkZZZXM3SHF4T2c3MFZNZlJORTRCdmxYNkxsU25iVkFQQUpaQTRvbTFMWEFJOWlRTHM1d3M5Q2xWOVgzSm5VRUlUc0FBZHhQa0RoN1JHR0RYOFVvb3dCLWJlSw?oc=5",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-16",
       "category": "naphtha"
     },
     {
-      "title": "エチレン稼働率、6月66.5%で最低 ナフサ値下がり見越して買い控え - nikkei.com",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zTWhabWpfR0dyTkZZZXM3SHF4T2c3MFZNZlJORTRCdmxYNkxsU25iVkFQQUpaQTRvbTFMWEFJOWlRTHM1d3M5Q2xWOVgzSm5VRUlUc0FBZHhQa0RoN1JHR0RYOFVvb3dCLWJlSw?oc=5",
-      "source": "nikkei.com",
+      "title": "中国の石化生産、ナフサ不足に動じず 代替原料で中東リスク軽減",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBKRTh5X1dNNjhGMWMydzRyZDVwYzZrbFFXdS1uN282dEN6dGhTS1BYUFE1WWQtWTZmQ3pDU2s3eldWeW81ak5DYVdLMHpOOEhtQVJ4d01nQkdkVjVpZFA0eDZCTnlwWmdUR05FTw?oc=5",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-16",
-      "category": "ethylene"
+      "category": "naphtha"
     },
     {
       "title": "イラン情勢とナフサ・石化市場テーマにセミナー - 化学工業日報 電子版",
@@ -128,30 +156,30 @@
       "category": "naphtha"
     },
     {
-      "title": "レゾナック、廃プラを基礎化学品に再生 中東ナフサ依存脱却の一手に - nikkei.com",
+      "title": "レゾナック、廃プラを基礎化学品に再生 中東ナフサ依存脱却の一手に",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9lWmNsZ1pKTFgySGRja1E1bTRBblA5ZG9uLUhXa1hld21VTHJJYVk0Uy1UeXRHdFA5RUlQUlJPRXJibjBmQ0g5ekd0d1BSMWtTSlAwbTFoekFaM0ZZQzBEd3I1bW9ndkxzY2R1bQ?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-14",
       "category": "naphtha"
     },
     {
-      "title": "主要資材で「時間差インフレ」 鉄鋼・化学製品など過半が値上がり - nikkei.com",
+      "title": "主要資材で「時間差インフレ」 鉄鋼・化学製品など過半が値上がり",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBuR3Myek9fYnpNQlA2eEJxb1JNUzdOMkhJbEdtN1VpUU54bEtodlZEQTgzY1hCeHJ0MGZhcFpMMDRVY0xlVWMwUkRkWXBsQm1fWVVWU0U0Smx1b0hSVGtIZV9keGNZQU1IY1RySQ?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-11",
       "category": "aluminum"
     },
     {
-      "title": "三菱商事が狙う「高機能肥料」 ホルムズ封鎖が突く食料生産の急所 - nikkei.com",
+      "title": "三菱商事が狙う「高機能肥料」 ホルムズ封鎖が突く食料生産の急所",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5rdmNFcm83elpabWpVSVp6Y2lXWlRkcmhnRnVKS2hCMG5rTTVVOUdBcXdEdGFPWU56akUwdE1iekZnbnd4OG4tNHktbHRIZkFJY2dRTkxhMm1hOWstMXVqU2kyc042djJ0TVFQdQ?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-10",
       "category": "urea"
     },
     {
-      "title": "太陽工業、暑さ対策で雪を配送 新潟→首都圏まで特殊な袋で - nikkei.com",
+      "title": "太陽工業、暑さ対策で雪を配送 新潟→首都圏まで特殊な袋で",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5oTTN3YURZTEFwQW1ZM2d4RTliODlaaEI0eFZSeGZlLWFnUU1lNl9NVDExVGd5UWpIRmFsYklUc3daUXRrMW82enI1SDk1bkxKN3NvdWVVOHdDTDUtN0VJdVA1cXJ5UC1zcTllMA?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-08",
       "category": "aluminum"
     },
@@ -163,9 +191,9 @@
       "category": "aluminum"
     },
     {
-      "title": "汎用樹脂、一段高に 4月比1割上昇 原料ナフサ高騰で - nikkei.com",
+      "title": "汎用樹脂、一段高に 4月比1割上昇 原料ナフサ高騰で",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1NSEtFM01ITDhrSDVndmtydDkxOVJBOFdHaXoweXJkMnIwZG1oRVRydllnTURSTVhWYWxoZHFMSFBkV1dPcEdlcV9UNXMwWlFkc1BsY0lsZktSTS1LbUpSZUFvSVpDaDQ2WGg5SQ?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-04",
       "category": "aluminum"
     },
@@ -184,9 +212,9 @@
       "category": "ethylene"
     },
     {
-      "title": "石化協の筑本新会長、「エチレン生産設備の稼働改善へ」 - nikkei.com",
+      "title": "石化協の筑本新会長、「エチレン生産設備の稼働改善へ」",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xN09MaUpEcEhQYlU0SElyZllQclhHYzRjZ3ZJNko3VzhTNWJLeDlpU3BSQ3VwWGVyOFBtYjhOVkpvN0VuQmsyRTJIWFctQjZmNTRrR0hPUnRvUzVaUjRXS0pjMmlNbHBobXZTbw?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-07-02",
       "category": "naphtha"
     },
@@ -212,16 +240,16 @@
       "category": "aluminum"
     },
     {
-      "title": "5月のナフサ販売量18%減 3カ月連続2桁マイナス、設備稼働率低く - nikkei.com",
+      "title": "5月のナフサ販売量18%減 3カ月連続2桁マイナス、設備稼働率低く",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBscHdPdlJtNVNKTkRfSExLTEZvUmFIWTJfSS1iakZHRmdEYkt5SlBhNFdhVHRqVVVucEZvQXVXQVQzdXNkcXRMeXNXX0ZKWWFHZGV1emd0WThMbXprZmxjSUkzZ2RiTUF0TlBzYQ?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-06-30",
       "category": "naphtha"
     },
     {
-      "title": "アルミ二次合金、6月も横ばい 地金高騰が一服 - nikkei.com",
+      "title": "アルミ二次合金、6月も横ばい 地金高騰が一服",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9WbzBpVkNkTUFoMjk4bWFDdVpWclhZRFhSVUMyWWlwXzFvNmNIUjNXQTFpMTJjUVBoQlh3bVlmMWRRWDlZUWw5VnVXb0FfRHNwTEllbDVveFBoMjB6bzBYLXhoRTh1SnR4djJqSg?oc=5",
-      "source": "nikkei.com",
+      "source": "日本経済新聞",
       "pubDate": "2026-06-30",
       "category": "aluminum"
     },
@@ -252,34 +280,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-06-29",
       "category": "packaging"
-    },
-    {
-      "title": "ナフサ、アジアで下落 中東衝突前を下回る - nikkei.com",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VelZSOWNRMndfYTljTkxYRjFEX0tVVmlzdE5aZ2VEZjg4RkNBdk9wNnBSaFRQN1B5aktKV3hoaEFVTkU5bHJvY3VVcFZKOEVuX0pDSFRmQ3l3d3ZOMXBENTl2YXUwN2w2b3l3Uw?oc=5",
-      "source": "nikkei.com",
-      "pubDate": "2026-06-26",
-      "category": "naphtha"
-    },
-    {
-      "title": "ホルムズ海峡封鎖の余波 中国が世界最大級の石油化学製品輸出国に - 日経ビジネス電子版",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1tT2tYZ0d2R2NrdFdZTFdwQzdfSndFTTYyWjhrQTg0cDctWGFld2JHUl93Z09Ha0RDekhjVWEtUWhWR3VqWUFYU0dVRVFoaEQzMWJjXzV3aFU2SFNUdFZaRUdOMGFWb1U?oc=5",
-      "source": "日経ビジネス電子版",
-      "pubDate": "2026-06-25",
-      "category": "naphtha"
-    },
-    {
-      "title": "ナフサ価格がアジアで下落、衝突前下回る 代替調達で供給懸念が後退 - nikkei.com",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ZYURRRFV4Ym1YMEcxa0JzNmtPdW5RaTF1ZVAxYm9BXzhBenVoSHl3VjZ3bTE2S3Njb2w3NW1wa3lpdWxEMUl4dldoaEVkd3dZT1NVT0xzYmxBWlpUTTYzQ3pERXhmWVpvRkJLRw?oc=5",
-      "source": "nikkei.com",
-      "pubDate": "2026-06-25",
-      "category": "naphtha"
-    },
-    {
-      "title": "三菱ケミカルG社長、「石油化学事業の再編は必然」 - nikkei.com",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE51dXpfb3ZJcXFyVDNqX2hESU91SnNZRGhFTFEwVHV1RDlfMDFkX1BhYy1PZ1M0MTlXNGpIZ1Y1SVVadl9rQ1M0ZDJGUFRsUm5zM0E3ZHVvM0RkMUlyTmppZnNiaDdNNmZFam1uVA?oc=5",
-      "source": "nikkei.com",
-      "pubDate": "2026-06-24",
-      "category": "naphtha"
     }
   ]
 }
