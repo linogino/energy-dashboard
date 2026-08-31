@@ -1,6 +1,34 @@
 {
-  "updated": "2026-08-30",
+  "updated": "2026-08-31",
   "items": [
+    {
+      "title": "７月のナフサ輸入、前月比１１・３％増 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1DNFNSUHZVUjU3bmJPSUxDcnN4YmIyNmdUWm1wN1ZUYzVfR0UwWkhadGtxTnA1VnFfeVBLbzJNSEpqclhrajh1T2ZZbzRETmMtZTkw?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-30",
+      "category": "naphtha"
+    },
+    {
+      "title": "シンガポール特集 ＰＣＳ、エチレン設備の運営基盤強固 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1reTE0c2pZU3VYQnJLalNlRmRqWElvUTVORU13OU5BZ1R2bWFONlJuQ3ZWZkNuQnpjaFpaRjNKSDM0MEE5QlpKaG90b1RQbU5fYWtV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-30",
+      "category": "ethylene"
+    },
+    {
+      "title": "ＳＣＧ、ラヨン設備でオレフィン再稼働へ - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qRzRmS3p6VVUxYU14Tm5pak1tOWcwNjBGdEFTdW5CTWpUVzdqVk1EVDkwNmtyaE9hemZNeHlRUml0b3JyNk9wcElBRWRUcVNQVlBR?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-30",
+      "category": "ethylene"
+    },
+    {
+      "title": "シンガポール特集 ザ・ポリオレフィン・カンパニー、ＰＰ新規用途開拓に期待 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qTlR3REY0MXEyZjJoN1VqRXJJRWpfbUhNLVRBM1h6SmIwWGlHZVp5UzVzREdSUThCOC1XNnhWVkswYVNWYVoyeG9Ua2N5ZmRuTmhB?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-30",
+      "category": "packaging"
+    },
     {
       "title": "エチレン生産、11月1.3％増 主要4樹脂、出荷は全てプラス",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YRlAxTVlWVC14Y3hEa0UwLUZjMUR1NkZ5VlRJLWdSel8wV0o3UEJWWm5TaU5MSks4Y2FWaUk2MWctdUNaNFgxWS00Z2dwQ3c3ZC1XSFNvSUMxSnN5QXdQdlJJeDN4cHpPQXZHS296VQ?oc=5",
@@ -72,22 +100,8 @@
       "category": "naphtha"
     },
     {
-      "title": "昨年のエチレン生産、８．９％増−２７カ月ぶり稼働率９０％回復",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5ScDFrUUliczVxOXJGUVAybUlxRGpsdV95cW95WFVfZUlfSDU5emlTWG12MTRDM1dROWlnTUlPaTRuNFdDMXppVjNIT3NXVEJGM25mRkJ3bmVwMTRBZklSdjNjTldERHp4cElSc3NnVQ?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-08-26",
-      "category": "ethylene"
-    },
-    {
       "title": "エチレン生産の４月、１３％増−石化協発表",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1vUkFfY0R3LWY5YWFEM293dmN5SkdhX2ZWT2J4MUhWcnNXNldVbmdFTk53YUJFaWtjYk93VWtLT2EyUnZxRktnU29LQm9MbDNSbnJ6V0pjR29lNk9ta3pPbl9zTzJSQWlBa0hnelVLdw?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-08-26",
-      "category": "ethylene"
-    },
-    {
-      "title": "6月のエチレン生産、設備稼働率75％ 米関税「少しずつ影響」",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1nYm9kZWlabF9xQ1I2NHpNMTB1QzFlaElJM0FSWHlrVXhOUHhZeWNfUlNVZDQ2dml6a2R4LVR1RnYyVW0tdXVGUHZ2UnV1aGlnR3BveDRyWU0?oc=5",
       "source": "日刊工業新聞",
       "pubDate": "2026-08-26",
       "category": "ethylene"
@@ -205,13 +219,6 @@
       "category": "ethylene"
     },
     {
-      "title": "三菱ケミなど、水島エチレン停止 大阪に集約",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wNTBpWDVQdDU4b2VzNUlfeVZYZ0NpWlJsSWhkVHQyNFlRZDEwaVViNHhZVXJXenpKbHloYnVGdlhFdno0VGhyMV9SYUFuV1V5cHRuamZ4VVk?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-08-21",
-      "category": "ethylene"
-    },
-    {
       "title": "国内エチレン生産、６月20％増 定修中プラント減",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE43OGZrZF9NMG45YThPRzREcGFaWTJEV0tqSk5QZE45M2xqUEd4ZVlpYnBCTG1DanJBS2pUaWdGSHQ4bzVNX0RoQXhxRWcxT1lKZTlOUUlGTXFwVFZIOU5yWjBYa1hOUkhZc0lsUHdCSQ?oc=5",
       "source": "日刊工業新聞",
@@ -233,25 +240,11 @@
       "category": "naphtha"
     },
     {
-      "title": "伊藤忠、中東アルミ大手と築いた40年の信頼 不可抗力宣言でも日本供給",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5YT2EzTC1QMFE2TWZkWmZEb2drWHMzVEpuaFUxQVh3MFlEcnUzS0ZXRndOVUh5azVNZi1ucVVscUhYLVA2UEZBM3FsQkZQN1Z5dkN3dTdTYjEyMklYYXJ0akhuNEh4aEtwVWJCSg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-08-20",
-      "category": "aluminum"
-    },
-    {
       "title": "7月エチレン稼働69％ 48カ月連続90％割れ",
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE10cjFJNDl6ZUw1TUNzR2k2TXV0d0M4RDAtSjV0akdHeDVndzRkSFZMdjNfdFZPQUlxRlg2Umx0QXFwSXN6Vlk1UmtTbWNucFJ1MHlMcXEzUlNVSmdleV9PZ1pjbDk3Z25McVlKUnBBNk5leWE4?oc=5",
       "source": "日刊工業新聞",
       "pubDate": "2026-08-20",
       "category": "ethylene"
-    },
-    {
-      "title": "経産省、原油・ナフサ値差支援へ 脱ホルムズを促進 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE42NkU0aWxwNTVyRnlWcmhXT0w1U1JEQlZhMVZnNkFSdVRiR1RaRW9uU0FEbXhxRGFZcjE4MHY2cjduUlpIT1huQ1FhRDhLdzVXUFpr?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-08-19",
-      "category": "naphtha"
     },
     {
       "title": "包装機械工業会、学生向け包装業界見学ツアー開催 - 化学工業日報 電子版",
@@ -280,6 +273,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-31",
       "category": "naphtha"
+    },
+    {
+      "title": "国産ナフサが最高値更新、4〜6月の価格確定 中東危機で2倍に",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1rWmNzTlJEdzZSYnAtQnAxeVZERWdERnhiOFM4RE1VWnEtVFc2NzFLOWJrRy1VYXoyUlYyWGRUdWdOODcwYW4xZnpDcUNjZ09ZZVFWWUhlMzNZVWY2RF9rRm43bU1wQW56aFJNUA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-30",
+      "category": "propylene"
     }
   ]
 }
