@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-09-26",
   "items": [
     {
       "title": "７月の国内企業物価指数、ナフサ７０ポイント下落 - 化学工業日報 電子版",
@@ -23,6 +23,20 @@
       "category": "naphtha"
     },
     {
+      "title": "中国化学品が安さで国産脅かす、プラ樹脂輸入1.5倍 経済安保に懸念",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1ZVFJNN3lGU1BLN2Q1amYyZXl3WTcwdldSMURqZUtoaUQ1eV9fc2g3OUFNZndrOHNyUkUyekxoN0Ytc2JqRWRVQVlXT1I2ZVVvcnc2RUFKZ3R3ZExaU0ppNWV6UlNuV1dGX01mSA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-09-24",
+      "category": "naphtha"
+    },
+    {
+      "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 （2ページ目） - 日経クロストレンド",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB3aDczY3VGMjM3NTRjd0toYnFDMno3V01VSktZRVRXUFN3bS1yWFdZNTRwVE05UThQNkg3a2JxSkFnWHJOSnFFMWdYUVM5QTZiZGNDVHpJczl6dUlKMzk1UTB4bHRrMHdhQlZYcTRJQkotZnpD?oc=5",
+      "source": "日経クロストレンド",
+      "pubDate": "2026-09-24",
+      "category": "aluminum"
+    },
+    {
       "title": "石化協・筑本会長が会見 ナフサ調達費の上昇懸念 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFByc25NcUNUYjBXSXItRlpmZDNYdk0yZmJpMV9RM3E3UVZBdFFIRm50ZExVRWhVczhIdUZSSW5RaGMyMkRrUzlJaDRJcVdCRGhVODEw?oc=5",
       "source": "化学工業日報 電子版",
@@ -41,7 +55,7 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1YNERYVWFXbFdKQ2R0VzJLdnd4MTdxZFFpblhXRzFMU0ZMTGNyTDhfS3IxcEtSYnhTc3RXeThubmlzZGlwTnp1YVhERkZSRlZ2Q2pR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-17",
-      "category": "naphtha"
+      "category": "ethylene"
     },
     {
       "title": "コスモ石油など、SAF製造工程で併産されるナフサの活用開始について発表",
@@ -65,17 +79,10 @@
       "category": "naphtha"
     },
     {
-      "title": "8月エチレン稼働73％ 49カ月連続90％割れ 前月比は3.7ポイント改善",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5xYi0tZDI3LXNXOXhCYmN3LXRQV28wSVhiNmNHMUprN3ZvdXhkUTZGQmdJTEJXTElLcnBBcEh1ZE9KUU9NTnd0emNJNkR1ZGVTV0hHbUZtU3E?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-09-17",
-      "category": "ethylene"
-    },
-    {
       "title": "レゾナック、小学生に樹脂再生の特別授業 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5uZGxkd0pST0VFaGs2bVktVExZbTBrS2ZMcklTdEJQcEZDaDVyUGsxdXpQYmtpdm1QbFA4V3RyMm5SSWVUODd2djUzWkNLbWtRd2Nz?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-14",
+      "pubDate": "2026-09-15",
       "category": "naphtha"
     },
     {
@@ -90,13 +97,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pdHU5ZWdiRFZDN0xfdzFsdkJlOWpYUjBvbWdkdnVrMm5Oc01VQXRfSEJ6NF96QlRqV2JXUVhnZ2hhbnVlRVhkbXJXYjlzRGFaT1Nv?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-11",
-      "category": "ethylene"
-    },
-    {
-      "title": "東レが１００周年繊維総合展 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1sRXVweGp3eDk1bkdxU2szVDN4cjdwajlHc2tndUpnZFZJWWFWcXZfaS1QV3pWbndZdC1HQXByTmdXUUJST2FDOHlZeVJmM2dINC1r?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-10",
       "category": "ethylene"
     },
     {
@@ -119,6 +119,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-07",
       "category": "propylene"
+    },
+    {
+      "title": "日本ゼオン、アクリルゴム新会社を発足 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1OTmhXYWJmaVl2NUV5bGRSU19vY1ZaaHJzbTl5QnhnN2JWMzhWbEFfYkdlWDRLOUozU1lsQXFDX0IyWnczZ09aUUowOTlNSnBEQTVF?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-06",
+      "category": "ethylene"
     },
     {
       "title": "政府、実行会議でパワーＧＸ公表 ナフサ調達等支援 - 化学工業日報 電子版",
@@ -270,13 +277,6 @@
     {
       "title": "エチレン稼働率、6月66.5%で最低 ナフサ値下がり見越して買い控え",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zTWhabWpfR0dyTkZZZXM3SHF4T2c3MFZNZlJORTRCdmxYNkxsU25iVkFQQUpaQTRvbTFMWEFJOWlRTHM1d3M5Q2xWOVgzSm5VRUlUc0FBZHhQa0RoN1JHR0RYOFVvb3dCLWJlSw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-16",
-      "category": "naphtha"
-    },
-    {
-      "title": "中国の石化生産、ナフサ不足に動じず 代替原料で中東リスク軽減",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBKRTh5X1dNNjhGMWMydzRyZDVwYzZrbFFXdS1uN282dEN6dGhTS1BYUFE1WWQtWTZmQ3pDU2s3eldWeW81ak5DYVdLMHpOOEhtQVJ4d01nQkdkVjVpZFA0eDZCTnlwWmdUR05FTw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-07-16",
       "category": "naphtha"
