@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02",
+  "updated": "2026-10-03",
   "items": [
     {
       "title": "エチレン・プロピレン、アジア市況堅調推移 - 化学工業日報 電子版",
@@ -9,11 +9,11 @@
       "category": "ethylene"
     },
     {
-      "title": "耐震補強した石場建て住宅で非構造部材が破損、繰り返す大地震の対策を - 日経クロステック（xTECH）",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA2a1NjczdkTE03dXZCNkpzaDI4anYxa21Lb1B0bkNGUkpTQk9zSVhjV1JWTmZmcXB5RnFoSE5wTEpSOXZSNmdPNjg4VURWejFGeXZ0bEFRQUt0Yk42SklkaFhyQXItWjJNQkJNUw?oc=5",
-      "source": "日経クロステック（xTECH）",
+      "title": "合成ゴム、上期は生産・出荷とも減少 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rTWpiLUFEczVNWUxRdWE2LXR6N05UT1JnS1dGYWpMckd2R2NkNzRzUHBWWXRJTDY3aUxEWk1XbGZHY3drdVFNN1YxdmF4RjBPQUVr?oc=5",
+      "source": "化学工業日報 電子版",
       "pubDate": "2026-09-30",
-      "category": "aluminum"
+      "category": "ethylene"
     },
     {
       "title": "７月の化学工業統計、エチレン生産は前月比２８％増 - 化学工業日報 電子版",
@@ -35,6 +35,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-27",
       "category": "packaging"
+    },
+    {
+      "title": "７月の国内企業物価指数、ナフサ７０ポイント下落 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9IRG5CbkhselBGN1VfczJuOE5PNnBmSEhieWVzN2J2Z21tcElCUS1ZTXlhNXVDWHNFd1RiZkJBZGs3VC1QMEpMSW5RMkdra3ZaZ0dv?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-24",
+      "category": "naphtha"
     },
     {
       "title": "ＧＳＩクレオス、防錆フィルムのソリュ提案に拍車 - 化学工業日報 電子版",
@@ -74,6 +81,13 @@
     {
       "title": "ダイセル、北米エンプラ事業で先端領域開拓 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFByeFFsYjFSbVdzRV82Sk1QN1lTRm1MZHpqVzl3NTRvcWpjLUh0dzFlbDlUUjJhTGdqXzhXVHBsOFY0Sk5raE1OZlZkREZZRFRhS1ZJ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-08",
+      "category": "ethylene"
+    },
+    {
+      "title": "三菱ケミ、ＥＶＯＨの次期拡大策視野 岡山拠点核に - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1IUkdsRVpuXzJYWWNveERSbGFVQkpNc2U3SUF4SVBzdkNPOXAxSGV5UzUwN3hOdlAzbUh0Z1JfWlNraVZENzFJOGJ3NENSdjJFUll3?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-08",
       "category": "ethylene"
@@ -212,6 +226,13 @@
       "category": "ethylene"
     },
     {
+      "title": "石化協・筑本会長、エチレン低位操業継続も - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBfX1JFRVFxQXZQOXlZclpOM2xwLTB4MkRKeWF1cDJ3czBZRktWQWVOVm1YVmxMSERqbVc5ME1QZi1Ma3YxVjZKQWZ5Q1AwUGxGODI0?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-17",
+      "category": "ethylene"
+    },
+    {
       "title": "石化協会長「エチレン稼働低位安定」 中東情勢再緊迫化で",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0xZFNHby02QUZMSlMtanhTWi1qUFpRTElwN0lvZjVQWFZhT2JsZ0pWb3hSVzRaU19pMHIyOGhqNUwzejhRalVkMFJhYzlYQ3ZUS0c3S2hESkk?oc=5",
       "source": "日刊工業新聞",
@@ -259,27 +280,6 @@
       "source": "日経ビジネス電子版",
       "pubDate": "2026-07-06",
       "category": "aluminum"
-    },
-    {
-      "title": "汎用樹脂、一段高に 4月比1割上昇 原料ナフサ高騰で",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1NSEtFM01ITDhrSDVndmtydDkxOVJBOFdHaXoweXJkMnIwZG1oRVRydllnTURSTVhWYWxoZHFMSFBkV1dPcEdlcV9UNXMwWlFkc1BsY0lsZktSTS1LbUpSZUFvSVpDaDQ2WGg5SQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-04",
-      "category": "aluminum"
-    },
-    {
-      "title": "資源・エネ調査会が提言、ナフサ民間在庫積み増しを - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1pcUpvNXlQMjVJaVg4eGtyVkpzblM0b0RxZlpJc01NeUZfZl9pVkl5QUtHUm52ZWtXRHlaSUQzMXh5YVpRRElWbmxUd19jRXNOOUlZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-03",
-      "category": "naphtha"
-    },
-    {
-      "title": "石化協、筑本会長が就任 エチレン設備を最新鋭に - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE00Q2JnM2Q0YkhJRWxCVUNCYzBla2VJOFlUbjNtTzVEQ1hwb0hWSFhpT05MTTBrRkdQZEZKWC0zcEtrbUM3cXhJUUU3TzdmQk5WOUdV?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-03",
-      "category": "naphtha"
     }
   ]
 }
