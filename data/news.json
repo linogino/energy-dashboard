@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10",
+  "updated": "2026-10-11",
   "items": [
     {
       "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 （2ページ目） - 日経クロストレンド",
@@ -65,25 +65,18 @@
       "category": "ethylene"
     },
     {
+      "title": "７月の国内企業物価指数、ナフサ７０ポイント下落 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9IRG5CbkhselBGN1VfczJuOE5PNnBmSEhieWVzN2J2Z21tcElCUS1ZTXlhNXVDWHNFd1RiZkJBZGs3VC1QMEpMSW5RMkdra3ZaZ0dv?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-25",
+      "category": "naphtha"
+    },
+    {
       "title": "カ性ソーダ、７月内需横ばい - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4xdEVZMFZVMzlpNHZ4U3FzZ3M0Z2VjdjQ0b3pCdTJNemt0UWxBNmNCWjY5RW9JSDdTa3hJYXdfc0hjZTlGdkVyY3lnNzF6a2NRYk9j?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-25",
       "category": "ethylene"
-    },
-    {
-      "title": "７月の国内企業物価指数、ナフサ７０ポイント下落 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9IRG5CbkhselBGN1VfczJuOE5PNnBmSEhieWVzN2J2Z21tcElCUS1ZTXlhNXVDWHNFd1RiZkJBZGs3VC1QMEpMSW5RMkdra3ZaZ0dv?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-24",
-      "category": "naphtha"
-    },
-    {
-      "title": "石油化学品の設備改修に補助 経産省、調達の多様化に対応",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9wRTJZUnFpQmswU1o4S2FNRXBJUFZHdG5oRTZVUWxjRWJEUlJldlFjamVYTWpLQUxmYk9yU1pGVzRlSTVfMlpydDE3bk1EZ01EendlYU1wSDRpMEQ0TnJNMXV2ZnpGa09PQWU1Qg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-09-24",
-      "category": "naphtha"
     },
     {
       "title": "石化協・筑本会長が会見 ナフサ調達費の上昇懸念 - 化学工業日報 電子版",
@@ -280,6 +273,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-21",
       "category": "propylene"
+    },
+    {
+      "title": "半導体材料特集 三菱ケミカル、合成石英の生産能力増強 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFA4Qmc5VE9YT0p1VW1rM1FNMmVxQ2ZYTnhjOUs2cEJSb0l5WEphVXAwZm9URkdsVGdOa2w0SnhhdnBvak82WFZaTjFvRC1hTVlGSUJv?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-21",
+      "category": "packaging"
     }
   ]
 }
