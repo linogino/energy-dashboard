@@ -1,13 +1,6 @@
 {
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "items": [
-    {
-      "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 （2ページ目） - 日経クロストレンド",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB3aDczY3VGMjM3NTRjd0toYnFDMno3V01VSktZRVRXUFN3bS1yWFdZNTRwVE05UThQNkg3a2JxSkFnWHJOSnFFMWdYUVM5QTZiZGNDVHpJczl6dUlKMzk1UTB4bHRrMHdhQlZYcTRJQkotZnpD?oc=5",
-      "source": "日経クロストレンド",
-      "pubDate": "2026-10-08",
-      "category": "aluminum"
-    },
     {
       "title": "塩ビ１０月輸出価格、エチレン市況反映し続騰 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pZjNLZDc5NTE2S1hCZXZwbi1CWFpDTTJjWjZJY09oaDFCUUlQdG9uRXp0Z2xCb0NHREF3LVlkT1NtZkNqZzhwaVBvejRuSlFLdG1z?oc=5",
@@ -33,7 +26,7 @@
       "title": "ナフサ6月危機はなぜ回避できたか 「非中東」調達3倍が示す適応型経済安保 - 日経ビジネス電子版",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9XeEtTMldSVjJrdjlxaEVNcFdPWndtSElhbWpERl9QYUl4cVY1TjlxeXJGakdNaTVsQzVKbmh2MV9IWG5ldzYtSHFyZFlMMldsVVlpSVhfNWwwS3JKNS1FcUJxM0ZGSzg?oc=5",
       "source": "日経ビジネス電子版",
-      "pubDate": "2026-10-04",
+      "pubDate": "2026-10-05",
       "category": "naphtha"
     },
     {
@@ -65,11 +58,11 @@
       "category": "ethylene"
     },
     {
-      "title": "９月積み塩ビ輸出価格、エチレン上昇で９００ドル超 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0yMUxzN3FDOTQtWEVVeS1qOG5XNnFrU3l1ZW9DUzJLbmVvOGZ4U18xQk1McGtwOGJ6YmdQUGQ2S0UtZW5TQ0xXNkhxelcteFczVUM4?oc=5",
+      "title": "中国特集 クラリアント、ＰＤＨ触媒採用さらに増加 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBEU0dMdWFZZVAtMm5mLV9Lb1RYQjZjS2pGcHREM0xRZ0F4RllGWDVFekFGVS0zQVVGSnE3dkJpY0czUDJXSkpRMGlnRDBPN2RYS3Fn?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-08",
-      "category": "ethylene"
+      "pubDate": "2026-09-07",
+      "category": "propylene"
     },
     {
       "title": "中国特集 三菱商事、脱炭素化や半導体が焦点 - 化学工業日報 電子版",
@@ -233,8 +226,22 @@
       "category": "propylene"
     },
     {
+      "title": "半導体材料特集 旭化成、感光性ＰＩフィルムを開発 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE83Uld0SXd6YWFRZ3dUdWloMDJna1J3eUhOdFdvUkg2a1dZdEswVU1mR1VSakZ2U2ZYd0NDcGZaYkxNZnpJX045aHFCZ3BBUUJlUS1R?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-21",
+      "category": "packaging"
+    },
+    {
       "title": "半導体材料特集 タキロンシーアイ、超微粒子マテなどテーマ - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NT0JOcUd0eXRweXhLclp2RTk3TXRwRUM3MWR1dlNOUkRNcnptR3dDN1VXRi1Vb25ySW5UODBZSjVBeVprZDBxamFEVGNLRUlOWFg4?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-21",
+      "category": "packaging"
+    },
+    {
+      "title": "半導体材料特集 配線微細化進む先端パッケージ 構造・プロセス転換が商機に - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE43dDZtUGNrWV9VNjJIWk13eUZKQXFHRDgtUDItTy1aMWhXVmx6VzYyZS1BYngtcHNad1JzNFZPNVlaUmJITDFEdjExeVN5R1Z1MGhZ?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-21",
       "category": "packaging"
@@ -271,13 +278,6 @@
       "title": "国内エチレン設備、６月稼働率６６・５％で過去最低 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1RM01femxtbTc3eHVuZFBISmt4YVNfVHVUdG1CeEdVZjRKN3dNRmlhVGF3TVB4Zl9lU0w1MXQxV3B2SlhjWFYyOERMNi1fb3ZuTEY4?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-17",
-      "category": "ethylene"
-    },
-    {
-      "title": "石化協会長「エチレン稼働低位安定」 中東情勢再緊迫化で",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0xZFNHby02QUZMSlMtanhTWi1qUFpRTElwN0lvZjVQWFZhT2JsZ0pWb3hSVzRaU19pMHIyOGhqNUwzejhRalVkMFJhYzlYQ3ZUS0c3S2hESkk?oc=5",
-      "source": "日刊工業新聞",
       "pubDate": "2026-07-17",
       "category": "ethylene"
     }
