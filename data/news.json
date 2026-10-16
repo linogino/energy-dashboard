@@ -1,6 +1,13 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "items": [
+    {
+      "title": "ナフサ、5カ月ぶり1000ドル超す 運賃高騰で石化製品に再び上昇圧力",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE00SUtZS1R3V0FfNWJxR1N5STZ2X0pZdFZXYjhDODBiaXk2MDFQN3IwM0NmeGpxTGZsVmNkeTRoZU1oOEZWN2VxYmxOdERnemVrSXFWcFY0dVZXUEx1M2NMSkg5dEd3M1lQZjNsbw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-10-15",
+      "category": "naphtha"
+    },
     {
       "title": "８月の国内企業物価指数、エチレン０・８ポイント増 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBOOG5QWFN3aU5XYm1UUFVmdXYzRFBIQURoOEdyUnk1dkNWQmlvN1JnX3RlSGJvSTBQeWNCR0RTbTFnRXhBVWhoSkY2NzNTb1AyT1VR?oc=5",
@@ -51,11 +58,32 @@
       "category": "naphtha"
     },
     {
+      "title": "三井化など5者、アンモニア混焼85％ ナフサ分解炉運転",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ueEprR1ktU1dad2ZUQjNXMWhocU1PWWdiWGpXVXVmM0ZHV1V2R2dUMlpaazNlM3hNR29ZSTRUUE5ZUUM1cURRSl9hYlRKYzVNd0dZc0dDNlk?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-09-18",
+      "category": "naphtha"
+    },
+    {
+      "title": "8月エチレン稼働73％ 49カ月連続90％割れ 前月比は3.7ポイント改善",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5xYi0tZDI3LXNXOXhCYmN3LXRQV28wSVhiNmNHMUprN3ZvdXhkUTZGQmdJTEJXTElLcnBBcEh1ZE9KUU9NTnd0emNJNkR1ZGVTV0hHbUZtU3E?oc=5",
+      "source": "日刊工業新聞",
+      "pubDate": "2026-09-18",
+      "category": "ethylene"
+    },
+    {
       "title": "エチレン、８月生産７％減 稼働率は７０％台に回復 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1YNERYVWFXbFdKQ2R0VzJLdnd4MTdxZFFpblhXRzFMU0ZMTGNyTDhfS3IxcEtSYnhTc3RXeThubmlzZGlwTnp1YVhERkZSRlZ2Q2pR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-17",
       "category": "ethylene"
+    },
+    {
+      "title": "レゾナック、小学生に樹脂再生の特別授業 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5uZGxkd0pST0VFaGs2bVktVExZbTBrS2ZMcklTdEJQcEZDaDVyUGsxdXpQYmtpdm1QbFA4V3RyMm5SSWVUODd2djUzWkNLbWtRd2Nz?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-15",
+      "category": "naphtha"
     },
     {
       "title": "モノエチレングリコール、化学品商社が相次ぎ輸入 国内縮小を補完 - 化学工業日報 電子版",
@@ -104,6 +132,13 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qTlR3REY0MXEyZjJoN1VqRXJJRWpfbUhNLVRBM1h6SmIwWGlHZVp5UzVzREdSUThCOC1XNnhWVkswYVNWYVoyeG9Ua2N5ZmRuTmhB?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-08-31",
+      "category": "packaging"
+    },
+    {
+      "title": "北陸特集 日信化学工業、新研究棟で製品開発加速 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBUNE5yWmQ4T2JCRG1jVHF5U3FkVWFzeEE2RnVKYzV0VTJHV0RWamw2WkdsODA5TWRnUzlwcTQtN0RudkwycFlVRjNfV3ZST2pHc29V?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-28",
       "category": "packaging"
     },
     {
@@ -245,41 +280,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-21",
       "category": "packaging"
-    },
-    {
-      "title": "半導体材料特集 タキロンシーアイ、超微粒子マテなどテーマ - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9NT0JOcUd0eXRweXhLclp2RTk3TXRwRUM3MWR1dlNOUkRNcnptR3dDN1VXRi1Vb25ySW5UODBZSjVBeVprZDBxamFEVGNLRUlOWFg4?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-21",
-      "category": "packaging"
-    },
-    {
-      "title": "半導体材料特集 配線微細化進む先端パッケージ 構造・プロセス転換が商機に - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE43dDZtUGNrWV9VNjJIWk13eUZKQXFHRDgtUDItTy1aMWhXVmx6VzYyZS1BYngtcHNad1JzNFZPNVlaUmJITDFEdjExeVN5R1Z1MGhZ?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-21",
-      "category": "packaging"
-    },
-    {
-      "title": "半導体材料特集 三菱ケミカル、合成石英の生産能力増強 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFA4Qmc5VE9YT0p1VW1rM1FNMmVxQ2ZYTnhjOUs2cEJSb0l5WEphVXAwZm9URkdsVGdOa2w0SnhhdnBvak82WFZaTjFvRC1hTVlGSUJv?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-21",
-      "category": "packaging"
-    },
-    {
-      "title": "エチレン稼働、低位安定…「3-4月のような危機的状況は想定していない」（石化協会長） - ニュースイッチ by 日刊工業新聞社",
-      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE9HZFFFYjQ2U1RaU1dFUVU0UU5WeXA3SEgweUdHQUdjekRjWE84RG5saDZyUTBKVk45bEowUXMxZVFodw?oc=5",
-      "source": "ニュースイッチ by 日刊工業新聞社",
-      "pubDate": "2026-07-19",
-      "category": "naphtha"
-    },
-    {
-      "title": "６月のエチレン生産量１９％減、定修や稼働抑制で - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBRd3dXQ2NIR1pzRlYzY2poY0dYR0tUUGRPYXo1Wkx4YUlCRXdNdWRTdlBOa2wwVGs2akFNVVRpRzJ0YTBFWGVfVlByQ28zeHI3Z1lF?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-17",
-      "category": "ethylene"
     }
   ]
 }
