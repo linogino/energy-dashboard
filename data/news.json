@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-10-17",
   "items": [
     {
       "title": "ナフサ、5カ月ぶり1000ドル超す 運賃高騰で石化製品に再び上昇圧力",
@@ -16,6 +16,13 @@
       "category": "ethylene"
     },
     {
+      "title": "クラサス大分コンビナート「アジア最強めざす」、ナフサからエチレン",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9PRnJPZGtYZTJRV0FmbGFYb1FOOWxQUW5CenpYR2FxUGhvZFpNTWR3OFU5aGRlQnl1cGxCVEJhTVlEQ0tYRzhKMjdyVXcxNl93X2xzOVltYXJxNno5NFJhS05XM2FvQ0FnT0Jnaw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-10-14",
+      "category": "naphtha"
+    },
+    {
       "title": "塩ビ１０月輸出価格、エチレン市況反映し続騰 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pZjNLZDc5NTE2S1hCZXZwbi1CWFpDTTJjWjZJY09oaDFCUUlQdG9uRXp0Z2xCb0NHREF3LVlkT1NtZkNqZzhwaVBvejRuSlFLdG1z?oc=5",
       "source": "化学工業日報 電子版",
@@ -30,18 +37,18 @@
       "category": "aluminum"
     },
     {
-      "title": "国産ナフサ、中東危機の長期化で「年末10万円超も」 東ソーの木内氏",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1mMDRkXzNXcE1FM013SWt4cXFWcGxfalN0TEJWUHpnZGpFU3lYc1Znc2F0ZURtOWNNVlF6UWpTN2tpaS1sd0R4Nl9qTXNoZm5CajliNnlaSnFrcnhTcVBBcVFva3QzalJiUUp4YQ?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-10-05",
-      "category": "naphtha"
-    },
-    {
       "title": "ナフサ6月危機はなぜ回避できたか 「非中東」調達3倍が示す適応型経済安保 - 日経ビジネス電子版",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9XeEtTMldSVjJrdjlxaEVNcFdPWndtSElhbWpERl9QYUl4cVY1TjlxeXJGakdNaTVsQzVKbmh2MV9IWG5ldzYtSHFyZFlMMldsVVlpSVhfNWwwS3JKNS1FcUJxM0ZGSzg?oc=5",
       "source": "日経ビジネス電子版",
       "pubDate": "2026-10-05",
       "category": "naphtha"
+    },
+    {
+      "title": "７月の化学工業統計、エチレン生産は前月比２８％増 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBSY0RqTmI4OVo3UUN1VVphc0xmTW4zbC1MMkNhZjh1TzVaZW40X1VmYXRaUVRnRGlIMHVFaTRQX2lHOUVnZ2Jsa0ptZVV0ckl0VkF3?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-29",
+      "category": "ethylene"
     },
     {
       "title": "カ性ソーダ、７月内需横ばい - 化学工業日報 電子版",
@@ -58,6 +65,13 @@
       "category": "naphtha"
     },
     {
+      "title": "エチレン、８月生産７％減 稼働率は７０％台に回復 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1YNERYVWFXbFdKQ2R0VzJLdnd4MTdxZFFpblhXRzFMU0ZMTGNyTDhfS3IxcEtSYnhTc3RXeThubmlzZGlwTnp1YVhERkZSRlZ2Q2pR?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-18",
+      "category": "ethylene"
+    },
+    {
       "title": "三井化など5者、アンモニア混焼85％ ナフサ分解炉運転",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ueEprR1ktU1dad2ZUQjNXMWhocU1PWWdiWGpXVXVmM0ZHV1V2R2dUMlpaazNlM3hNR29ZSTRUUE5ZUUM1cURRSl9hYlRKYzVNd0dZc0dDNlk?oc=5",
       "source": "日刊工業新聞",
@@ -69,13 +83,6 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5xYi0tZDI3LXNXOXhCYmN3LXRQV28wSVhiNmNHMUprN3ZvdXhkUTZGQmdJTEJXTElLcnBBcEh1ZE9KUU9NTnd0emNJNkR1ZGVTV0hHbUZtU3E?oc=5",
       "source": "日刊工業新聞",
       "pubDate": "2026-09-18",
-      "category": "ethylene"
-    },
-    {
-      "title": "エチレン、８月生産７％減 稼働率は７０％台に回復 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1YNERYVWFXbFdKQ2R0VzJLdnd4MTdxZFFpblhXRzFMU0ZMTGNyTDhfS3IxcEtSYnhTc3RXeThubmlzZGlwTnp1YVhERkZSRlZ2Q2pR?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-17",
       "category": "ethylene"
     },
     {
@@ -273,13 +280,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-21",
       "category": "propylene"
-    },
-    {
-      "title": "半導体材料特集 旭化成、感光性ＰＩフィルムを開発 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE83Uld0SXd6YWFRZ3dUdWloMDJna1J3eUhOdFdvUkg2a1dZdEswVU1mR1VSakZ2U2ZYd0NDcGZaYkxNZnpJX045aHFCZ3BBUUJlUS1R?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-21",
-      "category": "packaging"
     }
   ]
 }
