@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "items": [
     {
       "title": "ナフサ、5カ月ぶり1000ドル超す 運賃高騰で石化製品に再び上昇圧力",
@@ -27,14 +27,21 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pZjNLZDc5NTE2S1hCZXZwbi1CWFpDTTJjWjZJY09oaDFCUUlQdG9uRXp0Z2xCb0NHREF3LVlkT1NtZkNqZzhwaVBvejRuSlFLdG1z?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-08",
-      "category": "ethylene"
+      "category": "naphtha"
     },
     {
       "title": "ヤマハ発､二輪アルミ部品に再生合金 排出量4.7万t削減",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBuX1F5c2hFTGpXMVhhVkVDaVVZbXlyenA5MVI3U28tWEREdG0tZTRsZ2tma2tFcm9VZ3dSUG9SVDltR055aDVaT3dQbklpZk50SDlUMzI1ZWRjaTdhVXJCYTFNQ01iUWtPbTNiU3J0ZVhGQlZ0Wkxz?oc=5",
       "source": "日本経済新聞",
-      "pubDate": "2026-10-07",
+      "pubDate": "2026-10-08",
       "category": "aluminum"
+    },
+    {
+      "title": "インドネシア特集 伊藤忠インドネシア、ＰＰ・ＰＥの展開に注力 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE13ZnAwdkN0Ump5OHRYR0xBbnhVRzVlTHhuc29Ba2JUQVNHWTFkSGI1QkRvSlJZQ3dLOFByRjdPZVR3ZW9YaXRleGM1QzFWVy1OcnB3?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-07",
+      "category": "packaging"
     },
     {
       "title": "ナフサ6月危機はなぜ回避できたか 「非中東」調達3倍が示す適応型経済安保 - 日経ビジネス電子版",
@@ -48,13 +55,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1BeWFsaUI5SmQ1U1paNmE1Q1ozT2FTZ244S0NlNVktYmFoTTdiak41WUw3QTVJank2dVJUdTE0SU5nM2RFdlVWb1RyaTZtVTEyazM4?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-01",
-      "category": "ethylene"
-    },
-    {
-      "title": "合成ゴム、上期は生産・出荷とも減少 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rTWpiLUFEczVNWUxRdWE2LXR6N05UT1JnS1dGYWpMckd2R2NkNzRzUHBWWXRJTDY3aUxEWk1XbGZHY3drdVFNN1YxdmF4RjBPQUVr?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-30",
       "category": "ethylene"
     },
     {
@@ -121,13 +121,6 @@
       "category": "naphtha"
     },
     {
-      "title": "8月エチレン稼働73％ 49カ月連続90％割れ 前月比は3.7ポイント改善",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5xYi0tZDI3LXNXOXhCYmN3LXRQV28wSVhiNmNHMUprN3ZvdXhkUTZGQmdJTEJXTElLcnBBcEh1ZE9KUU9NTnd0emNJNkR1ZGVTV0hHbUZtU3E?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-09-18",
-      "category": "ethylene"
-    },
-    {
       "title": "三井化学など5者、ナフサ分解炉運転でアンモニア混焼率85％達成",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE80X0EtTlkybzkzZWdSNDBBNm5FbzdWZndfM2RlZUhmejYtcTNmdDFhckt6LTVJbmJaYzV0Z0tuTmRXNFROSUpudXZZaEpTMzk4YnZ3WEVSNFQ?oc=5",
       "source": "日刊工業新聞",
@@ -156,10 +149,10 @@
       "category": "aluminum"
     },
     {
-      "title": "モノエチレングリコール、化学品商社が相次ぎ輸入 国内縮小を補完 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pdHU5ZWdiRFZDN0xfdzFsdkJlOWpYUjBvbWdkdnVrMm5Oc01VQXRfSEJ6NF96QlRqV2JXUVhnZ2hhbnVlRVhkbXJXYjlzRGFaT1Nv?oc=5",
+      "title": "９月積み塩ビ輸出価格、エチレン上昇で９００ドル超 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0yMUxzN3FDOTQtWEVVeS1qOG5XNnFrU3l1ZW9DUzJLbmVvOGZ4U18xQk1McGtwOGJ6YmdQUGQ2S0UtZW5TQ0xXNkhxelcteFczVUM4?oc=5",
       "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-11",
+      "pubDate": "2026-09-08",
       "category": "ethylene"
     },
     {
@@ -195,13 +188,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qTlR3REY0MXEyZjJoN1VqRXJJRWpfbUhNLVRBM1h6SmIwWGlHZVp5UzVzREdSUThCOC1XNnhWVkswYVNWYVoyeG9Ua2N5ZmRuTmhB?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-08-31",
-      "category": "packaging"
-    },
-    {
-      "title": "北陸特集 日信化学工業、新研究棟で製品開発加速 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBUNE5yWmQ4T2JCRG1jVHF5U3FkVWFzeEE2RnVKYzV0VTJHV0RWamw2WkdsODA5TWRnUzlwcTQtN0RudkwycFlVRjNfV3ZST2pHc29V?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-08-28",
       "category": "packaging"
     },
     {
@@ -279,6 +265,20 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBTRkJwcFlBbDQtRXFVMTc5bkw5bEZyYnB0amtHcHY4M0tRNklZVEFZVVBkU0x3V2dkQnZHM1k4UDZ3UFdQVlNzT0xZSUpSeFZqbXZN?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-31",
+      "category": "naphtha"
+    },
+    {
+      "title": "国産ナフサが最高値更新、4〜6月の価格確定 中東危機で2倍に",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1rWmNzTlJEdzZSYnAtQnAxeVZERWdERnhiOFM4RE1VWnEtVFc2NzFLOWJrRy1VYXoyUlYyWGRUdWdOODcwYW4xZnpDcUNjZ09ZZVFWWUhlMzNZVWY2RF9rRm43bU1wQW56aFJNUA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-07-30",
+      "category": "naphtha"
+    },
+    {
+      "title": "国産ナフサ高止まり ７～９月は１０万円近傍の様相 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XQUw3TFNKM3Q1MWpoUkUybkJXYUplaUVwM3lOTl9JOFNCVXpFY3J1LTZ2M1VmZHllS0FHS2JXZkRsVW9CUFpTVHgwaHYzMmlucHc0?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-28",
       "category": "naphtha"
     }
   ]
