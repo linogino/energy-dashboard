@@ -1,6 +1,13 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "items": [
+    {
+      "title": "ＰＳ内需、１～９月は１％減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5iVjhQN3NDVi1WRFVPTGYwcmZBeHdhRmJMM2FxNFlEUGxBZmREcGY2VThXWGdxTGtBYjRQaHR2Mm9qX2VBOGRldXBKT3RGOGpHTjZJ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-20",
+      "category": "naphtha"
+    },
     {
       "title": "ナフサ、5カ月ぶり1000ドル超す 運賃高騰で石化製品に再び上昇圧力",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE00SUtZS1R3V0FfNWJxR1N5STZ2X0pZdFZXYjhDODBiaXk2MDFQN3IwM0NmeGpxTGZsVmNkeTRoZU1oOEZWN2VxYmxOdERnemVrSXFWcFY0dVZXUEx1M2NMSkg5dEd3M1lQZjNsbw?oc=5",
@@ -35,13 +42,6 @@
       "source": "日本経済新聞",
       "pubDate": "2026-10-08",
       "category": "aluminum"
-    },
-    {
-      "title": "インドネシア特集 伊藤忠インドネシア、ＰＰ・ＰＥの展開に注力 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE13ZnAwdkN0Ump5OHRYR0xBbnhVRzVlTHhuc29Ba2JUQVNHWTFkSGI1QkRvSlJZQ3dLOFByRjdPZVR3ZW9YaXRleGM1QzFWVy1OcnB3?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-10-07",
-      "category": "packaging"
     },
     {
       "title": "ナフサ6月危機はなぜ回避できたか 「非中東」調達3倍が示す適応型経済安保 - 日経ビジネス電子版",
@@ -93,6 +93,13 @@
       "category": "packaging"
     },
     {
+      "title": "中国化学品が安さで国産脅かす、プラスチック樹脂輸入1.5倍 経済安保に懸念",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1ZVFJNN3lGU1BLN2Q1amYyZXl3WTcwdldSMURqZUtoaUQ1eV9fc2g3OUFNZndrOHNyUkUyekxoN0Ytc2JqRWRVQVlXT1I2ZVVvcnc2RUFKZ3R3ZExaU0ppNWV6UlNuV1dGX01mSA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-09-25",
+      "category": "naphtha"
+    },
+    {
       "title": "石化協・筑本会長が会見 ナフサ調達費の上昇懸念 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFByc25NcUNUYjBXSXItRlpmZDNYdk0yZmJpMV9RM3E3UVZBdFFIRm50ZExVRWhVczhIdUZSSW5RaGMyMkRrUzlJaDRJcVdCRGhVODEw?oc=5",
       "source": "化学工業日報 電子版",
@@ -133,6 +140,13 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-15",
       "category": "naphtha"
+    },
+    {
+      "title": "鳥取のギアトライム、排出ガスを浄化する尿素水を消防車に寄贈",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1WbzJkQkVCVjV6aDZ2WHE5QUp5RUc5VFF2OHRHZnZjRmZtWnctZkFCTHB5X0F4bV9NNlh2NDRhek5pR2d6TDNpYnhScGJ3eUlwVVdKTGtWMHhleWdHWEFlNndUUkpmbkloM0w4UA?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-09-15",
+      "category": "urea"
     },
     {
       "title": "創立９０周年記念特集 第２部 中国、エチレン生産 日本の８倍 - 化学工業日報 電子版",
@@ -265,20 +279,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBTRkJwcFlBbDQtRXFVMTc5bkw5bEZyYnB0amtHcHY4M0tRNklZVEFZVVBkU0x3V2dkQnZHM1k4UDZ3UFdQVlNzT0xZSUpSeFZqbXZN?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-31",
-      "category": "naphtha"
-    },
-    {
-      "title": "国産ナフサが最高値更新、4〜6月の価格確定 中東危機で2倍に",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1rWmNzTlJEdzZSYnAtQnAxeVZERWdERnhiOFM4RE1VWnEtVFc2NzFLOWJrRy1VYXoyUlYyWGRUdWdOODcwYW4xZnpDcUNjZ09ZZVFWWUhlMzNZVWY2RF9rRm43bU1wQW56aFJNUA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-30",
-      "category": "naphtha"
-    },
-    {
-      "title": "国産ナフサ高止まり ７～９月は１０万円近傍の様相 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XQUw3TFNKM3Q1MWpoUkUybkJXYUplaUVwM3lOTl9JOFNCVXpFY3J1LTZ2M1VmZHllS0FHS2JXZkRsVW9CUFpTVHgwaHYzMmlucHc0?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-28",
       "category": "naphtha"
     }
   ]
