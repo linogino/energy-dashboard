@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "items": [
     {
       "title": "ＮＢＯ、国内は新値移行 アジアは夏に強含み傾向 - 化学工業日報 電子版",
@@ -23,18 +23,18 @@
       "category": "naphtha"
     },
     {
+      "title": "クラサス大分コンビナート「アジア最強めざす」、ナフサからエチレン",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9PRnJPZGtYZTJRV0FmbGFYb1FOOWxQUW5CenpYR2FxUGhvZFpNTWR3OFU5aGRlQnl1cGxCVEJhTVlEQ0tYRzhKMjdyVXcxNl93X2xzOVltYXJxNno5NFJhS05XM2FvQ0FnT0Jnaw?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-10-15",
+      "category": "naphtha"
+    },
+    {
       "title": "８月の国内企業物価指数、エチレン０・８ポイント増 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBOOG5QWFN3aU5XYm1UUFVmdXYzRFBIQURoOEdyUnk1dkNWQmlvN1JnX3RlSGJvSTBQeWNCR0RTbTFnRXhBVWhoSkY2NzNTb1AyT1VR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-14",
       "category": "ethylene"
-    },
-    {
-      "title": "クラサス大分コンビナート「アジア最強めざす」、ナフサからエチレン",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9PRnJPZGtYZTJRV0FmbGFYb1FOOWxQUW5CenpYR2FxUGhvZFpNTWR3OFU5aGRlQnl1cGxCVEJhTVlEQ0tYRzhKMjdyVXcxNl93X2xzOVltYXJxNno5NFJhS05XM2FvQ0FnT0Jnaw?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-10-14",
-      "category": "naphtha"
     },
     {
       "title": "塩ビ１０月輸出価格、エチレン市況反映し続騰 - 化学工業日報 電子版",
@@ -62,7 +62,7 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1BeWFsaUI5SmQ1U1paNmE1Q1ozT2FTZ244S0NlNVktYmFoTTdiak41WUw3QTVJank2dVJUdTE0SU5nM2RFdlVWb1RyaTZtVTEyazM4?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-01",
-      "category": "ethylene"
+      "category": "propylene"
     },
     {
       "title": "７月の化学工業統計、エチレン生産は前月比２８％増 - 化学工業日報 電子版",
@@ -149,17 +149,17 @@
       "category": "naphtha"
     },
     {
-      "title": "エチレン稼働率、8月73.5%に改善 石化協会長「今後も低水準続く」",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBCeEt6czdQQ3Mza3pNa0RTbTVKWGNSWE5qblZFNmVLQzJmemZ1TVVpVGd4RVpUVXhCXzl6bVAzLThCcEVOcjFja3pSN2ozR1ZqWm42b2Q3TWtjRjJIeUZySDhLR2ZOU0J5UFh0Zg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-09-17",
-      "category": "ethylene"
-    },
-    {
       "title": "創立９０周年記念特集 第２部 中国、エチレン生産 日本の８倍 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBmb1c1QmNOT01tX1duTkhOeW81NG83b1VUTGZwRTNaVEo1TkZBMmJFNXEwZnlCQkdnakNacFdydHVqU0pmU2NHY1g3aFd0VnZIdXlR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-14",
+      "category": "ethylene"
+    },
+    {
+      "title": "モノエチレングリコール、化学品商社が相次ぎ輸入 国内縮小を補完 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pdHU5ZWdiRFZDN0xfdzFsdkJlOWpYUjBvbWdkdnVrMm5Oc01VQXRfSEJ6NF96QlRqV2JXUVhnZ2hhbnVlRVhkbXJXYjlzRGFaT1Nv?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-11",
       "category": "ethylene"
     },
     {
@@ -198,9 +198,9 @@
       "category": "packaging"
     },
     {
-      "title": "協調領域支える団体の力（5）石油化学工業協会 競争力・安定供給維持",
+      "title": "協調領域支える団体の力（5）石油化学工業協会 競争力・安定供給維持 - 日刊工業新聞 電子版",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9ybWZKeEZHTHo4RjVySFMtN3pobWhoQkZnMHBXSkpHTTlMa2Fwb3ozUU85cG5nU0dKVVdSY0thcTVVVUZncVhINDJxMEVDQkUwZnF2TFFDWjc?oc=5",
-      "source": "日刊工業新聞",
+      "source": "日刊工業新聞 電子版",
       "pubDate": "2026-08-26",
       "category": "propylene"
     },
@@ -247,6 +247,13 @@
       "category": "naphtha"
     },
     {
+      "title": "レゾナック、廃プラで「都市油田」開発（2ページ目） | 日経ESG - 日経BP",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9DZ1hZSlZQUmJubDIyX2hCVmVXM2F0UFJadVRWb3JYQ1VSVzZ4eGt0S1JYZTVmUU5seExSbEZXbnZrTk1WWWcyXzAtMzRTZW1pTmtUQnVzZFl6QW9Fc0owLS0tLXhCa3VEVjJ4ejRqN3hYMUVOdkE?oc=5",
+      "source": "日経BP",
+      "pubDate": "2026-08-17",
+      "category": "propylene"
+    },
+    {
       "title": "ナフサ高で総合化学業績底上げ 4〜6月、三井化学はコア営業益88%増",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBXWnRkZC1WWlZ1eDZ0ZG12V0RFSkxMM0d1UmRBTzJFMEFPdUkyMmFVeW40cVl6WFZ2SzNjMGZRN3FNZUZ0UTB1NlJvNWdqdXJwVmdOM2Fsa2xVcWc4Y21FWDlwa1Jyc2Iwc1ZsLQ?oc=5",
       "source": "日本経済新聞",
@@ -272,13 +279,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5rYXYxREVfMkZCdHE1djRlcWJ3RzQ2QWswYm54VDBScGk3TXlvNDg1M2cyX212NGJMZTRvUWIzbEM1OXRxTXNIUDJmN1VUOGFJQVdR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-31",
-      "category": "naphtha"
-    },
-    {
-      "title": "国産ナフサが最高値更新、4〜6月の価格確定 中東危機で2倍に",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1rWmNzTlJEdzZSYnAtQnAxeVZERWdERnhiOFM4RE1VWnEtVFc2NzFLOWJrRy1VYXoyUlYyWGRUdWdOODcwYW4xZnpDcUNjZ09ZZVFWWUhlMzNZVWY2RF9rRm43bU1wQW56aFJNUA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-07-30",
       "category": "naphtha"
     }
   ]
