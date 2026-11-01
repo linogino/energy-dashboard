@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "items": [
     {
       "title": "JA全農が化学肥料値上げ 国産尿素は2割高、中東発コスト高が波及",
@@ -9,18 +9,18 @@
       "category": "urea"
     },
     {
-      "title": "９月の化繊国内生産、２ケタ減 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE85NlY5MDNaek1CNVBJU0lSWlp2MWtQTDYxcWVkTVlLampRMmFjblRwQ2w2Y2FqdkhlUzZILXowX0hzYm1sS0JjZWxiVVBLVEgxSlpR?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-10-29",
-      "category": "naphtha"
-    },
-    {
       "title": "９月エチレン稼働率７０％ ４樹脂で国内出荷減少 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBhcHlnd0d2VDFHNFlxcWdTSzdfYkdYSGtqWmR5aWFjN245LWhvTDV4Q2JhMlRDYUYxSmlUbk10TmhVSDQxT2FsMk1DcXdQTmRxTTdJ?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-29",
       "category": "ethylene"
+    },
+    {
+      "title": "トクヤマ、窒化アルミ顆粒増強 山口拠点で１・５倍 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE45NTRsb0dXQUpBdlNlOGtndmo4UnpPV1NEb0dqZ1kwRUZZNXpKdks1aGpiWEhsUDQ1QlpJMHRlODlpWDdKNzVoZFZ0aUt4UzAxQXhF?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-29",
+      "category": "aluminum"
     },
     {
       "title": "日揮、フィルム型太陽電池シート工法 ホンダで実証 - 化学工業日報 電子版",
@@ -44,18 +44,11 @@
       "category": "aluminum"
     },
     {
-      "title": "９月の国内エチレン生産、稼働率70％ 50カ月連続90％割れ",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5yby1VcUZaTzB0Z2dYRmw2dzIyNExTX1NvTDl1NkZzN3pVVWlKRkIwUzV5eEpGVHNGUGlaaEtCdDg1bGJLR3NuNF9td0JiVWgxMFI1QmM4Ukg?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-10-29",
-      "category": "ethylene"
-    },
-    {
-      "title": "9月のエチレン製造プラント稼働率70％、50カ月連続90％割れ 定期修繕で生産減",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBuY1BhTU9UR1FqZEp0TzVpVjc4eDJYcHEwQ0lVbnc2LVhGWG1IVkVUWVA5S2JfbVprVjFxTDh1NDg3X21wNTd2aWZXOU9OMFFHQTZDbjF0WlY?oc=5",
-      "source": "日刊工業新聞",
-      "pubDate": "2026-10-29",
-      "category": "ethylene"
+      "title": "国内肥料15%高、「ウクライナ危機以来の高値」 27年産コメに影響",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBKY2N3cDJaeDJlYkU1TDFoelFtYzVPN09BWHdaaGozeXc4ZlczNFFuNVk5TWN1Y2FzUERUOVBOSlFYM3p5cV9DWm9EZlFOQ2oyZUpoMFhNNV94VWZxY3BZbzNwVlZLb2hwRkxyag?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-10-28",
+      "category": "urea"
     },
     {
       "title": "絶好調「塩分チャージタブレッツ」にまさかの死角 定番からの脱却戦略 （2ページ目） - 日経クロストレンド",
@@ -70,6 +63,20 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-26",
       "category": "naphtha"
+    },
+    {
+      "title": "｢ウコンの力｣アルミ缶、薄肉に限界 3社連携で排出5割減",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9ld3JqSXBMTV80dEE3NXc4QW4tX0lXVlhRT2N0RllZMEVEeHk1SXBuYUJxbEFLZUlXZ1pGMGZyQXRuUGlOZXZkR1RobEZYY2xHRmt0WnByd1haZjJQZUhfUWFfYWpoZDRMRGZHeGI5c0FycXFzRjRB?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-10-26",
+      "category": "aluminum"
+    },
+    {
+      "title": "地熱発電の国内市場、５０年度に３５２４億円に拡大 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9LWGI1cDZfUlNxYjVzWTNPSFlHQnpKSG1HNU44MG1lWTNHMl9FRWZDZGMyUTU0UmZhNVZjSEFSczJWa1RrZmdmaHAtaGlYUzZzT1pV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-22",
+      "category": "propylene"
     },
     {
       "title": "ＰＳ内需、１～９月は１％減 - 化学工業日報 電子版",
@@ -118,7 +125,7 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pZjNLZDc5NTE2S1hCZXZwbi1CWFpDTTJjWjZJY09oaDFCUUlQdG9uRXp0Z2xCb0NHREF3LVlkT1NtZkNqZzhwaVBvejRuSlFLdG1z?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-08",
-      "category": "ethylene"
+      "category": "naphtha"
     },
     {
       "title": "ヤマハ発､二輪アルミ部品に再生合金 排出量4.7万t削減 - 日経GX",
@@ -146,13 +153,6 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1xd2M0Vkd2OGExUjdBeFNFTGtneEF1cmYxWnQtb2FsM1p0VWU2T0pWamZYZ2o3UWRiTk5zWXBWZ3RCcHRQTGg3aFptaUNfX0g0OXEw?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-30",
-      "category": "packaging"
-    },
-    {
-      "title": "ダウーアムコア、低炭素包装材の普及拡大へ提携 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBEZktYajV0WEpxem5IMVdPbTBpUXN3WndkQTBFaTg3dDFZQk1halBxYVlzZ0I2WXdvNEFtbnBxMTQyQktIdGxmeHE0ZVplMUJBRG1v?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-29",
       "category": "packaging"
     },
     {
@@ -219,13 +219,6 @@
       "category": "naphtha"
     },
     {
-      "title": "エチレン稼働率、8月73.5%に改善 石化協会長「今後も低水準続く」",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBCeEt6czdQQ3Mza3pNa0RTbTVKWGNSWE5qblZFNmVLQzJmemZ1TVVpVGd4RVpUVXhCXzl6bVAzLThCcEVOcjFja3pSN2ozR1ZqWm42b2Q3TWtjRjJIeUZySDhLR2ZOU0J5UFh0Zg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-09-17",
-      "category": "ethylene"
-    },
-    {
       "title": "大阪ガス、エタノール由来ｅ－メタンを社会実装へ - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAzTnJmQTVadjhYQ2NuLXNPLUNlU1dKRFk1VHFLV1RmRm5VblJ4N3dRN3BmRnpxVEZENTdYeE1Cb1JYbTRNVnZGdUR1Y1VtVkZVOGk0?oc=5",
       "source": "化学工業日報 電子版",
@@ -233,17 +226,17 @@
       "category": "propylene"
     },
     {
-      "title": "鳥取のギアトライム、排出ガスを浄化する尿素水を消防車に寄贈",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1WbzJkQkVCVjV6aDZ2WHE5QUp5RUc5VFF2OHRHZnZjRmZtWnctZkFCTHB5X0F4bV9NNlh2NDRhek5pR2d6TDNpYnhScGJ3eUlwVVdKTGtWMHhleWdHWEFlNndUUkpmbkloM0w4UA?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-09-15",
-      "category": "urea"
-    },
-    {
       "title": "創立９０周年記念特集 第２部 中国、エチレン生産 日本の８倍 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBmb1c1QmNOT01tX1duTkhOeW81NG83b1VUTGZwRTNaVEo1TkZBMmJFNXEwZnlCQkdnakNacFdydHVqU0pmU2NHY1g3aFd0VnZIdXlR?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-14",
+      "category": "ethylene"
+    },
+    {
+      "title": "モノエチレングリコール、化学品商社が相次ぎ輸入 国内縮小を補完 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pdHU5ZWdiRFZDN0xfdzFsdkJlOWpYUjBvbWdkdnVrMm5Oc01VQXRfSEJ6NF96QlRqV2JXUVhnZ2hhbnVlRVhkbXJXYjlzRGFaT1Nv?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-11",
       "category": "ethylene"
     },
     {
@@ -261,13 +254,6 @@
       "category": "propylene"
     },
     {
-      "title": "丸紅系、鉄道・輸送機器向け難燃性複合材料を発売 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBJdXFmMUxQbDhNSDJxNTZ5UTRfZ2x3Rk5OYlVyYktJMXhfSVNWUG5lWUgxbnZwRy1fZnkwWmktN3BBX3F2T1JyV1N5NG1iSmRNVW9F?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-08",
-      "category": "aluminum"
-    },
-    {
       "title": "台湾プラスチック、エチレン生産能力縮小 年１００万トン規模に - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE90RkMxNzRCNVJqY2VFbktJQ1J1MWo1WGcyTlBiemtIOGVqY1JJd2ZFeEV2Rjhka2VxZF9IdEtkWDZqeGtndHVWQmw1UWpqb1NjblE4?oc=5",
       "source": "化学工業日報 電子版",
@@ -275,11 +261,25 @@
       "category": "ethylene"
     },
     {
-      "title": "中国特集 三菱商事、脱炭素化や半導体が焦点 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBwbkx1aU1KdnU4Q1JTa2lJc2dfNzU2SW5MZEk1SC1RSjNPUWFfSjJKU3BOYU83WmVSZzVHRGFxcGRKZ05hZlJxMFdRcXdPQm5CLUJ3?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-07",
+      "title": "YKKAP､アルミ再生専用炉を延期 次善策でマスバランス",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBod242MElYQ0I3Rmx3TFRNYXdCblJtTTg1eEZsS29jX2pST0c5cWltcS1GSUNWTDlrY1RxX3U0M0xhYWFFMjNad3liLWtLY0pZWnlLYk9XckpYVGpjU1lTRmJxcTRDcDI4UUE1N2ZxWllQaDkxS0VR?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-09-02",
       "category": "aluminum"
+    },
+    {
+      "title": "多木化学、常温で硬化するリン酸アルミセメント開発 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9GMHR6ZWJueG04d3ZyZ3F4M3NkQWxmbmoxUnRzQWRyYktMS3V6dlRnR0VrTUk4T3hyTVdPelV2bjFhRkMySWE1Zkw4UUtLbnB6MnRN?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-01",
+      "category": "aluminum"
+    },
+    {
+      "title": "シンガポール特集 ＰＣＳ、エチレン設備の運営基盤強固 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1reTE0c2pZU3VYQnJLalNlRmRqWElvUTVORU13OU5BZ1R2bWFONlJuQ3ZWZkNuQnpjaFpaRjNKSDM0MEE5QlpKaG90b1RQbU5fYWtV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-31",
+      "category": "ethylene"
     }
   ]
 }
