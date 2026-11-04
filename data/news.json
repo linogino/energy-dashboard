@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "items": [
     {
       "title": "JA全農が化学肥料値上げ 国産尿素は2割高、中東発コスト高が波及",
@@ -44,20 +44,6 @@
       "category": "urea"
     },
     {
-      "title": "８月のＰＰフィルム出荷、ＣＰＰが増加 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SVkdKVU50SXBpcVpzdUxJVTJ0SEs2M1dYR3V5TE1WZFFubjNkVFRpOVJ4MzNINXRQOHUtdzQ4WXNBc3I3TWI5ZlZ0WjExZlFkZWNR?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-10-26",
-      "category": "naphtha"
-    },
-    {
-      "title": "鴻池運輸、インドで鉱山関連事業に参入 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5xbEdyQ1UyUVEwXzhSOFpyalhZNWdVT1ZMMWNTaFhUTW9ybTJMWFZzUHh0QTFJQmdub3g2eDBlVWZIMUUyMkhkT1BYRU96NVdLejdz?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-10-26",
-      "category": "naphtha"
-    },
-    {
       "title": "｢ウコンの力｣アルミ缶、薄肉に限界 3社連携で排出5割減",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9ld3JqSXBMTV80dEE3NXc4QW4tX0lXVlhRT2N0RllZMEVEeHk1SXBuYUJxbEFLZUlXZ1pGMGZyQXRuUGlOZXZkR1RobEZYY2xHRmt0WnByd1haZjJQZUhfUWFfYWpoZDRMRGZHeGI5c0FycXFzRjRB?oc=5",
       "source": "日本経済新聞",
@@ -72,22 +58,15 @@
       "category": "naphtha"
     },
     {
-      "title": "ＮＢＯ、国内は新値移行 アジアは夏に強含み傾向 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBzS1hNemEtVllxbThfSzF3WmtLLWRSd0dfUDNVelhFOXM2N3JCM0tqWWttUDVRMHJJSkhpT3BuR2huSkJRT2FZMmVDT1FfSzRWOEJr?oc=5",
+      "title": "地熱発電の国内市場、５０年度に３５２４億円に拡大 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9LWGI1cDZfUlNxYjVzWTNPSFlHQnpKSG1HNU44MG1lWTNHMl9FRWZDZGMyUTU0UmZhNVZjSEFSczJWa1RrZmdmaHAtaGlYUzZzT1pV?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-22",
-      "category": "naphtha"
+      "category": "propylene"
     },
     {
-      "title": "蛍石、中国市況横ばい 鉱山の稼働次第でひっ迫も - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE84VGtUNjBUOENUOGE4VUhKTXcxRksybGVDYlF2bmdsUmJGQk8tdWpmSFBqdnMwZHp5VHYzc2o0Qlpjdjd3QzVHSGhhQXF4LWFYUGlN?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-10-20",
-      "category": "naphtha"
-    },
-    {
-      "title": "ＰＳ内需、１～９月は１％減 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5iVjhQN3NDVi1WRFVPTGYwcmZBeHdhRmJMM2FxNFlEUGxBZmREcGY2VThXWGdxTGtBYjRQaHR2Mm9qX2VBOGRldXBKT3RGOGpHTjZJ?oc=5",
+      "title": "ＭＭＡモノマー、７月出荷２８％減 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB2QWJNSm1ZRnI1N3RocWFEdXFRM0ljVi1obXFIMGQwa1VRb2cwQzREaWZqTUZvV05jQWo5VjFRVlVBRS1QV0oyOGZIN1V5TzJNQVVZ?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-20",
       "category": "naphtha"
@@ -100,10 +79,10 @@
       "category": "naphtha"
     },
     {
-      "title": "主要化学品相場 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE40OEwwVlNtS09rVEhSUzE2OE9KN2N6VUYzWlpIUE9EWGo0UFBzZzhNUDlzWm5SMkpyLUJCSk1jTlByM3h2cjZoQ2NPOW9BNFdNamIw?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-10-15",
+      "title": "ナフサとは 原油由来の化学品原料、日本は中東依存度高く",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1uOUNKblZ2VkRLMVROdV85Z1JObTRsMmc4anI2dHdXWmRUQmpvV2ZqaHNxY0lSeGpTTjAyQTY4MTIzUnRvMXkyU0hvcW1zdVNLNTdCWkFWMk55R09nSFJOTDBrU092Vy1RZjdkLQ?oc=5",
+      "source": "日本経済新聞",
+      "pubDate": "2026-10-18",
       "category": "naphtha"
     },
     {
@@ -132,7 +111,7 @@
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pZjNLZDc5NTE2S1hCZXZwbi1CWFpDTTJjWjZJY09oaDFCUUlQdG9uRXp0Z2xCb0NHREF3LVlkT1NtZkNqZzhwaVBvejRuSlFLdG1z?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-10-08",
-      "category": "naphtha"
+      "category": "ethylene"
     },
     {
       "title": "ヤマハ発､二輪アルミ部品に再生合金 排出量4.7万t削減 - 日経GX",
@@ -140,6 +119,13 @@
       "source": "日本経済新聞",
       "pubDate": "2026-10-08",
       "category": "aluminum"
+    },
+    {
+      "title": "シンガポール、バイオエコノミー育成へ基金 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1xZk5ZdjhHeVRxUWR1SVc3Vm9YeHlubGQ3RThuSm1KZ3JHcjVKenhZbzc2OHRkYTVCeTBWanpOVTU0dHlsSUNBcnZaTGdkVTNfa0ZB?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-06",
+      "category": "packaging"
     },
     {
       "title": "国産ナフサ、中東危機の長期化で「年末10万円超も」 東ソーの木内氏",
@@ -170,24 +156,38 @@
       "category": "naphtha"
     },
     {
-      "title": "エンプラ特集Ｐａｒｔ３ ＰＢＴ各社、自動車の電動化に貢献 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1WQlRaa0h4VUM2MWdsTURBUTVreG11bXd0RGpraHF2b2RzRm1XUWN0N3pQTjdLeUdsdkoxS3ItQkQxNWJkUzZoSWU2a3p2Tmg5Z0pv?oc=5",
+      "title": "ＮＸ商事、ＬｉＢ対応２０フィートコンテナ発売 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9tRnduUE1IaDF4YWZWQnFkd0RvbWJYSWtjaXR1N0xUcnlmU0RCZGtTT3BSREJEbEdLX21CS056MkI2V01EWVNRclcwbm56UE9ycjZB?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-01",
+      "category": "propylene"
+    },
+    {
+      "title": "２０２６年度 日化協ＬＲＩ研究報告会 愛知学院大学・李辰竜氏 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5XTHRFdWFQd2hFbzQ4c2MwRTlIdWFKa2NfbzVpS2Qtekk0cnZ5V083Z1FnbjJSLVBxZC1zWUI1a0ZJRnZyNDhSMGoxZGhHa0JlTEJZ?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-01",
+      "category": "btx"
+    },
+    {
+      "title": "ＴＯＰＰＡＮ、包材モノマテ化提案拡大 欧規制対応 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1xd2M0Vkd2OGExUjdBeFNFTGtneEF1cmYxWnQtb2FsM1p0VWU2T0pWamZYZ2o3UWRiTk5zWXBWZ3RCcHRQTGg3aFptaUNfX0g0OXEw?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-30",
+      "category": "packaging"
+    },
+    {
+      "title": "ダウーアムコア、低炭素包装材の普及拡大へ提携 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBEZktYajV0WEpxem5IMVdPbTBpUXN3WndkQTBFaTg3dDFZQk1halBxYVlzZ0I2WXdvNEFtbnBxMTQyQktIdGxmeHE0ZVplMUJBRG1v?oc=5",
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-29",
-      "category": "btx"
+      "category": "packaging"
     },
     {
       "title": "化学品、中国産輸入が急増 低価格で国産の脅威に プラ原料シェア16%に上昇 経済安保に影",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBBdFRqTlFpeC05N3hwaFZFTU5mdEVUMzZIcjZrdWNjMG5xeGNlQ3Y3a1pnRFJuWTU4WC1TbFE4T2x2SkVsTEkxZm1seGdoNkxiVlhTTThIeUlXQWxrdXJlM0NvbldWQWotVG1IRw?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-09-26",
-      "category": "naphtha"
-    },
-    {
-      "title": "７月の国内企業物価指数、ナフサ７０ポイント下落 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9IRG5CbkhselBGN1VfczJuOE5PNnBmSEhieWVzN2J2Z21tcElCUS1ZTXlhNXVDWHNFd1RiZkJBZGs3VC1QMEpMSW5RMkdra3ZaZ0dv?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-25",
       "category": "naphtha"
     },
     {
@@ -205,7 +205,7 @@
       "category": "btx"
     },
     {
-      "title": "中国化学品が安さで国産脅かす、プラスチック樹脂輸入1.5倍 経済安保に懸念",
+      "title": "中国化学品が安さで国産脅かす、プラ樹脂輸入1.5倍 経済安保に懸念",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1ZVFJNN3lGU1BLN2Q1amYyZXl3WTcwdldSMURqZUtoaUQ1eV9fc2g3OUFNZndrOHNyUkUyekxoN0Ytc2JqRWRVQVlXT1I2ZVVvcnc2RUFKZ3R3ZExaU0ppNWV6UlNuV1dGX01mSA?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-09-25",
@@ -216,20 +216,6 @@
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9wRTJZUnFpQmswU1o4S2FNRXBJUFZHdG5oRTZVUWxjRWJEUlJldlFjamVYTWpLQUxmYk9yU1pGVzRlSTVfMlpydDE3bk1EZ01EendlYU1wSDRpMEQ0TnJNMXV2ZnpGa09PQWU1Qg?oc=5",
       "source": "日本経済新聞",
       "pubDate": "2026-09-24",
-      "category": "naphtha"
-    },
-    {
-      "title": "石化協・筑本会長が会見 ナフサ調達費の上昇懸念 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFByc25NcUNUYjBXSXItRlpmZDNYdk0yZmJpMV9RM3E3UVZBdFFIRm50ZExVRWhVczhIdUZSSW5RaGMyMkRrUzlJaDRJcVdCRGhVODEw?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-18",
-      "category": "naphtha"
-    },
-    {
-      "title": "コスモ石油など４社、ＳＡＦ副生ナフサの活用開始 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9uVXZ6R01GSmFmYkQxMTVtZjJuSFk1TlhSVzY5bG1GWWd2Rk91MHM5MVVYNjlCc1JFdWJIZjJkYjdUUWxnOGctYVM3Yi02eWpSY0Jr?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-18",
       "category": "naphtha"
     },
     {
@@ -245,13 +231,6 @@
       "source": "日刊工業新聞",
       "pubDate": "2026-09-17",
       "category": "naphtha"
-    },
-    {
-      "title": "エチレン稼働率、8月73.5%に改善 石化協会長「今後も低水準続く」",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBCeEt6czdQQ3Mza3pNa0RTbTVKWGNSWE5qblZFNmVLQzJmemZ1TVVpVGd4RVpUVXhCXzl6bVAzLThCcEVOcjFja3pSN2ozR1ZqWm42b2Q3TWtjRjJIeUZySDhLR2ZOU0J5UFh0Zg?oc=5",
-      "source": "日本経済新聞",
-      "pubDate": "2026-09-17",
-      "category": "ethylene"
     },
     {
       "title": "創立９０周年記念特集 第２部 中国、エチレン生産 日本の８倍 - 化学工業日報 電子版",
@@ -280,6 +259,27 @@
       "source": "日本経済新聞",
       "pubDate": "2026-09-02",
       "category": "aluminum"
+    },
+    {
+      "title": "多木化学、常温で硬化するリン酸アルミセメント開発 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9GMHR6ZWJueG04d3ZyZ3F4M3NkQWxmbmoxUnRzQWRyYktMS3V6dlRnR0VrTUk4T3hyTVdPelV2bjFhRkMySWE1Zkw4UUtLbnB6MnRN?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-09-01",
+      "category": "aluminum"
+    },
+    {
+      "title": "シンガポール特集 ＰＣＳ、エチレン設備の運営基盤強固 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1reTE0c2pZU3VYQnJLalNlRmRqWElvUTVORU13OU5BZ1R2bWFONlJuQ3ZWZkNuQnpjaFpaRjNKSDM0MEE5QlpKaG90b1RQbU5fYWtV?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-31",
+      "category": "ethylene"
+    },
+    {
+      "title": "シンガポール特集 ザ・ポリオレフィン・カンパニー、ＰＰ新規用途開拓に期待 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qTlR3REY0MXEyZjJoN1VqRXJJRWpfbUhNLVRBM1h6SmIwWGlHZVp5UzVzREdSUThCOC1XNnhWVkswYVNWYVoyeG9Ua2N5ZmRuTmhB?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-08-31",
+      "category": "propylene"
     }
   ]
 }
