@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "items": [
     {
       "title": "富士ケミカル、ＰＬＡ薄型ラミネートフィルムを投入 - 化学工業日報 電子版",
@@ -86,6 +86,13 @@
       "category": "naphtha"
     },
     {
+      "title": "ＮＸ商事、ＬｉＢ対応２０フィートコンテナ発売 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9tRnduUE1IaDF4YWZWQnFkd0RvbWJYSWtjaXR1N0xUcnlmU0RCZGtTT3BSREJEbEdLX21CS056MkI2V01EWVNRclcwbm56UE9ycjZB?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-10-01",
+      "category": "propylene"
+    },
+    {
       "title": "エンプラ特集Ｐａｒｔ３ ＰＢＴ各社、自動車の電動化に貢献 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1WQlRaa0h4VUM2MWdsTURBUTVreG11bXd0RGpraHF2b2RzRm1XUWN0N3pQTjdLeUdsdkoxS3ItQkQxNWJkUzZoSWU2a3p2Tmg5Z0pv?oc=5",
       "source": "化学工業日報 電子版",
@@ -147,13 +154,6 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-09-10",
       "category": "btx"
-    },
-    {
-      "title": "積水化学、ペロブスカイト 防衛省施設で実証開始 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBaUUh3d282VG9JYlZZcHAydnpVR2tHeGpQMHFiY3dseHByemMya3ZqdFBIQzhyMGxaZ3Rjc29IWWhQeE81U1QzaEpJb3I5YnlSSzRN?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-09-08",
-      "category": "propylene"
     },
     {
       "title": "中国特集 ダイセル、オフィス集約で連携深化 - 化学工業日報 電子版",
@@ -226,13 +226,6 @@
       "category": "naphtha"
     },
     {
-      "title": "夏季特集 新社長プライベートアンケート ジャパンコンポジット・鈴木大介氏 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1SaFc1SENtX2syM0U1bVNaXy1fWExWLXRkck5nOWlNR2ROU2c3emRtT1pOdGF4WWNEMmF3ZXNTZ0t3eXhpelhUWFpJa2tLc3pMTGZz?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-08-03",
-      "category": "btx"
-    },
-    {
       "title": "４～６月の国産ナフサ１１・８万円 上げ幅含め最高 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBTRkJwcFlBbDQtRXFVMTc5bkw5bEZyYnB0amtHcHY4M0tRNklZVEFZVVBkU0x3V2dkQnZHM1k4UDZ3UFdQVlNzT0xZSUpSeFZqbXZN?oc=5",
       "source": "化学工業日報 電子版",
@@ -261,13 +254,6 @@
       "category": "naphtha"
     },
     {
-      "title": "パナソニック系、半導体向け資源回収事業に参入 - 化学工業日報 電子版",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBqekkzNHFvc0p2bzN3NkUwTERvMmp6YUJWNUlSQWZfdFRtN01rZFhCY2loWlRXbXN5OGg3TnNKcFJ4OVZpQkxfbnVHSEpzNUYteldv?oc=5",
-      "source": "化学工業日報 電子版",
-      "pubDate": "2026-07-22",
-      "category": "propylene"
-    },
-    {
       "title": "日本食品包装協会、ＰＰＷＲテーマにセミナー開催 - 化学工業日報 電子版",
       "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBkVjd3MURTYzZzV1JhT21QRnk0NEtXLU9YaV83VGVhMkppcUZuUlVKMGZQMTh6Wk5zTlN0ZV9zd2VySkVRNW1BakJEZ080cHljNHln?oc=5",
       "source": "化学工業日報 電子版",
@@ -280,6 +266,20 @@
       "source": "化学工業日報 電子版",
       "pubDate": "2026-07-21",
       "category": "propylene"
+    },
+    {
+      "title": "半導体材料特集 日本化学工業、ＡＩ需要の拡大とらえる - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBfNncyeXRJMzVEQ3hOZUtVODVkX29lel9fcWRHRDdrb0pfM1ZtT2laNkJ5WEk4WFJFRDRDYmRUYXBFa2NNVXhMRm1KSFlFYlhWUzE0?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-21",
+      "category": "btx"
+    },
+    {
+      "title": "半導体材料特集 住友精化、独自のガス群で需要開拓 - 化学工業日報 電子版",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5CbTA4QTJhQ1FpUU5SVmF4SXQ5Q1hqdGo5cUt5VHdfYXlzZnFiU01IZmJfeXNZd3ZmTFhfTDd6RmR1SDl5ejIxajNTaGhYQTlMSHc4?oc=5",
+      "source": "化学工業日報 電子版",
+      "pubDate": "2026-07-21",
+      "category": "btx"
     }
   ]
 }
