@@ -1,20 +1,19 @@
 {
-  "data_date": "2026年8月",
-  "generated_at": "2026-11-16T03:34:30",
+  "data_date": "2026年9月",
+  "generated_at": "2026-11-17T05:31:54",
   "source_url": "https://www.meti.go.jp/statistics/tyo/iip/xls/b2020_gom1j.xlsx",
   "is_demo": false,
   "industries": [
     {
       "name": "発泡プラスチック製品",
       "group": "プラスチック製品",
-      "production": 78.7,
-      "inventory": 100.4,
-      "buffer_months": 1.28,
+      "production": 87.3,
+      "inventory": 103.7,
+      "buffer_months": 1.19,
       "color": "yellow",
-      "prod_yoy": -3.1,
-      "inv_yoy": 1.7,
+      "prod_yoy": -8.7,
+      "inv_yoy": 3.1,
       "chart_labels": [
-        "2025年9月",
         "2025年10月",
         "2025年11月",
         "2025年12月",
@@ -25,10 +24,10 @@
         "2026年5月",
         "2026年6月",
         "2026年7月",
-        "2026年8月"
+        "2026年8月",
+        "2026年9月"
       ],
       "chart_inv": [
-        100.6,
         99.1,
         102.5,
         98.3,
@@ -39,10 +38,10 @@
         95.5,
         96.9,
         99.2,
-        100.4
+        100.4,
+        103.7
       ],
       "chart_prod": [
-        95.6,
         101.1,
         98.3,
         92.8,
@@ -53,7 +52,8 @@
         87.7,
         97.3,
         97.4,
-        78.7
+        78.7,
+        87.3
       ]
     }
   ]
